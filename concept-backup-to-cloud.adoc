@@ -22,8 +22,8 @@ link:https://cloud.netapp.com/cloud-backup-service["Cloud Backup の詳細につ
 バックアップとリストアは、次の目的で使用できます。
 
 * Cloud Volumes ONTAP システムとオンプレミスの ONTAP システムから ONTAP ボリュームをバックアップおよびリストア link:concept-ontap-backup-to-cloud.html["詳細な機能については、こちらをご覧ください"]。
-* Kubernetes の永続ボリュームのバックアップとリストア link:concept-kubernetes-backup-to-cloud.html["詳細な機能については、こちらをご覧ください"]。
-* クラウドバックアップアプリケーションを使用して、アプリケーションと整合性のある Snapshot をオンプレミスの ONTAP からクラウドにバックアップできます。 link:concept-protect-app-data-to-cloud.html["詳細な機能については、こちらをご覧ください"]。
+* Kubernetes の永続ボリュームのバックアップとリストアlink:concept-kubernetes-backup-to-cloud.html["詳細な機能については、こちらをご覧ください"]。
+* アプリケーションデータをバックアップしていますlink:.html["詳細な機能については、こちらをご覧ください"]。
 
 
 

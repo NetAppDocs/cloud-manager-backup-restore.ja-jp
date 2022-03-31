@@ -40,10 +40,10 @@ TIP: ほとんどの場合、 Cloud Manager を使用してすべてのバック
 
 
 [role="quick-margin-para"]
-作業環境を選択し、右パネルのバックアップと復元サービスの横にある *Enable>Backup Volumes] をクリックして、セットアップ・ウィザードに従います。
+作業環境を選択し、右パネルの [ バックアップと復元 ] サービスの横にある [*Enable] をクリックして、セットアップ・ウィザードに従います。
 
 [role="quick-margin-para"]
-image:screenshot_backup_onprem_enable.png["作業環境を選択した後に使用できる [ バックアップと復元を有効にする ] ボタンを示すスクリーンショット"]
+image:screenshot_backup_cvo_enable.png["作業環境を選択した後に使用できる [ バックアップと復元を有効にする ] ボタンを示すスクリーンショット"]
 
 [role="quick-margin-para"]
 プロバイダとして Amazon Web Services を選択し、プロバイダの詳細を入力します。バックアップを作成する AWS アカウントとリージョンを選択する必要があります。また、デフォルトの Amazon S3 暗号化キーを使用する代わりに、お客様が管理する独自のキーを選択してデータを暗号化することもできます。
@@ -282,9 +282,9 @@ image:screenshot_backup_aws_sec_group.png["コネクタに関連付けられて�
 Cloud Backup は、オンプレミスの作業環境からいつでも直接有効にできます。
 
 .手順
-. キャンバスから作業環境を選択し、右パネルのバックアップと復元サービスの横にある *Enable>Backup Volumes * をクリックします。
+. キャンバスから作業環境を選択し、右パネルのバックアップと復元サービスの横にある *Enable* をクリックします。
 +
-image:screenshot_backup_onprem_enable.png["作業環境を選択した後に使用できる [ バックアップと復元を有効にする ] ボタンを示すスクリーンショット"]
+image:screenshot_backup_cvo_enable.png["作業環境を選択した後に使用できる [ バックアップと復元を有効にする ] ボタンを示すスクリーンショット"]
 
 . プロバイダとして Amazon Web Services を選択し、 * Next * をクリックします。
 . プロバイダの詳細を入力し、 * 次へ * をクリックします。
