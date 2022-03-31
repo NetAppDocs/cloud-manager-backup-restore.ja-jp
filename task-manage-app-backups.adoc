@@ -1,0 +1,137 @@
+---
+sidebar: sidebar 
+permalink: task-manage-app-backups.html 
+keywords: manage, Azure, Amazon Web services, Oracle database, Microsoft SQL Server database, backups, policy, monitor, jobs, monitor jobs 
+summary: ポリシーとバックアップを表示できます。データベース、ポリシー、またはリソースグループの変更に応じて、 Cloud Manager UI から更新情報を更新できます。 
+---
+= アプリケーションの保護を管理します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ポリシーとバックアップを表示できます。データベース、ポリシー、またはリソースグループの変更に応じて、 Cloud Manager UI から更新情報を更新できます。
+
+
+
+== ポリシーを表示します
+
+デフォルトの組み込みポリシーをすべて表示できます。これらの各ポリシーについて、関連付けられているすべての Cloud Backup for Applications ポリシーと関連するすべてのアプリケーションの詳細を表示すると、それらが表示されます。
+
+. [ * バックアップと復元 *>* アプリケーション * ] をクリックします。
+. [* 設定 *] ドロップダウンから、 [* ポリシー *] をクリックします。
+. 詳細を表示するポリシーに対応する *View Details* をクリックします。
++
+関連する Cloud Backup for Applications ポリシーとすべてのアプリケーションが表示されます。
+
++
+
+NOTE: Cloud Backup for Applications ポリシーは削除しないでください。
+
+
+
+「 Get-SmResources 」 SnapCenter コマンドレットを実行して、クラウド拡張 SnapCenter ポリシーを表示することもできます。コマンドレットで使用できるパラメータとその説明については、 Get-Help コマンドレットを実行して確認できます。または、を参照することもできます https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726["SnapCenter ソフトウェアコマンドレットリファレンスガイド"]。
+
+
+
+== クラウド上のバックアップを表示します
+
+クラウド上のバックアップは、 Cloud Manager の UI で確認できます。
+
+. [ * バックアップと復元 *>* アプリケーション * ] をクリックします。
+. をクリックします image:icon-action.png["アイコンをクリックして操作を選択します"] アプリケーションに対応して、 * 詳細を表示 * をクリックします。
+
+
+
+IMPORTANT: 表示されるバックアップの所要時間は、 ONTAP のデフォルトのレプリケーションスケジュール（最大 1 時間）と Cloud Manager （最大 6 時間）によって異なります。
+
+* Oracle データベースの場合は、バックアップごとにデータバックアップとログバックアップの両方、 SCN 番号、バックアップごとの終了日が表示されます。データバックアップのみを選択し、オンプレミスの SnapCenter サーバにデータベースをリストアできます。
+* Microsoft SQL Server データベースの場合は、各バックアップのフルバックアップと終了日だけが表示されます。バックアップを選択し、オンプレミスの SnapCenter サーバにデータベースをリストアできます。
+* Microsoft SQL Server インスタンスの場合は、バックアップが表示されるのではなく、そのインスタンスのデータベースだけが表示されます。
+
+
+
+NOTE: クラウド保護を有効にする前に作成したバックアップはリストア対象として表示されません。
+
+これらのバックアップは 'Get-SmBackup' SnapCenter コマンドレットを実行して表示することもできますコマンドレットで使用できるパラメータとその説明については、 Get-Help コマンドレットを実行して確認できます。または、を参照することもできます https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726["SnapCenter ソフトウェアコマンドレットリファレンスガイド"]。
+
+
+
+== データベースレイアウトの変更
+
+ボリュームがデータベースに追加されると、 SnapCenter サーバは、ポリシーとスケジュールに基づいて、新しいボリューム上の Snapshot に自動的にラベルを付けます。これらの新しいボリュームにはオブジェクトストアエンドポイントがないため、次の手順を実行して更新する必要があります。
+
+. [ * バックアップと復元 *>* アプリケーション * ] をクリックします。
+. [* 設定 *] ドロップダウンから、 [* SnapCenter サーバ * ] をクリックします。
+. をクリックします image:icon-action.png["アイコンをクリックして操作を選択します"] アプリケーションをホストしている SnapCenter サーバーに対応し、 [ 更新 ] をクリックします。
++
+新しいボリュームが検出されます。
+
+. をクリックします image:icon-action.png["アイコンをクリックして操作を選択します"] アプリケーションに対応し、 * 保護の更新 * をクリックして、新しいボリュームのクラウド保護を有効にします。
+
+
+クラウドサービスの設定後にストレージボリュームをアプリケーションから削除すると、 SnapCenter サーバは、アプリケーションが存在する Snapshot にのみラベルを付けます。削除したボリュームが他のアプリケーションで使用されていない場合は、オブジェクトストア関係を手動で削除する必要があります。アプリケーションインベントリを更新すると、アプリケーションの現在のストレージレイアウトが反映されます。
+
+
+
+== ポリシーまたはリソースグループの変更
+
+SnapCenter ポリシーまたはリソースグループに変更がある場合は、保護を更新する必要があります。
+
+. [ * バックアップと復元 *>* アプリケーション * ] をクリックします。
+. をクリックします image:icon-action.png["アイコンをクリックして操作を選択します"] アプリケーションに対応して、 [* 保護の更新 * ] をクリックします。
+
+
+
+
+== ジョブを監視します
+
+すべてのクラウドバックアップ処理に対してジョブが作成されます。すべてのジョブと、各タスクの一部として実行されるすべてのサブタスクを監視できます。
+
+. [ * バックアップと復元 * > * ジョブ監視 * ] をクリックします。
++
+処理を開始すると、ジョブが開始されたことを示すウィンドウが表示されます。リンクをクリックするとジョブを監視できます。
+
+. プライマリタスクをクリックすると、これらの各サブタスクのサブタスクとステータスが表示されます。
+
+
+
+
+== CA 証明書を設定します
+
+CA 証明書がある場合は、ルート CA 証明書を Connector マシンに手動でコピーする必要があります。
+
+CA 証明書がない場合は、 CA 証明書を設定せずに続行できます。
+
+* 手順 *
+
+. Docker エージェントからアクセス可能なボリュームに証明書をコピーします。
++
+** 「 cd /var/lib/docker/dochels/cloudmanager_snapcenter _ volume/_data/mkdir sc_certs 」と入力します
+** chmod 777 SC_certs
+
+
+. RootCA 証明書ファイルを Connector マシンの上のフォルダにコピーします。
++
+`cp <path on connector> /<filename>/var/lib/docx/volumes/cloudmanager_snapcenter volume/_data/sc_certs'
+
+. CRL ファイルを、 Docker エージェントからアクセス可能なボリュームにコピーします。
++
+** 「 cd /var/lib/docker/volumes/cloudmanager_snapcenter _ volume/_data/mkdir sc_crl 」のように入力します
+** 'chmod 777 SC_CRL
+
+
+. CRL ファイルを Connector マシンの上のフォルダにコピーします。
++
+`cp <path on connector> /<filename>/var/lib/docx/volumes/cloudmanager_snapcenter volume/_data/sc_crl`
+
+. 証明書と CRL ファイルをコピーしたら、 Cloud Backup for Apps サービスを再起動します。
++
+** 「 sudo Docker exec cloudmanager_snapcenter sed -i /skipscCertValidation ： true/skipSCCertValidation ： false/g'/opt/NetApp/cloudmanager-snapcenter agent/config/config.yml
+** 「 sudo Docker restart cloudmanager_snapcenter 」と入力します
+
+
+

@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: reference-azure-backup-tiers.html 
+keywords: microsoft azure, azure, cool, access tier, archive 
+summary: Cloud Backup は、 1 つの Azure アーカイブアクセス階層とほとんどのリージョンをサポートします。 
+---
+= Azure のアーカイブ階層およびリストアの読み出し時間
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Backup は、 1 つの Azure アーカイブアクセス階層とほとんどのリージョンをサポートします。
+
+
+
+== クラウドバックアップでサポートされている Azure Blob アクセス階層
+
+バックアップファイルが最初に作成されるときは、 _Cool _ アクセス層に保存されます。この階層は、アクセス頻度の低いデータを格納するために最適化されていますが、必要に応じてすぐにアクセスできます。
+
+ソースクラスタで ONTAP 9.10.1 以降が実行されている場合は、コストをさらに最適化するために、特定の日数（通常は 30 日以上）後に _Cool _To Azure Archive_storage からバックアップを階層化することを選択できます。この階層のデータは、必要なときにすぐにアクセスすることはできず、取得コストが高くなるため、アーカイブされたバックアップファイルからデータをリストアする頻度を考慮する必要があります。次のセクション About を参照してください <<Restoring data from archival storage,アーカイブストレージからのデータのリストア>>。
+
+このタイプのライフサイクルルールでクラウドバックアップを設定する場合は、 Azure アカウントでコンテナを設定する際にライフサイクルルールを設定しないでください。
+
+https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["Azure Blob アクセス階層の概要について説明します"^]。
+
+
+
+== アーカイブストレージからのデータのリストア
+
+古いバックアップファイルをアーカイブストレージに保存するのは Cool ストレージよりもはるかに安価ですが、リストア処理用に Azure Archive のバックアップファイルからデータにアクセスするには時間がかかり、コストも高くなります。
+
+Azure Archive からデータをリストアするのにどれくらいのコストがかかりますか？:: Azure Archive からデータを取得する際に選択できるリストア優先度は 2 つあります。
++
+--
+* * 高い * ：高速な読み出し、コストの増大
+* * 標準 * ：読み出し速度が遅く、コストが削減されます
+
+
+各メソッドには、 GB 単位の取得料金とリクエストごとの料金が異なります。Azure リージョン別の Azure Archive の詳細な価格設定については、を参照してください https://azure.microsoft.com/en-us/pricing/details/storage/blobs/["Azure の料金体系のページです"]。
+
+--
+Azure Archive にアーカイブされたデータをリストアするのにどれくらいの時間がかかりますか。:: リストア時間は次の 2 つの要素で構成されます。
++
+--
+* * 取得時間 * ：アーカイブされたバックアップファイルを Azure Archive から取得して Cool Storage に保存する時間。これは、「水和」時間と呼ばれることもあります。読み出し時間は、選択したリストア優先度によって異なります。
++
+** * 高 * ： 1 時間未満
+** * 標準 * ： 15 時間以内
+
+
+* * リストア時間 * ： Cool ストレージ内のバックアップファイルからデータをリストアする時間。この時間は、アーカイブ層を使用しないクールストレージからの一般的なリストア処理と同じです。
+
+
+Azure Archive の読み出しオプションの詳細については、を参照してください https://azure.microsoft.com/en-us/pricing/details/storage/blobs/#faq["Azure に関する FAQ です"]。
+
+--
+

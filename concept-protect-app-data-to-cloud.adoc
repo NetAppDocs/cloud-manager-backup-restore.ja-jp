@@ -1,0 +1,90 @@
+---
+sidebar: sidebar 
+permalink: concept-protect-app-data-to-cloud.html 
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, Oracle database, Microsoft SQL Server database, policy, requirements 
+summary: Cloud Backup for Applications を Cloud Manager とオンプレミスの SnapCenter と統合して、アプリケーションと整合性のある Snapshot をオンプレミスの ONTAP からクラウドにバックアップします。 
+---
+= オンプレミスアプリケーションのデータを保護
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Backup for Applications を Cloud Manager とオンプレミスの SnapCenter に統合することで、アプリケーションと整合性のある Snapshot をオンプレミスの ONTAP からクラウドにバックアップできます。必要に応じて、クラウドからオンプレミスの SnapCenter サーバにリストアできます。
+
+Oracle および Microsoft SQL アプリケーションのデータをオンプレミスの ONTAP から Amazon Web Services または Microsoft Azure にバックアップできます。
+
+
+NOTE: SnapCenter ソフトウェア 4.6 を使用している必要があります。
+
+
+
+== 要件
+
+アプリケーションデータを クラウド サービス にバックアップする前に、次の要件を参照して、サポートされる構成になっていることを確認してください。
+
+* ONTAP 9.8 以降
+* Cloud Manager 3.9
+* SnapCenter サーバ 4.6
+* SnapCenter サーバでは、各アプリケーションに使用可能なバックアップを少なくとも 1 つ用意する必要があります
+* SnapCenter の、 Cloud Manager の Cloud Backup for Applications ポリシーと同じラベルまたはラベルのない日次、週次、または月単位のポリシーが少なくとも 1 つ必要です。
+
+
+次の図は、各コンポーネントとその間の準備に必要な接続を示しています。
+
+image:diagram_cloud_backup_app.png["Cloud Backup がオンプレミスアプリケーションやバックアップファイルの保存先ストレージと通信する仕組みを示す図。"]
+
+
+
+== 保護ポリシー
+
+アプリケーションデータをクラウドにバックアップするには、 Cloud Backup for Applications で定義されているいずれかのポリシーを使用する必要があります。
+
+
+NOTE: カスタムポリシーはサポートされません。
+
+|===
+| ポリシー名 | ラベル | 保持値 
+
+
+ a| 
+1 年ごとの LTR
+ a| 
+毎日
+ a| 
+366
+
+
+
+ a| 
+5 年ごとの LTR
+ a| 
+毎日
+ a| 
+1830 年に
+
+
+
+ a| 
+7 年ごとの LTR
+ a| 
+毎週
+ a| 
+370
+
+
+
+ a| 
+10 年間の月単位 LTR
+ a| 
+毎月
+ a| 
+120
+
+|===
+これらのポリシーのラベルと保持の値は、ポリシーがアプリケーションに関連付けられるまで REST API を使用して変更できます。1 つのアプリケーションに関連付けることができるポリシーは 1 つだけで、関連付けが完了すると、関連付けを解除できません。
+
+クラウドへのアプリケーションデータのバックアップには、 Cloud Backup for Applications のポリシーに加えて、少なくとも 1 つの SnapCenter ポリシーが必要です。

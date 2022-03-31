@@ -1,0 +1,15 @@
+---
+layout: astra 
+sidebar: sidebar 
+permalink: index.html 
+lead: Cloud Backup provides backup and restore capabilities for protection and long-term archive of your data. 
+summary: Cloud Backup は、データを保護し、長期的にアーカイブするためのバックアップおよびリストア機能を提供します。 
+---
+= Cloud Backup のドキュメント
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

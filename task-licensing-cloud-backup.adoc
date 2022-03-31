@@ -1,0 +1,170 @@
+---
+sidebar: sidebar 
+permalink: task-licensing-cloud-backup.html 
+keywords: license, licensing, install, updating license, byol license, nlf, license generator, backup license, add backup license, update backup license 
+summary: クラウドバックアップの 30 日間無償トライアルは、 Cloud Backup Service を有効にすると開始されます。無償トライアルが終了したら、クラウドプロバイダから従量課金制（ PAYGO ）サブスクリプションを使用してクラウドバックアップの料金を支払うか、ネットアップからお客様所有のライセンス（ BYOL ）を購入する必要があります。 
+---
+= Cloud Backup のライセンスをセットアップします
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+クラウドバックアップの 30 日間無償トライアルは、 Cloud Backup Service を有効にすると開始されます。無償トライアルが終了したら、クラウドプロバイダから従量課金制（ PAYGO ）サブスクリプションを使用してクラウドバックアップの料金を支払うか、ネットアップからお客様所有のライセンス（ BYOL ）を購入する必要があります。
+
+さらに読む前に、いくつかのメモを記入してください。
+
+* Cloud Manager の従量課金制（ PAYGO ）サブスクリプションをクラウドプロバイダの市場ですでに登録している場合は、 Cloud Backup にも自動的に登録されます。再度登録する必要はありません。
+* Cloud Backup Bring Your Own License （ BYOL ；お客様所有のライセンス）は、 Cloud Manager アカウントに関連付けられたすべてのシステムで使用できるフローティングライセンスです。
+* ONTAP データを StorageGRID にバックアップする場合は、 BYOL ライセンスが必要ですが、クラウドプロバイダのストレージスペースは無償です。
+
+
+link:concept-backup-to-cloud.html#licensing["Cloud Backup に関連するライセンスとコストの詳細を確認できます。"]
+
+
+
+== Cloud Backup 従量課金制を使用
+
+従量課金制の場合、クラウドプロバイダにオブジェクトストレージのコストとネットアップのバックアップライセンスのコストを支払うことになります。以下のリンクから、クラウドプロバイダのマーケットプレイスから Cloud Backup にサブスクライブできます。
+
+* AWS https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
+* Azure https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
+* GCP ： https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
+
+
+
+
+== AWS で年単位の契約を登録
+
+AWS Marketplace for Cloud Volumes ONTAP とオンプレミスの ONTAP システムでは、 2 つの年間契約が提供されています。
+
+* 年間契約。 Cloud Volumes ONTAP データとオンプレミスの ONTAP データをバックアップできます。
++
+にアクセスします https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace のページ"^] をクリックすると、価格設定の詳細が表示
+
++
+このオプションを使用する場合は、 Marketplace のページでサブスクリプションを設定してから、を設定します https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["サブスクリプションを AWS クレデンシャルに関連付けます"^]。Cloud Manager で AWS クレデンシャルに割り当てることができるのは 1 つだけなので、この年間契約サブスクリプションを使用して Cloud Volumes ONTAP システムの料金を支払う必要があります。
+
+* 1 年、 2 年、 3 年の年間契約を使用して、 Cloud Volumes ONTAP とクラウドバックアップをバンドルできるプロフェッショナルパッケージです。支払いは TiB あたりです。このオプションでは、オンプレミスの ONTAP データをバックアップすることはできません。
++
+にアクセスします https://aws.amazon.com/marketplace/pp/prodview-q7dg6zwszplri["AWS Marketplace のページ"^] 価格の詳細を表示するには、を参照してください このライセンスオプションの詳細については、を参照してください。
+
++
+このオプションを使用する場合は、 Cloud Volumes ONTAP の作業環境を作成するときに年間契約を設定し、 Cloud Manager から AWS Marketplace に登録するように求められます。
+
+
+
+
+
+== Cloud Backup BYOL ライセンスを使用する
+
+ネットアップが提供するお客様所有のライセンスには、 1 年、 2 年、 3 年の期間があります。バックアップ対象のソース ONTAP ボリュームの論理使用容量（ _Before_any 効率化）で計算され、保護するデータに対してのみ料金が発生します。この容量はフロントエンドテラバイト（ FETB ）とも呼ばれます。
+
+BYOL Cloud Backup ライセンスは、 Cloud Manager アカウントに関連付けられたすべてのシステムで合計容量が共有されるフローティングライセンスです。ONTAP システムでは、バックアップするボリュームに対して ONTAP コマンド「 volume show-space logical-used 」を実行することで、必要な容量を概算できます。
+
+Cloud Backup BYOL ライセンスがない場合は、 Cloud Manager の右下にあるチャットアイコンをクリックしてライセンスを購入してください。
+
+必要に応じて、使用しない Cloud Volumes ONTAP の未割り当てのノードベースライセンスがある場合は、ドル同等かつ同じ有効期限で Cloud Backup ライセンスに変換できます。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-managing-licenses.html#exchange-unassigned-node-based-licenses["詳細については、こちらをご覧ください"^]。
+
+Cloud Manager の Digital Wallet ページを使用して、 Cloud Backup の BYOL ライセンスを管理します。新しいライセンスを追加したり、既存のライセンスを更新したりできます。
+
+
+
+=== Cloud Backup ライセンスファイルを取得します
+
+Cloud Backup ライセンスを購入したら、 Cloud Backup のシリアル番号と NSS アカウントを入力するか、 NLF ライセンスファイルをアップロードして、 Cloud Manager でライセンスをアクティブ化します。次の手順は、 NLF ライセンスファイルを取得する方法を示しています。
+
+.手順
+. にサインインします https://mysupport.netapp.com["ネットアップサポートサイト"^] [ システム ] 、 [ ソフトウェアライセンス ] の順にクリックします。
+. Cloud Backup ライセンスのシリアル番号を入力します。
++
+image:screenshot_cloud_backup_license_step1.gif["シリアル番号で検索したあとのライセンスの一覧を示すスクリーンショット。"]
+
+. [* License Key] 列で、 [* Get NetApp License File* ] をクリックします。
+. Cloud Manager アカウント ID （サポートサイトではテナント ID と呼ばれます）を入力し、 * Submit * をクリックしてライセンスファイルをダウンロードします。
++
+image:screenshot_cloud_backup_license_step2.gif["ライセンスの取得ダイアログボックスを示すスクリーンショット。テナント ID を入力し、送信をクリックしてライセンスファイルをダウンロードします。"]
+
++
+Cloud Manager アカウント ID は、 Cloud Manager の上部にある「 * Account * 」ドロップダウンを選択し、アカウントの横にある「 * Manage Account * 」をクリックすると確認できます。アカウント ID は、 [ 概要 ] タブにあります。
+
+
+
+
+
+=== Cloud Backup BYOL ライセンスをアカウントに追加します
+
+ネットアップアカウント用の Cloud Backup ライセンスを購入したら、 Cloud Manager にライセンスを追加する必要があります。
+
+.手順
+. [ すべてのサービス ] 、 [ デジタルウォレット ] 、 [ データサービスライセンス ] の順にクリックします。
+. [ ライセンスの追加 ] をクリックします。
+. _ ライセンスの追加 _ ダイアログで、ライセンス情報を入力し、 * ライセンスの追加 * をクリックします。
++
+** バックアップライセンスのシリアル番号があり、 NSS アカウントを知っている場合は、 * シリアル番号を入力 * オプションを選択してその情報を入力します。
++
+お使いのネットアップサポートサイトのアカウントがドロップダウンリストにない場合は、 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-nss-accounts.html["NSS アカウントを Cloud Manager に追加します"^]。
+
+** バックアップライセンスファイルがある場合は、 * ライセンスファイルのアップロード * オプションを選択し、プロンプトに従ってファイルを添付します。
++
+image:screenshot_services_license_add2.png["Cloud Backup BYOL ライセンスを追加するページのスクリーンショット。"]
+
+
+
+
+
+Cloud Manager でライセンスが追加されて、 Cloud Backup がアクティブになります。
+
+
+
+=== Cloud Backup BYOL ライセンスを更新する
+
+ライセンスで許可されている期間が終了期限に近づいている場合や、ライセンスで許可されている容量が上限に達している場合は、バックアップ UI に通知されます。このステータスは、 [ デジタルウォレット ] ページおよびにも表示されます https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["通知"]。
+
+image:screenshot_services_license_expire.png["Digital Wallet ページに期限切れになるライセンスを示すスクリーンショット。"]
+
+Cloud Backup のライセンスは有効期限が切れる前に更新できるため、データのバックアップとリストアを中断することなく実行できます。
+
+.手順
+. Cloud Manager の右下にあるチャットアイコンをクリックするか、サポートにお問い合わせください。特定のシリアル番号について Cloud Backup ライセンスの期間延長または容量の追加を申請することができます。
++
+ライセンスの支払いが完了し、ネットアップサポートサイトに登録されると、 Cloud Manager はデジタルウォレットとデータサービスのライセンスページのライセンスを自動的に更新し、 5 分から 10 分で変更が反映されます。
+
+. Cloud Manager でライセンスを自動更新できない場合は、ライセンスファイルを手動でアップロードする必要があります。
++
+.. 可能です <<Obtain your Cloud Backup license file,ライセンスファイルをネットアップサポートサイトから入手します>>。
+.. [ デジタルウォレット ] ページの [ データサービスライセンス ] タブで、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] 更新するサービスシリアル番号の場合は、 ［ * ライセンスの更新 * ］ をクリックします。
++
+image:screenshot_services_license_update1.png["特定のサービスの [ ライセンスの更新 ] ボタンを選択するスクリーンショット。"]
+
+.. _Update License_page で、ライセンスファイルをアップロードし、 * ライセンスの更新 * をクリックします。
+
+
+
+
+Cloud Manager によってライセンスが更新され、 Cloud Backup は引き続きアクティブになります。
+
+
+
+=== BYOL ライセンスに関する考慮事項
+
+Cloud Backup BYOL ライセンスを使用している場合、バックアップするすべてのデータのサイズが容量の上限に近づいているかライセンスの有効期限に近づいているときに、 Cloud Manager のユーザインターフェイスに警告が表示されます。次の警告が表示されます。
+
+* バックアップがライセンスで許可された容量の 80% に達したとき、および制限に達したときに再度実行されます
+* ライセンスの有効期限が切れる 30 日前と、ライセンスの有効期限が切れたあとに再度有効になります
+
+
+Cloud Manager インターフェイスの右下にあるチャットアイコンを使用して、警告が表示されたときにライセンスを更新してください。
+
+ライセンスの有効期限が切れると、次の 2 つのことが起こります。
+
+* 使用しているアカウントにマーケットプレイスアカウントがある場合、バックアップサービスは引き続き実行されますが、 PAYGO ライセンスモデルに移行します。バックアップに使用されている容量に基づいて料金が発生します。
+* マーケットプレイスアカウントがない場合、バックアップサービスは引き続き実行されますが、警告は引き続き表示されます。
+
+
+BYOL サブスクリプションを更新すると、 Cloud Manager によってライセンスが自動的に更新されます。Cloud Manager がセキュアなインターネット接続経由でライセンスファイルにアクセスできない場合は、ユーザがファイルを取得して、 Cloud Manager に手動でアップロードできます。手順については、を参照してください link:task-licensing-cloud-backup.html#update-a-cloud-backup-byol-license["Cloud Backup ライセンスを更新する方法"]。
+
+PAYGO ライセンスに切り替えられたシステムは、自動的に BYOL ライセンスに戻されます。また、ライセンスなしで実行していたシステムでは警告が表示されなくなり、ライセンスの有効期限が切れている間に発生したバックアップアクティビティに課金されます。

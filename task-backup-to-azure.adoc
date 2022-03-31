@@ -1,0 +1,169 @@
+---
+sidebar: sidebar 
+permalink: task-backup-to-azure.html 
+keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, azure, azure blob, back up volumes, cloud backup 
+summary: Cloud Volumes ONTAP から Azure Blob Storage へのデータのバックアップを開始するには、いくつかの手順を実行します。 
+---
+= Cloud Volumes ONTAP データの Azure BLOB ストレージへのバックアップ
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP から Azure Blob Storage へのデータのバックアップを開始するには、いくつかの手順を実行します。
+
+
+
+== クイックスタート
+
+これらの手順を実行してすぐに作業を開始するか、残りのセクションまでスクロールして詳細を確認してください。
+
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="one "></span> 設定のサポートを確認します
+* Cloud Volumes ONTAP 9.7P5 以降を Azure で実行しています。
+* バックアップを格納するストレージスペースに対する有効なクラウドプロバイダのサブスクリプションが必要です。
+* に登録しておきます https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Cloud Manager Marketplace のバックアップソリューション"^]またはを購入したことが必要です link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["アクティブ化されます"^] NetApp の Cloud Backup BYOL ライセンス。
+
+
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt="2"></span> 新規または既存のシステムで Cloud Backup を有効にします
+* 新しいシステム： Cloud Backup は、作業環境ウィザードではデフォルトで有効になっています。このオプションは必ず有効にしておいてください。
+* 既存のシステム：作業環境を選択し、右パネルのバックアップと復元サービスの横にある * 有効化 * をクリックして、セットアップウィザードに従います。
++
+image:screenshot_backup_cvo_enable.png["作業環境を選択したあとに使用できる Cloud Backup Enable ボタンを示すスクリーンショット。"]
+
+
+
+[role="quick-margin-para"]
+プロバイダのサブスクリプションとリージョンを選択し、新しいリソースグループを作成するか、既存のリソースグループを使用するかを選択します。また、 Microsoft が管理するデフォルトの暗号化キーを使用する代わりに、お客様が管理する独自のキーを選択してデータを暗号化することもできます。
+
+[role="quick-margin-para"]
+image:screenshot_backup_provider_settings_azure.png["Cloud Volumes ONTAP システムから Azure Blob Tier にボリュームをバックアップする場合のクラウドプロバイダの詳細を示すスクリーンショット。"]
+
+[role="quick-margin-para"]
+デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、または毎月のバックアップに変更するか、システム定義のポリシーの中からオプションを追加する 1 つを選択します。保持するバックアップコピーの数を変更することもできます。
+
+[role="quick-margin-para"]
+デフォルトでは、バックアップは Cool アクセス層に保存されます。クラスタが ONTAP 9.10.1 以降を使用している場合は、特定の日数が経過したあとに Azure Archive ストレージにバックアップを階層化してコストをさらに最適化することができます。
+
+[role="quick-margin-para"]
+image:screenshot_backup_policy_azure.png["クラウドバックアップの設定を示すスクリーンショット。バックアップポリシーを選択して、バックアップの保持期間を選択できます。"]
+
+[role="quick-margin-para"]
+Select Volumes （ボリュームの選択）ページで、デフォルトのバックアップポリシーを使用してバックアップするボリュームを特定します。特定のボリュームに異なるバックアップポリシーを割り当てる場合は、あとから追加のポリシーを作成してボリュームに適用できます。
+
+
+
+== 要件
+
+Azure Blob Storage へのボリュームのバックアップを開始する前に、次の要件を確認し、サポートされている構成であることを確認してください。
+
+次の図は、各コンポーネントとその間の準備に必要な接続を示しています。
+
+image:diagram_cloud_backup_cvo_azure.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
+
+クラウドに導入された Cloud Restore 仮想マシンは、コネクタと同じサブネットに配置されます。
+
+サポートされている ONTAP のバージョン:: Cloud Volumes ONTAP 9.7P5 以降
+ライセンス要件:: Cloud Backup 従量課金制のライセンスの場合は、 Cloud Backup を有効にする前に Azure Marketplace でサブスクリプションを購入する必要があります。Cloud Backup の請求は、このサブスクリプションを通じて行われます。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["作業環境ウィザードの詳細 & 資格情報ページから購読できます"^]。
++
+--
+Cloud Backup BYOL ライセンスを使用するには、ライセンスの期間と容量にサービスを使用できるように、ネットアップから提供されたシリアル番号が必要です。 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL ライセンスの管理方法について説明します"]。
+
+また、バックアップを格納するストレージスペースには、 Microsoft Azure サブスクリプションが必要です。
+
+--
+サポートされている Azure リージョン:: Cloud Backup はすべての Azure リージョンでサポートされます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]Azure Government リージョンを含む。
+別の Azure サブスクリプションでバックアップを作成するために必要なセットアップ:: デフォルトでは、バックアップは Cloud Volumes ONTAP システムと同じサブスクリプションを使用して作成されます。バックアップに別の Azure サブスクリプションを使用する場合は、が必要です link:reference-backup-multi-account-azure.html["Azure ポータルにログインして、 2 つのサブスクリプションをリンクできます"]。
+データ暗号化にお客様が管理するキーを使用するために必要な情報:: Microsoft が管理するデフォルトの暗号化キーを使用する代わりに、アクティベーションウィザードで、お客様が管理する独自のキーを使用してデータを暗号化できます。この場合、 Azure サブスクリプション、キー・ボールト名、およびキーが必要です。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["独自のキーの使用方法を参照してください"]。
+Azure 環境にはアウトバウンドのインターネットアクセスが必要です:: Cloud Restore 仮想マシンには、アウトバウンドのインターネットアクセスが必要です。仮想ネットワークまたは物理ネットワークでインターネットアクセスにプロキシサーバを使用している場合は、インスタンスがアウトバウンドのインターネットアクセスを使用して次のエンドポイントに接続していることを確認してください。
+
+
+[cols="43,57"]
+|===
+| エンドポイント | 目的 
+
+
+| ¥ http://olcentgbl.trafficmanager.net ¥ https://olcentgbl.trafficmanager.net | Cloud Restore 仮想マシン用の CentOS パッケージが用意されています。 
+
+
+| ¥ http://cloudmanagerinfraprod.azurecr.io ¥ https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 仮想マシンのイメージリポジトリ。 
+|===
+
+
+== 新しいシステムでの Cloud Backup の有効化
+
+Cloud Backup は、作業環境ウィザードではデフォルトで有効になっています。このオプションは必ず有効にしておいてください。
+
+を参照してください https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"^] を Cloud Volumes ONTAP 参照してください。
+
+
+NOTE: リソースグループの名前を選択する場合は、 Cloud Volumes ONTAP を導入する際に * disable * Cloud Backup と入力します。の手順に従います <<enabling-cloud-backup-on-an-existing-system,既存のシステムでの Cloud Backup の有効化>> Cloud Backup を有効にしてリソースグループを選択します。
+
+.手順
+. [ Cloud Volumes ONTAP の作成 *] をクリックします。
+. クラウドプロバイダとして Microsoft Azure を選択し、シングルノードまたは HA システムを選択します。
+. Azure クレデンシャルの定義ページで、クレデンシャル名、クライアント ID 、クライアントシークレット、およびディレクトリ ID を入力し、 * 続行 * をクリックします。
+. 詳細とクレデンシャルページに必要事項を入力し、 Azure Marketplace サブスクリプションが登録されていることを確認して、「 * Continue * 」をクリックします。
+. [ サービス ] ページで、サービスを有効のままにして、 [* 続行 ] をクリックします。
++
+image:screenshot_backup_to_gcp.png["に、作業環境ウィザードの Cloud Backup オプションを示します。"]
+
+. ウィザードの各ページを設定し、システムを導入します。
+
+
+Cloud Backup はシステムで有効になり、ボリュームを毎日バックアップして、最新の 30 個のバックアップコピーを保持します。
+
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  Azure 内の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムへの接続に使用できます。
+
+
+
+== 既存のシステムでの Cloud Backup の有効化
+
+作業環境から Cloud Backup をいつでも直接有効にできます。
+
+.手順
+. 作業環境を選択し、右パネルの [ バックアップと復元 ] サービスの横にある [*Enable] をクリックします。
++
+image:screenshot_backup_cvo_enable.png["作業環境を選択したあとに使用できる Cloud Backup Enable ボタンを示すスクリーンショット。"]
+
+. プロバイダの詳細を選択し、 * 次へ * ：
++
+.. バックアップの格納に使用する Azure サブスクリプション。これは、 Cloud Volumes ONTAP システムとは異なるサブスクリプションにすることもできます。
++
+バックアップに別の Azure サブスクリプションを使用する場合は、が必要です link:reference-backup-multi-account-azure.html["Azure ポータルにログインして、 2 つのサブスクリプションをリンクできます"]。
+
+.. バックアップを保存するリージョン。これは、 Cloud Volumes ONTAP システムが配置されているリージョンとは異なるリージョンにすることもできます。
+.. BLOB コンテナを管理するリソースグループ - 新しいリソースグループを作成したり、既存のリソースグループを選択したりできます。
+.. Microsoft が管理するデフォルトの暗号化キーを使用する場合でも、お客様が管理する独自のキーを選択してデータの暗号化を管理する場合でも、 (https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["独自のキーの使用方法を参照してください"]）。
++
+image:screenshot_backup_provider_settings_azure.png["Cloud Volumes ONTAP システムから Azure Blob Tier にボリュームをバックアップする場合のクラウドプロバイダの詳細を示すスクリーンショット。"]
+
+
+
+. デフォルトのバックアップポリシーの詳細を入力し、 * Next * をクリックします。
++
+.. バックアップスケジュールを定義し、保持するバックアップの数を選択します。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["選択可能な既存のポリシーのリストが表示されます"^]。
+.. ONTAP 9.10.1 以降を使用している場合は、特定の日数が経過したバックアップを Azure Archive ストレージに階層化して、コストをさらに最適化することができます。 link:reference-azure-backup-tiers.html["アーカイブ階層の使用の詳細については、こちらをご覧ください"]。
++
+image:screenshot_backup_policy_azure.png["クラウドバックアップの設定を示すスクリーンショット。スケジュールとバックアップの保持を選択できます。"]
+
+
+
+. Select Volumes （ボリュームの選択）ページで、デフォルトのバックアップポリシーを使用してバックアップするボリュームを選択します。特定のボリュームに異なるバックアップポリシーを割り当てる場合は、追加のポリシーを作成し、それらのボリュームにあとから適用できます。
++
+image:screenshot_backup_select_volumes.png["バックアップするボリュームを選択するスクリーンショット。"]
+
++
+** すべてのボリュームをバックアップするには、タイトル行（image:button_backup_all_volumes.png[""]）。
+** 個々のボリュームをバックアップするには、各ボリュームのボックス（image:button_backup_1_volume.png[""]）。
+
+
+. 今後追加されるすべてのボリュームでバックアップを有効にする場合は、「今後のボリュームを自動的にバックアップ ... 」チェックボックスをオンのままにします。この設定を無効にした場合は、以降のボリュームのバックアップを手動で有効にする必要があります。
+. Activate Backup * をクリックすると、選択した各ボリュームの初期バックアップの実行が開始されます。
+
+
+Cloud Backup が起動し、選択した各ボリュームの初期バックアップの作成が開始されます。 Volume Backup Dashboard が表示され、バックアップの状態を監視できます。
+
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  Azure 内の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムへの接続に使用できます。

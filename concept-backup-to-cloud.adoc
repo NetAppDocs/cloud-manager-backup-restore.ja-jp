@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: concept-backup-to-cloud.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem, kubernetes, applications 
+summary: Cloud Backup は、 Cloud Manager 作業環境向けのサービスで、データを保護し、長期間アーカイブするためのバックアップおよびリストア機能を提供します。バックアップは自動的に生成され、パブリックまたはプライベートクラウドアカウントのオブジェクトストアに格納されます。 
+---
+= Cloud Backup の詳細をご確認ください
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Backup は、 Cloud Manager 作業環境向けのサービスで、データを保護し、長期間アーカイブするためのバックアップおよびリストア機能を提供します。バックアップは自動的に生成され、パブリックまたはプライベートクラウドアカウントのオブジェクトストアに格納されます。
+
+必要に応じて、バックアップから同じ作業環境または別の作業環境に全面的に _ ボリューム _ をリストアできます。ONTAP データをバックアップする場合は、バックアップから同じ作業環境または別の作業環境に 1 つ以上の _ ファイル _ をリストアすることもできます。
+
+link:https://cloud.netapp.com/cloud-backup-service["Cloud Backup の詳細については、こちらをご覧ください"^]。
+
+バックアップとリストアは、次の目的で使用できます。
+
+* Cloud Volumes ONTAP システムとオンプレミスの ONTAP システムから ONTAP ボリュームをバックアップおよびリストア link:concept-ontap-backup-to-cloud.html["詳細な機能については、こちらをご覧ください"]。
+* Kubernetes の永続ボリュームのバックアップとリストア link:concept-kubernetes-backup-to-cloud.html["詳細な機能については、こちらをご覧ください"]。
+* クラウドバックアップアプリケーションを使用して、アプリケーションと整合性のある Snapshot をオンプレミスの ONTAP からクラウドにバックアップできます。 link:concept-protect-app-data-to-cloud.html["詳細な機能については、こちらをご覧ください"]。
+
+
+
+
+== Cloud Backup の仕組み
+
+Cloud Volumes ONTAP またはオンプレミスの ONTAP システムでクラウドバックアップを有効にすると、サービスはデータのフルバックアップを実行します。ボリューム Snapshot はバックアップイメージに含まれません。初期バックアップ後は、追加のバックアップはすべて差分になります。つまり、変更されたブロックと新しいブロックのみがバックアップされます。これにより、ネットワークトラフィックを最小限に抑えることができます。
+
+ほとんどの場合、すべてのバックアップ処理に Cloud Manager UI を使用します。ただし、 ONTAP 9.9.1 以降では、 ONTAP System Manager を使用して、オンプレミスの ONTAP クラスタのボリュームバックアップ処理を開始できます。 https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["Cloud Backup を使用してボリュームをクラウドにバックアップする方法については、 System Manager の説明を参照してください。"^]
+
+次の図は、各コンポーネント間の関係を示しています。
+
+image:diagram_cloud_backup_general.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションオブジェクトストレージと通信する仕組みを示す図。"]
+
+
+
+=== バックアップの保管場所バックアップノバショ
+
+バックアップコピーは、 Cloud Manager がクラウドアカウントで作成するオブジェクトストアに格納されます。クラスタ / 作業環境ごとに 1 つのオブジェクトストアがあり、 Cloud Manager は「 NetApp-backup-clusteruuid 」のようにオブジェクトストアに名前を付けます。このオブジェクトストアは削除しないでください。
+
+* AWS では、 Cloud Manager によってが有効になります https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 ブロックのパブリックアクセス機能"^] を S3 バケットに配置します。
+* Azure では、 Cloud Manager は BLOB コンテナのストレージアカウントを持つ新規または既存のリソースグループを使用します。クラウドマネージャ https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["BLOB データへのパブリックアクセスをブロックします"] デフォルトでは
+* GCP では、 Cloud Manager は Google Cloud Storage バケット用のストレージアカウントを持つ新規または既存のプロジェクトを使用します。
+* StorageGRID では、 Cloud Manager はオブジェクトストアバケットに既存のストレージアカウントを使用します。
+
+
+
+
+=== バックアップは午前 0 時に作成されます
+
+* 毎時バックアップは、毎時 5 分に開始されます。
+* 日次バックアップは、毎日午前 0 時を過ぎた直後に開始されます。
+* 週次バックアップは、日曜日の朝の午前 0 時を過ぎた直後に開始されます
+* 月単位のバックアップは、毎月 1 日の午前 0 時を過ぎた直後に開始されます。
+
+
+開始時間は、各ソース ONTAP システムで設定されているタイムゾーンに基づきます。ユーザーが指定した時間に、 UI からバックアップ操作をスケジュールすることはできません。詳細については、システムエンジニアにお問い合わせください。
+
+
+
+=== バックアップコピーはネットアップアカウントに関連付けられています
+
+バックアップコピーはに関連付けられます https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["ネットアップアカウント"^] コネクタがある場所。
+
+同じネットアップアカウントに複数のコネクタがある場合は、各コネクタに同じバックアップリストが表示されます。バックアップには、 Cloud Volumes ONTAP インスタンスとオンプレミスの ONTAP インスタンスに関連付けられたバックアップが含まれます。

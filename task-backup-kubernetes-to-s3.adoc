@@ -1,0 +1,211 @@
+---
+sidebar: sidebar 
+permalink: task-backup-kubernetes-to-s3.html 
+keywords: backing up, back up, backup, back up kubernetes volumes, persistent volumes, PV, persistence volume claim, PVC, aws, aws s3, amazon s3, s3 bucket, back up volumes, cloud backup, eks, kubernetes 
+summary: EKS Kubernetes クラスタ上の永続ボリュームから Amazon S3 ストレージへのデータのバックアップを開始するには、いくつかの手順を実行します。 
+---
+= Kubernetes の永続ボリュームのデータを Amazon S3 にバックアップします
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+EKS Kubernetes クラスタ上の永続ボリュームから Amazon S3 ストレージへのデータのバックアップを開始するには、いくつかの手順を実行します。
+
+
+
+== クイックスタート
+
+これらの手順を実行してすぐに作業を開始するか、残りのセクションまでスクロールして詳細を確認してください。
+
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="one "></span> 前提条件を確認します
+* Kubernetes クラスタを Cloud Manager の作業環境として検出しておきます。
++
+** Trident がクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以降である必要があります。
+** バックアップする永続ボリュームの作成に使用されるすべての PVC で、「 snapshotPolicy 」が「 default 」に設定されている必要があります。
+** クラスタのバックエンドストレージに AWS で Cloud Volumes ONTAP が使用されている必要があります。
+** Cloud Volumes ONTAP システムで ONTAP 9.7P5 以降が実行されている必要があります。
+
+
+* バックアップを格納するストレージスペースに対する有効なクラウドプロバイダのサブスクリプションが必要です。
+* に登録しておきます https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace のバックアップソリューション"]、またはを購入したことが必要です link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["アクティブ化されます"] NetApp の Cloud Backup BYOL ライセンス。
+* Cloud Manager Connector に権限を提供する IAM ロールには、最新のからの S3 権限が含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"^]。
+
+
+[role="quick-margin-para"]
+作業環境を選択し、右パネルの [ バックアップと復元 ] サービスの横にある [*Enable] をクリックして、セットアップ・ウィザードに従います。
+
+[role="quick-margin-para"]
+image:screenshot_backup_cvo_enable.png["作業環境を選択したあとに使用できる Cloud Backup Enable ボタンを示すスクリーンショット。"]
+
+[role="quick-margin-para"]
+デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、または毎月のバックアップに変更するか、システム定義のポリシーの中からオプションを追加する 1 つを選択します。保持するバックアップコピーの数を変更することもできます。
+
+[role="quick-margin-para"]
+image:screenshot_backup_policy_k8s_aws.png["クラウドバックアップの設定を示すスクリーンショット。バックアップのスケジュールと保持期間を選択できます。"]
+
+[role="quick-margin-para"]
+Select Volumes （ボリュームの選択）ページで、バックアップするボリュームを特定します。S3 バケットは、 Cloud Volumes ONTAP システムと同じ AWS アカウントおよびリージョンに自動的に作成され、バックアップファイルが格納されます。
+
+
+
+== 要件
+
+Kubernetes の永続ボリュームを S3 にバックアップする前に、次の要件を読み、サポートされている構成になっていることを確認してください。
+
+次の図は、各コンポーネントとその間の準備に必要な接続を示しています。
+
+image:diagram_cloud_backup_k8s_cvo_aws.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
+
+VPC エンドポイントはオプションです。
+
+Kubernetes クラスタの要件::
++
+--
+* Kubernetes クラスタを Cloud Manager の作業環境として検出しておきます。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-aws.html["Kubernetes クラスタの検出方法を参照してください"^]。
+* Trident はクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以上である必要があります。を参照してください link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident のインストール方法"] または。
+* クラスタのバックエンドストレージに AWS で Cloud Volumes ONTAP が使用されている必要があります。
+* ONTAP システムは Kubernetes クラスタと同じ AWS リージョンに配置する必要があり、 Cloud Volumes ONTAP 9.7P5 以降を実行している必要があります。
++
+オンプレミス環境の Kubernetes クラスタはサポートされていません。Cloud Volumes ONTAP システムを使用するクラウド環境では、 Kubernetes クラスタのみがサポートされます。
+
+* バックアップする永続ボリュームの作成に使用されるすべての Persistent Volume Claim オブジェクトで、「 snapshotPolicy 」が「 default 」に設定されている必要があります。
++
+これは、注釈の下に「 SnapshotPolicy 」を追加することで、個々の PVC に対して行うことができます。
+
++
+[source, json]
+----
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: full
+  annotations:
+    trident.netapp.io/snapshotPolicy: "default"
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1000Mi
+  storageClassName: silver
+----
++
+バックエンド・ストレージに関連付けられているすべての PVC に対してこの操作を行うには ' backend.json ファイルの defaults に 'napshotPolicy' フィールドを追加します
+
++
+[source, json]
+----
+apiVersion: trident.netapp.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: backend-tbc-ontap-nas-advanced
+spec:
+  version: 1
+  storageDriverName: ontap-nas
+  managementLIF: 10.0.0.1
+  dataLIF: 10.0.0.2
+  backendName: tbc-ontap-nas-advanced
+  svm: trident_svm
+  credentials:
+    name: backend-tbc-ontap-nas-advanced-secret
+  limitAggregateUsage: 80%
+  limitVolumeSize: 50Gi
+  nfsMountOptions: nfsvers=4
+  defaults:
+    spaceReserve: volume
+    exportPolicy: myk8scluster
+    snapshotPolicy: default
+    snapshotReserve: '10'
+  deletionPolicy: retain
+----
+
+
+--
+ライセンス要件:: Cloud Backup 従量課金制のライセンスの場合は、 AWS Marketplace で Cloud Manager サブスクリプションを購入して、 Cloud Volumes ONTAP とクラウドバックアップを導入できます。必要です https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["この Cloud Manager サブスクリプションに登録してください"^] Cloud Backup を有効にする前に、Cloud Backup の請求は、このサブスクリプションを通じて行われます。
++
+--
+Cloud Volumes ONTAP データとオンプレミスの ONTAP データの両方をバックアップできる年間契約の場合は、から登録する必要があります https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace のページ"^] 次に。
+
+Cloud Volumes ONTAP とクラウドバックアップをバンドルできる年間契約については、 Cloud Volumes ONTAP 作業環境の作成時に年間契約を設定する必要があります。このオプションでは、オンプレミスのデータをバックアップすることはできません。
+
+Cloud Backup BYOL ライセンスを使用するには、ライセンスの期間と容量にサービスを使用できるように、ネットアップから提供されたシリアル番号が必要です。 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL ライセンスの管理方法について説明します"]。
+
+また、バックアップを格納するストレージスペース用の AWS アカウントが必要です。
+
+--
+サポートされている AWS リージョン:: Cloud Backup はすべての AWS リージョンでサポートされます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]。
+AWS Backup 権限が必要です:: Cloud Manager に権限を提供する IAM ロールが必要です 最新の S3 権限を含める https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"^]。
++
+--
+次に、このポリシーの特定の S3 権限を示します。
+
+[source, json]
+----
+{
+            "Sid": "backupPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteBucket",
+                "s3:GetLifecycleConfiguration",
+                "s3:PutLifecycleConfiguration",
+                "s3:PutBucketTagging",
+                "s3:ListBucketVersions",
+                "s3:GetObject",
+                "s3:DeleteObject",
+                "s3:ListBucket",
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketTagging",
+                "s3:GetBucketLocation",
+                "s3:GetBucketPolicyStatus",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetBucketAcl",
+                "s3:GetBucketPolicy",
+                "s3:PutBucketPublicAccessBlock"
+            ],
+            "Resource": [
+                "arn:aws:s3:::netapp-backup-*"
+            ]
+        },
+----
+--
+
+
+
+
+== 既存のシステムでの Cloud Backup の有効化
+
+作業環境から Cloud Backup をいつでも直接有効にできます。
+
+.手順
+. 作業環境を選択し、右パネルの [ バックアップと復元 ] サービスの横にある [*Enable] をクリックします。
++
+image:screenshot_backup_cvo_enable.png["作業環境を選択したあとに使用できるクラウドバックアップ設定ボタンを示すスクリーンショット。"]
+
+. バックアップポリシーの詳細を入力し、 * Next * をクリックします。
++
+バックアップスケジュールを定義して、保持するバックアップの数を選択できます。
+
++
+image:screenshot_backup_policy_k8s_aws.png["クラウドバックアップの設定を示すスクリーンショット。スケジュールとバックアップの保持を選択できます。"]
+
+. バックアップする永続ボリュームを選択します。
++
+** すべてのボリュームをバックアップするには、タイトル行（image:button_backup_all_volumes.png[""]）。
+** 個々のボリュームをバックアップするには、各ボリュームのボックス（image:button_backup_1_volume.png[""]）。
++
+image:screenshot_backup_select_volumes_k8s.png["バックアップするボリュームを選択するスクリーンショット。"]
+
+
+
+. Activate Backup * をクリックすると、選択した各ボリュームの初期バックアップの実行が開始されます。
+
+
+S3 バケットは、 Cloud Volumes ONTAP システムと同じ AWS アカウントおよびリージョンに自動的に作成され、バックアップファイルが格納されます。
+
+Kubernetes ダッシュボードが表示され、バックアップの状態を監視できます。
+
+可能です link:task-managing-backups.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  AWS の同じまたは別の Kubernetes クラスタ（同じリージョン内）上の新しいボリュームとして。

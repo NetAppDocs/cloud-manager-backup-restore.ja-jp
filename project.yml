@@ -1,0 +1,176 @@
+---
+settings:
+  name: Cloud Backup
+  platform: cloud
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: ja-jp,us-en,zh-cn,ko-kr
+sidebar:
+  entries:
+  - title: Cloud Manager のすべてのドキュメント
+    url: https://docs.netapp.com/us-en/cloud-manager-family
+  - title: Cloud Backup のドキュメント
+    url: "/index.html"
+  - title: リリースノート
+    url: "/whats-new.html"
+  - title: はじめに
+    entries:
+    - title: Cloud Backup の詳細をご確認ください
+      url: "/concept-backup-to-cloud.html"
+    - title: ライセンスをセットアップする
+      url: "/task-licensing-cloud-backup.html"
+    - title: バックアップジョブとリストアジョブのステータスを監視します
+      url: task-monitor-backup-jobs.html
+  - title: ONTAP データのバックアップとリストア
+    entries:
+    - title: ONTAP データを保護
+      url: "/concept-ontap-backup-to-cloud.html"
+    - title: Cloud Volumes ONTAP を Amazon S3 にバックアップします
+      url: "/task-backup-to-s3.html"
+    - title: Cloud Volumes ONTAP を Azure Blob にバックアップ
+      url: "/task-backup-to-azure.html"
+    - title: Cloud Volumes ONTAP を Google Cloud にバックアップ
+      url: "/task-backup-to-gcp.html"
+    - title: オンプレミスの ONTAP から Amazon S3 へのバックアップ
+      url: "/task-backup-onprem-to-aws.html"
+    - title: オンプレミスの ONTAP を Azure Blob にバックアップ
+      url: "/task-backup-onprem-to-azure.html"
+    - title: オンプレミスの ONTAP から Google Cloud へのバックアップ
+      url: "/task-backup-onprem-to-gcp.html"
+    - title: オンプレミスの ONTAP を StorageGRID にバックアップ
+      url: "/task-backup-onprem-private-cloud.html"
+    - title: ONTAP バックアップを管理します
+      url: "/task-manage-backups-ontap.html"
+    - title: ONTAP バックアップからリストアする
+      url: "/task-restore-backups-ontap.html"
+  - title: Kubernetes データのバックアップとリストア
+    entries:
+    - title: Kubernetes のデータを保護
+      url: "/concept-kubernetes-backup-to-cloud.html"
+    - title: Amazon S3 にバックアップします
+      url: "/task-backup-kubernetes-to-s3.html"
+    - title: Azure Blob にバックアップ
+      url: "/task-backup-kubernetes-to-azure.html"
+    - title: Google Cloud にバックアップ
+      url: "/task-backup-kubernetes-to-gcp.html"
+    - title: Kubernetes のバックアップを管理
+      url: "/task-manage-backups-kubernetes.html"
+    - title: Kubernetes バックアップからリストア
+      url: "/task-restore-backups-kubernetes.html"
+  - title: オンプレミスのアプリケーションデータのバックアップとリストア
+    entries:
+    - title: オンプレミスアプリケーションのデータを保護
+      url: "/concept-protect-app-data-to-cloud.html"
+    - title: オンプレミスアプリケーションのデータをクラウドにバックアップ
+      url: "/task-backup-app-data-to-cloud.html"
+    - title: アプリケーションの保護を管理します
+      url: "/task-manage-app-backups.html"
+    - title: アプリケーションデータをリストアする
+      entries:
+      - title: Oracle データベースをリストアします
+        url: "/task-restore-oracle-data.html"
+      - title: SQL Server データベースをリストアする
+        url: "/task-restore-sql-data.html"
+  - title: 参照
+    entries:
+    - title: サポート対象の AWS アーカイブストレージ階層
+      url: "/reference-aws-backup-tiers.html"
+    - title: サポートされている Azure アーカイブアクセス層
+      url: "/reference-azure-backup-tiers.html"
+    - title: クロスアカウント構成とクロスリージョン構成
+      url: "/reference-cross-account.html"
+      entries:
+      - title: AWS でマルチアカウントアクセス用にバックアップを設定します
+        url: "/reference-backup-multi-account-aws.html"
+      - title: Azure でマルチアカウントアクセス用にバックアップを設定
+        url: "/reference-backup-multi-account-azure.html"
+  - title: 知識とサポート
+    entries:
+    - title: サポートに登録します
+      url: "/task-support-registration.html"
+    - title: ヘルプを表示します
+      url: "/task-get-help.html"
+  - title: 法的通知
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: はじめに
+    links:
+    - title: Cloud Backup の詳細をご確認ください
+      url: concept-backup-to-cloud.html
+    - title: 新機能
+      url: whats-new.html
+    - title: ライセンスをセットアップする
+      url: task-licensing-cloud-backup.html
+  - title: ONTAP データをクラウドにバックアップ
+    links:
+    - title: Cloud Volumes ONTAP から Amazon S3 へ
+      url: task-backup-to-s3.html
+    - title: Cloud Volumes ONTAP と Azure Blob の間
+      url: task-backup-to-azure.html
+    - title: Cloud Volumes ONTAP から Google Cloud へ
+      url: task-backup-to-gcp.html
+    - title: オンプレミスの ONTAP から Amazon S3 へ
+      url: task-backup-onprem-to-aws.html
+    - title: オンプレミスの ONTAP と Azure Blob の間でデータを移動
+      url: task-backup-onprem-to-azure.html
+    - title: オンプレミスの ONTAP から Google Cloud へ
+      url: task-backup-onprem-to-gcp.html
+    - title: オンプレミスの ONTAP から StorageGRID へ
+      url: task-backup-onprem-private-cloud.html
+  - title: Kubernetes のデータをクラウドにバックアップ
+    links:
+    - title: Kubernetes クラスタから Amazon S3 へ
+      url: task-backup-kubernetes-to-s3.html
+    - title: Kubernetes クラスタから Azure Blob への移行
+      url: task-backup-kubernetes-to-azure.html
+    - title: Kubernetes クラスタから Google Cloud へ
+      url: task-backup-kubernetes-to-gcp.html
+  - title: オンプレミスのアプリケーションデータのバックアップとリストア
+    links:
+    - title: オンプレミスアプリケーションのデータをクラウドにバックアップ
+      url: "/task-backup-app-data-to-cloud.html"
+    - title: Oracle データベースをリストアします
+      url: "/task-restore-oracle-data.html"
+    - title: SQL Server データベースをリストアする
+      url: "/task-restore-sql-data.html"
+  - title: バックアップファイルからデータをリストアする
+    links:
+    - title: ONTAP ボリュームをリストア
+      url: task-restore-backups-ontap.html
+    - title: ONTAP ファイルをリストアします
+      url: task-restore-backups-ontap.html
+    - title: Kubernetes ボリュームをリストア
+      url: task-restore-backups-kubernetes.html
+  - title: ONTAP バックアップファイルを管理します
+    links:
+    - title: ボリュームのバックアップを有効または無効にします
+      url: task-manage-backups-ontap.html#enabling-and-disabling-backups-of-volumes
+    - title: 既存のバックアップポリシーを編集する
+      url: task-manage-backups-ontap.html#editing-an-existing-backup-policy
+    - title: 新しいバックアップポリシーを追加します
+      url: task-manage-backups-ontap.html#adding-a-new-backup-policy
+    - title: 既存のボリュームに割り当てられているポリシーを変更します
+      url: task-manage-backups-ontap.html#changing-the-policy-assigned-to-existing-volumes
+    - title: ボリュームの手動バックアップを作成します
+      url: task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time
+    - title: 各ボリュームのバックアップのリストを表示します
+      url: task-manage-backups-ontap.html#viewing-the-list-of-backups-for-each-volume
+    - title: バックアップを削除します
+      url: task-manage-backups-ontap.html#deleting-backups
+    - title: バックアップジョブとリストアジョブのステータスを監視します
+      url: task-monitor-backup-jobs.html
+  - title: ブログコミュニティ
+    links:
+    - title: ネットアップコミュニティ
+      url: https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS
+    - title: Cloud Central のブログです
+      url: https://cloud.netapp.com/blog
+    - title: Cloud Central のユースケース
+      url: https://cloud.netapp.com/cloud-backup
+    - title: クラウドに関する Web セミナー
+      url: https://cloud.netapp.com/events
+product-family: {}

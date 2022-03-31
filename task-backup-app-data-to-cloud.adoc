@@ -1,0 +1,132 @@
+---
+sidebar: sidebar 
+permalink: task-backup-app-data-to-cloud.html 
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, cloud backup service, Oracle database, Microsoft SQL Server database, SnapCenter Server, register 
+summary: アプリケーションデータを ONTAP から クラウド サービス にバックアップするには、いくつかの手順を実行します。 
+---
+= オンプレミスアプリケーションのデータをクラウドにバックアップ
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Backup for Applications を Cloud Manager とオンプレミスの SnapCenter に統合することで、 ONTAP からクラウドにアプリケーションデータをバックアップできます。
+
+
+
+== SnapCenter サーバを登録します
+
+SnapCenterAdmin ロールのユーザだけが、 SnapCenter サーバ 4.6 が実行されているホストを登録できます。複数の SnapCenter サーバホストを登録できますが、登録後に SnapCenter サーバホストを削除することはできません。
+
+* 手順 *
+
+. Cloud Manager UI で、 * Backup & Restore * > * Applications * の順にクリックします。
+. [* 設定 *] ドロップダウンから、 [* SnapCenter サーバ * ] をクリックします。
+. [* SnapCenter サーバーの登録 * ] をクリックします。
+. 次の情報を指定します。
++
+.. SnapCenter Server フィールドで、 SnapCenter サーバホストの FQDN または IP アドレスを指定します。
+.. Port フィールドで、 SnapCenter サーバが稼働しているポート番号を指定します。
++
+SnapCenter サーバと Cloud Backup for Applications の間の通信用にポートが開いていることを確認してください。
+
+.. [ タグ ] フィールドで、 SnapCenter サーバーにタグを付けるサイト名、都市名、またはカスタム名を指定します。
++
+タグはカンマで区切って指定します。
+
+.. Username and Password フィールドで、 SnapCenterAdmin ロールを持つユーザのクレデンシャルを指定します。
+
+
+. [*Register] をクリックします。
+
+
+* 終了後 *
+
+[* バックアップと復元 *>* アプリケーション *] をクリックして、登録済み SnapCenter サーバ・ホストを使用して保護されているすべてのアプリケーションを表示します。
+
+
+NOTE: SQL Server データベースの場合、 [ アプリケーション名 ] 列には、名前が _application_name （ホスト名）形式で表示されます。名前を _application_name （ホスト名） _format で指定して検索する場合、 SQL Server データベースの詳細は表示されません。
+
+サポートされるアプリケーションとその構成は次のとおりです。
+
+* Oracle データベース：日単位、週単位、または月単位のスケジュールを少なくとも 1 つ使用して作成されたフルバックアップ（データ + ログ）。
+* Microsoft SQL Server データベース：
++
+** スタンドアロン、フェイルオーバークラスタインスタンス、および可用性グループ
+** フルバックアップ：日単位、週単位、または月単位のスケジュールを少なくとも 1 つずつ設定して作成します
+
+
+
+
+次の Oracle データベースおよび SQL Server データベースは表示されません。
+
+* バックアップがないデータベース
+* オンデマンドまたは毎時ポリシーのみのデータベース
+* RDM または VMDK にあるデータベース
+
+
+
+
+== アプリケーションデータをバックアップ
+
+単一のポリシーを使用して、 1 つ以上のアプリケーションをクラウドで同時に保護することができます。アプリケーションを保護するために割り当てることができるのは、デフォルトの組み込みポリシーだけです。
+
+
+IMPORTANT: Cloud Manager の GUI を使用している場合、一度に保護できるアプリケーションは 1 つだけです。ただし、 REST API を使用する場合は、複数のアプリケーションを同時に保護できます。
+
+SQL Server インスタンスを保護する場合、そのインスタンスの対象となるデータベースのすべてのボリュームに対してクラウド保護が設定されます。SQL Server 可用性グループを保護する場合は、その可用性グループ内のデータベースのすべてのボリュームに対してクラウド保護が設定されます。ただし、バックアップの設定に基づいて、各ボリュームから Snapshot がコピーされます。
+
+* 手順 *
+
+. Cloud Manager UI で、 * Backup & Restore * > * Applications * の順にクリックします。
+. をクリックします image:icon-action.png["アイコンをクリックして操作を選択します"] アプリケーションに対応して、 * バックアップのアクティブ化 * をクリックします。
+. 作業環境を追加します。
++
+アプリケーションが実行されている SVM をホストする ONTAP クラスタを設定します。いずれかのアプリケーション用の作業環境を追加したら、同じ ONTAP クラスタにある他のすべてのアプリケーションでその作業環境を再利用できます。
+
++
+.. SVM を選択し、作業環境の追加をクリックします。
+.. 作業環境の追加ウィザードで、次の手順を実行します。
++
+... ONTAP クラスタの IP アドレスを指定します。
+... 管理クレデンシャルを指定します。
++
+Cloud Backup for Applications でサポートされているのはクラスタ管理者のみです。
+
+
+
+.. * 作業環境の追加 * をクリックします。
+
+
+. クラウドプロバイダを選択して設定します。
++
+[role="tabbed-block"]
+====
+.Amazon Web Services を設定します
+--
+.. AWS アカウントを指定します。
+.. AWS Access Key フィールドで、キーを指定します。
+.. AWS Secret Key フィールドで、パスワードを指定します。
+.. バックアップを作成するリージョンを選択します。
+.. 作業環境として追加した ONTAP クラスタの IP アドレスを指定します。
+
+
+--
+.Microsoft Azure を設定
+--
+.. Azure サブスクリプション ID を指定します。
+.. バックアップを作成するリージョンを選択します。
+.. 新しいリソースグループを作成するか、既存のリソースグループを使用してください。
+.. 作業環境として追加した ONTAP クラスタの IP アドレスを指定します。
+
+
+--
+====
+
+
+. [ ポリシーの割り当て ] ページで、ポリシーを選択して [ 次へ * ] をクリックします。
+. 詳細を確認し、 * バックアップのアクティブ化 * をクリックします。
+

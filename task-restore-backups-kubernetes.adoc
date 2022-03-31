@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: task-restore-backups-kubernetes.html 
+keywords: restoring, restore, restore volumes, cloud backup, volume restore, persistent volume 
+summary: バックアップは、特定の時点のデータをリストアできるように、クラウドアカウントのオブジェクトストアに格納されます。Kubernetes の永続ボリューム全体を、保存したバックアップファイルからリストアできます。 
+---
+= バックアップファイルからの Kubernetes データのリストア
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+バックアップは、特定の時点のデータをリストアできるように、クラウドアカウントのオブジェクトストアに格納されます。Kubernetes の永続ボリューム全体を、保存したバックアップファイルからリストアできます。
+
+永続ボリュームは、（新しいボリュームとして）同じ作業環境または同じクラウドアカウントを使用している別の作業環境にリストアできます。
+
+
+
+== サポートされている作業環境とオブジェクトストレージプロバイダ
+
+Kubernetes バックアップファイルから次の作業環境にボリュームをリストアできます。
+
+[cols="40,40"]
+|===
+| バックアップファイルの場所 | デスティネーションの作業環境 
+
+
+| Amazon S3 | AWS の Kubernetes クラスタ 
+
+
+| Azure Blob の略 | Azure の Kubernetes クラスタ 
+
+
+| Google クラウドストレージ | Google の Kubernetes クラスタ 
+|===
+
+
+== Kubernetes バックアップファイルからのボリュームのリストア
+
+バックアップファイルから永続ボリュームをリストアすると、 Cloud Manager はバックアップのデータを使用して _new_volume を作成します。データは、同じ Kubernetes クラスタ内のボリューム、またはソースの Kubernetes クラスタと同じクラウドアカウントにある別の Kubernetes クラスタにリストアできます。
+
+開始する前に、リストアするボリュームの名前と、新規にリストアされたボリュームの作成に使用するバックアップファイルの日付を確認しておく必要があります。
+
+.手順
+. Backup & Restore * サービスを選択します。
+. [*Kubernetes *] タブをクリックすると、 [Kubernetes Dashboard] が表示されます。
++
+image:screenshot_backup_view_k8s_backups_button.png["Kubernetes ダッシュボードのスクリーンショットで、バックアップ対象のすべての Kubernetes クラスタとボリュームのリストを示しています。"]
+
+. リストアするボリュームを選択し、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"]をクリックし、 * ボリュームの詳細 * をクリックします。
++
+そのボリュームのすべてのバックアップファイルと、ソースボリューム、デスティネーションの場所、およびバックアップの詳細が表示されます。
+
++
+image:screenshot_backup_view_k8s_backups.png["1 つのソースボリュームで使用可能なすべてのバックアップのスクリーンショット。"]
+
+. 日付 / タイムスタンプに基づいてリストアする特定のバックアップファイルを選択し、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"]をクリックし、次に * Restore * を実行します。
+. Select Destination_page で、ボリュームをリストアする _Kubernetes cluster_where を選択します。 _ Namespace _ 、 _ Storage Class_ 、および new_Persistent ボリューム name _ 。
++
+image:screenshot_restore_k8s_volume.png["永続ボリュームのリストア先に関する情報のスクリーンショット。"]
+
+. リストア * をクリックすると、 Kubernetes ダッシュボードに戻り、リストア処理の進捗状況を確認できます。
+
+
+選択したバックアップに基づいて、 Cloud Manager が Kubernetes クラスタに新しいボリュームを作成します。可能です link:task-manage-backups-kubernetes.html["この新しいボリュームのバックアップ設定を管理します"] 必要に応じて。
