@@ -85,7 +85,7 @@ image:screenshot_restore_dashboard.png["[ リストアダッシュボード ] �
 
 * 注：リストアするボリュームのバックアップファイルがアーカイブストレージ（ ONTAP 9.10.1 以降の AWS および Azure で利用可能）にある場合、リストア処理にはより長い時間がかかり、コストが発生します。また、デスティネーションクラスタで ONTAP 9.10.1 以降が実行されている必要があります。
 
-link:reference-azure-backup-tiers.html["Azure アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。。
+link:reference-azure-backup-tiers.html["Azure アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。link:reference-aws-backup-tiers.html["AWS アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。
 
 
 
@@ -165,7 +165,7 @@ image:screenshot_restore_new_vol_name.png["リストアする新しいボリュ�
 また、（ ONTAP 9.10.1 以降で使用可能な）アーカイブストレージ階層にあるバックアップファイルからボリュームをリストアする場合は、リストア優先度を選択できます。
 
 +
-link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["Azure アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。。
+link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["Azure アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["AWS アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。
 
 . リストアの進行状況を確認できるように、 * リストア * をクリックするとリストアダッシュボードに戻ります。
 
@@ -190,7 +190,7 @@ TIP: バックアップファイルがアーカイブストレージにある場
 ==== 前提条件
 
 * ファイルリストア処理を実行するには、 Cloud Volumes ONTAP またはオンプレミスの ONTAP システムで ONTAP のバージョンが 9.6 以降である必要があります。
-* バックアップファイルから個々のファイルをリストアする場合は、別のリストアインスタンス / 仮想マシンを使用します。を参照してください link:task-backup-to-s3.html#requirements["AWS の要件"] または  環境の準備状況を確認
+* バックアップファイルから個々のファイルをリストアする場合は、別のリストアインスタンス / 仮想マシンを使用します。を参照してください link:task-backup-to-s3.html#requirements["AWS の要件"] または link:task-backup-to-azure.html#requirements["Azure の要件"] 環境の準備状況を確認
 * ファイルをリストアするには、 Cloud Manager に権限を付与するユーザロールに特定の AWS EC2 権限も追加する必要があります。 link:task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups["すべての権限が正しく設定されていることを確認します"]。
 * AWS のクロスアカウントリストアを実行するには、 AWS コンソールで手動の操作が必要です。AWS のトピックを参照してください https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html["クロスアカウントバケットの権限を付与しています"^] を参照してください。
 
@@ -350,7 +350,7 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 
 プロセスは次のようになります。
 
-. 検索とリストアを使用する前に、ボリュームまたはファイルをリストアする各ソース作業環境でインデックス作成を有効にする必要があります。これにより、 Indexed Catalog は、すべてのボリュームのバックアップファイルを追跡できます。データ提供用 SVM で SnapDiff v3 を有効にし、新しい S3 バケットとをプロビジョニングします https://aws.amazon.com/athena/faqs/["Amazon Athena インタラクティブクエリーサービス"^] および。
+. 検索とリストアを使用する前に、ボリュームまたはファイルをリストアする各ソース作業環境でインデックス作成を有効にする必要があります。これにより、 Indexed Catalog は、すべてのボリュームのバックアップファイルを追跡できます。データ提供用 SVM で SnapDiff v3 を有効にし、新しい S3 バケットとをプロビジョニングします https://aws.amazon.com/athena/faqs/["Amazon Athena インタラクティブクエリーサービス"^] および https://aws.amazon.com/glue/faqs/["AWS グルーサーバレスデータ統合サービス"^]。
 . ボリュームバックアップからボリュームまたはファイルを復元する場合は、 _ 検索と復元 _ で * 検索と復元 * をクリックします。
 . ボリューム名またはファイルの一部または全体の名前、ファイル名の一部または全部、サイズの範囲、作成日の範囲、その他の検索フィルタを入力し、 * 検索 * をクリックします。
 +

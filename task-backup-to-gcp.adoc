@@ -63,7 +63,7 @@ image:diagram_cloud_backup_cvo_google.png["Cloud Backup が、ソースシステ
 
 サポートされている ONTAP のバージョン:: Cloud Volumes ONTAP 9.7P5 以降
 サポートされる GCP リージョン:: Cloud Backup はすべての GCP リージョンでサポートされます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]。
-ライセンス要件:: クラウドバックアップは従量課金制のライセンスで、を使用したサブスクリプション https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP Marketplace"] は、 Cloud Backup を有効にする前に必要です。Cloud Backup の請求は、このサブスクリプションを通じて行われます。。
+ライセンス要件:: クラウドバックアップは従量課金制のライセンスで、を使用したサブスクリプション https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP Marketplace"] は、 Cloud Backup を有効にする前に必要です。Cloud Backup の請求は、このサブスクリプションを通じて行われます。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["作業環境ウィザードの詳細 & 資格情報ページから購読できます"^]。
 +
 --
 Cloud Backup BYOL ライセンスを使用するには、ライセンスの期間と容量にサービスを使用できるように、ネットアップから提供されたシリアル番号が必要です。 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL ライセンスの管理方法について説明します"]。
@@ -111,7 +111,7 @@ image:screenshot_backup_to_gcp.png["に、作業環境ウィザードの Cloud B
 
 Cloud Backup はシステム上で有効になり、毎日作成したボリュームをバックアップし、最新の 30 個のバックアップコピーを保持します。
 
-可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["バックアップファイルからボリューム全体をリストアする"^] Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。
 
 
 
@@ -153,4 +153,4 @@ image:screenshot_backup_select_volumes.png["バックアップするボリュー
 
 Cloud Backup が起動し、選択した各ボリュームの初期バックアップの作成が開始されます。 Volume Backup Dashboard が表示され、バックアップの状態を監視できます。
 
-可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["バックアップファイルからボリューム全体をリストアする"^] Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。

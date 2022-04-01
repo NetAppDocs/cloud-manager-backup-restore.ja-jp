@@ -24,7 +24,7 @@ Cloud Volumes ONTAP から Amazon S3 へのデータのバックアップを開�
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="one "></span> 設定のサポートを確認します
 * Cloud Volumes ONTAP 9.6 以降を AWS で実行している。
 * バックアップを格納するストレージスペースに対する有効なクラウドプロバイダのサブスクリプションが必要です。
-* に登録しておきます https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace のバックアップソリューション"]、またはを購入したことが必要です link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["アクティブ化されます"] NetApp の Cloud Backup BYOL ライセンス。
+* に登録しておきます https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace のバックアップソリューション"]、 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年間契約"]またはを購入したことが必要です link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["アクティブ化されます"] NetApp の Cloud Backup BYOL ライセンス。
 * Cloud Manager Connector に権限を提供する IAM ロールには、最新のからの S3 権限が含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"^]。
 
 
@@ -70,7 +70,7 @@ image:diagram_cloud_backup_cvo_aws.png["Cloud Backup が、ソースシステム
 ライセンス要件:: Cloud Backup 従量課金制のライセンスの場合は、 AWS Marketplace で Cloud Manager サブスクリプションを購入して、 Cloud Volumes ONTAP とクラウドバックアップを導入できます。必要です https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["この Cloud Manager サブスクリプションに登録してください"^] Cloud Backup を有効にする前に、Cloud Backup の請求は、このサブスクリプションを通じて行われます。
 +
 --
-Cloud Volumes ONTAP データとオンプレミスの ONTAP データの両方をバックアップできる年間契約の場合は、から登録する必要があります https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace のページ"^] 次に。
+Cloud Volumes ONTAP データとオンプレミスの ONTAP データの両方をバックアップできる年間契約の場合は、から登録する必要があります https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace のページ"^] 次に https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["サブスクリプションを AWS クレデンシャルに関連付けます"^]。
 
 Cloud Volumes ONTAP とクラウドバックアップをバンドルできる年間契約については、 Cloud Volumes ONTAP 作業環境の作成時に年間契約を設定する必要があります。このオプションでは、オンプレミスのデータをバックアップすることはできません。
 
@@ -182,7 +182,7 @@ image:screenshot_backup_to_gcp.png["に、作業環境ウィザードの Cloud B
 
 Cloud Backup はシステムで有効になり、ボリュームを毎日バックアップして、最新の 30 個のバックアップコピーを保持します。
 
-可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  AWS の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["ボリューム全体または個々のファイルをバックアップファイルからリストアする"^] AWS の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。
 
 
 
@@ -232,4 +232,4 @@ image:screenshot_backup_select_volumes.png["バックアップするボリュー
 
 Cloud Backup が起動し、選択した各ボリュームの初期バックアップの作成が開始されます。 Volume Backup Dashboard が表示され、バックアップの状態を監視できます。
 
-可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  AWS の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["ボリューム全体または個々のファイルをバックアップファイルからリストアする"^] AWS の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。

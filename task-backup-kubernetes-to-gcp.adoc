@@ -66,7 +66,7 @@ Kubernetes クラスタの要件::
 +
 --
 * Kubernetes クラスタを Cloud Manager の作業環境として検出しておきます。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-gke.html["Kubernetes クラスタの検出方法を参照してください"^]。
-* Trident はクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以上である必要があります。を参照してください link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident のインストール方法"] または。
+* Trident はクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以上である必要があります。を参照してください link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident のインストール方法"] または https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["Trident バージョンをアップグレードする方法"]。
 * クラスタは、そのバックエンドストレージに GCP 上の Cloud Volumes ONTAP を使用している必要があります。
 * Cloud Volumes ONTAP システムは Kubernetes クラスタと同じ GCP リージョンに配置し、 ONTAP 9.7P5 以降を実行している必要があります。
 +
@@ -126,7 +126,7 @@ spec:
 
 --
 サポートされる GCP リージョン:: Cloud Backup はすべての GCP リージョンでサポートされます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]。
-ライセンス要件:: クラウドバックアップは従量課金制のライセンスで、を使用したサブスクリプション https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP Marketplace"] は、 Cloud Backup を有効にする前に必要です。Cloud Backup の請求は、このサブスクリプションを通じて行われます。。
+ライセンス要件:: クラウドバックアップは従量課金制のライセンスで、を使用したサブスクリプション https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP Marketplace"] は、 Cloud Backup を有効にする前に必要です。Cloud Backup の請求は、このサブスクリプションを通じて行われます。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["作業環境ウィザードの詳細 & 資格情報ページから購読できます"^]。
 +
 --
 Cloud Backup BYOL ライセンスを使用するには、ライセンスの期間と容量にサービスを使用できるように、ネットアップから提供されたシリアル番号が必要です。 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL ライセンスの管理方法について説明します"]。
@@ -171,4 +171,4 @@ image:screenshot_backup_select_volumes_k8s.png["バックアップするボリ�
 
 Kubernetes ダッシュボードが表示され、バックアップの状態を監視できます。
 
-可能です link:task-managing-backups.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  GCP 内の同じ Kubernetes クラスタまたは別の Kubernetes クラスタ（同じリージョン内）上の新しいボリュームです。
+可能です link:task-managing-backups.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups.html#restoring-volumes-from-a-kubernetes-backup-file["バックアップファイルからボリューム全体をリストアする"^] GCP 内の同じ Kubernetes クラスタまたは別の Kubernetes クラスタ（同じリージョン内）上の新しいボリュームです。

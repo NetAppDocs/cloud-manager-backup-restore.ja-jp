@@ -31,7 +31,7 @@ EKS Kubernetes クラスタ上の永続ボリュームから Amazon S3 ストレ
 
 
 * バックアップを格納するストレージスペースに対する有効なクラウドプロバイダのサブスクリプションが必要です。
-* に登録しておきます https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace のバックアップソリューション"]、またはを購入したことが必要です link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["アクティブ化されます"] NetApp の Cloud Backup BYOL ライセンス。
+* に登録しておきます https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace のバックアップソリューション"]、 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年間契約"]またはを購入したことが必要です link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["アクティブ化されます"] NetApp の Cloud Backup BYOL ライセンス。
 * Cloud Manager Connector に権限を提供する IAM ロールには、最新のからの S3 権限が含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"^]。
 
 
@@ -66,7 +66,7 @@ Kubernetes クラスタの要件::
 +
 --
 * Kubernetes クラスタを Cloud Manager の作業環境として検出しておきます。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-aws.html["Kubernetes クラスタの検出方法を参照してください"^]。
-* Trident はクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以上である必要があります。を参照してください link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident のインストール方法"] または。
+* Trident はクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以上である必要があります。を参照してください link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident のインストール方法"] または https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["Trident バージョンをアップグレードする方法"]。
 * クラスタのバックエンドストレージに AWS で Cloud Volumes ONTAP が使用されている必要があります。
 * ONTAP システムは Kubernetes クラスタと同じ AWS リージョンに配置する必要があり、 Cloud Volumes ONTAP 9.7P5 以降を実行している必要があります。
 +
@@ -128,7 +128,7 @@ spec:
 ライセンス要件:: Cloud Backup 従量課金制のライセンスの場合は、 AWS Marketplace で Cloud Manager サブスクリプションを購入して、 Cloud Volumes ONTAP とクラウドバックアップを導入できます。必要です https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["この Cloud Manager サブスクリプションに登録してください"^] Cloud Backup を有効にする前に、Cloud Backup の請求は、このサブスクリプションを通じて行われます。
 +
 --
-Cloud Volumes ONTAP データとオンプレミスの ONTAP データの両方をバックアップできる年間契約の場合は、から登録する必要があります https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace のページ"^] 次に。
+Cloud Volumes ONTAP データとオンプレミスの ONTAP データの両方をバックアップできる年間契約の場合は、から登録する必要があります https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace のページ"^] 次に https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["サブスクリプションを AWS クレデンシャルに関連付けます"^]。
 
 Cloud Volumes ONTAP とクラウドバックアップをバンドルできる年間契約については、 Cloud Volumes ONTAP 作業環境の作成時に年間契約を設定する必要があります。このオプションでは、オンプレミスのデータをバックアップすることはできません。
 
@@ -208,4 +208,4 @@ S3 バケットは、 Cloud Volumes ONTAP システムと同じ AWS アカウン
 
 Kubernetes ダッシュボードが表示され、バックアップの状態を監視できます。
 
-可能です link:task-managing-backups.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  AWS の同じまたは別の Kubernetes クラスタ（同じリージョン内）上の新しいボリュームとして。
+可能です link:task-managing-backups.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups.html#restoring-volumes-from-a-kubernetes-backup-file["バックアップファイルからボリューム全体をリストアする"^] AWS の同じまたは別の Kubernetes クラスタ（同じリージョン内）上の新しいボリュームとして。

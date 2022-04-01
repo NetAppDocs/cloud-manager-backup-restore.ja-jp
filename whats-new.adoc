@@ -31,15 +31,9 @@ link:concept-protect-app-data-to-cloud.html["オンプレミスアプリケー�
 
 
 
-=== インターネットにアクセスできないサイトのオンプレミス ONTAP クラスタデータをバックアップするサポートが追加されました。
-
-オンプレミスの ONTAP クラスタが、インターネットにアクセスできないサイト（ダークサイトまたはオフラインサイトとも呼ばれます）にある場合は、 Cloud Backup を使用して、同じサイトにある NetApp StorageGRID システムにボリュームデータをバックアップできるようになりました。この機能を使用するには、 Cloud Manager Connector （バージョン 3.9.17 以降）をオフラインサイトに導入する必要があります。 link:task-backup-onprem-private-cloud.html["オフラインサイトのデータをバックアップする方法をご覧ください"]。
-
-
-
 === すべての ONTAP バックアップファイルでボリュームまたはファイルを検索するための新しい検索とリストア機能。
 
-ボリューム名の一部または全部、ファイル名、サイズの範囲、およびその他の検索フィルタを指定して、すべてのバックアップファイル * 全体でボリュームまたはファイルを検索できるようになりました。これは、どのクラスタまたはボリュームがデータのソースであるかがわからない場合に、リストアするデータを見つけるための新しい優れた方法です。 link:task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["検索とリストアの使用方法を説明します"]。
+ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを使用して、すべての ONTAP バックアップファイル * にまたがるボリュームまたはファイルを検索できるようになりました。これは、どのクラスタまたはボリュームがデータのソースであるかがわからない場合に、リストアするデータを見つけるための新しい優れた方法です。 link:task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["検索とリストアの使用方法を説明します"]。
 
 
 
@@ -125,7 +119,7 @@ Amazon S3 または Azure Blob にあるバックアップファイルからオ�
 
 === 古いバックアップファイルを数日後にアーカイブストレージに階層化してコストを削減できるようになりました。
 
-クラスタで ONTAP 9.10.1 以降が実行されており、 AWS または Azure クラウドストレージを使用している場合に、アーカイブストレージへのバックアップの階層化を有効にすることができます。詳細については、を参照してください link:reference-aws-backup-tiers.html["AWS S3 アーカイブストレージクラス"] および 。
+クラスタで ONTAP 9.10.1 以降が実行されており、 AWS または Azure クラウドストレージを使用している場合に、アーカイブストレージへのバックアップの階層化を有効にすることができます。詳細については、を参照してください link:reference-aws-backup-tiers.html["AWS S3 アーカイブストレージクラス"] および link:reference-azure-backup-tiers.html["Azure BLOB アーカイブアクセス層"]。
 
 
 
@@ -243,7 +237,7 @@ Cloud Backup で、 Cloud Volumes ONTAP システムに使用するアカウン�
 
 === オンプレミスのクラスタデータを Google Cloud Storage または NetApp StorageGRID システムにバックアップ
 
-オンプレミスの ONTAP システムから Google Cloud Storage や NetApp StorageGRID システムへのバックアップを作成できるようになりました。を参照してください link:task-backup-onprem-to-gcp.html["Google Cloud Storage へのバックアップ"^] および  を参照してください。
+オンプレミスの ONTAP システムから Google Cloud Storage や NetApp StorageGRID システムへのバックアップを作成できるようになりました。を参照してください link:task-backup-onprem-to-gcp.html["Google Cloud Storage へのバックアップ"^] および link:task-backup-onprem-private-cloud.html["StorageGRID にバックアップしています"^] を参照してください。
 
 
 

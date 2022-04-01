@@ -115,7 +115,7 @@ image:screenshot_backup_to_gcp.png["に、作業環境ウィザードの Cloud B
 
 Cloud Backup はシステムで有効になり、ボリュームを毎日バックアップして、最新の 30 個のバックアップコピーを保持します。
 
-可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  Azure 内の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムへの接続に使用できます。
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["ボリューム全体または個々のファイルをバックアップファイルからリストアする"^] Azure 内の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムへの接続に使用できます。
 
 
 
@@ -166,4 +166,4 @@ image:screenshot_backup_select_volumes.png["バックアップするボリュー
 
 Cloud Backup が起動し、選択した各ボリュームの初期バックアップの作成が開始されます。 Volume Backup Dashboard が表示され、バックアップの状態を監視できます。
 
-可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です  Azure 内の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムへの接続に使用できます。
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["ボリューム全体または個々のファイルをバックアップファイルからリストアする"^] Azure 内の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムへの接続に使用できます。
