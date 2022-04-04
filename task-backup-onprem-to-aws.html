@@ -782,7 +782,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-01 18:31:41 +0000">04/01/2022</time>
+    <time datetime="2022-04-04 20:21:41 +0000">04/04/2022</time>
     
   
 
@@ -1106,12 +1106,12 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>バージョン 3.9.15 以降を使用してコネクタを導入した場合、これらの権限はすでに IAM ロールに含まれている必要があります。そうでない場合は、不足している権限を追加する必要があります。</p>
+<p>バージョン 3.9.15 以降を使用してコネクタを導入した場合、これらの権限はすでに IAM ロールに含まれている必要があります。そうでない場合は、不足している権限を追加する必要があります。検索とリストアに必要な「アテナ」と「グルー」の権限を明確に示します。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Cloud Restore インスタンスを開始、停止、および終了できるように、コネクタに権限を付与する IAM ロールに次の EC2 権限を追加します。</p>
+<p>Browse &amp; Restore 操作で Cloud Restore インスタンスを起動、停止、および終了できるように、コネクタに権限を付与する IAM ロールに次の EC2 権限を追加します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-json" data-lang="json">          "Action": [

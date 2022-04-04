@@ -9,15 +9,15 @@
   <meta property="og:title" content="バックアップファイルからの ONTAP データのリストア | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-restore-backups-ontap.html" />
-	<meta property="og:description" content="バックアップは、特定の時点のデータをリストアできるように、クラウドアカウントのオブジェクトストアに格納されます。バックアップファイルからボリューム全体をリストアすることも、一部のファイルのみをリストアする必要がある場合は、バックアップファイルから個々のファイルをリストアすることもできます。" />
+	<meta property="og:description" content="バックアップは、特定の時点のデータをリストアできるように、クラウドアカウントのオブジェクトストアに格納されます。ONTAP ボリューム全体をバックアップファイルからリストアすることも、一部のファイルのみをリストアする必要がある場合は、バックアップファイルから個々のファイルをリストアすることもできます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="バックアップは、特定の時点のデータをリストアできるように、クラウドアカウントのオブジェクトストアに格納されます。バックアップファイルからボリューム全体をリストアすることも、一部のファイルのみをリストアする必要がある場合は、バックアップファイルから個々のファイルをリストアすることもできます。">
-  <meta name="keywords" content=" restoring, restore, restore volumes, restore files, cloud backup, file restore, single file restore, volume restore, browse and restore, search and restore"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="バックアップは、特定の時点のデータをリストアできるように、クラウドアカウントのオブジェクトストアに格納されます。ONTAP ボリューム全体をバックアップファイルからリストアすることも、一部のファイルのみをリストアする必要がある場合は、バックアップファイルから個々のファイルをリストアすることもできます。">
+  <meta name="keywords" content=" restoring, restore, restore volumes, restore files, cloud backup, file restore, single file restore, volume restore, browse and restore, search and restore, ONTAP"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-backup-restore/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-backup-restore/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -782,7 +782,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-01 18:31:41 +0000">04/01/2022</time>
+    <time datetime="2022-04-04 20:21:41 +0000">04/04/2022</time>
     
   
 
@@ -792,13 +792,17 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>バックアップは、特定の時点のデータをリストアできるように、クラウドアカウントのオブジェクトストアに格納されます。バックアップファイルからボリューム全体をリストアすることも、一部のファイルのみをリストアする必要がある場合は、バックアップファイルから個々のファイルをリストアすることもできます。</p>
+<p>バックアップは、特定の時点のデータをリストアできるように、クラウドアカウントのオブジェクトストアに格納されます。ONTAP ボリューム全体をバックアップファイルからリストアすることも、一部のファイルのみをリストアする必要がある場合は、バックアップファイルから個々のファイルをリストアすることもできます。</p>
 </div>
 <div class="paragraph">
-<p>同じ作業環境、同じクラウドアカウントを使用している別の作業環境、またはオンプレミスの ONTAP システムに * ボリューム * を（新しいボリュームとして）リストアできます。</p>
+<p>元の作業環境、同じクラウドアカウントを使用している別の作業環境、またはオンプレミスの ONTAP システムに * ボリューム * を（新しいボリュームとして）リストアできます。</p>
 </div>
-<div class="paragraph">
-<p>同じ作業環境内のボリューム、同じクラウドアカウントを使用している別の作業環境内のボリューム、またはオンプレミスの ONTAP システム上のボリュームに * ファイル * をリストアできます。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>files * は、元の作業環境内のボリューム、同じクラウドアカウントを使用している別の作業環境内のボリューム、またはオンプレミスの ONTAP システム上のボリュームにリストアできます。</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -832,7 +836,7 @@
 <h2 id="参照と復元と検索と復元を比較します">参照と復元と検索と復元を比較します</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>大まかに言えば、 <em>Browse &amp;Restore_</em> は、先週、月、または年から特定のボリュームまたはファイルを必要とする場合に適しています。また、ファイルの名前と場所、およびファイルが最後に良好な状態になった日付を知っていることが一般的です。_ 検索と復元 _ は通常、ボリュームまたはファイルが必要なときに適していますが、正確な名前、保存されているボリューム、または適切な状態で最後に使用された日付を覚えていません。</p>
+<p>一般的に、 <em>Browse &amp;Restore_</em> は、特定のボリュームまたはファイルを過去 1 週間または 1 か月からリストアする必要がある場合に適しています。また、ファイルの名前と場所、およびファイルが最後に正常に作成された日付を把握している必要があります。_ 検索と復元 _ は、通常、ボリュームまたはファイルを復元する必要があるときに適していますが、正確な名前、保存されているボリューム、または最後に良好な状態になった日付は覚えていません。</p>
 </div>
 <div class="paragraph">
 <p>この表は、 2 つの方法の比較を示しています。</p>
@@ -854,7 +858,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを指定して、すべてのバックアップファイル * 全体でボリュームまたはファイルを検索します</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ボリュームリストアは、 Amazon S3 、 Azure Blob 、 Google Cloud Storage 、 NetApp StorageGRID に格納されたバックアップファイルと連携します。ファイルのリストアは、 Amazon S3 と Azure Blob に格納されたバックアップファイルと連携します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ボリュームリストアは、 Amazon S3 、 Azure Blob 、 Google Cloud 、 NetApp StorageGRID に格納されたバックアップファイルと連携します。ファイルのリストアは、 Amazon S3 と Azure Blob に格納されたバックアップファイルと連携します</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ボリュームとファイルのリストアは、 Amazon S3 に格納されたバックアップファイルと連携します</p></td>
 </tr>
 <tr>
@@ -863,7 +867,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">パブリッククラウドとプライベートクラウドの結果を参照できます</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">プライベートクラウドとローカルの Snapshot コピーを使用して、パブリッククラウド全体にわたって、将来にわたって結果を確認できます</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">パブリッククラウドとローカルの Snapshot コピーで得られる結果を、将来的にはプライベートクラウドで確認できます</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ファイルのリストアには、 Cloud Restore インスタンスが別途必要です</p></td>
@@ -875,7 +879,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ファイルをリストアするときの Cloud Restore インスタンスに関連するコスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ボリュームとファイルをリストアする際の、 Amazon Athena と AWS Glue のリソースに関連するコスト</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">検索結果のバックアップファイルとボリュームをスキャンするときに、 Amazon Athena と AWS Glue のリソースに関連するコスト</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">標準階層およびアーカイブ階層からのボリュームのリストア。標準の階層からのみファイルをリストアします</p></td>
@@ -908,7 +912,7 @@
 <h2 id="参照と復元を使用した-ontap-データの復元">参照と復元を使用した ONTAP データの復元</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ボリュームまたはファイルのリストアを開始する前に、リストアするボリュームまたはファイルの名前と、ボリュームが格納されているバックアップファイルのおおよその日付を確認しておく必要があります。</p>
+<p>ボリュームまたはファイルのリストアを開始する前に、リストアするボリュームまたはファイルの名前、ボリュームが存在する作業環境の名前、およびリストア元のバックアップファイルのおおよその日付を確認しておく必要があります。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -984,7 +988,7 @@
 <div class="sect2">
 <h3 id="browse-restore-を使用してボリュームをリストアする">Browse &amp; Restore を使用してボリュームをリストアする</h3>
 <div class="paragraph">
-<p>バックアップファイルからボリュームをリストアすると、 Cloud Manager はバックアップのデータを使用して _new_volume を作成します。データは、同じ作業環境内のボリューム、またはソース作業環境と同じクラウドアカウントにある別の作業環境にリストアできます。オンプレミスの ONTAP システムにボリュームをリストアすることもできます。</p>
+<p>バックアップファイルからボリュームをリストアすると、 Cloud Backup はバックアップのデータを使用して _new_volume を作成します。データは、元の作業環境のボリューム、またはソースの作業環境と同じクラウドアカウントにある別の作業環境にリストアできます。オンプレミスの ONTAP システムにボリュームをリストアすることもできます。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_browse_restore_volume.png" alt="ブラウズおよびリストアを使用してボリューム・リストアを実行するフローを示す図"></span></p>
@@ -1070,7 +1074,7 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>Cloud Manager は、選択したバックアップに基づいて新しいボリュームを作成します。可能です <a href="task-manage-backups-ontap.html">"この新しいボリュームのバックアップ設定を管理します"</a> 必要に応じて。</p>
+<p>Cloud Backup は、選択したバックアップに基づいて新しいボリュームを作成します。可能です <a href="task-manage-backups-ontap.html">"この新しいボリュームのバックアップ設定を管理します"</a> 必要に応じて。</p>
 </div>
 <div class="paragraph">
 <p>アーカイブストレージにあるバックアップファイルからボリュームをリストアする場合は、アーカイブ階層とリストアの優先順位によって数分から数時間かかることがあります。[ * ジョブ・モニタ * ] タブをクリックすると、リストアの進行状況を確認できます。</p>
@@ -1079,10 +1083,10 @@
 <div class="sect2">
 <h3 id="参照と復元を使用した-ontap-ファイルの復元">参照と復元を使用した ONTAP ファイルの復元</h3>
 <div class="paragraph">
-<p>ボリュームから数個のファイルのみをリストアする必要がある場合は、ボリューム全体をリストアする代わりに、個々のファイルをリストアすることもできます。同じ作業環境内の既存のボリューム、または同じクラウドアカウントを使用している別の作業環境にファイルをリストアできます。オンプレミスの ONTAP システム上のボリュームにファイルをリストアすることもできます。</p>
+<p>ONTAP のバックアップから数ファイルしかリストアしない場合は、ボリューム全体をリストアするのではなく、ファイルを個別にリストアすることもできます。ファイルは元の作業環境の既存のボリューム、または同じクラウドアカウントを使用している別の作業環境にリストアできます。オンプレミスの ONTAP システム上のボリュームにファイルをリストアすることもできます。</p>
 </div>
 <div class="paragraph">
-<p>複数のファイルを選択した場合は、選択したデスティネーションボリュームにすべてのファイルがリストアされます。ファイルを別のボリュームにリストアする場合は、リストアプロセスを複数回実行する必要があります。</p>
+<p>複数のファイルを選択した場合は、選択したデスティネーションボリュームにすべてのファイルがリストアされます。したがって、ファイルを別のボリュームにリストアする場合は、リストアプロセスを複数回実行する必要があります。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1091,7 +1095,7 @@
 <img src="/us-en/cloud-manager-backup-restore/images/tip.svg" alt="ヒント">
 </td>
 <td class="content">
-バックアップファイルがアーカイブストレージにある場合、個々のファイルをリストアすることはできません。この場合、アーカイブされていない新しいバックアップファイルからファイルをリストアするか、検索とリストアを使用してファイルをリストアするか、アーカイブされたバックアップからボリューム全体をリストアして、必要なファイルにアクセスできます。
+バックアップファイルがアーカイブストレージにある場合、個々のファイルをリストアすることはできません。この場合、アーカイブされていない新しいバックアップファイルからファイルをリストアしたり、アーカイブされたバックアップからボリューム全体をリストアして必要なファイルにアクセスしたり、検索とリストアを使用してファイルをリストアしたりできます。
 </td>
 </tr>
 </table>
@@ -1104,13 +1108,16 @@
 <p>ファイルリストア処理を実行するには、 Cloud Volumes ONTAP またはオンプレミスの ONTAP システムで ONTAP のバージョンが 9.6 以降である必要があります。</p>
 </li>
 <li>
-<p>バックアップファイルから個々のファイルをリストアする場合は、別のリストアインスタンス / 仮想マシンを使用します。を参照してください <a href="task-backup-to-s3.html#requirements">"AWS の要件"</a> または <a href="task-backup-to-azure.html#requirements">"Azure の要件"</a> 環境の準備状況を確認</p>
+<p>バックアップファイルから個々のファイルをリストアする場合は、別のリストアインスタンス / 仮想マシンを使用します。を参照してください <a href="concept-ontap-backup-to-cloud.html#cost">"ファイルリストア処理用に導入されるインスタンスのタイプ"</a> また、環境の準備が整っていることを確認します。</p>
 </li>
 <li>
-<p>ファイルをリストアするには、 Cloud Manager に権限を付与するユーザロールに特定の AWS EC2 権限も追加する必要があります。 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"すべての権限が正しく設定されていることを確認します"</a>。</p>
+<p>Amazon S3 のバックアップからファイルをリストアするには、 Cloud Manager に権限を付与するユーザロールに特定の AWS EC2 権限を追加する必要があります。また、特定のエンドポイントへのアウトバウンドインターネットアクセスを許可する必要があります。 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"構成ファイルをリストアする準備ができていることを確認します"</a>。</p>
 </li>
 <li>
 <p>AWS のクロスアカウントリストアを実行するには、 AWS コンソールで手動の操作が必要です。AWS のトピックを参照してください <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html" target="_blank" rel="noopener">"クロスアカウントバケットの権限を付与しています"</a> を参照してください。</p>
+</li>
+<li>
+<p>Azure Blob でのバックアップからファイルのリストアでは、特定のエンドポイントへのアウトバウンドインターネットアクセスが可能であることが必要です。 <a href="task-backup-onprem-to-azure.html#preparing-azure-blob-storage-for-backups">"構成ファイルをリストアする準備ができていることを確認します"</a>。</p>
 </li>
 </ul>
 </div>
@@ -1142,7 +1149,7 @@
 <p>ファイル（作業環境、ボリューム、およびフォルダ）をリストアする場所を選択し、 * リストア * をクリックします。</p>
 </li>
 <li>
-<p>ファイルがリストアされ、リストアインスタンスがシャットダウンされて、一定時間非アクティブになったあとのコストが削減されます。</p>
+<p>ファイルがリストアされ、非アクティブ状態が続くと Restore インスタンスがシャットダウンされてコストが削減されます。</p>
 </li>
 </ol>
 </div>
@@ -1156,7 +1163,7 @@
 <div class="sect3">
 <h4 id="browse-restore-を使用してファイルを復元します">Browse &amp; Restore を使用してファイルを復元します</h4>
 <div class="paragraph">
-<p>ボリュームバックアップからボリュームにファイルをリストアするには、次の手順を実行します。ボリュームの名前と、ファイルのリストアに使用するバックアップファイルの日付を確認しておく必要があります。この機能では、ライブブラウズを使用して、各バックアップファイル内のディレクトリとファイルのリストを表示できます。</p>
+<p>ONTAP ボリュームのバックアップからボリュームにファイルをリストアするには、次の手順を実行します。ボリュームの名前と、ファイルのリストアに使用するバックアップファイルの日付を確認しておく必要があります。この機能では、ライブブラウズを使用して、各バックアップファイル内のディレクトリとファイルのリストを表示できます。</p>
 </div>
 <div class="paragraph">
 <p>次のビデオでは、 1 つのファイルをリストアする手順を簡単に紹介します。</p>
@@ -1188,7 +1195,7 @@
 </div>
 </li>
 <li>
-<p>[* Continue （続行） ] をクリックすると、リストアインスタンスが開始されます。数分後、リストアインスタンスによってボリュームバックアップのフォルダとファイルのリストが表示されます。</p>
+<p>[* Continue （続行） ] をクリックすると、リストアインスタンスが開始されます。数分後に、ボリュームバックアップのフォルダとファイルのリストが表示されます。</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1283,10 +1290,13 @@
 <h2 id="検索とリストアを使用した-ontap-データのリストア">検索とリストアを使用した ONTAP データのリストア</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>検索とリストアを使用して、バックアップファイルからボリュームまたは個々のファイルをリストアできます。検索とリストアでは、クラウドストレージに保存されているすべてのバックアップから特定のプロバイダの特定のボリュームまたはファイルを検索して、リストアを実行できます。正確な作業環境名やボリューム名がわからなくても、検索ではすべてのボリュームのバックアップファイルが検索されます。</p>
+<p>検索とリストアを使用して、 ONTAP バックアップファイルからボリュームまたは個々のファイルをリストアできます。検索とリストアでは、クラウドストレージに保存されているすべてのバックアップから特定のプロバイダの特定のボリュームまたはファイルを検索して、リストアを実行できます。正確な作業環境名やボリューム名がわからなくても、検索ではすべてのボリュームのバックアップファイルが検索されます。</p>
 </div>
 <div class="paragraph">
-<p>バックアップファイルからボリュームをリストアすると、 Cloud Manager はバックアップのデータを使用して _new_volume を作成します。データは、同じ作業環境でボリュームとしてリストアすることも、ソースの作業環境と同じクラウドアカウントにある別の作業環境にリストアすることもできます。オンプレミスの ONTAP システムにボリュームをリストアすることもできます。</p>
+<p>検索処理では、 ONTAP ボリュームに対応するすべてのローカル Snapshot コピーも検索されます。ローカル Snapshot コピーからデータをリストアする方が、バックアップファイルからリストアするよりも高速で低コストなので、 Snapshot からデータをリストアできます。スナップショットは、キャンバスのボリュームの詳細ページから新しいボリュームとして復元できます。</p>
+</div>
+<div class="paragraph">
+<p>バックアップファイルからボリュームをリストアすると、 Cloud Backup はバックアップのデータを使用して _new_volume を作成します。データは、元の作業環境のボリュームとしてリストアすることも、ソースの作業環境と同じクラウドアカウントにある別の作業環境にリストアすることもできます。オンプレミスの ONTAP システムにボリュームをリストアすることもできます。</p>
 </div>
 <div class="paragraph">
 <p>ファイルは、元のボリュームの場所、同じ作業環境内の別のボリューム、または同じクラウドアカウントを使用している別の作業環境にリストアできます。オンプレミスの ONTAP システム上のボリュームにファイルをリストアすることもできます。</p>
@@ -1339,7 +1349,7 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>今後のリリースでサポートされるクラウドプロバイダが増える予定です。</p>
+<p>その他のクラウドプロバイダは、今後のリリースでサポートされる予定です。</p>
 </div>
 <div class="paragraph">
 <p>「オンプレミス ONTAP システム」とは、 FAS 、 AFF 、 ONTAP Select の各システムを指します。</p>
@@ -1374,6 +1384,9 @@
 <ul>
 <li>
 <p>Cloud Manager に権限を付与するユーザロールに、 Amazon Athena 、 AWS Glue 、および AWS S3 の特定の権限を追加する必要があります。 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"すべての権限が正しく設定されていることを確認します"</a>。</p>
+<div class="paragraph">
+<p>以前に設定したコネクタで Cloud Backup をすでに使用している場合は、ここで Athena 権限と Glue 権限を Cloud Manager ユーザロールに追加する必要があります。これらは新しい機能で、検索とリストアに必要です。</p>
+</div>
 </li>
 </ul>
 </div>
@@ -1397,11 +1410,11 @@
 <li>
 <p>ボリューム名またはファイルの一部または全体の名前、ファイル名の一部または全部、サイズの範囲、作成日の範囲、その他の検索フィルタを入力し、 * 検索 * をクリックします。</p>
 <div class="paragraph">
-<p>検索結果ページには、検索条件に一致するファイルまたはボリュームを含むすべてのバックアップファイルが表示されます。</p>
+<p>検索結果ページには、検索条件に一致するファイルまたはボリュームを含むすべての場所が表示されます。</p>
 </div>
 </li>
 <li>
-<p>ボリュームまたはファイルの復元に使用するバックアップファイルの * すべてのバックアップの表示 * をクリックし、実際に使用するバックアップファイルの * 復元 * をクリックします。</p>
+<p>ボリュームまたはファイルの復元に使用する場所の * すべてのバックアップの表示 * をクリックし、実際に使用するバックアップファイルの * 復元 * をクリックします。</p>
 </li>
 <li>
 <p>ボリュームまたはファイルをリストアする場所を選択し、 * リストア * をクリックします。</p>
@@ -1415,7 +1428,7 @@
 <p><span class="image"><img src="./media/diagram_search_restore_vol_file.png" alt="Search &amp; Restore を使用してボリュームまたはファイルのリストアを実行するフローを示す図"></span></p>
 </div>
 <div class="paragraph">
-<p>ご覧のように、実際に必要なのは、ボリュームまたはファイル名の一部だけです。クラウドバックアップでは、検索条件に一致するすべてのバックアップファイルを検索できます。</p>
+<p>ご覧のように、必要なのはボリュームやファイルの一部だけです。 Cloud Backup では、検索条件に一致するすべてのバックアップファイルが検索されます。</p>
 </div>
 </div>
 <div class="sect2">
@@ -1449,7 +1462,7 @@
 <p><span class="image"><img src="./media/screenshot_restore_enable_indexing.png" alt="インデックスカタログをアクティブ化した作業環境を示すスクリーンショット。"></span></p>
 </div>
 <div class="paragraph">
-<p>作業環境内のボリュームのサイズとクラウド内のバックアップファイルの数によっては、最初のインデックス作成プロセスに最大 1 時間かかることがあります。1 時間ごとに増分変更で更新され、最新の状態が維持されます。</p>
+<p>作業環境内のボリュームのサイズとクラウド内のバックアップファイルの数によっては、最初のインデックス作成プロセスに最大 1 時間かかることがあります。その後は、 1 時間ごとに差分変更を反映して透過的に更新され、最新の状態が維持されます。</p>
 </div>
 </div>
 <div class="sect2">
@@ -1498,7 +1511,10 @@
 </div>
 </li>
 <li>
-<p>ボリュームまたはファイルの復元に使用するバックアップファイルに対して、 * 復元 * をクリックします。</p>
+<p>クラウドからボリュームまたはファイルを復元するために使用するバックアップファイルに対して、 * 復元 * をクリックします。</p>
+<div class="paragraph">
+<p>検索結果からは、検索結果にファイルが含まれているローカルボリュームの Snapshot コピーも特定されます。この時点では、スナップショットに対して * リストア * ボタンは機能しませんが、バックアップファイルではなく Snapshot コピーからデータをリストアする場合は、ボリュームの名前と場所を書き留め、キャンバスのボリュームの詳細ページを開きます。 および * Restore from Snapshot copy * オプションを使用します。</p>
+</div>
 </li>
 <li>
 <p>ボリュームまたはファイルをリストアする場所を選択し、 * リストア * をクリックします。</p>
