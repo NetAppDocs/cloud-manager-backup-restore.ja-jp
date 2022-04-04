@@ -27,13 +27,13 @@ Cloud Backup for Applications を Cloud Manager とオンプレミスの SnapCen
 
 Oracle および Microsoft SQL アプリケーションのデータをオンプレミスの ONTAP から Amazon Web Services または Microsoft Azure にバックアップできます。
 
-link:concept-protect-app-data-to-cloud.html["オンプレミスアプリケーションのデータをクラウドで保護する方法については、こちらをご覧ください"]。
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-data-to-cloud.html["オンプレミスアプリケーションのデータをクラウドで保護する方法については、こちらをご覧ください"]。
 
 
 
 === すべての ONTAP バックアップファイルでボリュームまたはファイルを検索するための新しい検索とリストア機能。
 
-ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを使用して、すべての ONTAP バックアップファイル * にまたがるボリュームまたはファイルを検索できるようになりました。これは、どのクラスタまたはボリュームがデータのソースであるかがわからない場合に、リストアするデータを見つけるための新しい優れた方法です。 link:task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["検索とリストアの使用方法を説明します"]。
+ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを使用して、すべての ONTAP バックアップファイル * にまたがるボリュームまたはファイルを検索できるようになりました。これは、どのクラスタまたはボリュームがデータのソースであるかがわからない場合に、リストアするデータを見つけるための新しい優れた方法です。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["検索とリストアの使用方法を説明します"]。
 
 
 
@@ -43,7 +43,7 @@ link:concept-protect-app-data-to-cloud.html["オンプレミスアプリケー�
 
 === GKE Kubernetes クラスタから Google Cloud ストレージに永続ボリュームをバックアップする機能。
 
-ネットアップ Astra Trident がインストールされている GKE クラスタで、 Cloud Volumes ONTAP for GCP をクラスタのバックエンドストレージとして使用している場合は、 Google Cloud ストレージとの間で永続的ボリュームのバックアップとリストアを行うことができます。 link:task-backup-kubernetes-to-gcp.html["詳細については、こちらをご覧ください"]。
+ネットアップ Astra Trident がインストールされている GKE クラスタで、 Cloud Volumes ONTAP for GCP をクラスタのバックエンドストレージとして使用している場合は、 Google Cloud ストレージとの間で永続的ボリュームのバックアップとリストアを行うことができます。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-kubernetes-to-gcp.html["詳細については、こちらをご覧ください"]。
 
 
 
@@ -57,7 +57,7 @@ link:concept-protect-app-data-to-cloud.html["オンプレミスアプリケー�
 
 === バックアップポリシーを単一クラスタ内の個々のボリュームに割り当てることができるようになりました。
 
-これまでは、クラスタ内のすべてのボリュームに割り当てることができるバックアップポリシーは 1 つだけでした。1 つのクラスタに複数のバックアップポリシーを作成し、異なるボリュームに異なるポリシーを適用できるようになりました。 link:task-managing-backups-ontap#changing-the-policy-assigned-to-existing-volumes["クラスタの新しいバックアップポリシーを作成し、選択したボリュームに割り当てる方法を参照してください"]。
+これまでは、クラスタ内のすべてのボリュームに割り当てることができるバックアップポリシーは 1 つだけでした。1 つのクラスタに複数のバックアップポリシーを作成し、異なるボリュームに異なるポリシーを適用できるようになりました。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-managing-backups-ontap#changing-the-policy-assigned-to-existing-volumes["クラスタの新しいバックアップポリシーを作成し、選択したボリュームに割り当てる方法を参照してください"]。
 
 
 
@@ -71,7 +71,7 @@ link:concept-protect-app-data-to-cloud.html["オンプレミスアプリケー�
 
 === すべてのバックアップジョブとリストアジョブの処理中ステータスを確認するには、新しいジョブモニタを使用できます。
 
-ジョブモニタは、バックアップポリシーの変更やバックアップの削除など、複数のボリュームに対して処理を開始した場合に非常に役立ちます。そのため、すべてのボリュームで処理が完了したことを確認できます。 link:task-monitor-backup-jobs.html["「ジョブモニタの使用方法」を参照してください"]。
+ジョブモニタは、バックアップポリシーの変更やバックアップの削除など、複数のボリュームに対して処理を開始した場合に非常に役立ちます。そのため、すべてのボリュームで処理が完了したことを確認できます。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html["「ジョブモニタの使用方法」を参照してください"]。
 
 
 

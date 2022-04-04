@@ -67,7 +67,7 @@ BYOL Cloud Backup ライセンスは、 Cloud Manager アカウントに関連�
 
 Cloud Backup BYOL ライセンスがない場合は、 Cloud Manager の右下にあるチャットアイコンをクリックしてライセンスを購入してください。
 
-必要に応じて、使用しない Cloud Volumes ONTAP の未割り当てのノードベースライセンスがある場合は、ドル同等かつ同じ有効期限で Cloud Backup ライセンスに変換できます。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-managing-licenses.html#exchange-unassigned-node-based-licenses["詳細については、こちらをご覧ください"^]。
+必要に応じて、使用しない Cloud Volumes ONTAP の未割り当てのノードベースライセンスがある場合は、ドル同等かつ同じ有効期限で Cloud Backup ライセンスに変換できます。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["詳細については、こちらをご覧ください"^]。
 
 Cloud Manager の Digital Wallet ページを使用して、 Cloud Backup の BYOL ライセンスを管理します。新しいライセンスを追加したり、既存のライセンスを更新したりできます。
 
