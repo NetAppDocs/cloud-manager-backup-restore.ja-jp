@@ -200,7 +200,7 @@ image:screenshot_delete_all_backups.png["作業環境のすべてのバックア
 
 ボリュームのすべてのバックアップを削除すると、そのボリュームの以降のバックアップも無効になります。
 
-可能です <<Starting and stopping backups of volumes,ボリュームのバックアップの作成を再開します>> ［ Manage Backups （バックアップの管理） ］ ページからいつでもアクセスできます。
+可能です <<Enabling and disabling backups of volumes,ボリュームのバックアップの作成を再開します>> ［ Manage Backups （バックアップの管理） ］ ページからいつでもアクセスできます。
 
 .手順
 . [*Kubernetes *] タブで、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] をソースボリュームとして選択し、 * Details & Backup List * を選択します。

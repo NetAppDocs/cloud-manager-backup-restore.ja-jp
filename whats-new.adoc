@@ -17,21 +17,21 @@ Cloud Backup の新機能をご確認ください。
 
 
 
-== 2022 年 4 月 3 日
+== 2022 年 4 月 4 日
 
 
 
-=== アプリケーション 1.1.0 向けのクラウドバックアップのサポート
+=== Cloud Backup for Applications 1.1.0 （ SnapCenter 搭載）の GA 版になりました
 
-Cloud Backup for Applications を Cloud Manager とオンプレミスの SnapCenter に統合することで、アプリケーションと整合性のある Snapshot をオンプレミスの ONTAP からクラウドにバックアップできます。必要に応じて、クラウドからオンプレミスの SnapCenter サーバにリストアできます。
+新しい Cloud Backup for Applications 機能を使用すると、 Oracle および Microsoft SQL の既存のアプリケーション整合性スナップショット（バックアップ）を、オンプレミスのプライマリストレージから AWS S3 または Azure Blob のクラウドオブジェクトストレージにオフロードできます。
 
-Oracle および Microsoft SQL アプリケーションのデータをオンプレミスの ONTAP から Amazon Web Services または Microsoft Azure にバックアップできます。
+必要に応じて、クラウドからオンプレミスへデータをリストアできます。
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-data-to-cloud.html["オンプレミスアプリケーションのデータをクラウドで保護する方法については、こちらをご覧ください"]。
 
 
 
-=== すべての ONTAP バックアップファイルでボリュームまたはファイルを検索するための新しい検索とリストア機能。
+=== すべての ONTAP バックアップファイルでボリュームまたはファイルを検索するための新しい検索とリストア機能
 
 ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを使用して、すべての ONTAP バックアップファイル * にまたがるボリュームまたはファイルを検索できるようになりました。これは、どのクラスタまたはボリュームがデータのソースであるかがわからない場合に、リストアするデータを見つけるための新しい優れた方法です。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["検索とリストアの使用方法を説明します"]。
 
@@ -41,13 +41,13 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== GKE Kubernetes クラスタから Google Cloud ストレージに永続ボリュームをバックアップする機能。
+=== GKE Kubernetes クラスタから Google Cloud ストレージに永続ボリュームをバックアップする機能
 
 ネットアップ Astra Trident がインストールされている GKE クラスタで、 Cloud Volumes ONTAP for GCP をクラスタのバックエンドストレージとして使用している場合は、 Google Cloud ストレージとの間で永続的ボリュームのバックアップとリストアを行うことができます。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-kubernetes-to-gcp.html["詳細については、こちらをご覧ください"]。
 
 
 
-=== Cloud Data Sense を使用して Cloud Backup ファイルをスキャンするベータ機能は、本リリースでは廃止されました。
+=== Cloud Data Sense を使用して Cloud Backup ファイルをスキャンするベータ機能は、本リリースでは廃止されました
 
 
 
@@ -55,13 +55,13 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== バックアップポリシーを単一クラスタ内の個々のボリュームに割り当てることができるようになりました。
+=== バックアップポリシーを単一クラスタ内の個々のボリュームに割り当てることができるようになりました
 
-これまでは、クラスタ内のすべてのボリュームに割り当てることができるバックアップポリシーは 1 つだけでした。1 つのクラスタに複数のバックアップポリシーを作成し、異なるボリュームに異なるポリシーを適用できるようになりました。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-managing-backups-ontap#changing-the-policy-assigned-to-existing-volumes["クラスタの新しいバックアップポリシーを作成し、選択したボリュームに割り当てる方法を参照してください"]。
+これまでは、クラスタ内のすべてのボリュームに割り当てることができるバックアップポリシーは 1 つだけでした。1 つのクラスタに複数のバックアップポリシーを作成し、異なるボリュームに異なるポリシーを適用できるようになりました。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap#changing-the-policy-assigned-to-existing-volumes["クラスタの新しいバックアップポリシーを作成し、選択したボリュームに割り当てる方法を参照してください"]。
 
 
 
-=== 新しいオプションを使用すると、新規に作成されたボリュームにデフォルトのバックアップポリシーを自動的に適用できます。
+=== 新しいオプションを使用すると、新規に作成されたボリュームにデフォルトのバックアップポリシーを自動的に適用できます
 
 以前は、 Cloud Backup をアクティブ化したあとに作業環境で作成した新しいボリュームには、バックアップポリシーを手動で適用する必要がありました。これで、 Cloud Manager 、 System Manager 、 CLI 、または API を使用してボリュームを作成したかどうかに関係なく、 Cloud Backup はボリュームを検出し、デフォルトポリシーとして選択したバックアップポリシーを適用します。
 
@@ -69,7 +69,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== すべてのバックアップジョブとリストアジョブの処理中ステータスを確認するには、新しいジョブモニタを使用できます。
+=== すべてのバックアップジョブとリストアジョブの処理中ステータスを確認するには、新しいジョブモニタを使用できます
 
 ジョブモニタは、バックアップポリシーの変更やバックアップの削除など、複数のボリュームに対して処理を開始した場合に非常に役立ちます。そのため、すべてのボリュームで処理が完了したことを確認できます。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html["「ジョブモニタの使用方法」を参照してください"]。
 
@@ -79,13 +79,13 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== AKS Kubernetes クラスタから Azure BLOB ストレージに永続ボリュームをバックアップする機能。
+=== AKS Kubernetes クラスタから Azure BLOB ストレージに永続ボリュームをバックアップする機能
 
 AKS クラスタに NetApp Astra Trident がインストールされていて、クラスタのバックエンドストレージとして Cloud Volumes ONTAP for Azure を使用している場合、 Azure BLOB ストレージとのボリュームをバックアップおよびリストアできます。 link:task-backup-kubernetes-to-azure.html["詳細については、こちらをご覧ください"]。
 
 
 
-=== このリリースでは、業界標準に合わせて Cloud Backup Service の料金が変更されています。
+=== このリリースでは、業界標準に合わせて Cloud Backup Service の料金が変更されています
 
 バックアップファイルのサイズに基づいてネットアップに容量を支払う代わりに、バックアップ対象のソース ONTAP ボリュームの論理使用容量（ ONTAP の効率化前）で計算された、保護対象のデータにのみ料金が発生します。この容量はフロントエンドテラバイト（ FETB ）とも呼ばれます。
 
@@ -95,13 +95,13 @@ AKS クラスタに NetApp Astra Trident がインストールされていて、
 
 
 
-=== EKS Kubernetes クラスタから Amazon S3 に永続ボリュームをバックアップできます。
+=== EKS Kubernetes クラスタから Amazon S3 に永続ボリュームをバックアップできます
 
 EKS クラスタに NetApp Astra Trident がインストールされていて、クラスタのバックエンドストレージとして Cloud Volumes ONTAP for AWS を使用している場合、 Amazon S3 との間でボリュームをバックアップおよびリストアできます。 link:task-backup-kubernetes-to-s3.html["詳細については、こちらをご覧ください"]。
 
 
 
-=== DP ボリュームのバックアップ機能が強化されました。
+=== DP ボリュームのバックアップ機能が強化されました
 
 Cloud Backup で、 SVM-DR 関係のターゲット ONTAP システムに存在する DP ボリュームのバックアップの作成がサポートされるようになりました。いくつかの制限事項があります。を参照してください link:concept-ontap-backup-to-cloud.html#limitations["制限事項"] を参照してください。
 
@@ -111,19 +111,19 @@ Cloud Backup で、 SVM-DR 関係のターゲット ONTAP システムに存在�
 
 
 
-=== オンプレミスの ONTAP システムにボリュームをリストアする際にプライベートエンドポイントを選択できます。
+=== オンプレミスの ONTAP システムにボリュームをリストアする際にプライベートエンドポイントを選択できます
 
 Amazon S3 または Azure Blob にあるバックアップファイルからオンプレミスの ONTAP システムにボリュームをリストアする場合、オンプレミスシステムに接続するプライベートかつセキュアなプライベートエンドポイントを選択できるようになりました。
 
 
 
-=== 古いバックアップファイルを数日後にアーカイブストレージに階層化してコストを削減できるようになりました。
+=== 古いバックアップファイルを数日後にアーカイブストレージに階層化してコストを削減できるようになりました
 
 クラスタで ONTAP 9.10.1 以降が実行されており、 AWS または Azure クラウドストレージを使用している場合に、アーカイブストレージへのバックアップの階層化を有効にすることができます。詳細については、を参照してください link:reference-aws-backup-tiers.html["AWS S3 アーカイブストレージクラス"] および link:reference-azure-backup-tiers.html["Azure BLOB アーカイブアクセス層"]。
 
 
 
-=== Cloud Backup BYOL ライセンスが、 Digital Wallet の Data Services Licenses タブに移動しました。
+=== Cloud Backup BYOL ライセンスが、 Digital Wallet の Data Services Licenses タブに移動しました
 
 Cloud Backup の BYOL ライセンスが、 Cloud Manager Digital Wallet の Cloud Backup Licenses タブから Data Services Licenses タブに移動しました。
 
@@ -133,21 +133,21 @@ Cloud Backup の BYOL ライセンスが、 Cloud Manager Digital Wallet の Clo
 
 
 
-=== ボリュームまたはファイルのリストアを実行するときに、バックアップページでバックアップファイルのサイズを確認できるようになりました。
+=== ボリュームまたはファイルのリストアを実行するときに、バックアップページでバックアップファイルのサイズを確認できるようになりました
 
 これは、不要な大容量のバックアップファイルを削除する場合や、バックアップファイルのサイズを比較して、悪意のあるソフトウェア攻撃の結果として発生する可能性のある異常なバックアップファイルを特定する場合に便利です。
 
 
 
-=== クラウドバックアップのコストを比較するための TCO 計算ツールが用意されています。
+=== クラウドバックアップのコストを比較するための TCO 計算ツールが用意されています
 
 総所有コスト計算ツールを使用すると、 Cloud Backup の総所有コストを把握し、これらのコストを従来のバックアップソリューションと比較して、削減可能なコストを見積もることができます。ご確認くださいhttps://cloud.netapp.com/cloud-backup-service-tco-calculator["こちらをご覧ください"^]。
 
 
 
-=== 作業環境に対する Cloud Backup の登録を解除する機能。
+=== 作業環境に対する Cloud Backup の登録を解除する機能
 
-これで、簡単に実現できます link:task_managing_backups.html#unregistering-cloud-backup-for-a-working-environment["作業環境での Cloud Backup の登録を解除します"] その作業環境でバックアップ機能を使用しない（または課金される）場合。
+これで、簡単に実現できます link:task_manage_backups.html#unregistering-cloud-backup-for-a-working-environment["作業環境での Cloud Backup の登録を解除します"] その作業環境でバックアップ機能を使用しない（または課金される）場合。
 
 
 
@@ -155,27 +155,27 @@ Cloud Backup の BYOL ライセンスが、 Cloud Manager Digital Wallet の Clo
 
 
 
-=== ボリュームのオンデマンドバックアップを作成する機能。
+=== ボリュームのオンデマンドバックアップを作成する機能
 
 オンデマンドバックアップをいつでも作成して、ボリュームの現在の状態をキャプチャできるようになりました。これは、ボリュームに重要な変更が加えられており、次のスケジュールされたバックアップがそのデータを保護するのを待つ必要がない場合に便利です。
 
-link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-time["オンデマンドバックアップの作成方法を参照してください"]。
+link:task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time["オンデマンドバックアップの作成方法を参照してください"]。
 
 
 
-=== プライベートインターフェイス接続を定義して、 Amazon S3 へのセキュアなバックアップを実現できる。
+=== プライベートインターフェイス接続を定義して、 Amazon S3 へのセキュアなバックアップを実現できる
 
 オンプレミスの ONTAP システムから Amazon S3 へのバックアップを設定する際に、アクティブ化ウィザードでプライベートインターフェイスエンドポイントへの接続を定義できるようになりました。これにより、オンプレミスシステムをプライベートかつセキュアに接続するネットワークインターフェイスを、 AWS PrivateLink を基盤とするサービスに使用できるようになります。 link:task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups["このオプションの詳細を参照してください"]。
 
 
 
-=== Amazon S3 にデータをバックアップする際に、お客様が管理する独自のキーをデータ暗号化用に選択できるようになりました。
+=== Amazon S3 にデータをバックアップする際に、お客様が管理する独自のキーをデータ暗号化用に選択できるようになりました
 
 セキュリティと制御を強化するために、デフォルトの Amazon S3 暗号化キーを使用する代わりに、アクティブ化ウィザードでお客様が管理するデータ暗号化キーを選択できます。オンプレミスの ONTAP システムまたは AWS の Cloud Volumes ONTAP システムからバックアップを設定する場合に使用できます。
 
 
 
-=== 30 、 000 を超えるファイルを含むディレクトリからファイルをリストアできるようになりました。
+=== 30 、 000 を超えるファイルを含むディレクトリからファイルをリストアできるようになりました
 
 
 
@@ -183,13 +183,13 @@ link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-tim
 
 
 
-=== Azure Blob へのセキュアなバックアップを実現するためのプライベートエンドポイント接続を定義する機能。
+=== Azure Blob へのセキュアなバックアップを実現するためのプライベートエンドポイント接続を定義する機能
 
 オンプレミスの ONTAP システムから Azure Blob へのバックアップを設定する場合は、アクティブ化ウィザードで Azure プライベートエンドポイントへの接続を定義できます。これにより、プライベートかつセキュアに Azure Private Link を搭載したサービスに接続するネットワークインターフェイスを使用できます。
 
 
 
-=== 毎時バックアップポリシーがサポートされるようになりました。
+=== 毎時バックアップポリシーがサポートされるようになりました
 
 この新しいポリシーは、既存の Daily 、 Weekly 、および Monthly ポリシーに追加されています。毎時バックアップポリシーは、最小限の目標復旧時点（ RPO ）を提供します。
 
@@ -199,7 +199,7 @@ link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-tim
 
 
 
-=== これで、さまざまなアカウントとリージョンを使用してバックアップを作成できるようになりました。
+=== これで、さまざまなアカウントとリージョンを使用してバックアップを作成できるようになりました
 
 Cloud Backup で、 Cloud Volumes ONTAP システムに使用するアカウントやサブスクリプションとは異なるものを使用してバックアップを作成できるようになりました。Cloud Volumes ONTAP システムの導入リージョンとは異なるリージョンにバックアップファイルを作成することもできます。
 
@@ -207,13 +207,13 @@ Cloud Backup で、 Cloud Volumes ONTAP システムに使用するアカウン�
 
 
 
-=== Azure Blob にデータをバックアップする際のデータ暗号化に使用する、お客様が管理する独自のキーを選択できるようになりました。
+=== Azure Blob にデータをバックアップする際のデータ暗号化に使用する、お客様が管理する独自のキーを選択できるようになりました
 
 セキュリティと制御を強化するために、 Microsoft が管理するデフォルトの暗号化キーを使用する代わりに、アクティベーションウィザードで、お客様が管理する独自のキーを選択してデータを暗号化できます。オンプレミスの ONTAP システムまたは Azure の Cloud Volumes ONTAP システムからバックアップを設定する場合に使用できます。
 
 
 
-=== 単一ファイルのリストアを使用する場合、一度に最大 100 個のファイルをリストアできるようになりました。
+=== 単一ファイルのリストアを使用する場合、一度に最大 100 個のファイルをリストアできるようになりました
 
 
 
@@ -221,7 +221,7 @@ Cloud Backup で、 Cloud Volumes ONTAP システムに使用するアカウン�
 
 
 
-=== ONTAP 9.8 以降を使用している場合は、 DP ボリュームの制限が解除されました。
+=== ONTAP 9.8 以降を使用している場合は、 DP ボリュームの制限が解除されました
 
 データ保護（ DP ）ボリュームのバックアップに関する 2 つの既知の制限事項が解決されました。
 
@@ -241,13 +241,13 @@ Cloud Backup で、 Cloud Volumes ONTAP システムに使用するアカウン�
 
 
 
-=== System Manager を使用して Cloud Backup の処理を実行できるようになりました。
+=== System Manager を使用して Cloud Backup の処理を実行できるようになりました
 
 ONTAP 9.9.1 の新機能では、 System Manager を使用して、オンプレミスの ONTAP のバックアップを Cloud Backup で設定したオブジェクトストレージに送信できます。 link:https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["Cloud Backup を使用してボリュームをクラウドにバックアップする方法については、 System Manager の説明を参照してください。"^]
 
 
 
-=== いくつかの機能拡張により、バックアップポリシーが改善されました。
+=== いくつかの機能拡張により、バックアップポリシーが改善されました
 
 * 次に、日単位、週単位、月単位のバックアップを組み合わせたカスタムポリシーを作成します。
 * バックアップポリシーを変更すると、元のバックアップポリシーを使用してすべてのボリュームに環境のすべての新しいバックアップ * および * が変更されます。これまでは、新しいボリュームバックアップにのみ適用されていました。

@@ -127,7 +127,7 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 
 === StorageGRID を準備しています
 
-StorageGRID は、次の要件を満たす必要があります。を参照してください https://docs.netapp.com/sgws-115/index.jsp["StorageGRID のドキュメント"^] を参照してください。
+StorageGRID は、次の要件を満たす必要があります。を参照してください https://docs.netapp.com/us-en/storagegrid-116/["StorageGRID のドキュメント"^] を参照してください。
 
 サポートされている StorageGRID のバージョン:: StorageGRID 10.3 以降がサポートされます。
 S3 クレデンシャル:: StorageGRID へのバックアップを設定する際、サービスアカウントの S3 アクセスキーとシークレットキーを入力するようにバックアップウィザードで求められます。サービスアカウントを使用すると、 Cloud Backup でバックアップの認証を行い、バックアップの格納に使用する StorageGRID バケットにアクセスできます。StorageGRID が誰が要求を行うかを認識できるようにするには、キーが必要です。
