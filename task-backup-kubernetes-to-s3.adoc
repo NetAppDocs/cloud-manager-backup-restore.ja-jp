@@ -66,7 +66,7 @@ Kubernetes クラスタの要件::
 +
 --
 * Kubernetes クラスタを Cloud Manager の作業環境として検出しておきます。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-aws.html["Kubernetes クラスタの検出方法を参照してください"^]。
-* Trident はクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以上である必要があります。を参照してください link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident のインストール方法"^] または https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["Trident バージョンをアップグレードする方法"^]。
+* Trident はクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以上である必要があります。を参照してください https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html["Trident のインストール方法"^] または https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["Trident バージョンをアップグレードする方法"^]。
 * クラスタのバックエンドストレージに AWS で Cloud Volumes ONTAP が使用されている必要があります。
 * ONTAP システムは Kubernetes クラスタと同じ AWS リージョンに配置する必要があり、 Cloud Volumes ONTAP 9.7P5 以降を実行している必要があります。
 +
