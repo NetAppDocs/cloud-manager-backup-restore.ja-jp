@@ -1719,4 +1719,5 @@
   <block id="e63547e1b25be3f2854e3f50cbc53e4c" category="paragraph">可能です <block ref="aa20de8329f0af2f510902910d29f0be" category="inline-link-macro-rx"></block>。また可能です <block ref="091cc4395662354f7a5868ee2318ef97" category="inline-link-macro-rx"></block> GCP 内の同じ Kubernetes クラスタまたは別の Kubernetes クラスタ（同じリージョン内）上の新しいボリュームです。</block>
   <block id="e0413a89d4f4e5f20e8ebe8fa7f79026" category="paragraph">クラスタで ONTAP 9.10.1 以降が実行されており、クラウドストレージに AWS または Azure を使用している場合は、特定の日数が経過したバックアップのアーカイブストレージへの階層化を有効または無効にすることもできます。</block>
   <block id="550dc506285db04f092b52843f119230" category="paragraph"><block ref="00d667b43393b5baa7f260d36e9ea7c9" category="inline-link-macro-rx"></block>。<block ref="b55a4bc37138995257f41826650c3872" category="inline-link-macro-rx"></block>。</block>
+  <block id="15541295bd26cb0dbcc3c3b8b86b0ea9" category="admonition">作業環境の詳細が更新されるまで先に進まないでください。作業環境の詳細が更新されるまでに最大 30 分かかることがあります。30 分後にウィザードを閉じ、手順 1 から再試行して作業環境の詳細を確認してください。作業環境の詳細が更新されていない場合は再試行して、正しい作業環境が追加されていることを確認してください。</block>
 </blocks>
