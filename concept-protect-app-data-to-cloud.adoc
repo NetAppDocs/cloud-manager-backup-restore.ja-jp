@@ -20,6 +20,12 @@ Oracle および Microsoft SQL アプリケーションのデータをオンプ�
 
 NOTE: SnapCenter ソフトウェア 4.6 を使用している必要があります。
 
+Cloud Backup for Applications の詳細については、以下を参照してください。
+
+* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration["クラウドバックアップと SnapCenter を使用したアプリケーション対応バックアップ"^]
+* https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications["アプリケーション向けのクラウドバックアップ"^]
+
+
 
 
 == 要件

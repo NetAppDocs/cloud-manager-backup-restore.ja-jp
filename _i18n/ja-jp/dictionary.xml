@@ -1721,4 +1721,9 @@
   <block id="15541295bd26cb0dbcc3c3b8b86b0ea9" category="admonition">作業環境の詳細が更新されるまで先に進まないでください。作業環境の詳細が更新されるまでに最大 30 分かかることがあります。30 分後にウィザードを閉じ、手順 1 から再試行して作業環境の詳細を確認してください。作業環境の詳細が更新されていない場合は再試行して、正しい作業環境が追加されていることを確認してください。</block>
   <block id="a7aea8698166f2ca86f6eca652031639" category="list-text">Trident はクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以上である必要があります。を参照してください<block ref="efafd7c7be663b6b746c03d24d88023f" category="inline-link-rx"></block> または<block ref="23a633d2f31911781b4c35e0d8f7c8b9" category="inline-link-rx"></block>。</block>
   <block id="40ff48613d00df6a5c5543aa0140c38b" category="paragraph"><block ref="40ff48613d00df6a5c5543aa0140c38b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="14f3ef2e312755e7942bb9d424acba3a" category="paragraph">Cloud Backup for Applications の詳細については、以下を参照してください。</block>
+  <block id="ca6aeed84517a7133f1abaebed19854e" category="inline-link">クラウドバックアップと SnapCenter を使用したアプリケーション対応バックアップ</block>
+  <block id="ef3b2f715336b2a637c8e6704ee4bf21" category="list-text"><block ref="ef3b2f715336b2a637c8e6704ee4bf21" category="inline-link-rx"></block></block>
+  <block id="02f724fd5f12a11414bbb1d866d83955" category="inline-link">アプリケーション向けのクラウドバックアップ</block>
+  <block id="c1838894b610d8946ffa3203fa32c67c" category="list-text"><block ref="c1838894b610d8946ffa3203fa32c67c" category="inline-link-rx"></block></block>
 </blocks>
