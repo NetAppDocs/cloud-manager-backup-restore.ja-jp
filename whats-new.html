@@ -45,31 +45,61 @@
   <link rel="stylesheet" href='/ja-jp/cloud-manager-backup-restore/css/na-utility.css' type='text/css'>
   <link rel="stylesheet" href='/ja-jp/cloud-manager-backup-restore/css/na-sidebar.css' type='text/css'>
   <link rel='stylesheet' href='/ja-jp/cloud-manager-backup-restore/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/cloud-manager-backup-restore/css/custom-dropdown.css' type='text/css'>
   <link rel='stylesheet' href='/ja-jp/cloud-manager-backup-restore/css/na-pagenav.css' type='text/css'>
 
   
   <link rel="stylesheet" href="/ja-jp/cloud-manager-backup-restore/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/ja-jp/cloud-manager-backup-restore/css/tabbed-blocks.css" type="text/css">
-  <link rel='stylesheet' href='/ja-jp/cloud-manager-backup-restore/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/ja-jp/cloud-manager-backup-restore/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    if (document.location.hostname === "docs.netapp.com") {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      head.appendChild(onetrustScript);
+    }
+
+    function OptanonWrapper() { }
+
+    if (document.location.hostname === "docs.netapp.com") {
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+      head.appendChild(adobe);
+
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81697994-3');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
-  <!-- Used for Product Family Page Sidebar Visibility --><link rel="stylesheet" href='/ja-jp/cloud-manager-backup-restore/css/product-family.css' type="text/css">
-  <script src='/ja-jp/cloud-manager-backup-restore/js/product-family.js'></script><!-- Used to import Promise for IE. Required for SearchKit -->
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ja-jp/cloud-manager-backup-restore/js/na-search.js'></script><script src='/ja-jp/cloud-manager-backup-restore/js/na-pagenav.js'></script><link rel='stylesheet' href='/ja-jp/cloud-manager-backup-restore/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/ja-jp/cloud-manager-backup-restore/css/prism-netapp.css' type='text/css'>
 
 
   <script src='/ja-jp/cloud-manager-backup-restore/js/na-utility.js'></script>
   <script src='/ja-jp/cloud-manager-backup-restore/js/clouddocs.js'></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    var head = document.getElementsByTagName('head')[0];
-    var adobe = document.createElement("script");
-    adobe.type = "text/javascript";
-    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
-    head.appendChild(adobe);
-  }
-  </script>
   <script src='/ja-jp/cloud-manager-backup-restore/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='/ja-jp/cloud-manager-backup-restore/js/toc.js'></script>
@@ -122,16 +152,8 @@
               $("#tg-sb-icon").toggleClass('fa-toggle-off');
           });
       });
-  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-81697994-3');
-  }
   </script>
-  <script src='/ja-jp/cloud-manager-backup-restore/js/version-dropdown.js'></script>
+  <script src='/ja-jp/cloud-manager-backup-restore/js/custom-dropdown.js'></script>
   <script src='/ja-jp/cloud-manager-backup-restore/js/FileSaver.min.js'></script>
   <script src='/ja-jp/cloud-manager-backup-restore/js/jszip-utils.min.js'></script>
   <script src='/ja-jp/cloud-manager-backup-restore/js/jszip.min.js'></script>
@@ -139,20 +161,15 @@
 </head>
 
 
-  <body class role="document">
+  <body class role="document" data-flavor="">
     <div id="page" class="n-off-canvas-menu">
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
   
   <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[Cloud Backup の新機能](https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />GitHub で編集</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a>
-    </div>
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[Cloud Backup の新機能](https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -162,6 +179,7 @@
       </nav>
     </div>
   </div>
+  
   
   <!-- Start top_hat -->
   <div class="n-top-hat">
@@ -245,7 +263,8 @@
           data-did-you-mean="{suggestion} を検索" 
           data-no-results-found-did-you-mean="{query} に該当する結果はありません。{suggestion} の間違いではありませんか?" 
           data-results-found="{hitCount} 件見つかりました"  
-          data-sk-es-pf-indexes=""></div>
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
@@ -334,6 +353,9 @@
 </div>
 <div class="n-pdf-body-container">
   <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
         <a target="_blank" href="/ja-jp/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_のドキュメント.pdf" >
           <img src="/ja-jp/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
 
@@ -355,6 +377,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/はじめに.pdf" 
@@ -383,6 +408,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/ONTAP_データのバックアップとリストア.pdf" 
@@ -425,6 +453,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/Kubernetes_データのバックアップとリストア.pdf" 
@@ -459,6 +490,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/オンプレミスのアプリケーションデータのバックアップとリストア.pdf" 
@@ -478,6 +512,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/アプリケーションデータをリストアする.pdf" 
@@ -513,6 +550,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/参照.pdf" 
@@ -530,6 +570,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/クロスアカウント構成とクロスリージョン構成.pdf" 
@@ -565,6 +608,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/知識とサポート.pdf" 
@@ -730,6 +776,7 @@
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
 
+
   </div>
   
 
@@ -782,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-04 20:21:41 +0000">04/04/2022</time>
+    <time datetime="2022-04-05 16:56:53 +0000">04/05/2022</time>
     
   
 
@@ -797,22 +844,22 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2022-年-4-月-3-日">2022 年 4 月 3 日</h2>
+<h2 id="2022-年-4-月-4-日">2022 年 4 月 4 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="アプリケーション-1-1-0-向けのクラウドバックアップのサポート">アプリケーション 1.1.0 向けのクラウドバックアップのサポート</h3>
+<h3 id="cloud-backup-for-applications-1-1-0-snapcenter-搭載の-ga-版になりました">Cloud Backup for Applications 1.1.0 （ SnapCenter 搭載）の GA 版になりました</h3>
 <div class="paragraph">
-<p>Cloud Backup for Applications を Cloud Manager とオンプレミスの SnapCenter に統合することで、アプリケーションと整合性のある Snapshot をオンプレミスの ONTAP からクラウドにバックアップできます。必要に応じて、クラウドからオンプレミスの SnapCenter サーバにリストアできます。</p>
+<p>新しい Cloud Backup for Applications 機能を使用すると、 Oracle および Microsoft SQL の既存のアプリケーション整合性スナップショット（バックアップ）を、オンプレミスのプライマリストレージから AWS S3 または Azure Blob のクラウドオブジェクトストレージにオフロードできます。</p>
 </div>
 <div class="paragraph">
-<p>Oracle および Microsoft SQL アプリケーションのデータをオンプレミスの ONTAP から Amazon Web Services または Microsoft Azure にバックアップできます。</p>
+<p>必要に応じて、クラウドからオンプレミスへデータをリストアできます。</p>
 </div>
 <div class="paragraph">
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-data-to-cloud.html">"オンプレミスアプリケーションのデータをクラウドで保護する方法については、こちらをご覧ください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="すべての-ontap-バックアップファイルでボリュームまたはファイルを検索するための新しい検索とリストア機能">すべての ONTAP バックアップファイルでボリュームまたはファイルを検索するための新しい検索とリストア機能。</h3>
+<h3 id="すべての-ontap-バックアップファイルでボリュームまたはファイルを検索するための新しい検索とリストア機能">すべての ONTAP バックアップファイルでボリュームまたはファイルを検索するための新しい検索とリストア機能</h3>
 <div class="paragraph">
 <p>ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを使用して、すべての ONTAP バックアップファイル * にまたがるボリュームまたはファイルを検索できるようになりました。これは、どのクラスタまたはボリュームがデータのソースであるかがわからない場合に、リストアするデータを見つけるための新しい優れた方法です。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore">"検索とリストアの使用方法を説明します"</a>。</p>
 </div>
@@ -823,13 +870,13 @@
 <h2 id="2022-年-3-月-3-日">2022 年 3 月 3 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="gke-kubernetes-クラスタから-google-cloud-ストレージに永続ボリュームをバックアップする機能">GKE Kubernetes クラスタから Google Cloud ストレージに永続ボリュームをバックアップする機能。</h3>
+<h3 id="gke-kubernetes-クラスタから-google-cloud-ストレージに永続ボリュームをバックアップする機能">GKE Kubernetes クラスタから Google Cloud ストレージに永続ボリュームをバックアップする機能</h3>
 <div class="paragraph">
 <p>ネットアップ Astra Trident がインストールされている GKE クラスタで、 Cloud Volumes ONTAP for GCP をクラスタのバックエンドストレージとして使用している場合は、 Google Cloud ストレージとの間で永続的ボリュームのバックアップとリストアを行うことができます。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-kubernetes-to-gcp.html">"詳細については、こちらをご覧ください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cloud-data-sense-を使用して-cloud-backup-ファイルをスキャンするベータ機能は本リリースでは廃止されました">Cloud Data Sense を使用して Cloud Backup ファイルをスキャンするベータ機能は、本リリースでは廃止されました。</h3>
+<h3 id="cloud-data-sense-を使用して-cloud-backup-ファイルをスキャンするベータ機能は本リリースでは廃止されました">Cloud Data Sense を使用して Cloud Backup ファイルをスキャンするベータ機能は、本リリースでは廃止されました</h3>
 
 </div>
 </div>
@@ -838,13 +885,13 @@
 <h2 id="2022-年-2-月-14-日">2022 年 2 月 14 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="バックアップポリシーを単一クラスタ内の個々のボリュームに割り当てることができるようになりました">バックアップポリシーを単一クラスタ内の個々のボリュームに割り当てることができるようになりました。</h3>
+<h3 id="バックアップポリシーを単一クラスタ内の個々のボリュームに割り当てることができるようになりました">バックアップポリシーを単一クラスタ内の個々のボリュームに割り当てることができるようになりました</h3>
 <div class="paragraph">
-<p>これまでは、クラスタ内のすべてのボリュームに割り当てることができるバックアップポリシーは 1 つだけでした。1 つのクラスタに複数のバックアップポリシーを作成し、異なるボリュームに異なるポリシーを適用できるようになりました。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-managing-backups-ontap#changing-the-policy-assigned-to-existing-volumes">"クラスタの新しいバックアップポリシーを作成し、選択したボリュームに割り当てる方法を参照してください"</a>。</p>
+<p>これまでは、クラスタ内のすべてのボリュームに割り当てることができるバックアップポリシーは 1 つだけでした。1 つのクラスタに複数のバックアップポリシーを作成し、異なるボリュームに異なるポリシーを適用できるようになりました。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap#changing-the-policy-assigned-to-existing-volumes">"クラスタの新しいバックアップポリシーを作成し、選択したボリュームに割り当てる方法を参照してください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="新しいオプションを使用すると新規に作成されたボリュームにデフォルトのバックアップポリシーを自動的に適用できます">新しいオプションを使用すると、新規に作成されたボリュームにデフォルトのバックアップポリシーを自動的に適用できます。</h3>
+<h3 id="新しいオプションを使用すると新規に作成されたボリュームにデフォルトのバックアップポリシーを自動的に適用できます">新しいオプションを使用すると、新規に作成されたボリュームにデフォルトのバックアップポリシーを自動的に適用できます</h3>
 <div class="paragraph">
 <p>以前は、 Cloud Backup をアクティブ化したあとに作業環境で作成した新しいボリュームには、バックアップポリシーを手動で適用する必要がありました。これで、 Cloud Manager 、 System Manager 、 CLI 、または API を使用してボリュームを作成したかどうかに関係なく、 Cloud Backup はボリュームを検出し、デフォルトポリシーとして選択したバックアップポリシーを適用します。</p>
 </div>
@@ -853,7 +900,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="すべてのバックアップジョブとリストアジョブの処理中ステータスを確認するには新しいジョブモニタを使用できます">すべてのバックアップジョブとリストアジョブの処理中ステータスを確認するには、新しいジョブモニタを使用できます。</h3>
+<h3 id="すべてのバックアップジョブとリストアジョブの処理中ステータスを確認するには新しいジョブモニタを使用できます">すべてのバックアップジョブとリストアジョブの処理中ステータスを確認するには、新しいジョブモニタを使用できます</h3>
 <div class="paragraph">
 <p>ジョブモニタは、バックアップポリシーの変更やバックアップの削除など、複数のボリュームに対して処理を開始した場合に非常に役立ちます。そのため、すべてのボリュームで処理が完了したことを確認できます。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html">"「ジョブモニタの使用方法」を参照してください"</a>。</p>
 </div>
@@ -864,13 +911,13 @@
 <h2 id="2022-年-1-月-2-日">2022 年 1 月 2 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="aks-kubernetes-クラスタから-azure-blob-ストレージに永続ボリュームをバックアップする機能">AKS Kubernetes クラスタから Azure BLOB ストレージに永続ボリュームをバックアップする機能。</h3>
+<h3 id="aks-kubernetes-クラスタから-azure-blob-ストレージに永続ボリュームをバックアップする機能">AKS Kubernetes クラスタから Azure BLOB ストレージに永続ボリュームをバックアップする機能</h3>
 <div class="paragraph">
 <p>AKS クラスタに NetApp Astra Trident がインストールされていて、クラスタのバックエンドストレージとして Cloud Volumes ONTAP for Azure を使用している場合、 Azure BLOB ストレージとのボリュームをバックアップおよびリストアできます。 <a href="task-backup-kubernetes-to-azure.html">"詳細については、こちらをご覧ください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="このリリースでは業界標準に合わせて-cloud-backup-service-の料金が変更されています">このリリースでは、業界標準に合わせて Cloud Backup Service の料金が変更されています。</h3>
+<h3 id="このリリースでは業界標準に合わせて-cloud-backup-service-の料金が変更されています">このリリースでは、業界標準に合わせて Cloud Backup Service の料金が変更されています</h3>
 <div class="paragraph">
 <p>バックアップファイルのサイズに基づいてネットアップに容量を支払う代わりに、バックアップ対象のソース ONTAP ボリュームの論理使用容量（ ONTAP の効率化前）で計算された、保護対象のデータにのみ料金が発生します。この容量はフロントエンドテラバイト（ FETB ）とも呼ばれます。</p>
 </div>
@@ -881,13 +928,13 @@
 <h2 id="2021-年-11-月-28-日">2021 年 11 月 28 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="eks-kubernetes-クラスタから-amazon-s3-に永続ボリュームをバックアップできます">EKS Kubernetes クラスタから Amazon S3 に永続ボリュームをバックアップできます。</h3>
+<h3 id="eks-kubernetes-クラスタから-amazon-s3-に永続ボリュームをバックアップできます">EKS Kubernetes クラスタから Amazon S3 に永続ボリュームをバックアップできます</h3>
 <div class="paragraph">
 <p>EKS クラスタに NetApp Astra Trident がインストールされていて、クラスタのバックエンドストレージとして Cloud Volumes ONTAP for AWS を使用している場合、 Amazon S3 との間でボリュームをバックアップおよびリストアできます。 <a href="task-backup-kubernetes-to-s3.html">"詳細については、こちらをご覧ください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="dp-ボリュームのバックアップ機能が強化されました">DP ボリュームのバックアップ機能が強化されました。</h3>
+<h3 id="dp-ボリュームのバックアップ機能が強化されました">DP ボリュームのバックアップ機能が強化されました</h3>
 <div class="paragraph">
 <p>Cloud Backup で、 SVM-DR 関係のターゲット ONTAP システムに存在する DP ボリュームのバックアップの作成がサポートされるようになりました。いくつかの制限事項があります。を参照してください <a href="concept-ontap-backup-to-cloud.html#limitations">"制限事項"</a> を参照してください。</p>
 </div>
@@ -898,19 +945,19 @@
 <h2 id="2021-年-11-月-5-日">2021 年 11 月 5 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="オンプレミスの-ontap-システムにボリュームをリストアする際にプライベートエンドポイントを選択できます">オンプレミスの ONTAP システムにボリュームをリストアする際にプライベートエンドポイントを選択できます。</h3>
+<h3 id="オンプレミスの-ontap-システムにボリュームをリストアする際にプライベートエンドポイントを選択できます">オンプレミスの ONTAP システムにボリュームをリストアする際にプライベートエンドポイントを選択できます</h3>
 <div class="paragraph">
 <p>Amazon S3 または Azure Blob にあるバックアップファイルからオンプレミスの ONTAP システムにボリュームをリストアする場合、オンプレミスシステムに接続するプライベートかつセキュアなプライベートエンドポイントを選択できるようになりました。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="古いバックアップファイルを数日後にアーカイブストレージに階層化してコストを削減できるようになりました">古いバックアップファイルを数日後にアーカイブストレージに階層化してコストを削減できるようになりました。</h3>
+<h3 id="古いバックアップファイルを数日後にアーカイブストレージに階層化してコストを削減できるようになりました">古いバックアップファイルを数日後にアーカイブストレージに階層化してコストを削減できるようになりました</h3>
 <div class="paragraph">
 <p>クラスタで ONTAP 9.10.1 以降が実行されており、 AWS または Azure クラウドストレージを使用している場合に、アーカイブストレージへのバックアップの階層化を有効にすることができます。詳細については、を参照してください <a href="reference-aws-backup-tiers.html">"AWS S3 アーカイブストレージクラス"</a> および <a href="reference-azure-backup-tiers.html">"Azure BLOB アーカイブアクセス層"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cloud-backup-byol-ライセンスが-digital-wallet-の-data-services-licenses-タブに移動しました">Cloud Backup BYOL ライセンスが、 Digital Wallet の Data Services Licenses タブに移動しました。</h3>
+<h3 id="cloud-backup-byol-ライセンスが-digital-wallet-の-data-services-licenses-タブに移動しました">Cloud Backup BYOL ライセンスが、 Digital Wallet の Data Services Licenses タブに移動しました</h3>
 <div class="paragraph">
 <p>Cloud Backup の BYOL ライセンスが、 Cloud Manager Digital Wallet の Cloud Backup Licenses タブから Data Services Licenses タブに移動しました。</p>
 </div>
@@ -921,21 +968,21 @@
 <h2 id="2021-年-10-月-4-日">2021 年 10 月 4 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="ボリュームまたはファイルのリストアを実行するときにバックアップページでバックアップファイルのサイズを確認できるようになりました">ボリュームまたはファイルのリストアを実行するときに、バックアップページでバックアップファイルのサイズを確認できるようになりました。</h3>
+<h3 id="ボリュームまたはファイルのリストアを実行するときにバックアップページでバックアップファイルのサイズを確認できるようになりました">ボリュームまたはファイルのリストアを実行するときに、バックアップページでバックアップファイルのサイズを確認できるようになりました</h3>
 <div class="paragraph">
 <p>これは、不要な大容量のバックアップファイルを削除する場合や、バックアップファイルのサイズを比較して、悪意のあるソフトウェア攻撃の結果として発生する可能性のある異常なバックアップファイルを特定する場合に便利です。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="クラウドバックアップのコストを比較するための-tco-計算ツールが用意されています">クラウドバックアップのコストを比較するための TCO 計算ツールが用意されています。</h3>
+<h3 id="クラウドバックアップのコストを比較するための-tco-計算ツールが用意されています">クラウドバックアップのコストを比較するための TCO 計算ツールが用意されています</h3>
 <div class="paragraph">
 <p>総所有コスト計算ツールを使用すると、 Cloud Backup の総所有コストを把握し、これらのコストを従来のバックアップソリューションと比較して、削減可能なコストを見積もることができます。ご確認くださいhttps://cloud.netapp.com/cloud-backup-service-tco-calculator["こちらをご覧ください"^]。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="作業環境に対する-cloud-backup-の登録を解除する機能">作業環境に対する Cloud Backup の登録を解除する機能。</h3>
+<h3 id="作業環境に対する-cloud-backup-の登録を解除する機能">作業環境に対する Cloud Backup の登録を解除する機能</h3>
 <div class="paragraph">
-<p>これで、簡単に実現できます <a href="task_managing_backups.html#unregistering-cloud-backup-for-a-working-environment">"作業環境での Cloud Backup の登録を解除します"</a> その作業環境でバックアップ機能を使用しない（または課金される）場合。</p>
+<p>これで、簡単に実現できます <a href="task_manage_backups.html#unregistering-cloud-backup-for-a-working-environment">"作業環境での Cloud Backup の登録を解除します"</a> その作業環境でバックアップ機能を使用しない（または課金される）場合。</p>
 </div>
 </div>
 </div>
@@ -944,28 +991,28 @@
 <h2 id="2021-年-9-月-2-日">2021 年 9 月 2 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="ボリュームのオンデマンドバックアップを作成する機能">ボリュームのオンデマンドバックアップを作成する機能。</h3>
+<h3 id="ボリュームのオンデマンドバックアップを作成する機能">ボリュームのオンデマンドバックアップを作成する機能</h3>
 <div class="paragraph">
 <p>オンデマンドバックアップをいつでも作成して、ボリュームの現在の状態をキャプチャできるようになりました。これは、ボリュームに重要な変更が加えられており、次のスケジュールされたバックアップがそのデータを保護するのを待つ必要がない場合に便利です。</p>
 </div>
 <div class="paragraph">
-<p><a href="task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-time">"オンデマンドバックアップの作成方法を参照してください"</a>。</p>
+<p><a href="task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time">"オンデマンドバックアップの作成方法を参照してください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="プライベートインターフェイス接続を定義して-amazon-s3-へのセキュアなバックアップを実現できる">プライベートインターフェイス接続を定義して、 Amazon S3 へのセキュアなバックアップを実現できる。</h3>
+<h3 id="プライベートインターフェイス接続を定義して-amazon-s3-へのセキュアなバックアップを実現できる">プライベートインターフェイス接続を定義して、 Amazon S3 へのセキュアなバックアップを実現できる</h3>
 <div class="paragraph">
 <p>オンプレミスの ONTAP システムから Amazon S3 へのバックアップを設定する際に、アクティブ化ウィザードでプライベートインターフェイスエンドポイントへの接続を定義できるようになりました。これにより、オンプレミスシステムをプライベートかつセキュアに接続するネットワークインターフェイスを、 AWS PrivateLink を基盤とするサービスに使用できるようになります。 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"このオプションの詳細を参照してください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="amazon-s3-にデータをバックアップする際にお客様が管理する独自のキーをデータ暗号化用に選択できるようになりました">Amazon S3 にデータをバックアップする際に、お客様が管理する独自のキーをデータ暗号化用に選択できるようになりました。</h3>
+<h3 id="amazon-s3-にデータをバックアップする際にお客様が管理する独自のキーをデータ暗号化用に選択できるようになりました">Amazon S3 にデータをバックアップする際に、お客様が管理する独自のキーをデータ暗号化用に選択できるようになりました</h3>
 <div class="paragraph">
 <p>セキュリティと制御を強化するために、デフォルトの Amazon S3 暗号化キーを使用する代わりに、アクティブ化ウィザードでお客様が管理するデータ暗号化キーを選択できます。オンプレミスの ONTAP システムまたは AWS の Cloud Volumes ONTAP システムからバックアップを設定する場合に使用できます。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="30-000-を超えるファイルを含むディレクトリからファイルをリストアできるようになりました">30 、 000 を超えるファイルを含むディレクトリからファイルをリストアできるようになりました。</h3>
+<h3 id="30-000-を超えるファイルを含むディレクトリからファイルをリストアできるようになりました">30 、 000 を超えるファイルを含むディレクトリからファイルをリストアできるようになりました</h3>
 
 </div>
 </div>
@@ -974,13 +1021,13 @@
 <h2 id="2021-年-8-月-1-日">2021 年 8 月 1 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="azure-blob-へのセキュアなバックアップを実現するためのプライベートエンドポイント接続を定義する機能">Azure Blob へのセキュアなバックアップを実現するためのプライベートエンドポイント接続を定義する機能。</h3>
+<h3 id="azure-blob-へのセキュアなバックアップを実現するためのプライベートエンドポイント接続を定義する機能">Azure Blob へのセキュアなバックアップを実現するためのプライベートエンドポイント接続を定義する機能</h3>
 <div class="paragraph">
 <p>オンプレミスの ONTAP システムから Azure Blob へのバックアップを設定する場合は、アクティブ化ウィザードで Azure プライベートエンドポイントへの接続を定義できます。これにより、プライベートかつセキュアに Azure Private Link を搭載したサービスに接続するネットワークインターフェイスを使用できます。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="毎時バックアップポリシーがサポートされるようになりました">毎時バックアップポリシーがサポートされるようになりました。</h3>
+<h3 id="毎時バックアップポリシーがサポートされるようになりました">毎時バックアップポリシーがサポートされるようになりました</h3>
 <div class="paragraph">
 <p>この新しいポリシーは、既存の Daily 、 Weekly 、および Monthly ポリシーに追加されています。毎時バックアップポリシーは、最小限の目標復旧時点（ RPO ）を提供します。</p>
 </div>
@@ -991,7 +1038,7 @@
 <h2 id="2021-年-7-月-7-日">2021 年 7 月 7 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="これでさまざまなアカウントとリージョンを使用してバックアップを作成できるようになりました">これで、さまざまなアカウントとリージョンを使用してバックアップを作成できるようになりました。</h3>
+<h3 id="これでさまざまなアカウントとリージョンを使用してバックアップを作成できるようになりました">これで、さまざまなアカウントとリージョンを使用してバックアップを作成できるようになりました</h3>
 <div class="paragraph">
 <p>Cloud Backup で、 Cloud Volumes ONTAP システムに使用するアカウントやサブスクリプションとは異なるものを使用してバックアップを作成できるようになりました。Cloud Volumes ONTAP システムの導入リージョンとは異なるリージョンにバックアップファイルを作成することもできます。</p>
 </div>
@@ -1000,13 +1047,13 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="azure-blob-にデータをバックアップする際のデータ暗号化に使用するお客様が管理する独自のキーを選択できるようになりました">Azure Blob にデータをバックアップする際のデータ暗号化に使用する、お客様が管理する独自のキーを選択できるようになりました。</h3>
+<h3 id="azure-blob-にデータをバックアップする際のデータ暗号化に使用するお客様が管理する独自のキーを選択できるようになりました">Azure Blob にデータをバックアップする際のデータ暗号化に使用する、お客様が管理する独自のキーを選択できるようになりました</h3>
 <div class="paragraph">
 <p>セキュリティと制御を強化するために、 Microsoft が管理するデフォルトの暗号化キーを使用する代わりに、アクティベーションウィザードで、お客様が管理する独自のキーを選択してデータを暗号化できます。オンプレミスの ONTAP システムまたは Azure の Cloud Volumes ONTAP システムからバックアップを設定する場合に使用できます。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="単一ファイルのリストアを使用する場合一度に最大-100-個のファイルをリストアできるようになりました">単一ファイルのリストアを使用する場合、一度に最大 100 個のファイルをリストアできるようになりました。</h3>
+<h3 id="単一ファイルのリストアを使用する場合一度に最大-100-個のファイルをリストアできるようになりました">単一ファイルのリストアを使用する場合、一度に最大 100 個のファイルをリストアできるようになりました</h3>
 
 </div>
 </div>
@@ -1015,7 +1062,7 @@
 <h2 id="2021-年-6-月-7-日">2021 年 6 月 7 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="ontap-9-8-以降を使用している場合は-dp-ボリュームの制限が解除されました">ONTAP 9.8 以降を使用している場合は、 DP ボリュームの制限が解除されました。</h3>
+<h3 id="ontap-9-8-以降を使用している場合は-dp-ボリュームの制限が解除されました">ONTAP 9.8 以降を使用している場合は、 DP ボリュームの制限が解除されました</h3>
 <div class="paragraph">
 <p>データ保護（ DP ）ボリュームのバックアップに関する 2 つの既知の制限事項が解決されました。</p>
 </div>
@@ -1042,13 +1089,13 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="system-manager-を使用して-cloud-backup-の処理を実行できるようになりました">System Manager を使用して Cloud Backup の処理を実行できるようになりました。</h3>
+<h3 id="system-manager-を使用して-cloud-backup-の処理を実行できるようになりました">System Manager を使用して Cloud Backup の処理を実行できるようになりました</h3>
 <div class="paragraph">
 <p>ONTAP 9.9.1 の新機能では、 System Manager を使用して、オンプレミスの ONTAP のバックアップを Cloud Backup で設定したオブジェクトストレージに送信できます。 <a href="https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html" target="_blank" rel="noopener">"Cloud Backup を使用してボリュームをクラウドにバックアップする方法については、 System Manager の説明を参照してください。"</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="いくつかの機能拡張によりバックアップポリシーが改善されました">いくつかの機能拡張により、バックアップポリシーが改善されました。</h3>
+<h3 id="いくつかの機能拡張によりバックアップポリシーが改善されました">いくつかの機能拡張により、バックアップポリシーが改善されました</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1091,98 +1138,122 @@
   <div class="n-footer__bottom">
     <div class="n-container">
       <div class="n-footer__bottom-left">
-
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
             </li>
-
-</ul>
-</div>
-<div class="n-footer__social-links">
-<ul class="n-footer__social-link-list">
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
-<span class="n-footer__social-link-text">blog</span>
-<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
-  <title>blog@</title>
-  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#blog"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
-<span class="n-footer__social-link-text">community</span>
-<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
-<title>community@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#comments"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
-<span class="n-footer__social-link-text">twitter</span>
-<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
-<title>twitter@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#twitter"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
-<span class="n-footer__social-link-text">facebook</span>
-<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
-<title>facebook@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#facebook"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
-<span class="n-footer__social-link-text">linkedin</span>
-<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
-<title>linkedin@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#linkedin"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
-<span class="n-footer__social-link-text">youtube</span>
-<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
-<title>youtube@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#youtube"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
-<span class="n-footer__social-link-text">slideshare</span>
-<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
-<title>slideshare@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#slideshare"></use>
-</svg>
-
-</a>
-</li>
-</ul>
-</div>
-
-</div>
-<div class="n-footer__bottom-right">
-  <p class="n-footer__fine-print">Web サイトについてのフィードバックを<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">お寄せください</a>
-  <a href="https://docs.netapp.com/ja-jp/announcements/" class="n-footer__copyright">お知らせ</a>
-  </p>
-</div>
-</div>
-</div>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">利用条件</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">プライバシー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">クッキー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">クッキーの設定</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <span class="n-footer__fine-print">Web サイトについてのフィードバックを</span>
+              <a target="_self" href="javascript:netapp_mailto()">お寄せください</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://docs.netapp.com/ja-jp/announcements/">お知らせ</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-backup-restore/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
       </div><!-- Elasticsearch JS -->
