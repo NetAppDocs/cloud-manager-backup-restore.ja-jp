@@ -167,13 +167,13 @@ link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["従
 
 === 年間契約（ AWS のみ）
 
-AWS Marketplace では、次の 2 年間の契約が提供されています。
+AWS Marketplace では、 12 カ月、 24 カ月、または 36 カ月間の契約が 2 件提供されます。
 
-* 年間契約。 Cloud Volumes ONTAP データとオンプレミスの ONTAP データをバックアップできます。
+* Cloud Volumes ONTAP データとオンプレミスの ONTAP データをバックアップできる「クラウドバックアップ」プラン。
 +
 Cloud Manager で AWS 資格情報に割り当てることができるのは 1 つだけなので、この年間契約サブスクリプションを使用して Cloud Volumes ONTAP システムの料金を支払う必要があります。
 
-* 12 カ月、 24 カ月、または 36 カ月の年間契約を使用して、 Cloud Volumes ONTAP とクラウドバックアップをバンドルできるプロフェッショナルパッケージです。このオプションでは、オンプレミスのデータをバックアップすることはできません。
+* Cloud Volumes ONTAP とクラウドバックアップをバンドルできる「 CVO Professional 」プラン。これには、このライセンスに基づいて Cloud Volumes ONTAP ボリュームのバックアップが無制限になることも含まれます（バックアップ容量はライセンスにはカウントされません）。
 +
 年間契約は、 Cloud Volumes ONTAP 作業環境の作成時に設定でき、 Cloud Manager から AWS Marketplace への登録を求められます。
 
