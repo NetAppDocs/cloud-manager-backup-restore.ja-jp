@@ -9,14 +9,14 @@
   <meta property="og:title" content="Cloud Backup のライセンスをセットアップします | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-licensing-cloud-backup.html" />
-	<meta property="og:description" content="クラウドバックアップの 30 日間無償トライアルは、 Cloud Backup Service を有効にすると開始されます。無償トライアルが終了したら、クラウドプロバイダから従量課金制（ PAYGO ）サブスクリプションを使用してクラウドバックアップの料金を支払うか、ネットアップからお客様所有のライセンス（ BY..." />
+	<meta property="og:description" content="クラウドバックアップの 30 日間無償トライアルは、 Cloud Backup Service がクラウドプロバイダ市場を検討したことをきっかけに開始されます。無償トライアルの終了後は、従量課金制（ PAYGO ）市場サブスクリプションを使用するか、ネットアップからお客様所有のライセンス（ BYOL ）を購入する..." />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="クラウドバックアップの 30 日間無償トライアルは、 Cloud Backup Service を有効にすると開始されます。無償トライアルが終了したら、クラウドプロバイダから従量課金制（ PAYGO ）サブスクリプションを使用してクラウドバックアップの料金を支払うか、ネットアップからお客様所有のライセンス（ BY...">
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="クラウドバックアップの 30 日間無償トライアルは、 Cloud Backup Service がクラウドプロバイダ市場を検討したことをきっかけに開始されます。無償トライアルの終了後は、従量課金制（ PAYGO ）市場サブスクリプションを使用するか、ネットアップからお客様所有のライセンス（ BYOL ）を購入する...">
   <meta name="keywords" content=" license, licensing, install, updating license, byol license, nlf, license generator, backup license, add backup license, update backup license"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-backup-restore/images/favicon.ico" type="image/x-icon">
 
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-04 20:21:41 +0000">04/04/2022</time>
+    <time datetime="2022-04-08 14:16:45 +0000">04/08/2022</time>
     
   
 
@@ -839,7 +839,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>クラウドバックアップの 30 日間無償トライアルは、 Cloud Backup Service を有効にすると開始されます。無償トライアルが終了したら、クラウドプロバイダから従量課金制（ PAYGO ）サブスクリプションを使用してクラウドバックアップの料金を支払うか、ネットアップからお客様所有のライセンス（ BYOL ）を購入する必要があります。</p>
+<p>クラウドバックアップの 30 日間無償トライアルは、 Cloud Backup Service がクラウドプロバイダ市場を検討したことをきっかけに開始されます。無償トライアルの終了後は、従量課金制（ PAYGO ）市場サブスクリプションを使用するか、ネットアップからお客様所有のライセンス（ BYOL ）を購入することで、クラウドバックアップの料金を支払うことになります。</p>
 </div>
 <div class="paragraph">
 <p>さらに読む前に、いくつかのメモを記入してください。</p>
@@ -847,13 +847,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Manager の従量課金制（ PAYGO ）サブスクリプションをクラウドプロバイダの市場ですでに登録している場合は、 Cloud Backup にも自動的に登録されます。再度登録する必要はありません。</p>
+<p>クラウドプロバイダの Cloud Volumes ONTAP システム市場で Cloud Manager の従量課金制（ PAYGO ）サブスクリプションにすでに登録している場合は、 Cloud Backup にも自動的に登録されます。再度登録する必要はありません。</p>
 </li>
 <li>
-<p>Cloud Backup Bring Your Own License （ BYOL ；お客様所有のライセンス）は、 Cloud Manager アカウントに関連付けられたすべてのシステムで使用できるフローティングライセンスです。</p>
+<p>Cloud Backup Bring Your Own License （ BYOL ；お客様所有のライセンス）は、 Cloud Manager アカウントに関連付けられたすべてのシステムで使用できるフローティングライセンスです。したがって、既存のライセンスから十分なバックアップ容量がある場合は、別の BYOL ライセンスを購入する必要はありません。</p>
 </li>
 <li>
-<p>ONTAP データを StorageGRID にバックアップする場合は、 BYOL ライセンスが必要ですが、クラウドプロバイダのストレージスペースは無償です。</p>
+<p>オンプレミスの ONTAP データを StorageGRID にバックアップする場合は、 BYOL ライセンスが必要ですが、クラウドプロバイダのストレージスペースは無償です。</p>
 </li>
 </ul>
 </div>
@@ -866,7 +866,7 @@
 <h2 id="cloud-backup-従量課金制を使用">Cloud Backup 従量課金制を使用</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>従量課金制の場合、クラウドプロバイダにオブジェクトストレージのコストとネットアップのバックアップライセンスのコストを支払うことになります。以下のリンクから、クラウドプロバイダのマーケットプレイスから Cloud Backup にサブスクライブできます。</p>
+<p>従量課金制の場合は、クラウドプロバイダにオブジェクトストレージのコストとネットアップのバックアップライセンスのコストを 1 時間単位で支払うことになります。以下のリンクから、クラウドプロバイダのマーケットプレイスから Cloud Backup にサブスクライブできます。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -887,23 +887,20 @@
 <h2 id="aws-で年単位の契約を登録">AWS で年単位の契約を登録</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AWS Marketplace for Cloud Volumes ONTAP とオンプレミスの ONTAP システムでは、 2 つの年間契約が提供されています。</p>
+<p>から 2 種類の年間契約が提供されています <a href="https://aws.amazon.com/marketplace/pp/B086PDWSS8" target="_blank" rel="noopener">"AWS Marketplace のページ"</a> Cloud Volumes ONTAP システムとオンプレミスの ONTAP システムで使用できます。1 年、 2 年、または 3 年の期間があります。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>年間契約。 Cloud Volumes ONTAP データとオンプレミスの ONTAP データをバックアップできます。</p>
+<p>Cloud Volumes ONTAP データとオンプレミスの ONTAP データをバックアップできる「クラウドバックアップ」プラン。</p>
 <div class="paragraph">
-<p>にアクセスします <a href="https://aws.amazon.com/marketplace/pp/B086PDWSS8" target="_blank" rel="noopener">"AWS Marketplace のページ"</a> をクリックすると、価格設定の詳細が表示</p>
-</div>
-<div class="paragraph">
-<p>このオプションを使用する場合は、 Marketplace のページでサブスクリプションを設定してから、を設定します <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_blank" rel="noopener">"サブスクリプションを AWS クレデンシャルに関連付けます"</a>。Cloud Manager で AWS クレデンシャルに割り当てることができるのは 1 つだけなので、この年間契約サブスクリプションを使用して Cloud Volumes ONTAP システムの料金を支払う必要があります。</p>
+<p>このオプションを使用する場合は、 Marketplace のページでサブスクリプションを設定してから、を設定します <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#associate-an-aws-subscription" target="_blank" rel="noopener">"サブスクリプションを AWS クレデンシャルに関連付けます"</a>。Cloud Manager で AWS クレデンシャルに割り当てることができるのは 1 つだけなので、この年間契約サブスクリプションを使用して Cloud Volumes ONTAP システムの料金を支払う必要があります。</p>
 </div>
 </li>
 <li>
-<p>1 年、 2 年、 3 年の年間契約を使用して、 Cloud Volumes ONTAP とクラウドバックアップをバンドルできるプロフェッショナルパッケージです。支払いは TiB あたりです。このオプションでは、オンプレミスの ONTAP データをバックアップすることはできません。</p>
+<p>Cloud Volumes ONTAP とクラウドバックアップをバンドルできる「 CVO Professional 」プラン。これには、このライセンスに基づいて Cloud Volumes ONTAP ボリュームのバックアップが無制限になることも含まれます（バックアップ容量はライセンスにはカウントされません）。このオプションでは、オンプレミスの ONTAP データをバックアップすることはできません。</p>
 <div class="paragraph">
-<p>にアクセスします <a href="https://aws.amazon.com/marketplace/pp/prodview-q7dg6zwszplri" target="_blank" rel="noopener">"AWS Marketplace のページ"</a> 価格の詳細を表示するには、を参照してください <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap" target="_blank" rel="noopener">"Cloud Volumes ONTAP リリースノート"</a> このライセンスオプションの詳細については、を参照してください。</p>
+<p>を参照してください <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/concept-licensing.html" target="_blank" rel="noopener">"Cloud Volumes ONTAP のライセンスに関するトピック"</a> このライセンスオプションの詳細については、を参照してください。</p>
 </div>
 <div class="paragraph">
 <p>このオプションを使用する場合は、 Cloud Volumes ONTAP の作業環境を作成するときに年間契約を設定し、 Cloud Manager から AWS Marketplace に登録するように求められます。</p>
@@ -920,7 +917,7 @@
 <p>ネットアップが提供するお客様所有のライセンスには、 1 年、 2 年、 3 年の期間があります。バックアップ対象のソース ONTAP ボリュームの論理使用容量（ _Before_any 効率化）で計算され、保護するデータに対してのみ料金が発生します。この容量はフロントエンドテラバイト（ FETB ）とも呼ばれます。</p>
 </div>
 <div class="paragraph">
-<p>BYOL Cloud Backup ライセンスは、 Cloud Manager アカウントに関連付けられたすべてのシステムで合計容量が共有されるフローティングライセンスです。ONTAP システムでは、バックアップするボリュームに対して ONTAP コマンド「 volume show-space logical-used 」を実行することで、必要な容量を概算できます。</p>
+<p>BYOL Cloud Backup ライセンスは、 Cloud Manager アカウントに関連付けられたすべてのシステムで合計容量が共有されるフローティングライセンスです。ONTAP システムでは、バックアップするボリュームに対して CLI コマンド「 volume show-space logical-used 」を実行することで、必要な容量を概算できます。</p>
 </div>
 <div class="paragraph">
 <p>Cloud Backup BYOL ライセンスがない場合は、 Cloud Manager の右下にあるチャットアイコンをクリックしてライセンスを購入してください。</p>
