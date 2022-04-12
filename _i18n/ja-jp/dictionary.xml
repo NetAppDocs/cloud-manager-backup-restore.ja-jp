@@ -743,10 +743,8 @@
   <block id="848525ead1cee2ce7d0e88b45eff615b" category="list-text">バックアップファイルのクラウドのデスティネーションを設定する際に、 Cloud Volumes ONTAP システムが配置されているリージョンとは異なるリージョンを選択できるようになりました。</block>
   <block id="352bd947543507d8ea621ff97c97e05e" category="list-text">単一のボリュームに作成できるバックアップファイルの数が 1 、 019 から 4 、 000 に増えました。</block>
   <block id="942a3551be2a21b1724268665a2bcc93" category="list-text">1 つのボリュームのすべてのバックアップファイルを先に削除できるようになったほか、ボリュームのバックアップファイルを 1 つだけ削除したり、作業環境全体のバックアップファイルを必要に応じてすべて削除したりできるようになりました。</block>
-  <block id="fca32b9485a57083406de6293a2a97d7" category="summary">作業環境で開始されたバックアップジョブとリストアジョブのステータスを監視できます。これにより、正常に完了したジョブ、現在実行中のジョブ、および失敗したジョブを表示できるため、問題を診断して修正できます。</block>
   <block id="ee0db59fec59c2b3e6c6583a61bf12b6" category="doc">バックアップジョブとリストアジョブのステータスを監視しています</block>
   <block id="b6cd8759a4f3461dea504f0e0a873597" category="section-title">バックアップジョブとリストアジョブのステータスを表示する</block>
-  <block id="df0393bee9cb930c017fd73a17ee79f1" category="paragraph">すべてのバックアップおよびリストア処理とその現在のステータスのリストを表示できます。これには、 Cloud Volumes ONTAP 、オンプレミス ONTAP 、 Kubernetes システムからの運用が含まれます。各処理またはジョブには、一意の ID とステータスがあります。ステータスは次のいずれかになります。</block>
   <block id="30ae8fff8898dc197acd49d9c0797d20" category="list-text">成功しました</block>
   <block id="c9413dd7682a45da9ecc9efa8cea47d7" category="list-text">実行中です</block>
   <block id="7b2f31b90fe1c2cc33a52233c1925df3" category="list-text">キューに登録され</block>
@@ -1721,8 +1719,11 @@
   <block id="f3ec604659866873c6f12a7b82b426c9" category="paragraph">このオプションを使用する場合は、 Marketplace のページでサブスクリプションを設定してから、を設定します<block ref="f1f7c973fce685b876017d26d677c721" category="inline-link-rx"></block>。Cloud Manager で AWS クレデンシャルに割り当てることができるのは 1 つだけなので、この年間契約サブスクリプションを使用して Cloud Volumes ONTAP システムの料金を支払う必要があります。</block>
   <block id="f2ece9cc094a050d5d94b2d9c8142c27" category="list-text">Cloud Volumes ONTAP とクラウドバックアップをバンドルできる「 CVO Professional 」プラン。これには、このライセンスに基づいて Cloud Volumes ONTAP ボリュームのバックアップが無制限になることも含まれます（バックアップ容量はライセンスにはカウントされません）。このオプションでは、オンプレミスの ONTAP データをバックアップすることはできません。</block>
   <block id="5f0364e373bcb99c02ad1b8359683908" category="inline-link">Cloud Volumes ONTAP のライセンスに関するトピック</block>
-  <block id="52d956d90b5780ee300f362720b19a91" category="paragraph">を参照してください<block ref="db4ae6dbaa659af690ca7b28a2621090" category="inline-link-rx"></block> このライセンスオプションの詳細については、を参照してください。</block>
   <block id="6025aba67376a090dc2ca42bb5ef2182" category="paragraph">BYOL Cloud Backup ライセンスは、 Cloud Manager アカウントに関連付けられたすべてのシステムで合計容量が共有されるフローティングライセンスです。ONTAP システムでは、バックアップするボリュームに対して CLI コマンド「 volume show-space logical-used 」を実行することで、必要な容量を概算できます。</block>
   <block id="24d74be1960242a6818d266296df5af4" category="paragraph">AWS Marketplace では、 12 カ月、 24 カ月、または 36 カ月間の契約が 2 件提供されます。</block>
   <block id="277d325469c77a8ce02855d7ea5c8b1a" category="list-text">Cloud Volumes ONTAP とクラウドバックアップをバンドルできる「 CVO Professional 」プラン。これには、このライセンスに基づいて Cloud Volumes ONTAP ボリュームのバックアップが無制限になることも含まれます（バックアップ容量はライセンスにはカウントされません）。</block>
+  <block id="798aac57a47adfaf930d9def9b4bbe02" category="paragraph">を参照してください<block ref="d58b2dbf2a4616ceca06f8773ed8f738" category="inline-link-rx"></block> このライセンスオプションの詳細については、を参照してください。</block>
+  <block id="74cc281b8e4c7e949e92e69bf209421f" category="summary">作業環境で開始したバックアップジョブとリストアジョブのステータスを監視できます。これにより、正常に完了したジョブ、現在実行中のジョブ、および失敗したジョブを表示できるため、問題を診断して修正できます。</block>
+  <block id="5fd6f798208daa9906f9880884735da2" category="paragraph">システムで開始されたジョブ（実行中のバックアップ操作など）は、 * ジョブ監視 * タブには反映されません。ユーザーが開始したジョブのみが表示されます。</block>
+  <block id="7a48560852ec8ed04802b3b0c1192f24" category="paragraph">すべてのバックアップおよびリストア処理とその現在のステータスのリストを表示できます。これには、 Cloud Volumes ONTAP 、オンプレミスの ONTAP 、アプリケーション、 Kubernetes システムからの運用が含まれます。各処理またはジョブには、一意の ID とステータスがあります。ステータスは次のいずれかになります。</block>
 </blocks>
