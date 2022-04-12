@@ -9,14 +9,14 @@
   <meta property="og:title" content="バックアップジョブとリストアジョブのステータスを監視しています | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-monitor-backup-jobs.html" />
-	<meta property="og:description" content="作業環境で開始されたバックアップジョブとリストアジョブのステータスを監視できます。これにより、正常に完了したジョブ、現在実行中のジョブ、および失敗したジョブを表示できるため、問題を診断して修正できます。" />
+	<meta property="og:description" content="作業環境で開始したバックアップジョブとリストアジョブのステータスを監視できます。これにより、正常に完了したジョブ、現在実行中のジョブ、および失敗したジョブを表示できるため、問題を診断して修正できます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="作業環境で開始されたバックアップジョブとリストアジョブのステータスを監視できます。これにより、正常に完了したジョブ、現在実行中のジョブ、および失敗したジョブを表示できるため、問題を診断して修正できます。">
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="作業環境で開始したバックアップジョブとリストアジョブのステータスを監視できます。これにより、正常に完了したジョブ、現在実行中のジョブ、および失敗したジョブを表示できるため、問題を診断して修正できます。">
   <meta name="keywords" content=" cloud backup, cloud backup service, backup, restore, status, monitor"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-backup-restore/images/favicon.ico" type="image/x-icon">
 
@@ -820,7 +820,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-31 17:29:44 +0000">03/31/2022</time>
+    <time datetime="2022-04-12 14:39:41 +0000">04/12/2022</time>
     
   
 
@@ -830,7 +830,10 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>作業環境で開始されたバックアップジョブとリストアジョブのステータスを監視できます。これにより、正常に完了したジョブ、現在実行中のジョブ、および失敗したジョブを表示できるため、問題を診断して修正できます。</p>
+<p>作業環境で開始したバックアップジョブとリストアジョブのステータスを監視できます。これにより、正常に完了したジョブ、現在実行中のジョブ、および失敗したジョブを表示できるため、問題を診断して修正できます。</p>
+</div>
+<div class="paragraph">
+<p>システムで開始されたジョブ（実行中のバックアップ操作など）は、 * ジョブ監視 * タブには反映されません。ユーザーが開始したジョブのみが表示されます。</p>
 </div>
 </div>
 </div>
@@ -838,7 +841,7 @@
 <h2 id="バックアップジョブとリストアジョブのステータスを表示する">バックアップジョブとリストアジョブのステータスを表示する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>すべてのバックアップおよびリストア処理とその現在のステータスのリストを表示できます。これには、 Cloud Volumes ONTAP 、オンプレミス ONTAP 、 Kubernetes システムからの運用が含まれます。各処理またはジョブには、一意の ID とステータスがあります。ステータスは次のいずれかになります。</p>
+<p>すべてのバックアップおよびリストア処理とその現在のステータスのリストを表示できます。これには、 Cloud Volumes ONTAP 、オンプレミスの ONTAP 、アプリケーション、 Kubernetes システムからの運用が含まれます。各処理またはジョブには、一意の ID とステータスがあります。ステータスは次のいずれかになります。</p>
 </div>
 <div class="ulist">
 <ul>
