@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP から Amazon S3 へのデータのバックアッ�
 ---
 = Amazon S3 への Cloud Volumes ONTAP データのバックアップ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

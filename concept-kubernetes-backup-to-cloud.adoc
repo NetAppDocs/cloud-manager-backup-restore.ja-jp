@@ -6,6 +6,7 @@ summary: Cloud Backup は、 Kubernetes クラスタデータを保護し、長�
 ---
 = Cloud Backup を使用して Kubernetes クラスタのデータを保護
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

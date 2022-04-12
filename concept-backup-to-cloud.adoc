@@ -6,6 +6,7 @@ summary: Cloud Backup は、 Cloud Manager 作業環境向けのサービスで�
 ---
 = Cloud Backup の詳細をご確認ください
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

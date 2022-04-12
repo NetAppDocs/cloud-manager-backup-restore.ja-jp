@@ -6,6 +6,7 @@ summary: Oracle データベースをクラウドからオンプレミスの Sna
 ---
 = Oracle データベースをリストアします
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

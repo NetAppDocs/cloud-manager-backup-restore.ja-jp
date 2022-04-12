@@ -6,6 +6,7 @@ summary: クラウドバックアップの 30 日間無償トライアルは、 
 ---
 = Cloud Backup のライセンスをセットアップします
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: バックアップは、特定の時点のデータをリストアで�
 ---
 = バックアップファイルからの ONTAP データのリストア
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

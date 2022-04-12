@@ -6,6 +6,7 @@ summary: 作業環境で開始したバックアップジョブとリストア�
 ---
 = バックアップジョブとリストアジョブのステータスを監視しています
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: EKS Kubernetes クラスタ上の永続ボリュームから Amazon S3 
 ---
 = Kubernetes の永続ボリュームのデータを Amazon S3 にバックアップします
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

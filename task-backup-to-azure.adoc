@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP から Azure Blob Storage へのデータのバッ�
 ---
 = Cloud Volumes ONTAP データの Azure BLOB ストレージへのバックアップ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

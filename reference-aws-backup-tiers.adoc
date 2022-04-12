@@ -6,6 +6,7 @@ summary: Cloud Backup は、 2 つの S3 アーカイブストレージクラス
 ---
 = AWS S3 アーカイブストレージクラスおよびリストアの読み出し時間
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

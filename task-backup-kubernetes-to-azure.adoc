@@ -6,6 +6,7 @@ summary: AKS Kubernetes クラスタ上の永続ボリュームから Azure BLOB
 ---
 = Kubernetes の永続ボリュームのデータを Azure BLOB ストレージにバックアップする
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

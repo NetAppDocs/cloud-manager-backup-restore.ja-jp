@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP から Google Cloud ストレージへのデータ�
 ---
 = Cloud Volumes ONTAP データの Google Cloud Storage へのバックアップ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

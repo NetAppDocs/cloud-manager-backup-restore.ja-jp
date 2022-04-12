@@ -6,6 +6,7 @@ summary: GKE Kubernetes クラスタ上の永続ボリュームから Google Clo
 ---
 = Kubernetes の永続ボリュームのデータを Google Cloud ストレージにバックアップする
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

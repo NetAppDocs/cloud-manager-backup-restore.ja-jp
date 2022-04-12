@@ -6,6 +6,7 @@ summary: Cloud Backup は、 ONTAP クラスタデータを保護し、長期ア
 ---
 = Cloud Backup を使用して ONTAP クラスタのデータを保護します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

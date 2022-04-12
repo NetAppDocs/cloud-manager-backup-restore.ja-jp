@@ -6,6 +6,7 @@ summary: オンプレミスの ONTAP システムから Amazon S3 へのデー�
 ---
 = オンプレミスの ONTAP データの Amazon S3 へのバックアップ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

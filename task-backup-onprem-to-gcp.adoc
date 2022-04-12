@@ -6,6 +6,7 @@ summary: オンプレミスの ONTAP システムから Google Cloud Storage へ
 ---
 = オンプレミスの ONTAP データを Google Cloud Storage にバックアップする
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

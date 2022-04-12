@@ -7,6 +7,7 @@ summary: Cloud Backup は、データを保護し、長期的にアーカイブ�
 ---
 = Cloud Backup のドキュメント
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

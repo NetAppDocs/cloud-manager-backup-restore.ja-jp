@@ -6,6 +6,7 @@ summary: Cloud Backup は、 1 つの Azure アーカイブアクセス階層と
 ---
 = Azure のアーカイブ階層およびリストアの読み出し時間
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

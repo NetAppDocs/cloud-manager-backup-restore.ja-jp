@@ -6,6 +6,7 @@ summary: Cloud Backup では、ソース Cloud Volumes ONTAP ボリュームと�
 ---
 = AWS でマルチアカウントアクセスのバックアップを設定します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
