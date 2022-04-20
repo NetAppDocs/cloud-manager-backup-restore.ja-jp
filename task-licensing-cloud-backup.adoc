@@ -33,7 +33,7 @@ link:concept-backup-to-cloud.html#licensing["Cloud Backup に関連するライ�
 
 * AWS https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
 * Azure https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
-* GCP ： https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
+* GCP ： https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
 
 
 

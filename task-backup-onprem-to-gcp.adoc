@@ -64,11 +64,19 @@ Select Volumes （ボリュームの選択）ページで、デフォルトの�
 
 オンプレミスボリュームを Google Cloud ストレージにバックアップする前に、次の要件を確認し、サポートされている構成であることを確認してください。
 
-次の図は、各コンポーネントとその間の準備に必要な接続を示しています。
+オンプレミスの ONTAP システムから Google Cloud Storage へのバックアップを設定する際に使用できる接続方法は 2 つあります。
+
+* パブリック接続 - パブリック Google エンドポイントを使用して、 ONTAP システムを Google Cloud Storage に直接接続します。
+* プライベート接続 - VPN またはプライベートサービス接続を使用して、プライベート IP アドレスを使用するプライベート Google アクセスインターフェイスを介してトラフィックをルーティングします。
+
+
+次の図は、パブリック接続の方法と、コンポーネント間の準備に必要な接続を示しています。
 
 image:diagram_cloud_backup_onprem_google.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
 
-シングルファイルのリストアは現在 GCP でサポートされていないため、 Cloud Restore インスタンスはこの図には示されていません。
+次の図は、プライベート接続方法と、コンポーネント間の準備に必要な接続を示しています。
+
+image:diagram_cloud_backup_onprem_google_vpc.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
 
 
 
@@ -160,7 +168,7 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 
 Cloud Backup の 30 日間無償トライアルの期限が切れる前に、従量課金制（ PAYGO ） Cloud Manager Marketplace で Google から提供するサービスにサブスクライブするか、ネットアップから Cloud Backup BYOL ライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。
 
-* Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["Google"^] Cloud Backup の今後の利用については、 Cloud Manager Marketplace でご確認ください。Cloud Backup の請求は、このサブスクリプションを通じて行われます。
+* Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google"^] Cloud Backup の今後の利用については、 Cloud Manager Marketplace でご確認ください。Cloud Backup の請求は、このサブスクリプションを通じて行われます。
 * Cloud Backup BYOL ライセンスには、サブスクリプションは必要ありません。シリアル番号はネットアップから提供される必要があります。この番号を使用すると、ライセンスの期間と容量にサービスを使用できます。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL ライセンスの管理方法について説明します"]。
 
 

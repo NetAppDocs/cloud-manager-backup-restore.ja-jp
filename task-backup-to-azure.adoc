@@ -89,6 +89,9 @@ Azure 環境にはアウトバウンドのインターネットアクセスが�
 | ¥ http://olcentgbl.trafficmanager.net ¥ https://olcentgbl.trafficmanager.net | Cloud Restore 仮想マシン用の CentOS パッケージが用意されています。 
 
 
+| \ https://download.docker.com/linux/centos/docker-ce.repo | Docker Engine パッケージを提供します。 
+
+
 | ¥ http://cloudmanagerinfraprod.azurecr.io ¥ https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 仮想マシンのイメージリポジトリ。 
 |===
 

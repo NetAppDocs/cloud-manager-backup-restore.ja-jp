@@ -75,9 +75,19 @@ Select Volumes （ボリュームの選択）ページで、デフォルトの�
 
 オンプレミスボリュームを Azure BLOB ストレージにバックアップする前に、次の要件を読み、サポートされている構成であることを確認してください。
 
-次の図は、各コンポーネントとその間の準備に必要な接続を示しています。
+オンプレミスの ONTAP システムから Azure Blob へのバックアップを設定する場合は、 2 つの接続方法を使用できます。
+
+* パブリック接続 - パブリック Azure エンドポイントを使用して、 ONTAP システムを Azure BLOB ストレージに直接接続します。
+* プライベート接続 - VPN または ExpressRoute を使用し、プライベート IP アドレスを使用する vnet Private Endpoint を介してトラフィックをルーティングします。
+
+
+次の図は、パブリック接続の方法と、コンポーネント間の準備に必要な接続を示しています。
 
 image:diagram_cloud_backup_onprem_azure.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
+
+次の図は、プライベート接続方法と、コンポーネント間の準備に必要な接続を示しています。
+
+image:diagram_cloud_backup_onprem_azure_vnet.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
 
 クラウドにクラウドリストアインスタンスが導入されている場合、クラウドリストアインスタンスはコネクタと同じサブネットに配置されます。
 
@@ -188,6 +198,9 @@ Cloud Backup の 30 日間無償トライアルの期限が切れる前に、従
 
 
 | ¥ http://olcentgbl.trafficmanager.net ¥ https://olcentgbl.trafficmanager.net | Cloud Restore 仮想マシン用の CentOS パッケージが用意されています。 
+
+
+| \ https://download.docker.com/linux/centos/docker-ce.repo | Docker Engine パッケージを提供します。 
 
 
 | ¥ http://cloudmanagerinfraprod.azurecr.io ¥ https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 仮想マシンのイメージリポジトリ。 
