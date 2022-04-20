@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:41:11 +0000">04/18/2022</time>
+    <time datetime="2022-04-20 20:46:08 +0000">04/20/2022</time>
     
   
 
@@ -921,13 +921,29 @@
 <p>オンプレミスボリュームを Google Cloud ストレージにバックアップする前に、次の要件を確認し、サポートされている構成であることを確認してください。</p>
 </div>
 <div class="paragraph">
-<p>次の図は、各コンポーネントとその間の準備に必要な接続を示しています。</p>
+<p>オンプレミスの ONTAP システムから Google Cloud Storage へのバックアップを設定する際に使用できる接続方法は 2 つあります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>パブリック接続 - パブリック Google エンドポイントを使用して、 ONTAP システムを Google Cloud Storage に直接接続します。</p>
+</li>
+<li>
+<p>プライベート接続 - VPN またはプライベートサービス接続を使用して、プライベート IP アドレスを使用するプライベート Google アクセスインターフェイスを介してトラフィックをルーティングします。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>次の図は、パブリック接続の方法と、コンポーネント間の準備に必要な接続を示しています。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_google.png" alt="Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"></span></p>
 </div>
 <div class="paragraph">
-<p>シングルファイルのリストアは現在 GCP でサポートされていないため、 Cloud Restore インスタンスはこの図には示されていません。</p>
+<p>次の図は、プライベート接続方法と、コンポーネント間の準備に必要な接続を示しています。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_backup_onprem_google_vpc.png" alt="Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"></span></p>
 </div>
 <div class="sect2">
 <h3 id="ontap-クラスタの準備">ONTAP クラスタの準備</h3>
@@ -1075,7 +1091,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です <a href="https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&amp;rif_reserved" target="_blank" rel="noopener">"Google"</a> Cloud Backup の今後の利用については、 Cloud Manager Marketplace でご確認ください。Cloud Backup の請求は、このサブスクリプションを通じて行われます。</p>
+<p>Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です <a href="https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project" target="_blank" rel="noopener">"Google"</a> Cloud Backup の今後の利用については、 Cloud Manager Marketplace でご確認ください。Cloud Backup の請求は、このサブスクリプションを通じて行われます。</p>
 </li>
 <li>
 <p>Cloud Backup BYOL ライセンスには、サブスクリプションは必要ありません。シリアル番号はネットアップから提供される必要があります。この番号を使用すると、ライセンスの期間と容量にサービスを使用できます。 <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"BYOL ライセンスの管理方法について説明します"</a>。</p>
