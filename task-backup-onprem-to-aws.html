@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-20 20:46:08 +0000">04/20/2022</time>
+    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
     
   
 
@@ -1061,11 +1061,11 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Backup の 30 日間無償トライアルの期限が切れる前に、 AWS から Cloud Manager Marketplace が提供する従量課金制（ PAYGO ）のサブスクリプションに登録するか、ネットアップから Cloud Backup BYOL ライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。</p>
+<p>クラスタでCloud Backupをアクティブ化するには、事前に従量課金制（PAYGO）のCloud Manager MarketplaceでAWSから提供するか、ネットアップからCloud Backup BYOLライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa" target="_blank" rel="noopener">"AWS Cloud Manager Marketplace のサービス"</a> をクリックしてください。Cloud Backup の請求は、このサブスクリプションを通じて行われます。</p>
+<p>Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa" target="_blank" rel="noopener">"AWS Cloud Manager Marketplace のサービス"</a> クラウドバックアップを使用できます。Cloud Backup の請求は、このサブスクリプションを通じて行われます。</p>
 </li>
 <li>
 <p>Cloud Backup BYOL ライセンスを利用するには、ライセンスの期間と容量に応じてサービスを使用できるように、ネットアップから提供されたシリアル番号が必要です。 <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"BYOL ライセンスの管理方法について説明します"</a>。</p>
@@ -1218,6 +1218,10 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">クラウドリストアインスタンス AMI 用の CentOS パッケージ。</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\ <a href="https://download.docker.com/linux/centos/docker-ce.repo" class="bare">https://download.docker.com/linux/centos/docker-ce.repo</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker Engine パッケージを提供します。</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">¥ <a href="http://cloudmanagerinfraprod.azurecr.io" class="bare">http://cloudmanagerinfraprod.azurecr.io</a> ¥ <a href="https://cloudmanagerinfraprod.azurecr.io" class="bare">https://cloudmanagerinfraprod.azurecr.io</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Restore Instance のイメージリポジトリ。</p></td>
 </tr>
@@ -1335,6 +1339,9 @@ Please enter Certificate: Press &lt;Enter&gt; when done</code></pre>
 </li>
 </ol>
 </div>
+</li>
+<li>
+<p>アカウントにCloud Backupの既存のライセンスがない場合は、使用する課金方法を選択するよう求められます。AWSから従量課金制（PAYGO）のCloud Manager Marketplaceサービスにサブスクライブする（または複数のサブスクリプションを選択する必要がある場合）か、ネットアップからCloud Backup BYOLライセンスを購入してアクティブ化することができます。 <a href="task-licensing-cloud-backup.html">"Cloud Backupライセンスの設定方法について説明します。"</a></p>
 </li>
 <li>
 <p>ネットワークの詳細を入力し、 * 次へ * をクリックします。</p>

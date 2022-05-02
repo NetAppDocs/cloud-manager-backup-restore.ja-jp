@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:41:11 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
     
   
 
@@ -945,9 +945,9 @@
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 27.4725%;">
-<col style="width: 36.2637%;">
-<col style="width: 36.2638%;">
+<col style="width: 26.3157%;">
+<col style="width: 34.7368%;">
+<col style="width: 38.9475%;">
 </colgroup>
 <thead>
 <tr>
@@ -974,7 +974,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Google クラウドストレージ</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Google オンプレミス ONTAP システムの Cloud Volumes ONTAP</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google オンプレミス ONTAP システムの Cloud Volumes ONTAP</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NetApp StorageGRID</p></td>
@@ -1038,10 +1038,20 @@
 <p>Browse &amp; Restore を使用してボリュームをリストアする場合は、個別のインスタンスや仮想マシンが必要ないため、コストは発生しません。</p>
 </li>
 <li>
-<p>検索とリストアを使用したボリュームまたはファイルのリストアの場合は、を参照してください <a href="https://aws.amazon.com/athena/faqs/" target="_blank" rel="noopener">"Amazon Athena"</a> および <a href="https://aws.amazon.com/glue/faqs/" target="_blank" rel="noopener">"AWS 接着剤"</a> リソースは、ボリュームやバックアップファイルを検索する際に使用します。TiB あたりのコストは、検索要求でスキャンされるデータ量に関連付けられます。検索とリストアは、 Amazon S3 のバックアップファイルから現時点でデータをリストアする場合にのみサポートされています。</p>
+<p>検索とリストアを使用したボリュームまたはファイルのリストアでは、特定のリソースがクラウドプロバイダによってプロビジョニングされ、検索要求でスキャンされるデータ量には1TiBあたりのコストが関連付けられます。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>AWSでは、 <a href="https://aws.amazon.com/athena/faqs/" target="_blank" rel="noopener">"Amazon Athena"</a> および <a href="https://aws.amazon.com/glue/faqs/" target="_blank" rel="noopener">"AWS 接着剤"</a> リソースは新しいS3バケットに導入される。</p>
 </li>
 <li>
-<p>アーカイブストレージ（ ONTAP 9.10.1 以降を使用する AWS および Azure でサポート）に移動されたバックアップファイルからボリュームデータをリストアする必要がある場合は、 GiB あたりの読み出し料金とクラウドプロバイダからの要求ごとの料金が別途かかります。</p>
+<p>Googleでは、新しいバケットが導入され、が展開されます <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener">"Google Cloud BigQueryサービス"</a> アカウント/プロジェクトレベルでプロビジョニングされます。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>（ONTAP 9.10.1以降を使用するAWSでサポートされる）アーカイブストレージに移動されたバックアップファイルからボリュームデータをリストアする必要がある場合は、GiBあたりの読み出し料金とクラウドプロバイダからの要求ごとの料金が別途かかります。</p>
 </li>
 <li>
 <p>サービス料金 *</p>
@@ -1060,43 +1070,12 @@
 <h2 id="ライセンス">ライセンス</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Backup には、従量課金制（ PAYGO ）と、 AWS Marketplace が提供する年間契約、お客様所有のライセンスを使用（ BYOL ）の 3 つのライセンスオプションがあります。ライセンスをお持ちでない場合は、 30 日間の無償トライアルをご利用いただけます。</p>
-</div>
-<div class="sect2">
-<h3 id="無償トライアルをご利用ください">無償トライアルをご利用ください</h3>
-<div class="paragraph">
-<p>30 日間の無償トライアルを使用すると、残りの無料試用日数が通知されます。無償トライアルが終了すると、バックアップは作成されなくなります。サービスを引き続き使用するには、サービスに登録するかライセンスを購入する必要があります。</p>
-</div>
-<div class="paragraph">
-<p>サービスが無効になってもバックアップファイルは削除されません。バックアップを削除しないかぎり、バックアップで使用する容量のオブジェクトストレージのコストは引き続きクラウドプロバイダから請求されます。</p>
-</div>
+<p>Cloud Backupには3つのライセンスオプションがあります。従量課金制（PAYGO）サブスクリプションと、AWS Marketplaceでの年間契約、お客様所有のライセンスの使用（BYOL）です。PAYGOサブスクリプションを取得した場合は、30日間の無償トライアルを利用できます。</p>
 </div>
 <div class="sect2">
 <h3 id="従量課金制のサブスクリプション">従量課金制のサブスクリプション</h3>
 <div class="paragraph">
 <p>Cloud Backup は従量課金制モデルで、使用量に応じたライセンスを提供します。クラウドプロバイダの市場に登録した後は、バックアップされたデータに対して GiB 単位で料金が発生します。つまり、前払いによる支払いが発生しません。クラウドプロバイダから月額料金で請求されます。</p>
-</div>
-<div class="paragraph">
-<p>無償トライアルを利用されている場合や、お客様が独自のライセンスを使用（ BYOL ）されている場合も、サブスクリプションを設定する必要があります。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>登録すると、無料トライアルの終了後にサービスが中断されることがなくなります。</p>
-<div class="paragraph">
-<p>試用期間が終了すると、バックアップしたデータの量に応じて 1 時間ごとに課金されます。</p>
-</div>
-</li>
-<li>
-<p>BYOL ライセンスで許可されている数を超えるデータをバックアップした場合、データバックアップは従量課金制サブスクリプションを使用して続行されます。</p>
-<div class="paragraph">
-<p>たとえば、 BYOL ライセンスが 10TiB の場合、 10TiB を超える容量はすべて PAYGO サブスクリプションによって課金されます。</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>お客様は、無料トライアル期間中、または BYOL ライセンスを超えていない場合は、従量課金制サブスクリプションから料金を請求されることはありません。</p>
 </div>
 <div class="paragraph">
 <p><a href="task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription">"従量課金制サブスクリプションの設定方法について説明します"</a>。</p>
@@ -1111,15 +1090,9 @@
 <ul>
 <li>
 <p>Cloud Volumes ONTAP データとオンプレミスの ONTAP データをバックアップできる「クラウドバックアップ」プラン。</p>
-<div class="paragraph">
-<p>Cloud Manager で AWS 資格情報に割り当てることができるのは 1 つだけなので、この年間契約サブスクリプションを使用して Cloud Volumes ONTAP システムの料金を支払う必要があります。</p>
-</div>
 </li>
 <li>
 <p>Cloud Volumes ONTAP とクラウドバックアップをバンドルできる「 CVO Professional 」プラン。これには、このライセンスに基づいて Cloud Volumes ONTAP ボリュームのバックアップが無制限になることも含まれます（バックアップ容量はライセンスにはカウントされません）。</p>
-<div class="paragraph">
-<p>年間契約は、 Cloud Volumes ONTAP 作業環境の作成時に設定でき、 Cloud Manager から AWS Marketplace への登録を求められます。</p>
-</div>
 </li>
 </ul>
 </div>

@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-manage-backups-kubernetes.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-kubernetes.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-manage-backups-kubernetes.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-manage-backups-kubernetes.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-manage-backups-kubernetes.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-manage-backups-kubernetes.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:41:11 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
     
   
 
@@ -881,6 +881,47 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="ボリュームのバックアップの有効化と無効化">ボリュームのバックアップの有効化と無効化</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ボリュームのバックアップコピーが不要で、バックアップの格納コストを抑える必要がない場合は、ボリュームのバックアップを停止できます。新しいボリュームがバックアップ中でない場合は、バックアップリストに追加することもできます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
+</div>
+</li>
+<li>
+<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] Kubernetesクラスタで、* Manage Persistent Volumes *を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_k8s.png" alt="&quot;[バックアップ設定"></span>ページの[永続ボリュームの管理]ボタンを示すスクリーンショット。"]</p>
+</div>
+</li>
+<li>
+<p>変更するボリュームのチェックボックスを選択し、ボリュームのバックアップを開始するか停止するかに応じて、 [Activate * （アクティブ化 * ） ] または [* Deactivate * （非アクティブ化 * ） ] をクリックします。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_page_k8s.png" alt="ボリュームの管理ページでは、ボリュームを選択または選択解除できます。"></span></p>
+</div>
+</li>
+<li>
+<p>[ 保存（ Save ） ] をクリックして、変更をコミットします。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>注意： * ボリュームのバックアップを停止すると、バックアップが停止します オブジェクトの料金はクラウドプロバイダが継続的に負担します を除いて、バックアップが使用する容量のストレージコスト あなた <a href="#Deleting backups">バックアップを削除します</a>。</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="既存のバックアップポリシーを編集する">既存のバックアップポリシーを編集する</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -890,15 +931,15 @@
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>[* Volumes （ボリューム） ] タブで、 [* Backup Settings （バックアップ設定） ] を選択します。</p>
+<p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="Volumes （ボリューム）タブの Backup Settings （バックアップ設定）ボタンを示すスクリーンショット。"></span></p>
+<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="Volumes （ボリューム）タブの Backup Settings （バックアップ設定）ボタンを示すスクリーンショット。"></span></p>
 </div>
 </li>
 <li>
 <p>[Backup Settings_] ページで、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] 設定を変更する作業環境で、 [ * ポリシーの管理 * ] を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_modify_policy.png" alt="&quot;[ バックアップ設定"></span> ページの [ ポリシーの管理 ] オプションを示すスクリーンショット。"]</p>
+<p><span class="image"><img src="./media/screenshot_backup_modify_policy_k8s.png" alt="&quot;[ バックアップ設定"></span> ページの [ ポリシーの管理 ] オプションを示すスクリーンショット。"]</p>
 </div>
 </li>
 <li>
@@ -918,50 +959,6 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="ボリュームのバックアップの有効化と無効化">ボリュームのバックアップの有効化と無効化</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>ボリュームのバックアップコピーが不要で、バックアップの格納コストを抑える必要がない場合は、ボリュームのバックアップを停止できます。新しいボリュームがバックアップ中でない場合は、バックアップリストに追加することもできます。</p>
-</div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
-</div>
-</li>
-<li>
-<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] Kubernetes クラスタで、 * Manage Volumes * を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes.png" alt="&quot;[ バックアップ設定"></span> ページの [ ボリュームの管理 ] ボタンを示すスクリーンショット。"]</p>
-</div>
-</li>
-<li>
-<p>変更するボリュームのチェックボックスを選択し、ボリュームのバックアップを開始するか停止するかに応じて、 [Activate * （アクティブ化 * ） ] または [* Deactivate * （非アクティブ化 * ） ] をクリックします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_page.png" alt="ボリュームの管理ページでは、ボリュームを選択または選択解除できます。"></span></p>
-</div>
-<div class="paragraph">
-<p>「将来のボリュームを自動的にバックアップ」のチェックボックスを使用して、すべてのボリュームを追加してあとでバックアップを有効にするかどうかを選択できます。この設定を無効にした場合は、あとで追加したボリュームのバックアップを手動で有効にする必要があります。</p>
-</div>
-</li>
-<li>
-<p>[ 保存（ Save ） ] をクリックして、変更をコミットします。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>注意： * ボリュームのバックアップを停止すると、バックアップが停止します オブジェクトの料金はクラウドプロバイダが継続的に負担します を除いて、バックアップが使用する容量のストレージコスト あなた <a href="#Deleting backups">バックアップを削除します</a>。</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="新しいバックアップポリシーを追加しています">新しいバックアップポリシーを追加しています</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -974,15 +971,15 @@
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>[* Volumes （ボリューム） ] タブで、 [* Backup Settings （バックアップ設定） ] を選択します。</p>
+<p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="Volumes （ボリューム）タブの Backup Settings （バックアップ設定）ボタンを示すスクリーンショット。"></span></p>
+<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="Volumes （ボリューム）タブの Backup Settings （バックアップ設定）ボタンを示すスクリーンショット。"></span></p>
 </div>
 </li>
 <li>
 <p>[Backup Settings_] ページで、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] 新しいポリシーを追加する作業環境で、 [ ポリシーの管理 ] を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_modify_policy.png" alt="&quot;[ バックアップ設定"></span> ページの [ ポリシーの管理 ] オプションを示すスクリーンショット。"]</p>
+<p><span class="image"><img src="./media/screenshot_backup_modify_policy_k8s.png" alt="&quot;[ バックアップ設定"></span> ページの [ ポリシーの管理 ] オプションを示すスクリーンショット。"]</p>
 </div>
 </li>
 <li>
@@ -1002,6 +999,43 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="新しいボリュームに割り当てるバックアップポリシーの設定">新しいボリュームに割り当てるバックアップポリシーの設定</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>KubernetesクラスタでCloud Backupを初めてアクティブ化したときに、新しく作成したボリュームにバックアップポリシーを自動的に割り当てるオプションを選択しなかった場合は、後で_Backup Settings_pageでこのオプションを選択できます。新しく作成したボリュームにバックアップポリシーを割り当てると、すべてのデータを確実に保護できます。</p>
+</div>
+<div class="paragraph">
+<p>ボリュームに適用するポリシーがすでに存在している必要があります。 <a href="#Adding a new backup policy">作業環境に新しいバックアップポリシーを追加する方法を参照してください</a>。</p>
+</div>
+<div class="paragraph">
+<p>また、新しく作成したボリュームが自動的にバックアップされないようにするには、この設定を無効にします。その場合は、後でバックアップする特定のボリュームのバックアップを手動で有効にする必要があります。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
+</div>
+</li>
+<li>
+<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] ボリュームが存在する作業環境で、*自動バックアップ新規ボリューム*を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_auto_backup_new_volumes_k8s.png" alt="&quot;[バックアップ設定"></span>ページで[新しいボリュームの自動バックアップ]オプションを選択したスクリーンショット。"]</p>
+</div>
+</li>
+<li>
+<p>[今後の永続ボリュームを自動的にバックアップする&#8230;&#8203;]チェックボックスをオンにし、新しいボリュームに適用するバックアップポリシーを選択して、[保存]をクリックします。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_auto_backup_k8s.png" alt="クラスタの今後のすべてのボリュームに割り当てるバックアップポリシーの選択方法を示すスクリーンショット。"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="既存のボリュームに割り当てられているポリシーを変更する">既存のボリュームに割り当てられているポリシーを変更する</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -1014,15 +1048,15 @@
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>[* Volumes （ボリューム） ] タブで、 [* Backup Settings （バックアップ設定） ] を選択します。</p>
+<p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
+<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
 </div>
 </li>
 <li>
-<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] ボリュームが存在する作業環境で、 * ボリュームの管理 * を選択します。</p>
+<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] ボリュームが存在する作業環境で、*永続ボリュームの管理*を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes.png" alt="&quot;[ バックアップ設定"></span> ページの [ ボリュームの管理 ] ボタンを示すスクリーンショット。"]</p>
+<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_k8s.png" alt="&quot;[バックアップ設定"></span>ページの[永続ボリュームの管理]ボタンを示すスクリーンショット。"]</p>
 </div>
 </li>
 <li>
@@ -1114,13 +1148,13 @@
 <li>
 <p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
+<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
 </div>
 </li>
 <li>
 <p>をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] すべてのバックアップを削除する Kubernetes クラスタで、 * すべてのバックアップを削除 * を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_delete_all_backups.png" alt="&quot;作業環境のすべてのバックアップを削除するには、 [Delete All Backups"></span> ボタンを選択したスクリーンショット。"]</p>
+<p><span class="image"><img src="./media/screenshot_delete_all_backups_k8s.png" alt="&quot;作業環境のすべてのバックアップを削除するには、 [Delete All Backups"></span> ボタンを選択したスクリーンショット。"]</p>
 </div>
 </li>
 <li>
@@ -1213,13 +1247,13 @@
 <li>
 <p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
+<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
 </div>
 </li>
 <li>
 <p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] バックアップを無効にする作業環境または Kubernetes クラスタで、 * バックアップを非アクティブ化 * を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_disable_backups.png" alt="作業環境のバックアップを非アクティブ化ボタンのスクリーンショット。"></span></p>
+<p><span class="image"><img src="./media/screenshot_disable_backups_k8s.png" alt="作業環境のバックアップを非アクティブ化ボタンのスクリーンショット。"></span></p>
 </div>
 </li>
 <li>
@@ -1272,7 +1306,7 @@
 <li>
 <p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
+<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
 </div>
 </li>
 <li>

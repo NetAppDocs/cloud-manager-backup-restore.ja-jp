@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-20 20:46:08 +0000">04/20/2022</time>
+    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
     
   
 
@@ -1093,25 +1093,29 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="ライセンス要件">ライセンス要件</h3>
-<div class="paragraph">
-<p>Cloud Backup の 30 日間無償トライアルの期限が切れる前に、従量課金制（ PAYGO ） Cloud Manager Marketplace で Azure から提供するサービスにサブスクライブするか、ネットアップから Cloud Backup BYOL ライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。</p>
-</div>
+<h3 id="ライセンス要件を確認">ライセンス要件を確認</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview" target="_blank" rel="noopener">"Azure"</a> Cloud Backup の今後の利用については、 Cloud Manager Marketplace でご確認ください。Cloud Backup の請求は、このサブスクリプションを通じて行われます。</p>
+<p>クラスタでCloud Backupをアクティブ化するには、従量課金制（PAYGO）のCloud Manager Marketplaceが提供するAzureのサービスをサブスクライブするか、ネットアップからCloud Backup BYOLライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview" target="_blank" rel="noopener">"Azure"</a> Cloud Backupを使用するためのCloud Manager Marketplaceのサービス。Cloud Backup の請求は、このサブスクリプションを通じて行われます。</p>
 </li>
 <li>
-<p>Cloud Backup BYOL ライセンスには、サブスクリプションは必要ありません。シリアル番号はネットアップから提供される必要があります。この番号を使用すると、ライセンスの期間と容量にサービスを使用できます。 <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"BYOL ライセンスの管理方法について説明します"</a>。</p>
+<p>Cloud Backup BYOL ライセンスを利用するには、ライセンスの期間と容量に応じてサービスを使用できるように、ネットアップから提供されたシリアル番号が必要です。 <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"BYOL ライセンスの管理方法について説明します"</a>。</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
+</li>
+<li>
 <p>バックアップを配置するオブジェクトストレージスペース用の Azure サブスクリプションが必要です。</p>
-</div>
 <div class="paragraph">
-<p>クラスタに SnapMirror ライセンスが必要です。Cloud Backup を使用する場合、「 Hybrid Cloud Bundle 」は必要ありません。</p>
+<p>すべての地域で、オンプレミスシステムから Azure Blob へのバックアップを作成できます <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"Cloud Volumes ONTAP がサポートされている場合"</a>Azure Government リージョンを含む。サービスのセットアップ時にバックアップを保存するリージョンを指定します。</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1194,6 +1198,9 @@
 </li>
 </ol>
 </div>
+</li>
+<li>
+<p>アカウントにCloud Backupの既存のライセンスがない場合は、使用する課金方法を選択するよう求められます。Azureから従量課金制（PAYGO）のCloud Manager Marketplaceサービスにサブスクライブする（または複数のサブスクリプションを選択する必要がある場合）、またはネットアップからCloud Backup BYOLライセンスを購入してアクティブ化することができます。 <a href="task-licensing-cloud-backup.html">"Cloud Backupライセンスの設定方法について説明します。"</a></p>
 </li>
 <li>
 <p>ネットワークの詳細を入力し、 * 次へ * をクリックします。</p>

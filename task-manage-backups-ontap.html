@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:41:11 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
     
   
 
@@ -881,6 +881,50 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="ボリュームのバックアップの有効化と無効化">ボリュームのバックアップの有効化と無効化</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ボリュームのバックアップコピーが不要で、バックアップの格納コストを抑える必要がない場合は、ボリュームのバックアップを停止できます。新しいボリュームがバックアップ中でない場合は、バックアップリストに追加することもできます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>[* Volumes （ボリューム） ] タブで、 [* Backup Settings （バックアップ設定） ] を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
+</div>
+</li>
+<li>
+<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] 作業環境では、 * ボリュームの管理 * を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_manage_volumes.png" alt="&quot;[ バックアップ設定"></span> ページの [ ボリュームの管理 ] ボタンを示すスクリーンショット。"]</p>
+</div>
+</li>
+<li>
+<p>変更するボリュームのチェックボックスを選択し、ボリュームのバックアップを開始するか停止するかに応じて、 [Activate * （アクティブ化 * ） ] または [* Deactivate * （非アクティブ化 * ） ] をクリックします。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_page.png" alt="ボリュームの管理ページでは、ボリュームを選択または選択解除できます。"></span></p>
+</div>
+<div class="paragraph">
+<p>「将来のボリュームを自動的にバックアップ」のチェックボックスを使用して、すべてのボリュームを追加してあとでバックアップを有効にするかどうかを選択できます。この設定を無効にした場合は、あとで追加したボリュームのバックアップを手動で有効にする必要があります。</p>
+</div>
+</li>
+<li>
+<p>[ 保存（ Save ） ] をクリックして、変更をコミットします。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>注意： * ボリュームのバックアップを停止すると、バックアップが停止します オブジェクトの料金はクラウドプロバイダが継続的に負担します を除いて、バックアップが使用する容量のストレージコスト あなた <a href="#Deleting backups">バックアップを削除します</a>。</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="既存のバックアップポリシーを編集する">既存のバックアップポリシーを編集する</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -923,50 +967,6 @@
 </div>
 <div class="paragraph">
 <p>アーカイブへのバックアップの階層化を停止した場合、アーカイブストレージに階層化されたバックアップファイルはその階層に残ります。アーカイブされたバックアップファイルは自動的に標準階層に戻されません。</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ボリュームのバックアップの有効化と無効化">ボリュームのバックアップの有効化と無効化</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>ボリュームのバックアップコピーが不要で、バックアップの格納コストを抑える必要がない場合は、ボリュームのバックアップを停止できます。新しいボリュームがバックアップ中でない場合は、バックアップリストに追加することもできます。</p>
-</div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>[* Volumes （ボリューム） ] タブで、 [* Backup Settings （バックアップ設定） ] を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
-</div>
-</li>
-<li>
-<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] 作業環境では、 * ボリュームの管理 * を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes.png" alt="&quot;[ バックアップ設定"></span> ページの [ ボリュームの管理 ] ボタンを示すスクリーンショット。"]</p>
-</div>
-</li>
-<li>
-<p>変更するボリュームのチェックボックスを選択し、ボリュームのバックアップを開始するか停止するかに応じて、 [Activate * （アクティブ化 * ） ] または [* Deactivate * （非アクティブ化 * ） ] をクリックします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_page.png" alt="ボリュームの管理ページでは、ボリュームを選択または選択解除できます。"></span></p>
-</div>
-<div class="paragraph">
-<p>「将来のボリュームを自動的にバックアップ」のチェックボックスを使用して、すべてのボリュームを追加してあとでバックアップを有効にするかどうかを選択できます。この設定を無効にした場合は、あとで追加したボリュームのバックアップを手動で有効にする必要があります。</p>
-</div>
-</li>
-<li>
-<p>[ 保存（ Save ） ] をクリックして、変更をコミットします。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>注意： * ボリュームのバックアップを停止すると、バックアップが停止します オブジェクトの料金はクラウドプロバイダが継続的に負担します を除いて、バックアップが使用する容量のストレージコスト あなた <a href="#Deleting backups">バックアップを削除します</a>。</p>
-</li>
-</ul>
 </div>
 </li>
 </ol>
@@ -1147,7 +1147,7 @@
 <h2 id="バックアップを削除する">バックアップを削除する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Backup では、 1 つのバックアップファイルを削除したり、ボリュームのすべてのバックアップを削除したり、作業環境または Kubernetes クラスタ内のすべてのボリュームのすべてのバックアップを削除したりできます。すべてのバックアップを削除するのは、不要になった場合やソースボリュームを削除したあとにすべてのバックアップを削除する場合などです。</p>
+<p>Cloud Backup では、 1 つのバックアップファイルを削除したり、ボリュームのすべてのバックアップを削除したり、作業環境内のすべてのボリュームのすべてのバックアップを削除したりできます。すべてのバックアップを削除するのは、不要になった場合やソースボリュームを削除したあとにすべてのバックアップを削除する場合などです。</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -1176,7 +1176,7 @@
 </div>
 </li>
 <li>
-<p>をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] すべてのバックアップを削除する作業環境または Kubernetes クラスタで、 * すべてのバックアップを削除 * を選択します。</p>
+<p>をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] すべてのバックアップを削除する作業環境で、 * すべてのバックアップを削除 * を選択します。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_delete_all_backups.png" alt="&quot;作業環境のすべてのバックアップを削除するには、 [Delete All Backups"></span> ボタンを選択したスクリーンショット。"]</p>
 </div>
@@ -1257,10 +1257,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="作業環境での-cloud-backup-の無効化">作業環境での Cloud Backup の無効化</h2>
+<h2 id="作業環境でのcloud-backupの非アクティブ化">作業環境でのCloud Backupの非アクティブ化</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>作業環境で Cloud Backup を無効にすると、システム上の各ボリュームのバックアップが無効になり、ボリュームをリストアすることもできなくなります。既存のバックアップは削除されません。この作業環境からバックアップ・サービスの登録を解除することはありません。基本的には、すべてのバックアップおよびリストア処理を一定期間停止できます。</p>
+<p>作業環境でCloud Backupを非アクティブ化すると、システム上の各ボリュームのバックアップが無効になり、ボリュームをリストアすることもできなくなります。既存のバックアップは削除されません。この作業環境からバックアップ・サービスの登録を解除することはありません。基本的には、すべてのバックアップおよびリストア処理を一定期間停止できます。</p>
 </div>
 <div class="paragraph">
 <p>クラウドから引き続き課金されます が提供する容量のオブジェクトストレージコストのプロバイダ バックアップは自分以外で使用します <a href="#Deleting all backup files for a working environment">バックアップを削除します</a>。</p>
@@ -1275,7 +1275,7 @@
 </div>
 </li>
 <li>
-<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] バックアップを無効にする作業環境または Kubernetes クラスタで、 * バックアップを非アクティブ化 * を選択します。</p>
+<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] バックアップを無効にする作業環境で、 * バックアップを非アクティブ化 * を選択します。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_disable_backups.png" alt="作業環境のバックアップを非アクティブ化ボタンのスクリーンショット。"></span></p>
 </div>

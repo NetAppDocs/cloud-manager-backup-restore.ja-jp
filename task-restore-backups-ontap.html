@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-restore-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-restore-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-restore-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-restore-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-restore-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:41:11 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
     
   
 
@@ -850,6 +850,9 @@
 <p>files * は、元の作業環境内のボリューム、同じクラウドアカウントを使用している別の作業環境内のボリューム、またはオンプレミスの ONTAP システム上のボリュームにリストアできます。</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>バックアップファイルから本番用システムにデータをリストアするには、有効なCloud Backupライセンスが必要です。</p>
 </div>
 </div>
 </div>
@@ -906,7 +909,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ボリュームリストアは、 Amazon S3 、 Azure Blob 、 Google Cloud 、 NetApp StorageGRID に格納されたバックアップファイルと連携します。ファイルのリストアは、 Amazon S3 と Azure Blob に格納されたバックアップファイルと連携します</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ボリュームとファイルのリストアは、 Amazon S3 に格納されたバックアップファイルと連携します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ボリュームとファイルのリストアは、Amazon S3とGoogle Cloudに格納されたバックアップファイルと連携します</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">では、名前が変更されたファイルや削除されたファイルは処理されません</p></td>
@@ -921,12 +924,12 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Restore インスタンスは不要です</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon のリソースを追加する必要はありません</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">新しいバケットと Amazon Athena 、 AWS Glue のリソースはアカウントごとに必要です</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">クラウドプロバイダのリソースを追加する必要はありません</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">アカウントごとにバケットとAWSまたはGoogleのリソースを追加する必要があります</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">個々のファイルのバックアップを参照するときに、 Cloud Restore インスタンスに関連するコスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">検索結果のバックアップとボリュームをスキャンするときに、 Amazon Athena と AWS Glue のリソースに関連するコスト</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バックアップとボリュームをスキャンして検索結果を表示するときに、AWSまたはGoogleのリソースにかかるコスト</p></td>
 </tr>
 </tbody>
 </table>
@@ -1389,11 +1392,13 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google クラウドストレージ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google オンプレミス ONTAP システムの Cloud Volumes ONTAP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google オンプレミス ONTAP システムの Cloud Volumes ONTAP</p></td>
+</tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>その他のクラウドプロバイダは、今後のリリースでサポートされる予定です。</p>
-</div>
 <div class="paragraph">
 <p>「オンプレミス ONTAP システム」とは、 FAS 、 AFF 、 ONTAP Select の各システムを指します。</p>
 </div>
@@ -1426,9 +1431,22 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Manager に権限を付与するユーザロールに、 Amazon Athena 、 AWS Glue 、および AWS S3 の特定の権限を追加する必要があります。 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"すべての権限が正しく設定されていることを確認します"</a>。</p>
+<p>Cloud Manager に権限を付与するユーザロールに、 Amazon Athena 、 AWS Glue 、および AWS S3 の特定の権限を追加する必要があります。 <a href="task-backup-onprem-to-aws.html#set-up-s3-permissions">"すべての権限が正しく設定されていることを確認します"</a>。</p>
 <div class="paragraph">
 <p>以前に設定したコネクタで Cloud Backup をすでに使用している場合は、ここで Athena 権限と Glue 権限を Cloud Manager ユーザロールに追加する必要があります。これらは新しい機能で、検索とリストアに必要です。</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Google Cloudの要件：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>特定のGoogle BigQuery権限は、Cloud Managerに権限を付与するユーザーロールに追加する必要があります。 <a href="task-backup-onprem-to-gcp.html#verify-or-add-permissions-to-the-connector">"すべての権限が正しく設定されていることを確認します"</a>。</p>
+<div class="paragraph">
+<p>以前に設定したコネクタでCloud Backupをすでに使用している場合は、ここでBigQuery権限をCloud Managerユーザロールに追加する必要があります。これらは新しい機能で、検索とリストアに必要です。</p>
 </div>
 </li>
 </ul>
@@ -1445,7 +1463,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>検索とリストアを使用する前に、ボリュームまたはファイルをリストアする各ソース作業環境でインデックス作成を有効にする必要があります。これにより、 Indexed Catalog は、すべてのボリュームのバックアップファイルを追跡できます。データ提供用 SVM で SnapDiff v3 を有効にし、新しい S3 バケットとをプロビジョニングします <a href="https://aws.amazon.com/athena/faqs/" target="_blank" rel="noopener">"Amazon Athena インタラクティブクエリーサービス"</a> および <a href="https://aws.amazon.com/glue/faqs/" target="_blank" rel="noopener">"AWS グルーサーバレスデータ統合サービス"</a>。</p>
+<p>検索とリストアを使用する前に、ボリュームまたはファイルをリストアする各ソース作業環境でインデックス作成を有効にする必要があります。これにより、 Indexed Catalog は、すべてのボリュームのバックアップファイルを追跡できます。</p>
 </li>
 <li>
 <p>ボリュームバックアップからボリュームまたはファイルを復元する場合は、 _ 検索と復元 _ で * 検索と復元 * をクリックします。</p>
@@ -1480,10 +1498,17 @@
 <p>検索とリストアを使用する前に、ボリュームまたはファイルのリストア元となる各ソース作業環境でインデックス作成を有効にする必要があります。これにより、インデックスカタログですべてのボリュームとすべてのバックアップファイルを追跡できるため、検索をすばやく効率的に実行できます。</p>
 </div>
 <div class="paragraph">
-<p>この機能を有効にすると、 Cloud Backup はボリュームに対して SVM で SnapDiff v3 を有効にし、 Amazon Athena 対話型クエリサービスと AWS Glue サーバレスデータ統合サービスをプロビジョニングする新しいバケットを作成します。</p>
+<p>この機能を有効にすると、ボリュームに対してCloud BackupがSVMでSnapDiff v3を有効にし、次の処理を実行します。</p>
 </div>
-<div class="paragraph">
-<p>作業環境でインデックス作成がすでに有効になっている場合は ' 次のセクションに進んでデータをリストアしてください</p>
+<div class="ulist">
+<ul>
+<li>
+<p>AWSに格納されたバックアップについては、新しいS3バケットとがプロビジョニングされます <a href="https://aws.amazon.com/athena/faqs/" target="_blank" rel="noopener">"Amazon Athena インタラクティブクエリーサービス"</a> および <a href="https://aws.amazon.com/glue/faqs/" target="_blank" rel="noopener">"AWS グルーサーバレスデータ統合サービス"</a>。</p>
+</li>
+<li>
+<p>Google Cloudに保存されているバックアップの場合、新しいバケットとがプロビジョニングされます <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener">"Google Cloud BigQueryサービス"</a> アカウント/プロジェクトレベルでプロビジョニングされます。作業環境でインデックス作成がすでに有効になっている場合は ' 次のセクションに進んでデータをリストアしてください</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>作業環境でインデックス作成を有効にするには：</p>

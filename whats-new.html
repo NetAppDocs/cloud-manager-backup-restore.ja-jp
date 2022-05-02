@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:41:11 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
     
   
 
@@ -840,6 +840,45 @@
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>Cloud Backup の新機能をご確認ください。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2022年5月2日">2022年5月2日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="google-cloud-storageのバックアップファイルで検索とリストアがサポートされるようになりました">Google Cloud Storageのバックアップファイルで検索とリストアがサポートされるようになりました</h3>
+<div class="paragraph">
+<p>ボリュームとファイルをリストアするための検索とリストアの方法は、AWSにバックアップファイルを格納するユーザ向けに4月に導入されました。Google Cloud Storageにバックアップファイルを保存するユーザーがこの機能を使用できるようになりました。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2">"Search &amp; Restoreを使用してボリュームとファイルをリストアする方法を参照してください"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kubernetesクラスタ内に新しく作成されたボリュームにバックアップポリシーが自動的に適用されるように設定します">Kubernetesクラスタ内に新しく作成されたボリュームにバックアップポリシーが自動的に適用されるように設定します</h3>
+<div class="paragraph">
+<p>Cloud Backupをアクティブ化したあとにKubernetesクラスタに新しい永続ボリュームを追加した場合は、以前にそれらのボリュームのバックアップを忘れずに設定する必要がありました。新しく作成したボリュームに自動的に適用するポリシーを選択できます。このオプションは、セットアップウィザードで新しいKubernetesクラスタまたはに対してCloud Backupをアクティブ化するときに使用できます <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-kubernetes.html#setting-a-backup-policy-to-be-assigned-to-new-volumes">"[バックアップ設定</a>ページから選択します"] Cloud Backupをすでにアクティブ化しているクラスタの場合</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-backupを作業環境でアクティブ化するにはライセンスが必要になります">Cloud Backupを作業環境でアクティブ化するには、ライセンスが必要になります</h3>
+<div class="paragraph">
+<p>Cloud Backupのライセンスの実装方法には、次の点が変更されています。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Backupをアクティブ化するには、クラウドプロバイダからPAYGO Marketplaceサブスクリプションに登録するか、ネットアップからBYOLライセンスを購入する必要があります。</p>
+</li>
+<li>
+<p>30日間無償トライアルは、クラウドプロバイダがPAYGOサブスクリプションを使用している場合にのみ利用できます。BYOLライセンスを使用している場合は利用できません。</p>
+</li>
+<li>
+<p>無料トライアルは、Marketplaceのサブスクリプションが開始された日から開始されます。たとえば、Cloud Volumes ONTAP システムのMarketplaceサブスクリプションを30日間使用した後で無料トライアルを有効にした場合、クラウドバックアップトライアルは利用できません。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-licensing-cloud-backup.html">"使用可能なライセンスモデルの詳細については、こちらをご覧ください"</a>。</p>
+</div>
 </div>
 </div>
 </div>
@@ -887,7 +926,7 @@
 <div class="sect2">
 <h3 id="バックアップポリシーを単一クラスタ内の個々のボリュームに割り当てることができるようになりました">バックアップポリシーを単一クラスタ内の個々のボリュームに割り当てることができるようになりました</h3>
 <div class="paragraph">
-<p>これまでは、クラスタ内のすべてのボリュームに割り当てることができるバックアップポリシーは 1 つだけでした。1 つのクラスタに複数のバックアップポリシーを作成し、異なるボリュームに異なるポリシーを適用できるようになりました。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap#changing-the-policy-assigned-to-existing-volumes">"クラスタの新しいバックアップポリシーを作成し、選択したボリュームに割り当てる方法を参照してください"</a>。</p>
+<p>これまでは、クラスタ内のすべてのボリュームに割り当てることができるバックアップポリシーは 1 つだけでした。1 つのクラスタに複数のバックアップポリシーを作成し、異なるボリュームに異なるポリシーを適用できるようになりました。 <a href="task-manage-backups-ontap#changing-the-policy-assigned-to-existing-volumes">"クラスタの新しいバックアップポリシーを作成し、選択したボリュームに割り当てる方法を参照してください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
@@ -902,7 +941,7 @@
 <div class="sect2">
 <h3 id="すべてのバックアップジョブとリストアジョブの処理中ステータスを確認するには新しいジョブモニタを使用できます">すべてのバックアップジョブとリストアジョブの処理中ステータスを確認するには、新しいジョブモニタを使用できます</h3>
 <div class="paragraph">
-<p>ジョブモニタは、バックアップポリシーの変更やバックアップの削除など、複数のボリュームに対して処理を開始した場合に非常に役立ちます。そのため、すべてのボリュームで処理が完了したことを確認できます。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html">"「ジョブモニタの使用方法」を参照してください"</a>。</p>
+<p>ジョブモニタは、バックアップポリシーの変更やバックアップの削除など、複数のボリュームに対して処理を開始した場合に非常に役立ちます。そのため、すべてのボリュームで処理が完了したことを確認できます。 <a href="task-monitor-backup-jobs.html">"「ジョブモニタの使用方法」を参照してください"</a>。</p>
 </div>
 </div>
 </div>

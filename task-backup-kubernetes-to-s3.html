@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:41:11 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
     
   
 
@@ -1063,16 +1063,19 @@ spec:
 </div>
 </div>
 <div class="sect1">
-<h2 id="既存のシステムでの-cloud-backup-の有効化">既存のシステムでの Cloud Backup の有効化</h2>
+<h2 id="cloud-backup-を有効にしています">Cloud Backup を有効にしています</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>作業環境から Cloud Backup をいつでも直接有効にできます。</p>
+<p>Kubernetesの作業環境からCloud Backupをいつでも直接有効にできます。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
 <p>作業環境を選択し、右パネルの [ バックアップと復元 ] サービスの横にある [*Enable] をクリックします。</p>
+<div class="paragraph">
+<p>バックアップのAmazon S3デスティネーションがCanvas上の作業環境として存在する場合は、KubernetesクラスタをAmazon S3作業環境にドラッグしてセットアップウィザードを開始できます。</p>
+</div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="作業環境を選択したあとに使用できるクラウドバックアップ設定ボタンを示すスクリーンショット。"></span></p>
 </div>
@@ -1096,11 +1099,14 @@ spec:
 <li>
 <p>個々のボリュームをバックアップするには、各ボリュームのボックス（<span class="image"><img src="./media/button_backup_1_volume.png" alt=""></span>）。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_select_volumes_k8s.png" alt="バックアップするボリュームを選択するスクリーンショット。"></span></p>
+<p><span class="image"><img src="./media/screenshot_backup_select_volumes_k8s.png" alt="バックアップする永続ボリュームの選択のスクリーンショット。"></span></p>
 </div>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>今後追加されるすべてのボリュームでバックアップを有効にするには、「今後のボリュームを自動的にバックアップします…。」のチェックボックスをオンのままにします。この設定を無効にした場合は、将来のボリュームのバックアップを手動で有効にする必要があります。</p>
 </li>
 <li>
 <p>Activate Backup * をクリックすると、選択した各ボリュームの初期バックアップの実行が開始されます。</p>

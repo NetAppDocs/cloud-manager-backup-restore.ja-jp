@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:41:11 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
     
   
 
@@ -937,7 +937,48 @@
 <dd>
 <p>事前定義された Storage Admin ロールを持つサービスアカウントが Google Cloud Project に必要です。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html" target="_blank" rel="noopener">"サービスアカウントの作成方法について説明します"</a>。</p>
 </dd>
+<dt class="hdlist1">コネクタの権限を確認または追加します</dt>
+<dd>
+<p>Cloud Backupの検索とリストア機能を使用するには、Connectorの役割に特定の権限を付与して、Google Cloud BigQueryサービスにアクセスできるようにする必要があります。以下の権限を確認し、ポリシーを変更する必要がある場合は手順に従います。</p>
+</dd>
 </dl>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>インチ <a href="https://console.cloud.google.com" target="_blank" rel="noopener">"Cloud Console の略"</a>をクリックし、 * Roles * ページに移動します。</p>
+</li>
+<li>
+<p>ページ上部のドロップダウンリストを使用して、編集するロールを含むプロジェクトまたは組織を選択します。</p>
+</li>
+<li>
+<p>カスタムロールをクリックします。</p>
+</li>
+<li>
+<p>役割の権限を更新するには、 * 役割の編集 * をクリックします。</p>
+</li>
+<li>
+<p>[ 権限の追加 *] をクリックして、次の新しい権限を役割に追加します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>[ 更新（ Update ） ] をクリックして、編集したロールを保存する。</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1070,7 +1111,7 @@
 <p>Cloud Backup が起動し、選択した各ボリュームの初期バックアップの作成が開始されます。 Volume Backup Dashboard が表示され、バックアップの状態を監視できます。</p>
 </div>
 <div class="paragraph">
-<p>可能です <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"</a>。また可能です <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"バックアップファイルからボリューム全体をリストアする"</a> Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。</p>
+<p>可能です <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"</a>。また可能です <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"バックアップファイルからボリュームまたはファイルをリストアする"</a> Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。</p>
 </div>
 </div>
 </div>
