@@ -180,14 +180,12 @@ StorageGRID にデータをバックアップするときは、オンプレミ�
 
 === ライセンス要件
 
-Cloud Backup の 30 日間無償トライアルの期限が切れる前に、ネットアップから Cloud Backup BYOL ライセンスを購入してアクティブ化する必要があります。このライセンスはアカウント用であり、複数のシステムで使用できます。
+クラスタのCloud Backupをアクティブ化する前に、NetAppからCloud Backup BYOLライセンスを購入してアクティブ化する必要があります。このライセンスはアカウント用であり、複数のシステムで使用できます。
 
 ネットアップから提供されるシリアル番号を使用して、ライセンスの期間と容量にサービスを利用できるようにする必要があります。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL ライセンスの管理方法について説明します"]。
 
 
 TIP: PAYGO ライセンスは、ファイルを StorageGRID にバックアップする場合にはサポートされません。
-
-クラスタに SnapMirror ライセンスが必要です。Cloud Backup を使用する場合、「 Hybrid Cloud Bundle 」は必要ありません。
 
 
 

@@ -37,18 +37,42 @@ image:screenshot_backup_dashboard.png["バックアップファイルがある�
 
 
 
+== ボリュームのバックアップの有効化と無効化
+
+ボリュームのバックアップコピーが不要で、バックアップの格納コストを抑える必要がない場合は、ボリュームのバックアップを停止できます。新しいボリュームがバックアップ中でない場合は、バックアップリストに追加することもできます。
+
+.手順
+. [*Kubernetes *] タブで、 [* バックアップ設定 * ] を選択します。
++
+image:screenshot_backup_settings_button_k8s.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
+
+. _ バックアップ設定ページ _ で、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] Kubernetesクラスタで、* Manage Persistent Volumes *を選択します。
++
+image:screenshot_backup_manage_volumes_k8s.png["[バックアップ設定]ページの[永続ボリュームの管理]ボタンを示すスクリーンショット。"]
+
+. 変更するボリュームのチェックボックスを選択し、ボリュームのバックアップを開始するか停止するかに応じて、 [Activate * （アクティブ化 * ） ] または [* Deactivate * （非アクティブ化 * ） ] をクリックします。
++
+image:screenshot_backup_manage_volumes_page_k8s.png["ボリュームの管理ページでは、ボリュームを選択または選択解除できます。"]
+
+. [ 保存（ Save ） ] をクリックして、変更をコミットします。
+
+
+* 注意： * ボリュームのバックアップを停止すると、バックアップが停止します オブジェクトの料金はクラウドプロバイダが継続的に負担します を除いて、バックアップが使用する容量のストレージコスト あなた <<Deleting backups,バックアップを削除します>>。
+
+
+
 == 既存のバックアップポリシーを編集する
 
 作業環境でボリュームに現在適用されているバックアップポリシーの属性を変更することができます。バックアップポリシーを変更すると、そのポリシーを使用している既存のすべてのボリュームが対象になります。
 
 .手順
-. [* Volumes （ボリューム） ] タブで、 [* Backup Settings （バックアップ設定） ] を選択します。
+. [*Kubernetes *] タブで、 [* バックアップ設定 * ] を選択します。
 +
-image:screenshot_backup_settings_button.png["Volumes （ボリューム）タブの Backup Settings （バックアップ設定）ボタンを示すスクリーンショット。"]
+image:screenshot_backup_settings_button_k8s.png["Volumes （ボリューム）タブの Backup Settings （バックアップ設定）ボタンを示すスクリーンショット。"]
 
 . [Backup Settings_] ページで、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] 設定を変更する作業環境で、 [ * ポリシーの管理 * ] を選択します。
 +
-image:screenshot_backup_modify_policy.png["[ バックアップ設定 ] ページの [ ポリシーの管理 ] オプションを示すスクリーンショット。"]
+image:screenshot_backup_modify_policy_k8s.png["[ バックアップ設定 ] ページの [ ポリシーの管理 ] オプションを示すスクリーンショット。"]
 
 . [ ポリシーの管理 ] ページで、作業環境で変更するバックアップポリシーの [ ポリシーの編集 ] をクリックします。
 +
@@ -62,33 +86,6 @@ image:screenshot_backup_edit_policy.png["バックアップポリシーの設定
 
 
 
-== ボリュームのバックアップの有効化と無効化
-
-ボリュームのバックアップコピーが不要で、バックアップの格納コストを抑える必要がない場合は、ボリュームのバックアップを停止できます。新しいボリュームがバックアップ中でない場合は、バックアップリストに追加することもできます。
-
-.手順
-. [*Kubernetes *] タブで、 [* バックアップ設定 * ] を選択します。
-+
-image:screenshot_backup_settings_button.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
-
-. _ バックアップ設定ページ _ で、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] Kubernetes クラスタで、 * Manage Volumes * を選択します。
-+
-image:screenshot_backup_manage_volumes.png["[ バックアップ設定 ] ページの [ ボリュームの管理 ] ボタンを示すスクリーンショット。"]
-
-. 変更するボリュームのチェックボックスを選択し、ボリュームのバックアップを開始するか停止するかに応じて、 [Activate * （アクティブ化 * ） ] または [* Deactivate * （非アクティブ化 * ） ] をクリックします。
-+
-image:screenshot_backup_manage_volumes_page.png["ボリュームの管理ページでは、ボリュームを選択または選択解除できます。"]
-
-+
-「将来のボリュームを自動的にバックアップ」のチェックボックスを使用して、すべてのボリュームを追加してあとでバックアップを有効にするかどうかを選択できます。この設定を無効にした場合は、あとで追加したボリュームのバックアップを手動で有効にする必要があります。
-
-. [ 保存（ Save ） ] をクリックして、変更をコミットします。
-
-
-* 注意： * ボリュームのバックアップを停止すると、バックアップが停止します オブジェクトの料金はクラウドプロバイダが継続的に負担します を除いて、バックアップが使用する容量のストレージコスト あなた <<Deleting backups,バックアップを削除します>>。
-
-
-
 == 新しいバックアップポリシーを追加しています
 
 作業環境で Cloud Backup を有効にすると、最初に選択したすべてのボリュームが、定義したデフォルトのバックアップポリシーを使用してバックアップされます。Recovery Point Objective （ RPO ；目標復旧時点）が異なるボリュームに対して異なるバックアップポリシーを割り当てる場合は、そのクラスタに追加のポリシーを作成し、そのポリシーを他のボリュームに割り当てることができます。
@@ -96,13 +93,13 @@ image:screenshot_backup_manage_volumes_page.png["ボリュームの管理ペー�
 作業環境内の特定のボリュームに新しいバックアップポリシーを適用する場合は、最初にそのバックアップポリシーを作業環境に追加する必要があります。すると <<Changing the policy assigned to existing volumes,その作業環境内のボリュームにポリシーを適用します>>。
 
 .手順
-. [* Volumes （ボリューム） ] タブで、 [* Backup Settings （バックアップ設定） ] を選択します。
+. [*Kubernetes *] タブで、 [* バックアップ設定 * ] を選択します。
 +
-image:screenshot_backup_settings_button.png["Volumes （ボリューム）タブの Backup Settings （バックアップ設定）ボタンを示すスクリーンショット。"]
+image:screenshot_backup_settings_button_k8s.png["Volumes （ボリューム）タブの Backup Settings （バックアップ設定）ボタンを示すスクリーンショット。"]
 
 . [Backup Settings_] ページで、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] 新しいポリシーを追加する作業環境で、 [ ポリシーの管理 ] を選択します。
 +
-image:screenshot_backup_modify_policy.png["[ バックアップ設定 ] ページの [ ポリシーの管理 ] オプションを示すスクリーンショット。"]
+image:screenshot_backup_modify_policy_k8s.png["[ バックアップ設定 ] ページの [ ポリシーの管理 ] オプションを示すスクリーンショット。"]
 
 . [ ポリシーの管理 ] ページで、 [ 新しいポリシーの追加 ] をクリックします。
 +
@@ -116,6 +113,31 @@ image:screenshot_backup_add_new_policy.png["バックアップポリシーの設
 
 
 
+== 新しいボリュームに割り当てるバックアップポリシーの設定
+
+KubernetesクラスタでCloud Backupを初めてアクティブ化したときに、新しく作成したボリュームにバックアップポリシーを自動的に割り当てるオプションを選択しなかった場合は、後で_Backup Settings_pageでこのオプションを選択できます。新しく作成したボリュームにバックアップポリシーを割り当てると、すべてのデータを確実に保護できます。
+
+ボリュームに適用するポリシーがすでに存在している必要があります。 <<Adding a new backup policy,作業環境に新しいバックアップポリシーを追加する方法を参照してください>>。
+
+また、新しく作成したボリュームが自動的にバックアップされないようにするには、この設定を無効にします。その場合は、後でバックアップする特定のボリュームのバックアップを手動で有効にする必要があります。
+
+.手順
+. [*Kubernetes *] タブで、 [* バックアップ設定 * ] を選択します。
++
+image:screenshot_backup_settings_button_k8s.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
+
+. _ バックアップ設定ページ _ で、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] ボリュームが存在する作業環境で、*自動バックアップ新規ボリューム*を選択します。
++
+image:screenshot_auto_backup_new_volumes_k8s.png["[バックアップ設定]ページで[新しいボリュームの自動バックアップ]オプションを選択したスクリーンショット。"]
+
+. [今後の永続ボリュームを自動的にバックアップする...]チェックボックスをオンにし、新しいボリュームに適用するバックアップポリシーを選択して、[保存]をクリックします。
++
+image:screenshot_auto_backup_k8s.png["クラスタの今後のすべてのボリュームに割り当てるバックアップポリシーの選択方法を示すスクリーンショット。"]
+
+
+
+
+
 == 既存のボリュームに割り当てられているポリシーを変更する
 
 既存のボリュームに割り当てられているバックアップポリシーは、バックアップを作成する頻度を変更する場合や、保持期間を変更する場合に変更できます。
@@ -123,13 +145,13 @@ image:screenshot_backup_add_new_policy.png["バックアップポリシーの設
 ボリュームに適用するポリシーがすでに存在している必要があります。 <<Adding a new backup policy,作業環境に新しいバックアップポリシーを追加する方法を参照してください>>。
 
 .手順
-. [* Volumes （ボリューム） ] タブで、 [* Backup Settings （バックアップ設定） ] を選択します。
+. [*Kubernetes *] タブで、 [* バックアップ設定 * ] を選択します。
 +
-image:screenshot_backup_settings_button.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
+image:screenshot_backup_settings_button_k8s.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
 
-. _ バックアップ設定ページ _ で、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] ボリュームが存在する作業環境で、 * ボリュームの管理 * を選択します。
+. _ バックアップ設定ページ _ で、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] ボリュームが存在する作業環境で、*永続ボリュームの管理*を選択します。
 +
-image:screenshot_backup_manage_volumes.png["[ バックアップ設定 ] ページの [ ボリュームの管理 ] ボタンを示すスクリーンショット。"]
+image:screenshot_backup_manage_volumes_k8s.png["[バックアップ設定]ページの[永続ボリュームの管理]ボタンを示すスクリーンショット。"]
 
 . ポリシーを変更するボリュームのチェックボックスを選択し、 * ポリシーの変更 * をクリックします。
 +
@@ -186,11 +208,11 @@ CAUTION: バックアップがある作業環境またはクラスタを削除�
 .手順
 . [*Kubernetes *] タブで、 [* バックアップ設定 * ] を選択します。
 +
-image:screenshot_backup_settings_button.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
+image:screenshot_backup_settings_button_k8s.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
 
 . をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] すべてのバックアップを削除する Kubernetes クラスタで、 * すべてのバックアップを削除 * を選択します。
 +
-image:screenshot_delete_all_backups.png["作業環境のすべてのバックアップを削除するには、 [Delete All Backups] ボタンを選択したスクリーンショット。"]
+image:screenshot_delete_all_backups_k8s.png["作業環境のすべてのバックアップを削除するには、 [Delete All Backups] ボタンを選択したスクリーンショット。"]
 
 . 確認ダイアログボックスで、作業環境の名前を入力し、 * 削除 * をクリックする。
 
@@ -256,11 +278,11 @@ image:screenshot_delete_one_backup.png["単一のバックアップファイル�
 .手順
 . [*Kubernetes *] タブで、 [* バックアップ設定 * ] を選択します。
 +
-image:screenshot_backup_settings_button.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
+image:screenshot_backup_settings_button_k8s.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
 
 . _ バックアップ設定ページ _ で、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] バックアップを無効にする作業環境または Kubernetes クラスタで、 * バックアップを非アクティブ化 * を選択します。
 +
-image:screenshot_disable_backups.png["作業環境のバックアップを非アクティブ化ボタンのスクリーンショット。"]
+image:screenshot_disable_backups_k8s.png["作業環境のバックアップを非アクティブ化ボタンのスクリーンショット。"]
 
 . 確認ダイアログボックスで、 * Deactivate * をクリックします。
 
@@ -287,7 +309,7 @@ Cloud Backup の登録を解除する前に、次の手順をこの順序で実�
 .手順
 . [*Kubernetes *] タブで、 [* バックアップ設定 * ] を選択します。
 +
-image:screenshot_backup_settings_button.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
+image:screenshot_backup_settings_button_k8s.png["作業環境を選択した後に使用できる [ バックアップ設定 ] ボタンを示すスクリーンショット。"]
 
 . _ バックアップ設定ページ _ で、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] バックアップサービスの登録を解除する Kubernetes クラスタで、 * 登録解除 * を選択します。
 +

@@ -154,7 +154,10 @@ AWS 環境にはアウトバウンドのインターネットアクセスが必�
 | エンドポイント | 目的 
 
 
-| \ http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/ | クラウドリストアインスタンス AMI 用の CentOS パッケージ。 
+| \ http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64 /4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff3be50e9222/ | クラウドリストアインスタンス AMI 用の CentOS パッケージ。 
+
+
+| \ https://download.docker.com/linux/centos/docker-ce.repo | Docker Engine パッケージを提供します。 
 
 
 | ¥ http://cloudmanagerinfraprod.azurecr.io ¥ https://cloudmanagerinfraprod.azurecr.io | Cloud Restore Instance のイメージリポジトリ。 

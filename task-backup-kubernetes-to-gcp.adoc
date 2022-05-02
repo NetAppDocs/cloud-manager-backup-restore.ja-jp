@@ -140,9 +140,9 @@ GCP サービスアカウント:: 事前定義された Storage Admin ロール�
 
 
 
-== 既存のシステムでの Cloud Backup の有効化
+== Cloud Backup を有効にしています
 
-作業環境から Cloud Backup をいつでも直接有効にできます。
+Kubernetesの作業環境からCloud Backupをいつでも直接有効にできます。
 
 .手順
 . 作業環境を選択し、右パネルの [ バックアップと復元 ] サービスの横にある [*Enable] をクリックします。
@@ -161,10 +161,11 @@ image:screenshot_backup_policy_k8s_azure.png["クラウドバックアップの�
 ** すべてのボリュームをバックアップするには、タイトル行（image:button_backup_all_volumes.png[""]）。
 ** 個々のボリュームをバックアップするには、各ボリュームのボックス（image:button_backup_1_volume.png[""]）。
 +
-image:screenshot_backup_select_volumes_k8s.png["バックアップするボリュームを選択するスクリーンショット。"]
+image:screenshot_backup_select_volumes_k8s.png["バックアップする永続ボリュームの選択のスクリーンショット。"]
 
 
 
+. 今後追加されるすべてのボリュームでバックアップを有効にするには、「今後のボリュームを自動的にバックアップします…。」のチェックボックスをオンのままにします。この設定を無効にした場合は、将来のボリュームのバックアップを手動で有効にする必要があります。
 . Activate Backup * をクリックすると、選択した各ボリュームの初期バックアップの実行が開始されます。
 
 

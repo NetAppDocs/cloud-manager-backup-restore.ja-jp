@@ -158,23 +158,48 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 
 
 
-=== サポートされている地域
+=== コネクタの権限を確認または追加します
 
-すべての地域で、オンプレミスシステムから Google Cloud ストレージへのバックアップを作成できます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]。サービスのセットアップ時にバックアップを保存するリージョンを指定します。
+Cloud Backupの検索とリストア機能を使用するには、Connectorの役割に特定の権限を付与して、Google Cloud BigQueryサービスにアクセスできるようにする必要があります。以下の権限を確認し、ポリシーを変更する必要がある場合は手順に従います。
+
+.手順
+. インチ link:https://console.cloud.google.com["Cloud Console の略"^]をクリックし、 * Roles * ページに移動します。
+. ページ上部のドロップダウンリストを使用して、編集するロールを含むプロジェクトまたは組織を選択します。
+. カスタムロールをクリックします。
+. 役割の権限を更新するには、 * 役割の編集 * をクリックします。
+. [ 権限の追加 *] をクリックして、次の新しい権限を役割に追加します。
++
+[source, json]
+----
+bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create
+----
+. [ 更新（ Update ） ] をクリックして、編集したロールを保存する。
 
 
 
-=== ライセンス要件
 
-Cloud Backup の 30 日間無償トライアルの期限が切れる前に、従量課金制（ PAYGO ） Cloud Manager Marketplace で Google から提供するサービスにサブスクライブするか、ネットアップから Cloud Backup BYOL ライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。
+=== ライセンス要件を確認
 
-* Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google"^] Cloud Backup の今後の利用については、 Cloud Manager Marketplace でご確認ください。Cloud Backup の請求は、このサブスクリプションを通じて行われます。
-* Cloud Backup BYOL ライセンスには、サブスクリプションは必要ありません。シリアル番号はネットアップから提供される必要があります。この番号を使用すると、ライセンスの期間と容量にサービスを使用できます。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL ライセンスの管理方法について説明します"]。
+* クラスタでCloud Backupをアクティブ化するには、事前に従量課金制（PAYGO）のCloud Manager Marketplace製品をGoogleから購入するか、ネットアップからCloud Backup BYOLライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。
++
+** Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google"^] Cloud Backupを使用するためのCloud Manager Marketplaceのサービス。Cloud Backup の請求は、このサブスクリプションを通じて行われます。
+** Cloud Backup BYOL ライセンスを利用するには、ライセンスの期間と容量に応じてサービスを使用できるように、ネットアップから提供されたシリアル番号が必要です。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL ライセンスの管理方法について説明します"]。
 
 
-バックアップを格納するオブジェクトストレージスペース用の Google サブスクリプションが必要です。
+* バックアップを格納するオブジェクトストレージスペース用の Google サブスクリプションが必要です。
++
+すべての地域で、オンプレミスシステムからGoogle Cloud Storageへのバックアップを作成できます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]。サービスのセットアップ時にバックアップを保存するリージョンを指定します。
 
-クラスタに SnapMirror ライセンスが必要です。Cloud Backup を使用する場合、「 Hybrid Cloud Bundle 」は必要ありません。
+
 
 
 
@@ -218,6 +243,7 @@ image:screenshot_backup_onprem_to_google.png["オンプレミスのクラスタ�
 
 
 
+. アカウントにCloud Backupの既存のライセンスがない場合は、使用する課金方法を選択するよう求められます。Googleが提供する従量課金制（PAYGO）Cloud Manager Marketplaceサービスにサブスクライブする（または複数のサブスクリプションを選択する必要がある場合）か、ネットアップが提供するCloud Backup BYOLライセンスを購入してアクティブ化することができます。 link:task-licensing-cloud-backup.html["Cloud Backupライセンスの設定方法について説明します。"]
 . [_Define Policy_] ページで、既存のバックアップスケジュールと保持期間の値を選択するか、新しいデフォルトバックアップポリシーを定義して、 [ * 次へ * ] をクリックします。
 +
 image:screenshot_backup_policy_gcp.png["クラウドバックアップの設定を示すスクリーンショット。バックアップのスケジュールと保持期間を選択できます。"]
@@ -242,4 +268,4 @@ image:screenshot_backup_select_volumes.png["バックアップするボリュー
 
 Cloud Backup が起動し、選択した各ボリュームの初期バックアップの作成が開始されます。 Volume Backup Dashboard が表示され、バックアップの状態を監視できます。
 
-可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["バックアップファイルからボリューム全体をリストアする"^] Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["バックアップファイルからボリュームまたはファイルをリストアする"^] Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。

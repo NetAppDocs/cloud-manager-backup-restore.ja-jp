@@ -174,17 +174,19 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 
 
 
-=== ライセンス要件
+=== ライセンス要件を確認
 
-Cloud Backup の 30 日間無償トライアルの期限が切れる前に、従量課金制（ PAYGO ） Cloud Manager Marketplace で Azure から提供するサービスにサブスクライブするか、ネットアップから Cloud Backup BYOL ライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。
+* クラスタでCloud Backupをアクティブ化するには、従量課金制（PAYGO）のCloud Manager Marketplaceが提供するAzureのサービスをサブスクライブするか、ネットアップからCloud Backup BYOLライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。
++
+** Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure"^] Cloud Backupを使用するためのCloud Manager Marketplaceのサービス。Cloud Backup の請求は、このサブスクリプションを通じて行われます。
+** Cloud Backup BYOL ライセンスを利用するには、ライセンスの期間と容量に応じてサービスを使用できるように、ネットアップから提供されたシリアル番号が必要です。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL ライセンスの管理方法について説明します"]。
 
-* Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure"^] Cloud Backup の今後の利用については、 Cloud Manager Marketplace でご確認ください。Cloud Backup の請求は、このサブスクリプションを通じて行われます。
-* Cloud Backup BYOL ライセンスには、サブスクリプションは必要ありません。シリアル番号はネットアップから提供される必要があります。この番号を使用すると、ライセンスの期間と容量にサービスを使用できます。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL ライセンスの管理方法について説明します"]。
+
+* バックアップを配置するオブジェクトストレージスペース用の Azure サブスクリプションが必要です。
++
+すべての地域で、オンプレミスシステムから Azure Blob へのバックアップを作成できます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]Azure Government リージョンを含む。サービスのセットアップ時にバックアップを保存するリージョンを指定します。
 
 
-バックアップを配置するオブジェクトストレージスペース用の Azure サブスクリプションが必要です。
-
-クラスタに SnapMirror ライセンスが必要です。Cloud Backup を使用する場合、「 Hybrid Cloud Bundle 」は必要ありません。
 
 
 
@@ -231,6 +233,7 @@ image:screenshot_backup_onprem_to_azure.png["オンプレミスクラスタか�
 
 
 
+. アカウントにCloud Backupの既存のライセンスがない場合は、使用する課金方法を選択するよう求められます。Azureから従量課金制（PAYGO）のCloud Manager Marketplaceサービスにサブスクライブする（または複数のサブスクリプションを選択する必要がある場合）、またはネットアップからCloud Backup BYOLライセンスを購入してアクティブ化することができます。 link:task-licensing-cloud-backup.html["Cloud Backupライセンスの設定方法について説明します。"]
 . ネットワークの詳細を入力し、 * 次へ * をクリックします。
 +
 .. バックアップするボリュームが配置されている ONTAP クラスタ内の IPspace 。この IPspace のクラスタ間 LIF には、アウトバウンドのインターネットアクセスが必要です。

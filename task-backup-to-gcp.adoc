@@ -73,6 +73,30 @@ Cloud Backup BYOL ライセンスを使用するには、ライセンスの期�
 
 --
 GCP サービスアカウント:: 事前定義された Storage Admin ロールを持つサービスアカウントが Google Cloud Project に必要です。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html["サービスアカウントの作成方法について説明します"^]。
+コネクタの権限を確認または追加します:: Cloud Backupの検索とリストア機能を使用するには、Connectorの役割に特定の権限を付与して、Google Cloud BigQueryサービスにアクセスできるようにする必要があります。以下の権限を確認し、ポリシーを変更する必要がある場合は手順に従います。
+
+
+.手順
+. インチ link:https://console.cloud.google.com["Cloud Console の略"^]をクリックし、 * Roles * ページに移動します。
+. ページ上部のドロップダウンリストを使用して、編集するロールを含むプロジェクトまたは組織を選択します。
+. カスタムロールをクリックします。
+. 役割の権限を更新するには、 * 役割の編集 * をクリックします。
+. [ 権限の追加 *] をクリックして、次の新しい権限を役割に追加します。
++
+[source, json]
+----
+bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create
+----
+. [ 更新（ Update ） ] をクリックして、編集したロールを保存する。
 
 
 
@@ -154,4 +178,4 @@ image:screenshot_backup_select_volumes.png["バックアップするボリュー
 
 Cloud Backup が起動し、選択した各ボリュームの初期バックアップの作成が開始されます。 Volume Backup Dashboard が表示され、バックアップの状態を監視できます。
 
-可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["バックアップファイルからボリューム全体をリストアする"^] Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["バックアップファイルからボリュームまたはファイルをリストアする"^] Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。

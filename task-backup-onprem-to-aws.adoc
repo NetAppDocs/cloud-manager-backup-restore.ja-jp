@@ -163,9 +163,9 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 
 == ライセンス要件を確認
 
-* Cloud Backup の 30 日間無償トライアルの期限が切れる前に、 AWS から Cloud Manager Marketplace が提供する従量課金制（ PAYGO ）のサブスクリプションに登録するか、ネットアップから Cloud Backup BYOL ライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。
+* クラスタでCloud Backupをアクティブ化するには、事前に従量課金制（PAYGO）のCloud Manager MarketplaceでAWSから提供するか、ネットアップからCloud Backup BYOLライセンスを購入してアクティブ化する必要があります。これらのライセンスはアカウント用であり、複数のシステムで使用できます。
 +
-** Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["AWS Cloud Manager Marketplace のサービス"^] をクリックしてください。Cloud Backup の請求は、このサブスクリプションを通じて行われます。
+** Cloud Backup PAYGO ライセンスの場合は、へのサブスクリプションが必要です https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["AWS Cloud Manager Marketplace のサービス"^] クラウドバックアップを使用できます。Cloud Backup の請求は、このサブスクリプションを通じて行われます。
 ** Cloud Backup BYOL ライセンスを利用するには、ライセンスの期間と容量に応じてサービスを使用できるように、ネットアップから提供されたシリアル番号が必要です。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL ライセンスの管理方法について説明します"]。
 
 
@@ -289,6 +289,9 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 | \ http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64 /4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff3be50e9222/ | クラウドリストアインスタンス AMI 用の CentOS パッケージ。 
 
 
+| \ https://download.docker.com/linux/centos/docker-ce.repo | Docker Engine パッケージを提供します。 
+
+
 | ¥ http://cloudmanagerinfraprod.azurecr.io ¥ https://cloudmanagerinfraprod.azurecr.io | Cloud Restore Instance のイメージリポジトリ。 
 |===
 
@@ -372,6 +375,7 @@ image:screenshot_backup_provider_settings_aws.png["ONTAP システムから AWS 
 
 
 
+. アカウントにCloud Backupの既存のライセンスがない場合は、使用する課金方法を選択するよう求められます。AWSから従量課金制（PAYGO）のCloud Manager Marketplaceサービスにサブスクライブする（または複数のサブスクリプションを選択する必要がある場合）か、ネットアップからCloud Backup BYOLライセンスを購入してアクティブ化することができます。 link:task-licensing-cloud-backup.html["Cloud Backupライセンスの設定方法について説明します。"]
 . ネットワークの詳細を入力し、 * 次へ * をクリックします。
 +
 .. バックアップするボリュームが配置されている ONTAP クラスタ内の IPspace 。この IPspace のクラスタ間 LIF には、アウトバウンドのインターネットアクセスが必要です。
