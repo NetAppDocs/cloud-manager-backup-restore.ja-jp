@@ -831,7 +831,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
+    <time datetime="2022-05-05 19:22:42 +0000">05/05/2022</time>
     
   
 
@@ -907,9 +907,6 @@
 <p>変更するボリュームのチェックボックスを選択し、ボリュームのバックアップを開始するか停止するかに応じて、 [Activate * （アクティブ化 * ） ] または [* Deactivate * （非アクティブ化 * ） ] をクリックします。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_backup_manage_volumes_page.png" alt="ボリュームの管理ページでは、ボリュームを選択または選択解除できます。"></span></p>
-</div>
-<div class="paragraph">
-<p>「将来のボリュームを自動的にバックアップ」のチェックボックスを使用して、すべてのボリュームを追加してあとでバックアップを有効にするかどうかを選択できます。この設定を無効にした場合は、あとで追加したボリュームのバックアップを手動で有効にする必要があります。</p>
 </div>
 </li>
 <li>
@@ -1068,6 +1065,46 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="新しいボリュームに割り当てるバックアップポリシーの設定">新しいボリュームに割り当てるバックアップポリシーの設定</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ONTAP クラスタでクラウドバックアップを初めてアクティブ化したときに、新しく作成したボリュームにバックアップポリシーを自動的に割り当てるオプションを選択していない場合は、あとで_Backup Settings_pageでこのオプションを選択できます。新しく作成したボリュームにバックアップポリシーを割り当てると、すべてのデータを確実に保護できます。</p>
+</div>
+<div class="paragraph">
+<p>ボリュームに適用するポリシーがすでに存在している必要があります。 <a href="#Adding a new backup policy">作業環境に新しいバックアップポリシーを追加する方法を参照してください</a>。</p>
+</div>
+<div class="paragraph">
+<p>また、新しく作成したボリュームが自動的にバックアップされないようにするには、この設定を無効にします。その場合は、後でバックアップする特定のボリュームのバックアップを手動で有効にする必要があります。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>[* Volumes （ボリューム） ] タブで、 [* Backup Settings （バックアップ設定） ] を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
+</div>
+</li>
+<li>
+<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] ボリュームが存在する作業環境で、*自動バックアップ新規ボリューム*を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_auto_backup_new_volumes.png" alt="&quot;[バックアップ設定"></span>ページで[新しいボリュームの自動バックアップ]オプションを選択したスクリーンショット。"]</p>
+</div>
+</li>
+<li>
+<p>「新しいボリュームを自動的にバックアップ&#8230;&#8203;」チェックボックスをオンにし、新しいボリュームに適用するバックアップポリシーを選択して、「<strong>保存</strong>」をクリックします。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_auto_backup.png" alt="クラスタの今後のすべてのボリュームに割り当てるバックアップポリシーの選択方法を示すスクリーンショット。"></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>このバックアップポリシーは、Cloud Manager、System Manager、またはONTAP CLIを使用して、この作業環境で作成した新しいボリュームに適用されます。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="ボリュームの手動バックアップをいつでも作成できます">ボリュームの手動バックアップをいつでも作成できます</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -1075,6 +1112,9 @@
 </div>
 <div class="paragraph">
 <p>バックアップ名にはタイムスタンプが含まれるため、他のスケジュールされたバックアップからオンデマンドバックアップを特定できます。</p>
+</div>
+<div class="paragraph">
+<p>アドホックバックアップを作成する場合、ソースボリューム上にSnapshotが作成されることに注意してください。このSnapshotは通常のSnapshotスケジュールの一部ではないため、offのままになりません。バックアップの完了後に、このSnapshotをソースボリュームから手動で削除できます。これにより、このSnapshotに関連するブロックが解放されます。スナップショットの名前は&#8217;CBS-snapshot-adhoc -で始まります <a href="https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html">"ONTAP CLIを使用してSnapshotを削除する方法を参照してください"</a>。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1259,10 +1299,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="作業環境でのcloud-backupの非アクティブ化">作業環境でのCloud Backupの非アクティブ化</h2>
+<h2 id="作業環境での-cloud-backup-の無効化">作業環境での Cloud Backup の無効化</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>作業環境でCloud Backupを非アクティブ化すると、システム上の各ボリュームのバックアップが無効になり、ボリュームをリストアすることもできなくなります。既存のバックアップは削除されません。この作業環境からバックアップ・サービスの登録を解除することはありません。基本的には、すべてのバックアップおよびリストア処理を一定期間停止できます。</p>
+<p>作業環境で Cloud Backup を無効にすると、システム上の各ボリュームのバックアップが無効になり、ボリュームをリストアすることもできなくなります。既存のバックアップは削除されません。この作業環境からバックアップ・サービスの登録を解除することはありません。基本的には、すべてのバックアップおよびリストア処理を一定期間停止できます。</p>
 </div>
 <div class="paragraph">
 <p>クラウドから引き続き課金されます が提供する容量のオブジェクトストレージコストのプロバイダ バックアップは自分以外で使用します <a href="#Deleting all backup files for a working environment">バックアップを削除します</a>。</p>
