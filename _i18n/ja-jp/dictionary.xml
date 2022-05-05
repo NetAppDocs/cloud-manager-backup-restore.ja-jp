@@ -490,7 +490,6 @@
   <block id="6488e4b9eef53ffd6c9cc6103d98e9fa" category="list-text">ONTAP では、単一のボリュームから複数のオブジェクトストアへの SnapMirror 関係のファンアウトはサポートされていません。そのため、この構成は Cloud Backup ではサポートされていません。</block>
   <block id="c382be8ae1c203d850c1fd82ccc1f638" category="list-text">オブジェクトストアでの Worm/Compliance モードはサポートされません。</block>
   <block id="595d0bcf55189d5a7852a255d268db51" category="section-title">単一ファイルのリストアに関する制限事項</block>
-  <block id="61d2fb70c854276ebc3e16296f86d0cd" category="list-text">単一ファイルのリストアでは、一度に最大 100 個のファイルをリストアできます。現在、フォルダ / ディレクトリのリストアはサポートされていません。</block>
   <block id="5f5966e9da5716290dfc2b88ceeb2217" category="list-text">リストアするファイルは、デスティネーションボリュームの言語と同じ言語を使用している必要があります。言語が異なる場合は、エラーメッセージが表示されます。</block>
   <block id="1553a2b337f69cb4e2878126a9158d14" category="list-text">異なるサブネットにある異なる Cloud Manager で同じアカウントを使用する場合、ファイルレベルのリストアはサポートされません。</block>
   <block id="45905824646346222e779ba345f6254b" category="summary">Cloud Backup は、 Cloud Manager 作業環境向けのサービスで、データを保護し、長期間アーカイブするためのバックアップおよびリストア機能を提供します。バックアップは自動的に生成され、パブリックまたはプライベートクラウドアカウントのオブジェクトストアに格納されます。</block>
@@ -600,7 +599,6 @@
   <block id="f3f9bf3f7291a5ed0552bbb7de61f88d" category="list-text">変更するボリュームのチェックボックスを選択し、ボリュームのバックアップを開始するか停止するかに応じて、 [Activate * （アクティブ化 * ） ] または [* Deactivate * （非アクティブ化 * ） ] をクリックします。</block>
   <block id="8e074e924c73e9c00480607c80481d60" category="inline-image-macro">ボリュームの管理ページでは、ボリュームを選択または選択解除できます。</block>
   <block id="2bfa980473a5e104b4ba06a383a064c8" category="paragraph"><block ref="2bfa980473a5e104b4ba06a383a064c8" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0f749ecebfa90be5ad345938fe0206ec" category="paragraph">「将来のボリュームを自動的にバックアップ」のチェックボックスを使用して、すべてのボリュームを追加してあとでバックアップを有効にするかどうかを選択できます。この設定を無効にした場合は、あとで追加したボリュームのバックアップを手動で有効にする必要があります。</block>
   <block id="c7a220fc58ccea879a68f706ca98ac0c" category="list-text">[ 保存（ Save ） ] をクリックして、変更をコミットします。</block>
   <block id="8764d766d622ae40812776b15d742a79" category="inline-xref">バックアップを削除します</block>
   <block id="1cdf12d909faca3295263dc58dc5d4b8" category="paragraph">* 注意： * ボリュームのバックアップを停止すると、バックアップが停止します オブジェクトの料金はクラウドプロバイダが継続的に負担します を除いて、バックアップが使用する容量のストレージコスト あなた <block ref="e2e48247dd6dcee2daca407937463dc9" category="inline-xref-macro-rx"></block>。</block>
@@ -1805,7 +1803,6 @@
   <block id="949b473773535ea19f7817cd4c272bc1" category="paragraph"><block ref="949b473773535ea19f7817cd4c272bc1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f3e4b6c3b2f014829f853146224b7663" category="list-text">[今後の永続ボリュームを自動的にバックアップする...]チェックボックスをオンにし、新しいボリュームに適用するバックアップポリシーを選択して、[保存]をクリックします。</block>
   <block id="e0d65bcc987fbf0e0395ea11d741cc4c" category="inline-image-macro">クラスタの今後のすべてのボリュームに割り当てるバックアップポリシーの選択方法を示すスクリーンショット。</block>
-  <block id="e1a8bb8592ca3edece2f7672e90295ff" category="paragraph"><block ref="e1a8bb8592ca3edece2f7672e90295ff" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9bfd7698cd685594f5f96180cc0f6ed9" category="list-text">_ バックアップ設定ページ _ で、をクリックします <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> ボリュームが存在する作業環境で、*永続ボリュームの管理*を選択します。</block>
   <block id="749877571899cdb524c800a67b079f94" category="paragraph"><block ref="749877571899cdb524c800a67b079f94" category="inline-image-macro-rx" type="image"></block></block>
   <block id="28b1e5b15add5c8ab1001a76115ac105" category="paragraph"><block ref="28b1e5b15add5c8ab1001a76115ac105" category="inline-image-macro-rx" type="image"></block></block>
@@ -1816,8 +1813,6 @@
   <block id="b2e1e47df118b4fe3823a0ac91876736" category="list-text">アカウントにCloud Backupの既存のライセンスがない場合は、使用する課金方法を選択するよう求められます。Azureから従量課金制（PAYGO）のCloud Manager Marketplaceサービスにサブスクライブする（または複数のサブスクリプションを選択する必要がある場合）、またはネットアップからCloud Backup BYOLライセンスを購入してアクティブ化することができます。 <block ref="36493bbba79c7c4eddc07ad75acbe470" category="inline-link-macro-rx"></block></block>
   <block id="eb9411915f253c6cdf360afa2be4b4f0" category="paragraph">Cloud Backup では、 1 つのバックアップファイルを削除したり、ボリュームのすべてのバックアップを削除したり、作業環境内のすべてのボリュームのすべてのバックアップを削除したりできます。すべてのバックアップを削除するのは、不要になった場合やソースボリュームを削除したあとにすべてのバックアップを削除する場合などです。</block>
   <block id="c4760350a0bd1b742a79bce7d3174928" category="list-text">をクリックします <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> すべてのバックアップを削除する作業環境で、 * すべてのバックアップを削除 * を選択します。</block>
-  <block id="5a58de0e84e5db9ac743167d182029a5" category="section-title">作業環境でのCloud Backupの非アクティブ化</block>
-  <block id="7d74a85f6ca999dc566f13bea483a788" category="paragraph">作業環境でCloud Backupを非アクティブ化すると、システム上の各ボリュームのバックアップが無効になり、ボリュームをリストアすることもできなくなります。既存のバックアップは削除されません。この作業環境からバックアップ・サービスの登録を解除することはありません。基本的には、すべてのバックアップおよびリストア処理を一定期間停止できます。</block>
   <block id="a9805696126ef48bc68224dc06136bbd" category="list-text">_ バックアップ設定ページ _ で、をクリックします <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> バックアップを無効にする作業環境で、 * バックアップを非アクティブ化 * を選択します。</block>
   <block id="49cbaef969d427f74417618eaa641c54" category="paragraph">Kubernetesの作業環境からCloud Backupをいつでも直接有効にできます。</block>
   <block id="a1eb634b81be113bee0e21e6a20c118c" category="inline-image-macro">バックアップする永続ボリュームの選択のスクリーンショット。</block>
@@ -1896,4 +1891,21 @@
   <block id="7f55f1ead15a67b08eea9e732f6ed59d" category="list-text">AWSに格納されたバックアップについては、新しいS3バケットとがプロビジョニングされます<block ref="d5a117e0ffd0e43cc6657792905f20d6" category="inline-link-rx"></block> および<block ref="101f211ea2a04b6a9a7d1de9342390c3" category="inline-link-rx"></block>。</block>
   <block id="c44278ad43fbe360e4ca928f671f88b9" category="list-text">Google Cloudに保存されているバックアップの場合、新しいバケットとがプロビジョニングされます<block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> アカウント/プロジェクトレベルでプロビジョニングされます。作業環境でインデックス作成がすでに有効になっている場合は ' 次のセクションに進んでデータをリストアしてください</block>
   <block id="1febcfde465ce9cfbf21c08aa17b6a2b" category="paragraph">バックアップのAmazon S3デスティネーションがCanvas上の作業環境として存在する場合は、KubernetesクラスタをAmazon S3作業環境にドラッグしてセットアップウィザードを開始できます。</block>
+  <block id="1c161354c6da9cce8d6d66c83e6117e3" category="inline-image-macro">Kubernetesクラスタを選択したあとに使用可能なバックアップ設定ボタンを示すスクリーンショット。</block>
+  <block id="81362333b4667057105418e2c797fb4d" category="paragraph"><block ref="81362333b4667057105418e2c797fb4d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d611fbcee8116241337f06ec4995ff9c" category="list-text">_ バックアップ設定ページ _ で、をクリックします <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> ボリュームが存在するKubernetesクラスタで、* Auto Backup New Volumes *を選択します。</block>
+  <block id="014386141b63dc0c43377cb37936b250" category="inline-image-macro">Kubernetesクラスタ上の今後すべてのボリュームに割り当てるバックアップポリシーの選択方法を示すスクリーンショット</block>
+  <block id="891b6416962c7710069b6bd6d9d86a07" category="paragraph"><block ref="891b6416962c7710069b6bd6d9d86a07" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3877a9846e783c8af0a4e454f688cc19" category="paragraph">このバックアップポリシーは、このKubernetesクラスタで作成されるすべての新しいボリュームに適用されます。</block>
+  <block id="73454754c1af733fbae3cb63539996ef" category="paragraph">ONTAP クラスタでクラウドバックアップを初めてアクティブ化したときに、新しく作成したボリュームにバックアップポリシーを自動的に割り当てるオプションを選択していない場合は、あとで_Backup Settings_pageでこのオプションを選択できます。新しく作成したボリュームにバックアップポリシーを割り当てると、すべてのデータを確実に保護できます。</block>
+  <block id="152ce4fa26eb65e8e96a262e60518c22" category="paragraph"><block ref="152ce4fa26eb65e8e96a262e60518c22" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b0484e1bec383e6b588abfcbce01d8a7" category="list-text">「新しいボリュームを自動的にバックアップ...」チェックボックスをオンにし、新しいボリュームに適用するバックアップポリシーを選択して、「*保存*」をクリックします。</block>
+  <block id="66aafc10059faefcfba7f2cfc427bba5" category="paragraph"><block ref="66aafc10059faefcfba7f2cfc427bba5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7c393b904fd78ca1a97c1c3d93e8427f" category="paragraph">このバックアップポリシーは、Cloud Manager、System Manager、またはONTAP CLIを使用して、この作業環境で作成した新しいボリュームに適用されます。</block>
+  <block id="34654042ecfc4226d89a0eec5901d43e" category="inline-link">ONTAP CLIを使用してSnapshotを削除する方法を参照してください</block>
+  <block id="9ad3e0546cb45c95b651ec5649490c7d" category="paragraph">アドホックバックアップを作成する場合、ソースボリューム上にSnapshotが作成されることに注意してください。このSnapshotは通常のSnapshotスケジュールの一部ではないため、offのままになりません。バックアップの完了後に、このSnapshotをソースボリュームから手動で削除できます。これにより、このSnapshotに関連するブロックが解放されます。スナップショットの名前は'CBS-snapshot-adhoc -で始まります<block ref="f1f70532768ec75f9b065af279b58c4c" category="inline-link-rx"></block>。</block>
+  <block id="104f191bacc12db075c772f4dbbcec2e" category="paragraph">これらの制限事項は、特に明記されていない限り、ファイルのリストアの検索とリストアおよび参照と復元の両方の方法に適用されます。</block>
+  <block id="03a5b9815bb473e6f4be8d24abee633a" category="list-text">ブラウズとリストアでは、一度に最大100個のファイルをリストアできます。</block>
+  <block id="83e93965854a9ee03d55a2d15f2e8dc7" category="list-text">検索とリストアでは、一度に1つのファイルをリストアできます。</block>
+  <block id="45597398aa8f6969af8d1f8b4beca231" category="list-text">現在、フォルダ / ディレクトリのリストアはサポートされていません。</block>
 </blocks>
