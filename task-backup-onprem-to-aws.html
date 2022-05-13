@@ -831,7 +831,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-10 20:50:48 +0000">05/10/2022</time>
+    <time datetime="2022-05-13 17:44:33 +0000">05/13/2022</time>
     
   
 
@@ -855,7 +855,7 @@
 <p>これらの手順を実行すると、すぐに作業を開始できます。各手順の詳細については、このトピックの以降のセクションを参照してください。</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>パブリック S3 エンドポイントを使用してオンプレミスの ONTAP クラスタを AWS S3 に直接接続するか、 VPN と AWS Direct Connect のどちらを使用してトラフィックを AWS S3 にルーティングするかを選択します。</p>
+<p>オンプレミスのONTAP クラスタをパブリックインターネット経由でAWS S3に直接接続するか、VPNとAWS Direct Connectのどちらを使用してトラフィックをAWS S3にルーティングするかを選択します。</p>
 </div>
 <div class="paragraph quick-margin-para">
 <p><a href="#Network diagrams for connection options">使用可能な接続方法を参照してください。</a></p>
@@ -903,13 +903,13 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>次の図は、パブリック接続の方法と、コンポーネント間の準備に必要な接続を示しています。</p>
+<p>次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_aws.png" alt="Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"></span></p>
 </div>
 <div class="paragraph">
-<p>次の図は、プライベート接続方法と、コンポーネント間の準備に必要な接続を示しています。</p>
+<p>次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_aws_vpc.png" alt="Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"></span></p>
@@ -936,10 +936,10 @@
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html" target="_blank" rel="noopener">"コネクタについて説明します"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"AWS でコネクタを作成します"</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html" target="_blank" rel="noopener">"コネクタの使用を開始する"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html" target="_blank" rel="noopener">"コネクタを切り替えます"</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"AWS でコネクタを作成します"</a></p>
 </li>
 </ul>
 </div>
@@ -953,10 +953,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>ポート 443 から Cloud Backup Service への HTTPS 接続</p>
-</li>
-<li>
-<p>S3 オブジェクトストレージへのポート 443 経由の HTTPS 接続</p>
+<p>ポート443経由でのCloud Backup Service およびS3オブジェクトストレージへのHTTPS接続（エンドポイントのリストを参照） <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html" target="_blank" rel="noopener">"こちらをご覧ください"</a>)</p>
 </li>
 <li>
 <p>ONTAP クラスタ管理 LIF へのポート 443 経由の HTTPS 接続</p>
@@ -965,7 +962,10 @@
 </div>
 </li>
 <li>
-<p>（オプション） S3 に対する VPC エンドポイントインターフェイスを有効にします。ONTAP クラスタから VPC への Direct Connect または VPN 接続が確立されている環境で、コネクタと S3 の間の通信を AWS 内部ネットワークのままにする場合は、この接続が必要です。 <a href="#Set up a VPC endpoint interface (optional)">VPC エンドポイントインターフェイスの設定方法を参照してください。</a></p>
+<p><a href="task-backup-onprem-to-aws.html#set-up-s3-permissions">"コネクタにS3バケットを管理する権限があることを確認します"</a>。</p>
+</li>
+<li>
+<p>ONTAP クラスタからVPCへのDirect ConnectまたはVPN接続が確立されている状況で、コネクタとS3の間の通信をAWS内部ネットワークのままにする場合は、S3へのVPCエンドポイントインターフェイスを有効にする必要があります。 <a href="#Configure your system for a private connection using a VPC endpoint interface">VPC エンドポイントインターフェイスの設定方法を参照してください。</a></p>
 </li>
 </ul>
 </div>
@@ -989,7 +989,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>ONTAP 9.7P5 以降</p>
+<p>ONTAP 9.7P5以降が必要です。ONTAP 9.8P11以降が推奨されます。</p>
 </li>
 <li>
 <p>SnapMirror ライセンス（ Premium Bundle または Data Protection Bundle に含まれます）。</p>
@@ -1030,6 +1030,9 @@
 <div class="paragraph">
 <p>「 default 」以外の IPspace を使用する場合は、オブジェクトストレージへのアクセスを取得するために静的ルートの作成が必要になることがあります。</p>
 </div>
+<div class="paragraph">
+<p>IPspace内のすべてのクラスタ間LIFがオブジェクトストアにアクセスできる必要があります。現在のIPspaceに対してこれを設定できない場合は、すべてのクラスタ間LIFがオブジェクトストアにアクセスできる専用のIPspaceを作成する必要があります。</p>
+</div>
 </li>
 <li>
 <p>ボリュームが配置されている Storage VM 用に DNS サーバが設定されている必要があります。方法を参照してください <a href="https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html" target="_blank" rel="noopener">"SVM 用に DNS サービスを設定"</a>。</p>
@@ -1038,7 +1041,10 @@
 <p>ファイアウォールルールを必要に応じて更新して、 ONTAP からオブジェクトストレージへのクラウドバックアップ接続をポート 443 経由で許可し、 Storage VM から DNS サーバへの名前解決トラフィックをポート 53 （ TCP / UDP ）経由で許可します。</p>
 </li>
 <li>
-<p>（オプション） AWS で S3 接続にプライベート VPC インターフェイスエンドポイントを使用している場合は、 HTTPS / 443 を使用するために、 S3 エンドポイント証明書を ONTAP クラスタにロードする必要があります。 <a href="#Set up a VPC endpoint interface (optional)">VPC エンドポイントインターフェイスのセットアップ方法を参照して、 S3 証明書をロードしてください。</a></p>
+<p>AWSでS3接続にプライベートVPCインターフェイスエンドポイントを使用している場合は、HTTPS / 443を使用するために、S3エンドポイント証明書をONTAP クラスタにロードする必要があります。 <a href="#Configure your system for a private connection using a VPC endpoint interface">VPC エンドポイントインターフェイスのセットアップ方法を参照して、 S3 証明書をロードしてください。</a></p>
+</li>
+<li>
+<p><a href="task-backup-onprem-to-aws.html#set-up-s3-permissions">"ONTAP クラスタにS3バケットへのアクセス権限があることを確認します"</a>。</p>
 </li>
 </ul>
 </div>
@@ -1219,15 +1225,21 @@
 </table>
 </div>
 <div class="sect2">
-<h3 id="amazon-s3-暗号化のセットアップオプション">Amazon S3 暗号化のセットアップ（オプション）</h3>
+<h3 id="データ暗号化用にお客様が管理するawsキーをセットアップ">データ暗号化用に、お客様が管理するAWSキーをセットアップ</h3>
 <div class="paragraph">
-<p>デフォルトの Amazon S3 暗号化キーを使用する代わりに、バックアップアクティブ化ウィザードで、独自のカスタム管理キーを選択してデータ暗号化に使用できます。この場合は、暗号化管理キーがすでに設定されている必要があります。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html" target="_blank" rel="noopener">"独自のキーの使用方法を参照してください"</a>。</p>
+<p>デフォルトのAmazon S3暗号化キーを使用してオンプレミスクラスタとS3バケット間でやり取りされるデータを暗号化する場合は、デフォルトのインストールでそのタイプの暗号化が使用されるため、すべての暗号化キーが設定されます。</p>
+</div>
+<div class="paragraph">
+<p>デフォルトのキーではなく、お客様が管理する独自のキーを使用してデータ暗号化を行う場合は、クラウドバックアップウィザードを開始する前に、暗号化で管理されるキーがすでにセットアップされている必要があります。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html" target="_blank" rel="noopener">"独自のキーの使用方法を参照してください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="vpc-エンドポイントインターフェイスのセットアップオプション">VPC エンドポイントインターフェイスのセットアップ（オプション）</h3>
+<h3 id="vpcエンドポイントインターフェイスを使用してシステムにプライベート接続を設定します">VPCエンドポイントインターフェイスを使用して、システムにプライベート接続を設定します</h3>
 <div class="paragraph">
-<p>オンプレミスのデータセンターから VPC へのパブリックインターネット経由での接続をより安全にする場合は、バックアップアクティブ化ウィザードで AWS PrivateLink 接続を選択できます。オンプレミスシステムを VPN または AWS Direct Connect 経由で接続する場合は必須です。</p>
+<p>標準のパブリックインターネット接続を使用する場合は、すべてのアクセス権がコネクタによって設定され、他に必要な操作はありません。このタイプの接続がに表示されます <a href="task-backup-onprem-to-aws.html#network-diagrams-for-connection-options">"最初のダイアグラム"</a>。</p>
+</div>
+<div class="paragraph">
+<p>オンプレミスのデータセンターからVPCへのインターネット接続をよりセキュアにする場合は、バックアップアクティブ化ウィザードでAWS PrivateLink接続を選択できます。VPNまたはAWS Direct Connectを使用して、プライベートIPアドレスを使用するVPCエンドポイントインターフェイス経由でオンプレミスシステムに接続する場合は、この環境が必要です。このタイプの接続がに表示されます <a href="task-backup-onprem-to-aws.html#network-diagrams-for-connection-options">"2番目の図"</a>。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1240,10 +1252,10 @@
 <p><span class="image"><img src="./media/screenshot_backup_aws_sec_group.png" alt="コネクタに関連付けられている AWS セキュリティグループのスクリーンショット。"></span></p>
 </div>
 <div class="paragraph">
-<p>プライベートエンドポイントへの通信にポート 80 （ HTTP ）を使用する場合は、すべてのポートが設定されます。クラスタで Cloud Backup を有効にすることができます。</p>
+<p>プライベートエンドポイントとの通信にポート80（HTTP）を使用している場合は、すべて設定されます。クラスタで Cloud Backup を有効にすることができます。</p>
 </div>
 <div class="paragraph">
-<p>ポート 443 （ HTTPS ）を使用してプライベートエンドポイントと通信する場合は、 VPC S3 エンドポイントから証明書をコピーし、次の 4 つの手順で ONTAP クラスタに追加する必要があります。</p>
+<p>ポート443（HTTPS）を使用してプライベートエンドポイントと通信する場合は、VPC S3エンドポイントから証明書をコピーし、次の4つの手順でONTAP クラスタに追加する必要があります。</p>
 </div>
 </li>
 <li>
@@ -1253,7 +1265,7 @@
 </div>
 </li>
 <li>
-<p>VPC S3 エンドポイントから証明書を取得します。これは、で行います <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm">"Cloud Manager Connector をホストする VM にログインします"</a> 実行するコマンドエンドポイントの DNS 名を入力するときは、先頭に「 * 」を追加して、「 * 」を置き換えます。</p>
+<p>VPC S3 エンドポイントから証明書を取得します。これは、で行います <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm" target="_blank" rel="noopener">"Cloud Manager Connector をホストする VM にログインします"</a> 実行するコマンドエンドポイントの DNS 名を入力するときは、先頭に「 * 」を追加して、「 * 」を置き換えます。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-text" data-lang="text">[ec2-user@ip-10-160-4-68 ~]$ openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts</code></pre>
