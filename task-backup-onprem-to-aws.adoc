@@ -25,7 +25,7 @@ summary: オンプレミスの ONTAP システムから Amazon S3 ストレー�
 これらの手順を実行すると、すぐに作業を開始できます。各手順の詳細については、このトピックの以降のセクションを参照してください。
 
 [role="quick-margin-para"]
-パブリック S3 エンドポイントを使用してオンプレミスの ONTAP クラスタを AWS S3 に直接接続するか、 VPN と AWS Direct Connect のどちらを使用してトラフィックを AWS S3 にルーティングするかを選択します。
+オンプレミスのONTAP クラスタをパブリックインターネット経由でAWS S3に直接接続するか、VPNとAWS Direct Connectのどちらを使用してトラフィックをAWS S3にルーティングするかを選択します。
 
 [role="quick-margin-para"]
 <<Network diagrams for connection options,使用可能な接続方法を参照してください。>>
@@ -64,11 +64,11 @@ S3 バケットの作成と管理、リストアインスタンスを使用し�
 * プライベート接続 - VPN または AWS Direct Connect を使用して、プライベート IP アドレスを使用する VPC エンドポイントインターフェイス経由でトラフィックをルーティングします。
 
 
-次の図は、パブリック接続の方法と、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
 
 image:diagram_cloud_backup_onprem_aws.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
 
-次の図は、プライベート接続方法と、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
 
 image:diagram_cloud_backup_onprem_aws_vpc.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
 
@@ -87,8 +87,8 @@ Cloud Manager Connector は、 Cloud Manager 機能のメインソフトウェ�
 AWS VPC にすでにコネクタが導入されている場合は、すべてのポートが設定されます。ない場合は、 AWS S3 ストレージに ONTAP データをバックアップするために、 AWS で新しいコネクタを作成する必要があります。オンプレミスに導入されているコネクタや、別のクラウドプロバイダに導入されているコネクタは使用できません。
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["コネクタについて説明します"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["コネクタの使用を開始する"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["AWS でコネクタを作成します"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["コネクタを切り替えます"^]
 
 
 
@@ -97,12 +97,12 @@ AWS VPC にすでにコネクタが導入されている場合は、すべての
 
 * コネクタが取り付けられているネットワークで次の接続が有効になっていることを確認します。
 +
-** ポート 443 から Cloud Backup Service への HTTPS 接続
-** S3 オブジェクトストレージへのポート 443 経由の HTTPS 接続
+** ポート443経由でのCloud Backup Service およびS3オブジェクトストレージへのHTTPS接続（エンドポイントのリストを参照） link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["こちらをご覧ください"^])
 ** ONTAP クラスタ管理 LIF へのポート 443 経由の HTTPS 接続
 
 
-* （オプション） S3 に対する VPC エンドポイントインターフェイスを有効にします。ONTAP クラスタから VPC への Direct Connect または VPN 接続が確立されている環境で、コネクタと S3 の間の通信を AWS 内部ネットワークのままにする場合は、この接続が必要です。 <<Set up a VPC endpoint interface (optional),VPC エンドポイントインターフェイスの設定方法を参照してください。>>
+* link:task-backup-onprem-to-aws.html#set-up-s3-permissions["コネクタにS3バケットを管理する権限があることを確認します"]。
+* ONTAP クラスタからVPCへのDirect ConnectまたはVPN接続が確立されている状況で、コネクタとS3の間の通信をAWS内部ネットワークのままにする場合は、S3へのVPCエンドポイントインターフェイスを有効にする必要があります。 <<Configure your system for a private connection using a VPC endpoint interface,VPC エンドポイントインターフェイスの設定方法を参照してください。>>
 
 
 
@@ -121,7 +121,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 
 === ONTAP の要件
 
-* ONTAP 9.7P5 以降
+* ONTAP 9.7P5以降が必要です。ONTAP 9.8P11以降が推奨されます。
 * SnapMirror ライセンス（ Premium Bundle または Data Protection Bundle に含まれます）。
 +
 * 注： * Cloud Backup を使用する場合、「 Hybrid Cloud Bundle 」は必要ありません。
@@ -151,9 +151,13 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 +
 「 default 」以外の IPspace を使用する場合は、オブジェクトストレージへのアクセスを取得するために静的ルートの作成が必要になることがあります。
 
++
+IPspace内のすべてのクラスタ間LIFがオブジェクトストアにアクセスできる必要があります。現在のIPspaceに対してこれを設定できない場合は、すべてのクラスタ間LIFがオブジェクトストアにアクセスできる専用のIPspaceを作成する必要があります。
+
 * ボリュームが配置されている Storage VM 用に DNS サーバが設定されている必要があります。方法を参照してください https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["SVM 用に DNS サービスを設定"^]。
 * ファイアウォールルールを必要に応じて更新して、 ONTAP からオブジェクトストレージへのクラウドバックアップ接続をポート 443 経由で許可し、 Storage VM から DNS サーバへの名前解決トラフィックをポート 53 （ TCP / UDP ）経由で許可します。
-* （オプション） AWS で S3 接続にプライベート VPC インターフェイスエンドポイントを使用している場合は、 HTTPS / 443 を使用するために、 S3 エンドポイント証明書を ONTAP クラスタにロードする必要があります。 <<Set up a VPC endpoint interface (optional),VPC エンドポイントインターフェイスのセットアップ方法を参照して、 S3 証明書をロードしてください。>>
+* AWSでS3接続にプライベートVPCインターフェイスエンドポイントを使用している場合は、HTTPS / 443を使用するために、S3エンドポイント証明書をONTAP クラスタにロードする必要があります。 <<Configure your system for a private connection using a VPC endpoint interface,VPC エンドポイントインターフェイスのセットアップ方法を参照して、 S3 証明書をロードしてください。>>
+* link:task-backup-onprem-to-aws.html#set-up-s3-permissions["ONTAP クラスタにS3バケットへのアクセス権限があることを確認します"]。
 
 
 
@@ -293,15 +297,19 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 |===
 
 
-=== Amazon S3 暗号化のセットアップ（オプション）
+=== データ暗号化用に、お客様が管理するAWSキーをセットアップ
 
-デフォルトの Amazon S3 暗号化キーを使用する代わりに、バックアップアクティブ化ウィザードで、独自のカスタム管理キーを選択してデータ暗号化に使用できます。この場合は、暗号化管理キーがすでに設定されている必要があります。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["独自のキーの使用方法を参照してください"^]。
+デフォルトのAmazon S3暗号化キーを使用してオンプレミスクラスタとS3バケット間でやり取りされるデータを暗号化する場合は、デフォルトのインストールでそのタイプの暗号化が使用されるため、すべての暗号化キーが設定されます。
+
+デフォルトのキーではなく、お客様が管理する独自のキーを使用してデータ暗号化を行う場合は、クラウドバックアップウィザードを開始する前に、暗号化で管理されるキーがすでにセットアップされている必要があります。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["独自のキーの使用方法を参照してください"^]。
 
 
 
-=== VPC エンドポイントインターフェイスのセットアップ（オプション）
+=== VPCエンドポイントインターフェイスを使用して、システムにプライベート接続を設定します
 
-オンプレミスのデータセンターから VPC へのパブリックインターネット経由での接続をより安全にする場合は、バックアップアクティブ化ウィザードで AWS PrivateLink 接続を選択できます。オンプレミスシステムを VPN または AWS Direct Connect 経由で接続する場合は必須です。
+標準のパブリックインターネット接続を使用する場合は、すべてのアクセス権がコネクタによって設定され、他に必要な操作はありません。このタイプの接続がに表示されます link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options["最初のダイアグラム"]。
+
+オンプレミスのデータセンターからVPCへのインターネット接続をよりセキュアにする場合は、バックアップアクティブ化ウィザードでAWS PrivateLink接続を選択できます。VPNまたはAWS Direct Connectを使用して、プライベートIPアドレスを使用するVPCエンドポイントインターフェイス経由でオンプレミスシステムに接続する場合は、この環境が必要です。このタイプの接続がに表示されます link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options["2番目の図"]。
 
 . Amazon VPC コンソールまたはコマンドラインを使用して、インターフェイスエンドポイント設定を作成します。 https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["AWS PrivateLink for Amazon S3 の使用に関する詳細を参照してください"^]。
 . Cloud Manager Connector に関連付けられているセキュリティグループの設定を変更します。このポリシーを「 Custom 」（「 Full Access 」から）に変更する必要があります。また、変更する必要があります <<Set up S3 permissions,バックアップポリシーから S3 権限を追加します>> 前に示したように、
@@ -309,16 +317,16 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 image:screenshot_backup_aws_sec_group.png["コネクタに関連付けられている AWS セキュリティグループのスクリーンショット。"]
 
 +
-プライベートエンドポイントへの通信にポート 80 （ HTTP ）を使用する場合は、すべてのポートが設定されます。クラスタで Cloud Backup を有効にすることができます。
+プライベートエンドポイントとの通信にポート80（HTTP）を使用している場合は、すべて設定されます。クラスタで Cloud Backup を有効にすることができます。
 
 +
-ポート 443 （ HTTPS ）を使用してプライベートエンドポイントと通信する場合は、 VPC S3 エンドポイントから証明書をコピーし、次の 4 つの手順で ONTAP クラスタに追加する必要があります。
+ポート443（HTTPS）を使用してプライベートエンドポイントと通信する場合は、VPC S3エンドポイントから証明書をコピーし、次の4つの手順でONTAP クラスタに追加する必要があります。
 
 . AWS コンソールからエンドポイントの DNS 名を取得します。
 +
 image:screenshot_endpoint_dns_aws_console.png["AWS コンソールから VPC エンドポイントの DNS 名のスクリーンショット。"]
 
-. VPC S3 エンドポイントから証明書を取得します。これは、で行います https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["Cloud Manager Connector をホストする VM にログインします"] 実行するコマンドエンドポイントの DNS 名を入力するときは、先頭に「 * 」を追加して、「 * 」を置き換えます。
+. VPC S3 エンドポイントから証明書を取得します。これは、で行います https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["Cloud Manager Connector をホストする VM にログインします"^] 実行するコマンドエンドポイントの DNS 名を入力するときは、先頭に「 * 」を追加して、「 * 」を置き換えます。
 +
 [source, text]
 ----

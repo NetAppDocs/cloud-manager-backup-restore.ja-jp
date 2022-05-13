@@ -44,7 +44,6 @@
   <block id="3d6e948defef3e67a438f4f7819ed82e" category="doc">オンプレミスの ONTAP データを Azure BLOB ストレージにバックアップする</block>
   <block id="447d2fd8f5815390c0a99de97b857ccb" category="paragraph">「オンプレミス ONTAP システム」には、 FAS 、 AFF 、 ONTAP Select の各システムが含まれます。</block>
   <block id="fee59c74a156abe8a410a85ba51f5956" category="inline-link">Cloud Backup を使用してボリュームをクラウドにバックアップする方法については、 System Manager の説明を参照してください。</block>
-  <block id="f3a66b671251dc0a25cfc24ab6952930" category="admonition">ほとんどの場合、 Cloud Manager を使用してすべてのバックアップおよびリストア処理を実行します。ただし、 ONTAP 9.9.1 以降では、 ONTAP System Manager を使用して、オンプレミスの ONTAP クラスタのボリュームバックアップ処理を開始できます。<block ref="b4b04e1b4b3140ad1e0e3c0a94c9c848" category="inline-link-rx"></block></block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="section-title">クイックスタート</block>
   <block id="91e06e9a9ef97681b798e2e5e007ba97" category="paragraph">これらの手順を実行すると、すぐに作業を開始できます。また、残りのセクションまでスクロールして詳細を確認することもできます。</block>
   <block id="9637543697c707cfc64db2a64d650753" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> Alt="one "&gt;&lt;/span&gt; 設定のサポートを確認します</block>
@@ -833,7 +832,6 @@
   <block id="9e140440889c757014a9bc2eabbf0f85" category="inline-image-macro">ONTAP システムから AWS S3 にボリュームをバックアップする場合のネットワークの詳細を示すスクリーンショット。</block>
   <block id="2c4a72cdb0fff2addedf37dea946cf88" category="paragraph"><block ref="2c4a72cdb0fff2addedf37dea946cf88" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2a12eb134c1a7bf9323eeb868060f734" category="paragraph"><block ref="2a12eb134c1a7bf9323eeb868060f734" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1a431e8fb608c4c81fa7e72da6aba7c7" category="list-text">S3 オブジェクトストレージへのポート 443 経由の HTTPS 接続</block>
   <block id="ae9c838ce5564e10aa34395e48e9527e" category="paragraph">バックアップを格納するオブジェクトストレージスペース用の AWS サブスクリプションが必要です。</block>
   <block id="024bcd810b3401adba3bc1d4a4bd6c05" category="list-text">（最新のから）次の S3 権限を確認します<block ref="0dc063d42cd9e31c0e2c7df9df595c9f" category="inline-link-rx"></block>）は、コネクタに権限を付与する IAM ロールの一部です。</block>
   <block id="b539613501183cf10b8570ed60939fea" category="inline-link">AWS ドキュメント：「 Creating a Role to Delegate Permissions to an IAM User</block>
@@ -1707,7 +1705,6 @@
   <block id="9d420cf71a5b9a71abf46456eb58f8ed" category="cell">\ https://download.docker.com/linux/centos/docker-ce.repo</block>
   <block id="756d8723023e48c330841a5fab0f9e6f" category="cell">Docker Engine パッケージを提供します。</block>
   <block id="5c37edf1ec718afd1ab9a5a51043e0ce" category="paragraph">これらの手順を実行すると、すぐに作業を開始できます。各手順の詳細については、このトピックの以降のセクションを参照してください。</block>
-  <block id="cdc60ee7ffa2e1ee87520360a9985da9" category="paragraph">パブリック S3 エンドポイントを使用してオンプレミスの ONTAP クラスタを AWS S3 に直接接続するか、 VPN と AWS Direct Connect のどちらを使用してトラフィックを AWS S3 にルーティングするかを選択します。</block>
   <block id="2095d7a797c25bb28e0630e6f0234176" category="inline-xref">使用可能な接続方法を参照してください。</block>
   <block id="6faac2bde2c603b5020744e34c3b1561" category="paragraph"><block ref="d9d72c889e6f6edab2e44fef9632d7d0" category="inline-xref-macro-rx"></block></block>
   <block id="81d8bb87e59af8b8bc57eaf5d2b911c4" category="paragraph">AWS VPC にすでにコネクタが導入されている場合は、すべてのポートが設定されます。ない場合は、 ONTAP データを AWS S3 ストレージにバックアップするために、 AWS でコネクタを作成する必要があります。また、コネクタのネットワーク設定をカスタマイズして AWS S3 に接続できるようにする必要があります。</block>
@@ -1732,12 +1729,8 @@
   <block id="1b0ffad6683da5341fb4aef28a59963a" category="paragraph">AWS VPC にすでにコネクタが導入されている場合は、すべてのポートが設定されます。ない場合は、 AWS S3 ストレージに ONTAP データをバックアップするために、 AWS で新しいコネクタを作成する必要があります。オンプレミスに導入されているコネクタや、別のクラウドプロバイダに導入されているコネクタは使用できません。</block>
   <block id="9b740c2dda97a2c23cd8f8cf0fc5aac6" category="inline-link">AWS でコネクタを作成します</block>
   <block id="37ddae853fabb564f9fc3c5ab06062ee" category="list-text"><block ref="37ddae853fabb564f9fc3c5ab06062ee" category="inline-link-rx"></block></block>
-  <block id="f86faf1862caeed3f6dccfce3a669edf" category="inline-link">コネクタを切り替えます</block>
-  <block id="536d81ee151729245ef15564ad0455b4" category="list-text"><block ref="536d81ee151729245ef15564ad0455b4" category="inline-link-rx"></block></block>
   <block id="929d25665bc92d22cf4a79265248dd36" category="section-title">コネクタのネットワーク要件</block>
-  <block id="d21941843d3f51f6d91597bbc6f2fe96" category="list-text">ポート 443 から Cloud Backup Service への HTTPS 接続</block>
   <block id="db41e7a8de9567fec002e93320c428ad" category="inline-xref">VPC エンドポイントインターフェイスの設定方法を参照してください。</block>
-  <block id="fa5aa396756a091429ff95b88b2cb91f" category="list-text">（オプション） S3 に対する VPC エンドポイントインターフェイスを有効にします。ONTAP クラスタから VPC への Direct Connect または VPN 接続が確立されている環境で、コネクタと S3 の間の通信を AWS 内部ネットワークのままにする場合は、この接続が必要です。 <block ref="96349a58af3e05e4441faa6bbc02f81a" category="inline-xref-macro-rx"></block></block>
   <block id="aa8387a4bff8defdb2d4c5777a1bf540" category="section-title">ONTAP クラスタを準備</block>
   <block id="c5fe798394fdf9d90bcf14b0e01b5dda" category="section-title">Cloud Manager で ONTAP クラスタを検出</block>
   <block id="7e7c991226da8981bccabf973fe2eba0" category="paragraph">ボリュームデータのバックアップを開始する前に、 Cloud Manager でオンプレミスの ONTAP クラスタを検出する必要があります。クラスタを追加するには、クラスタ管理 IP アドレスと admin ユーザアカウントのパスワードが必要です。</block>
@@ -1750,7 +1743,6 @@
   <block id="e30347a67bfdcb246f056cfd9aa4efbd" category="list-text">ボリュームが配置されている Storage VM 用に DNS サーバが設定されている必要があります。方法を参照してください<block ref="f1c08d303d78e879204468f0ff96d977" category="inline-link-rx"></block>。</block>
   <block id="ac4f47e577f8d7771d01f8331c6f4736" category="list-text">ファイアウォールルールを必要に応じて更新して、 ONTAP からオブジェクトストレージへのクラウドバックアップ接続をポート 443 経由で許可し、 Storage VM から DNS サーバへの名前解決トラフィックをポート 53 （ TCP / UDP ）経由で許可します。</block>
   <block id="3389249695ca8c10d31bf35b73b0c94e" category="inline-xref">VPC エンドポイントインターフェイスのセットアップ方法を参照して、 S3 証明書をロードしてください。</block>
-  <block id="5c124f6cf2bfcfbf94279be52b0632d2" category="list-text">（オプション） AWS で S3 接続にプライベート VPC インターフェイスエンドポイントを使用している場合は、 HTTPS / 443 を使用するために、 S3 エンドポイント証明書を ONTAP クラスタにロードする必要があります。 <block ref="53258c6a820319d399112ef2849fb9e8" category="inline-xref-macro-rx"></block></block>
   <block id="9433d8064a183eecdc4dfa1b31b38834" category="section-title">ライセンス要件を確認</block>
   <block id="22340c7eefb94e5f665f788bc6c331ce" category="inline-link">AWS Cloud Manager Marketplace のサービス</block>
   <block id="ae026b849c4275f68e7902a73ecf0632" category="paragraph">すべてのリージョンで、オンプレミスシステムから Amazon S3 へのバックアップを作成できます<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>AWS GovCloud リージョンを含む。サービスのセットアップ時にバックアップを保存するリージョンを指定します。</block>
@@ -1764,20 +1756,13 @@
   <block id="e4ba209f1e83c31c97d006aab1897e1d" category="list-text">サービスをアクティブ化すると、バックアップウィザードにアクセスキーとシークレットキーの入力を求められます。これらのクレデンシャルは、 ONTAP がデータをバックアップして S3 バケットにリストアできるように ONTAP クラスタに渡されます。そのためには、次の権限を持つ IAM ユーザを作成する必要があります。</block>
   <block id="b8471833713b205fce6b0c37afe7c220" category="section-title">Cloud Restore インターネットアクセスを確認します</block>
   <block id="4f0f8734b8eb262313537f384daa2aad" category="cell">\ http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64 /4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff3be50e9222/</block>
-  <block id="68ff90feee01d7ff9f80cbfc1edd7eb9" category="section-title">Amazon S3 暗号化のセットアップ（オプション）</block>
-  <block id="acda78b900d86834702d7cf022c5c307" category="paragraph">デフォルトの Amazon S3 暗号化キーを使用する代わりに、バックアップアクティブ化ウィザードで、独自のカスタム管理キーを選択してデータ暗号化に使用できます。この場合は、暗号化管理キーがすでに設定されている必要があります。<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>。</block>
-  <block id="eadf50bb3952a4b3b149df1a7616cede" category="section-title">VPC エンドポイントインターフェイスのセットアップ（オプション）</block>
-  <block id="4e1fc0c572b0fc7c8464dc57aa414942" category="paragraph">オンプレミスのデータセンターから VPC へのパブリックインターネット経由での接続をより安全にする場合は、バックアップアクティブ化ウィザードで AWS PrivateLink 接続を選択できます。オンプレミスシステムを VPN または AWS Direct Connect 経由で接続する場合は必須です。</block>
   <block id="c2217bd93d297ddc08ba3a9c93fb29aa" category="list-text">Amazon VPC コンソールまたはコマンドラインを使用して、インターフェイスエンドポイント設定を作成します。<block ref="4b288ecb11624923e7ee69f96a59c546" category="inline-link-rx"></block>。</block>
   <block id="4adab5b6b391c43cf0cfd73c09d5bdf8" category="inline-xref">バックアップポリシーから S3 権限を追加します</block>
   <block id="c68e08ee2b5be8ff44e713441b6aa84d" category="list-text">Cloud Manager Connector に関連付けられているセキュリティグループの設定を変更します。このポリシーを「 Custom 」（「 Full Access 」から）に変更する必要があります。また、変更する必要があります <block ref="52cd24ecfd99d5b16a10d03c54f9d16b" category="inline-xref-macro-rx"></block> 前に示したように、</block>
-  <block id="0779f8ec0f01d3d713051f10c0f5269a" category="paragraph">プライベートエンドポイントへの通信にポート 80 （ HTTP ）を使用する場合は、すべてのポートが設定されます。クラスタで Cloud Backup を有効にすることができます。</block>
-  <block id="209e22c3253a318498527950bcbd07d9" category="paragraph">ポート 443 （ HTTPS ）を使用してプライベートエンドポイントと通信する場合は、 VPC S3 エンドポイントから証明書をコピーし、次の 4 つの手順で ONTAP クラスタに追加する必要があります。</block>
   <block id="39bab378d876d4ae9f917360ff7b633a" category="list-text">AWS コンソールからエンドポイントの DNS 名を取得します。</block>
   <block id="51cca00855dd27ddbb729c64d6988680" category="inline-image-macro">AWS コンソールから VPC エンドポイントの DNS 名のスクリーンショット。</block>
   <block id="63c7ff1056127bdaee465b05c7c83d3c" category="paragraph"><block ref="63c7ff1056127bdaee465b05c7c83d3c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="31b738479d7d16ff849ac312f5649e77" category="inline-link">Cloud Manager Connector をホストする VM にログインします</block>
-  <block id="8d8e3b0bb1a13ecfbdfdb5a14b2e2618" category="list-text">VPC S3 エンドポイントから証明書を取得します。これは、で行います<block ref="da3c83ae0d03d7e43a4d87fed2f5f3ba" category="inline-link-rx"></block> 実行するコマンドエンドポイントの DNS 名を入力するときは、先頭に「 * 」を追加して、「 * 」を置き換えます。</block>
   <block id="b11703e578eba56af91d25ee75ec1594" category="list-text">このコマンドの出力から、 S3 証明書のデータ（ BEGIN / END CERTIFICATE タグを含む、との間のすべてのデータ）をコピーします。</block>
   <block id="042284b067b431d7d21168a5ada6e448" category="list-text">ONTAP クラスタの CLI にログインし、次のコマンドを使用してコピーした証明書を適用します（代わりに独自の Storage VM 名を指定します）。</block>
   <block id="d0285b972453920d44e9bfc537f86825" category="section-title">Cloud Backup を有効にします</block>
@@ -1908,4 +1893,29 @@
   <block id="03a5b9815bb473e6f4be8d24abee633a" category="list-text">ブラウズとリストアでは、一度に最大100個のファイルをリストアできます。</block>
   <block id="83e93965854a9ee03d55a2d15f2e8dc7" category="list-text">検索とリストアでは、一度に1つのファイルをリストアできます。</block>
   <block id="45597398aa8f6969af8d1f8b4beca231" category="list-text">現在、フォルダ / ディレクトリのリストアはサポートされていません。</block>
+  <block id="e41af01898aa01f20e528d19fdda2ec8" category="paragraph">オンプレミスのONTAP クラスタをパブリックインターネット経由でAWS S3に直接接続するか、VPNとAWS Direct Connectのどちらを使用してトラフィックをAWS S3にルーティングするかを選択します。</block>
+  <block id="c97ea7350518d38329c34d289bc4771e" category="paragraph">次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。</block>
+  <block id="ce894cc2b182c2b6d47f70da3e6e4fb3" category="paragraph">次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。</block>
+  <block id="d41b031ef25fff764808749edcc2cd28" category="inline-link">コネクタの使用を開始する</block>
+  <block id="b37ed402641ff6f2d1b0b55061547f2d" category="list-text"><block ref="b37ed402641ff6f2d1b0b55061547f2d" category="inline-link-rx"></block></block>
+  <block id="0dae4177288fa87563dc166ad6dad9d7" category="list-text">ポート443経由でのCloud Backup Service およびS3オブジェクトストレージへのHTTPS接続（エンドポイントのリストを参照） <block ref="ebd49d7903d0a4bb2b6ed64e3736bb95" category="inline-link-macro-rx"></block>)</block>
+  <block id="76e709935c290dea4c7b1c0de4918211" category="inline-link-macro">コネクタにS3バケットを管理する権限があることを確認します</block>
+  <block id="834f26d80b9784d547a441b2c02d3ad5" category="list-text"><block ref="7eb7d4d5a2ffca3aec2449e14ed03205" category="inline-link-macro-rx"></block>。</block>
+  <block id="a4af58b20c3303b39e56dee8ca99e1a3" category="list-text">ONTAP クラスタからVPCへのDirect ConnectまたはVPN接続が確立されている状況で、コネクタとS3の間の通信をAWS内部ネットワークのままにする場合は、S3へのVPCエンドポイントインターフェイスを有効にする必要があります。 <block ref="038eee040120b4244a9c2b9d19ca5787" category="inline-xref-macro-rx"></block></block>
+  <block id="ce59fdd3e4f02ba3606e4e3cf3dde6c9" category="list-text">ONTAP 9.7P5以降が必要です。ONTAP 9.8P11以降が推奨されます。</block>
+  <block id="187b50ee8f2351a69b8fa6b8b42687d5" category="paragraph">IPspace内のすべてのクラスタ間LIFがオブジェクトストアにアクセスできる必要があります。現在のIPspaceに対してこれを設定できない場合は、すべてのクラスタ間LIFがオブジェクトストアにアクセスできる専用のIPspaceを作成する必要があります。</block>
+  <block id="e3cb89ec96389280988a5bc1aab122d8" category="list-text">AWSでS3接続にプライベートVPCインターフェイスエンドポイントを使用している場合は、HTTPS / 443を使用するために、S3エンドポイント証明書をONTAP クラスタにロードする必要があります。 <block ref="1dbd4fd842a70fbdf055f03b19c52e23" category="inline-xref-macro-rx"></block></block>
+  <block id="99c8c5b6a1c2808dc952ab4207702a72" category="inline-link-macro">ONTAP クラスタにS3バケットへのアクセス権限があることを確認します</block>
+  <block id="b670b978b055bbffbc3ac15528f4ae84" category="list-text"><block ref="38941058629b01cbe2eac550f126312e" category="inline-link-macro-rx"></block>。</block>
+  <block id="868fb9c55d4ddac7523d9c4697eb9d9f" category="section-title">データ暗号化用に、お客様が管理するAWSキーをセットアップ</block>
+  <block id="72828ef5ab3d5aa027bfcdd1a9224f67" category="paragraph">デフォルトのAmazon S3暗号化キーを使用してオンプレミスクラスタとS3バケット間でやり取りされるデータを暗号化する場合は、デフォルトのインストールでそのタイプの暗号化が使用されるため、すべての暗号化キーが設定されます。</block>
+  <block id="d19ad4a91ccc5af70a541d99c6ad6d99" category="paragraph">デフォルトのキーではなく、お客様が管理する独自のキーを使用してデータ暗号化を行う場合は、クラウドバックアップウィザードを開始する前に、暗号化で管理されるキーがすでにセットアップされている必要があります。<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>。</block>
+  <block id="486567bdd60f21beefa59174661f6d52" category="section-title">VPCエンドポイントインターフェイスを使用して、システムにプライベート接続を設定します</block>
+  <block id="d37ada70a820c5c84f992a48e05045cf" category="inline-link-macro">最初のダイアグラム</block>
+  <block id="55082684c888abf218793c0bd2f3b5e4" category="paragraph">標準のパブリックインターネット接続を使用する場合は、すべてのアクセス権がコネクタによって設定され、他に必要な操作はありません。このタイプの接続がに表示されます <block ref="b1224f75874af139b1e7a51a1da970e9" category="inline-link-macro-rx"></block>。</block>
+  <block id="7cb65d7424b08922f4902800ae6b79d0" category="inline-link-macro">2番目の図</block>
+  <block id="ca301c03d4c5ce91946df8b15f3dbe5f" category="paragraph">オンプレミスのデータセンターからVPCへのインターネット接続をよりセキュアにする場合は、バックアップアクティブ化ウィザードでAWS PrivateLink接続を選択できます。VPNまたはAWS Direct Connectを使用して、プライベートIPアドレスを使用するVPCエンドポイントインターフェイス経由でオンプレミスシステムに接続する場合は、この環境が必要です。このタイプの接続がに表示されます <block ref="0f7afb920fb200721cfd6111e33f99d4" category="inline-link-macro-rx"></block>。</block>
+  <block id="adba439901e690844020282dc0e87c32" category="paragraph">プライベートエンドポイントとの通信にポート80（HTTP）を使用している場合は、すべて設定されます。クラスタで Cloud Backup を有効にすることができます。</block>
+  <block id="d58fcd28ca27643e7a41fc5c17398721" category="paragraph">ポート443（HTTPS）を使用してプライベートエンドポイントと通信する場合は、VPC S3エンドポイントから証明書をコピーし、次の4つの手順でONTAP クラスタに追加する必要があります。</block>
+  <block id="9494561b819165d9f1e8e339562e316d" category="list-text">VPC S3 エンドポイントから証明書を取得します。これは、で行います<block ref="0617c2fce5134dbc852516af04fe18ee" category="inline-link-rx"></block> 実行するコマンドエンドポイントの DNS 名を入力するときは、先頭に「 * 」を追加して、「 * 」を置き換えます。</block>
 </blocks>
