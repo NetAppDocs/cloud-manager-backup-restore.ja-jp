@@ -835,7 +835,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-05 19:22:42 +0000">05/05/2022</time>
+    <time datetime="2022-05-24 17:38:35 +0000">05/24/2022</time>
     
   
 
@@ -961,129 +961,6 @@
 </div>
 </li>
 </ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="新しいバックアップポリシーを追加しています">新しいバックアップポリシーを追加しています</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>作業環境で Cloud Backup を有効にすると、最初に選択したすべてのボリュームが、定義したデフォルトのバックアップポリシーを使用してバックアップされます。Recovery Point Objective （ RPO ；目標復旧時点）が異なるボリュームに対して異なるバックアップポリシーを割り当てる場合は、そのクラスタに追加のポリシーを作成し、そのポリシーを他のボリュームに割り当てることができます。</p>
-</div>
-<div class="paragraph">
-<p>作業環境内の特定のボリュームに新しいバックアップポリシーを適用する場合は、最初にそのバックアップポリシーを作業環境に追加する必要があります。すると <a href="#Changing the policy assigned to existing volumes">その作業環境内のボリュームにポリシーを適用します</a>。</p>
-</div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="Volumes （ボリューム）タブの Backup Settings （バックアップ設定）ボタンを示すスクリーンショット。"></span></p>
-</div>
-</li>
-<li>
-<p>[Backup Settings_] ページで、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] 新しいポリシーを追加する作業環境で、 [ ポリシーの管理 ] を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_modify_policy_k8s.png" alt="&quot;[ バックアップ設定"></span> ページの [ ポリシーの管理 ] オプションを示すスクリーンショット。"]</p>
-</div>
-</li>
-<li>
-<p>[ ポリシーの管理 ] ページで、 [ 新しいポリシーの追加 ] をクリックします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_policy_page_add.png" alt="&quot;[ ポリシーの管理"></span> ページの [ 新しいポリシーの追加 ] ボタンを示すスクリーンショット。"]</p>
-</div>
-</li>
-<li>
-<p>[ 新しいポリシーの追加 ] ページで、スケジュールとバックアップの保持を定義し、 [ 保存 ] をクリックします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_add_new_policy.png" alt="バックアップポリシーの設定を示すスクリーンショット。バックアップスケジュールとバックアップの保持設定を追加できます。"></span></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="既存のボリュームに割り当てられているポリシーを変更する">既存のボリュームに割り当てられているポリシーを変更する</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>既存のボリュームに割り当てられているバックアップポリシーは、バックアップを作成する頻度を変更する場合や、保持期間を変更する場合に変更できます。</p>
-</div>
-<div class="paragraph">
-<p>ボリュームに適用するポリシーがすでに存在している必要があります。 <a href="#Adding a new backup policy">作業環境に新しいバックアップポリシーを追加する方法を参照してください</a>。</p>
-</div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップ設定"></span> ボタンを示すスクリーンショット。"]</p>
-</div>
-</li>
-<li>
-<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] ボリュームが存在する作業環境で、*永続ボリュームの管理*を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_k8s.png" alt="&quot;[バックアップ設定"></span>ページの[永続ボリュームの管理]ボタンを示すスクリーンショット。"]</p>
-</div>
-</li>
-<li>
-<p>ポリシーを変更するボリュームのチェックボックスを選択し、 * ポリシーの変更 * をクリックします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_page_change.png" alt="ボリュームの管理ページでは、ボリュームを選択または選択解除できます。"></span></p>
-</div>
-</li>
-<li>
-<p>[Change Policy_] ページで、ボリュームに適用するポリシーを選択し、 [* ポリシーの変更 *] をクリックします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_change_policy.png" alt="選択したボリュームに適用する新しいポリシーを選択する方法を示すスクリーンショット。"></span></p>
-</div>
-</li>
-<li>
-<p>[ 保存（ Save ） ] をクリックして、変更をコミットします。</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="新しいボリュームに割り当てるバックアップポリシーの設定">新しいボリュームに割り当てるバックアップポリシーの設定</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>KubernetesクラスタでCloud Backupを初めてアクティブ化したときに、新しく作成したボリュームにバックアップポリシーを自動的に割り当てるオプションを選択しなかった場合は、後で_Backup Settings_pageでこのオプションを選択できます。新しく作成したボリュームにバックアップポリシーを割り当てると、すべてのデータを確実に保護できます。</p>
-</div>
-<div class="paragraph">
-<p>ボリュームに適用するポリシーがすでに存在している必要があります。 <a href="#Adding a new backup policy">作業環境に新しいバックアップポリシーを追加する方法を参照してください</a>。</p>
-</div>
-<div class="paragraph">
-<p>また、新しく作成したボリュームが自動的にバックアップされないようにするには、この設定を無効にします。その場合は、後でバックアップする特定のボリュームのバックアップを手動で有効にする必要があります。</p>
-</div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>[<strong>Kubernetes *] タブで、 [</strong> バックアップ設定 * ] を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="Kubernetesクラスタを選択したあとに使用可能なバックアップ設定ボタンを示すスクリーンショット。"></span></p>
-</div>
-</li>
-<li>
-<p>_ バックアップ設定ページ _ で、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] ボリュームが存在するKubernetesクラスタで、* Auto Backup New Volumes *を選択します。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_auto_backup_new_volumes_k8s.png" alt="&quot;[バックアップ設定"></span>ページで[新しいボリュームの自動バックアップ]オプションを選択したスクリーンショット。"]</p>
-</div>
-</li>
-<li>
-<p>[今後の永続ボリュームを自動的にバックアップする&#8230;&#8203;]チェックボックスをオンにし、新しいボリュームに適用するバックアップポリシーを選択して、[保存]をクリックします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_auto_backup_k8s.png" alt="Kubernetesクラスタ上の今後すべてのボリュームに割り当てるバックアップポリシーの選択方法を示すスクリーンショット"></span></p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>このバックアップポリシーは、このKubernetesクラスタで作成されるすべての新しいボリュームに適用されます。</p>
 </div>
 </div>
 </div>
