@@ -26,7 +26,7 @@ Cloud Backup の新機能をご確認ください。
 
 SnapCenter Plug-in for VMware vSphereとCloud Managerを統合することで、仮想マシン上のデータを保護できます。データストアをクラウドにバックアップし、仮想マシンをオンプレミスのSnapCenter Plug-in for VMware vSphereにリストアする作業は簡単です。
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html["オンプレミスアプリケーションのデータをクラウドで保護する方法については、こちらをご覧ください"]。
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html["仮想マシンをクラウドに保護する方法については、こちらをご覧ください"]。
 
 
 
