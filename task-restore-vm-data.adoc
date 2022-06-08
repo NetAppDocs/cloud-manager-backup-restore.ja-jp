@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: task-restore-vm-data.html 
+keywords: restore virtual machines 
+summary: 仮想マシンはクラウドからオンプレミスのSnapCenter にリストアできます。 
+---
+= クラウドから仮想マシンをリストアします
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+仮想マシンをクラウドからオンプレミスのvCenterにリストアできます。バックアップは、作成された場所とまったく同じ場所にリストアされます。他の場所にバックアップをリストアすることはできません。仮想マシンはデータストアまたはVMビューからリストアできます。
+
+
+NOTE: データストア全体にまたがっている仮想マシンはリストアできません。
+
+すべてのが満たされていることを確認します link:concept-protect-vm-data.html#Requirements["要件"] 仮想マシンをクラウドからリストアする前に、
+
+.手順
+. Cloud Managerで、* Backup & Restore *>* Virtual Machines *>* SnapCenter Plug-in for VMware vSphere *をクリックし、仮想マシンをリストアするSnapCenter Plug-in for VMware vSphereを選択します。
+
+
+
+NOTE: ソース仮想マシンが別の場所（vMotion）に移動された場合、ユーザがCloud Managerからその仮想マシンのリストアを実行すると、仮想マシンはバックアップが作成された元のソースの場所にリストアされます。
+
+. データストアからリストアするには：
++
+.. をクリックします image:icon-action.png["アクション"] リストアするデータストアに対応し、*詳細の表示*をクリックします。
+.. リストアするバックアップに対応する* Restore *をクリックします。
+.. バックアップからリストアする仮想マシンを選択し、* Next *（次へ）をクリックします。
+.. 詳細を確認して、 * リストア * をクリックします。
+
+
+. 仮想マシンからリストアするには：
++
+.. をクリックします image:icon-action.png["アクション"] リストアする仮想マシンに対応して、*リストア*をクリックします。
+.. 仮想マシンのリストアに使用するバックアップを選択し、［*次へ*］をクリックします。
+.. 詳細を確認して、 * リストア * をクリックします。
+
+
+
+
+VMは、バックアップの作成元と同じ場所にリストアされます。

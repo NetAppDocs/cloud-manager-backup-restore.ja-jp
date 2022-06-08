@@ -74,6 +74,16 @@ sidebar:
         url: "/task-restore-oracle-data.html"
       - title: SQL Server データベースをリストアする
         url: "/task-restore-sql-data.html"
+  - title: 仮想マシンのデータのバックアップとリストア
+    entries:
+    - title: 仮想マシンのデータを保護
+      url: "/concept-protect-vm-data.html"
+    - title: データストアをクラウドにバックアップ
+      url: "/task-backup-vm-data-to-cloud.html"
+    - title: 仮想マシンの保護を管理します
+      url: "/task-manage-vm-data-in-cloud.html"
+    - title: 仮想マシンのデータをリストアします
+      url: "/task-restore-vm-data.html"
   - title: 参照
     entries:
     - title: サポート対象の AWS アーカイブストレージ階層
@@ -137,6 +147,12 @@ homepage:
       url: "/task-restore-oracle-data.html"
     - title: SQL Server データベースをリストアする
       url: "/task-restore-sql-data.html"
+  - title: 仮想マシンのデータのバックアップとリストア
+    links:
+    - title: データストアをクラウドにバックアップ
+      url: "/task-backup-vm-data-to-cloud.html"
+    - title: クラウドから仮想マシンをリストアします
+      url: "/task-restore-vm-data.html"
   - title: バックアップファイルからデータをリストアする
     links:
     - title: ONTAP ボリュームをリストア

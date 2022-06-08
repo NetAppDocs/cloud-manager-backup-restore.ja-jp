@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: concept-protect-vm-data.html 
+keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in 
+summary: 仮想マシン上のデータ保護の詳細と、さまざまなポリシーについて理解する。 
+---
+= 仮想マシンのデータを保護
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SnapCenter Plug-in for VMware vSphereとCloud Managerを統合することで、仮想マシン上のデータを保護できます。データストアをクラウドにバックアップし、仮想マシンをオンプレミスのSnapCenter Plug-in for VMware vSphereにリストアする作業は簡単です。
+
+データストアは、Amazon Web Services S3またはMicrosoft Azure Blobにバックアップできます。
+
+
+
+== 要件
+
+データストアおよび仮想マシンを クラウド サービス にバックアップする前に、次の要件を確認し、サポートされる構成になっていることを確認してください。
+
+* VMware vSphere 4.6P1以降用のSnapCenter プラグイン
+* ONTAP 9.8 以降
+* Cloud Manager 3.9以降
+* VMware vSphere 4.6P1向けSnapCenter プラグインでは、少なくとも1つのバックアップを作成しておく必要があります。
+* SnapCenter Plug-in for VMware vSphereで、Cloud ManagerのCloud Backup for Virtual Machinesポリシーと同じラベルまたは同じラベルの日単位、週単位、または月単位のポリシーが少なくとも1つ必要です。
+* 組み込みのポリシーの場合は、スケジュール階層はSnapCenter Plug-in for VMware vSphereとクラウドのデータストアで同じである必要があります。
+* FlexGroup ボリュームのバックアップとリストアはサポートされていないため、データストアにFlexGroup ボリュームがないことを確認してください。
+* 暗号化されたボリュームのリストアはサポートされていないため、暗号化されたボリュームがないことを確認してください。
+* 必要なリソースグループで「*_ recent *」を無効にします。リソースグループに対して「*_ recent *」が有効になっている場合、これらのリソースグループのバックアップをクラウドへのデータ保護に使用できず、それ以降はリストア処理に使用できません。
+* 仮想マシンのリストア先のデータストアに、VMDK、VMX、VMSDなどのすべての仮想マシンファイルのコピーを格納できるだけの十分なスペースがあることを確認してください。
+* リストア先のデータストアに、リストア処理でエラーが発生した場合に、restore_xxx_xxxxxx_filename形式の古い仮想マシンファイルが存在しないことを確認してください。リストア処理を開始する前に古いファイルを削除してください。
+
+
+次の図は、各コンポーネントとその間の準備に必要な接続を示しています。
+
+image:cloud_backup_vm.png["仮想マシンのクラウドバックアップのアーキテクチャの図。"]
+
+
+
+== 保護ポリシー
+
+データストアをクラウドにバックアップするには、Cloud Backup for Virtual Machineで定義されているいずれかのポリシーを使用する必要があります。
+
+
+NOTE: カスタムポリシーはサポートされません。
+
+デフォルトのポリシーを表示するには、Cloud Managerで* Backup & Restore *>* Virtual Machines *>* Policies *をクリックします。
+
+|===
+| ポリシー名 | ラベル | 保持値 
+
+
+ a| 
+1 年ごとの LTR
+ a| 
+毎日
+ a| 
+366
+
+
+
+ a| 
+5 年ごとの LTR
+ a| 
+毎日
+ a| 
+1830 年に
+
+
+
+ a| 
+7 年ごとの LTR
+ a| 
+毎週
+ a| 
+370
+
+
+
+ a| 
+10 年間の月単位 LTR
+ a| 
+毎月
+ a| 
+120
+
+|===

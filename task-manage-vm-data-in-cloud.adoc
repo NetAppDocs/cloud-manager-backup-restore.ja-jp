@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: task-manage-vm-data-in-cloud.html 
+keywords: manage backups, virtual machines, view datastores, view virtual machines, edit 
+summary: データストアと仮想マシンを表示し、SnapCenter Plug-in for VMware vSphereインスタンスを編集できます。 
+---
+= 仮想マシンの保護を管理します
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+データをバックアップおよびリストアする前に、ポリシー、データストア、および仮想マシンを表示できます。データベース、ポリシー、またはリソースグループの変更に応じて、 Cloud Manager UI から更新情報を更新できます。
+
+
+
+== ポリシーを表示します
+
+デフォルトの組み込みポリシーをすべて表示できます。各ポリシーについて詳細を表示すると、関連付けられているすべてのCloud Backup for Virtual Machinesポリシーと関連するすべての仮想マシンが表示されます。
+
+. [バックアップと復元]>[仮想マシン*]をクリックします。
+. [* 設定 *] ドロップダウンから、 [* ポリシー *] をクリックします。
+. 詳細を表示するポリシーに対応する *View Details* をクリックします。
+
+
+関連付けられているCloud Backup for Virtual Machinesポリシーとすべての仮想マシンが表示されます。
+
+
+
+== データストアと仮想マシンを表示します
+
+登録済みのSnapCenter Plug-in for VMware vSphereを使用して保護されているデータストアと仮想マシンが表示されます。
+
+* このタスクについて *
+
+* 表示されるのはNFSデータストアのみです。
+* SnapCenter Plug-in for VMware vSphereで少なくとも1つの正常なバックアップが作成されているデータストアのみが表示されます。
+
+
+.手順
+. Cloud Manager UIで、* Backup & Restore *>* Virtual Machines *>* Settings *>* SnapCenter Plug-in for VMware vSphere *をクリックします。
+. データストアおよび仮想マシンを表示するSnapCenter Plug-in for VMware vSphereをクリックします。
+
+
+
+
+== SnapCenter Plug-in for VMware vSphereインスタンスを編集します
+
+SnapCenter Plug-in for VMware vSphereの詳細をCloud Managerで編集できます
+
+.手順
+. Cloud Manager UIで、* Backup & Restore *>* Virtual Machines *>* Settings *>* SnapCenter Plug-in for VMware vSphere *をクリックします。
+. をクリックし、*編集*を選択します
+. 必要に応じて詳細を変更します
+. [ 保存（ Save ） ] をクリックします。
+
+
+
+
+== 保護ステータスを更新します
+
+新しいボリュームがデータベースに追加された場合やポリシーまたはリソースグループに変更があった場合は、保護を更新する必要があります。
+
+. [バックアップと復元]>[仮想マシン*]をクリックします。
+. [*設定*]ドロップダウンから、[* SnapCenter Plug-in for VMware vSphere*]をクリックします。
+. をクリックします image:icon-action.png["アクション"] 仮想マシンをホストしているSnapCenter Plug-in for VMware vSphereに対応しており、*更新*をクリックします。
++
+新しい変更が検出されます。
+
+. をクリックします image:icon-action.png["アクション"] データストアに対応し、*更新保護*をクリックして変更に対するクラウド保護を有効にします。
+
+
+
+
+== ジョブを監視します
+
+すべてのクラウドバックアップ処理に対してジョブが作成されます。すべてのジョブと、各タスクの一部として実行されるすべてのサブタスクを監視できます。
+
+. [バックアップと復元]>[ジョブの監視*]をクリックします。
++
+処理を開始すると、ジョブが開始されたことを示すウィンドウが表示されます。リンクをクリックするとジョブを監視できます。
+
+. プライマリタスクをクリックすると、これらの各サブタスクのサブタスクとステータスが表示されます。
+

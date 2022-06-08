@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: task-backup-vm-data-to-cloud.html 
+keywords: backing up, back up, backup, backup virtual machine data, back up vm, Azure, Amazon Web services, Cloud Backup, cloud backup service, backup datastores 
+summary: オンプレミスのONTAP からクラウドへデータストアをバックアップ 
+---
+= データストアをクラウドにバックアップ
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SnapCenter Plug-in for VMware vSphereとCloud Managerを統合することで、データストアをクラウドにバックアップできます。これにより、VM管理者はデータのバックアップとアーカイブを簡単かつ迅速に行えるようになり、ストレージ効率を高めてクラウドへの移行を促進できます。
+
+
+NOTE: すべてのが満たされていることを確認します link:concept-protect-vm-data.html#Requirements["要件"] データストアをクラウドにバックアップする前に、
+
+
+
+== SnapCenter Plug-in for VMware vSphereの登録
+
+データストアと仮想マシンをCloud Managerに表示するには、SnapCenter Plug-in for VMware vSphereをCloud Managerに登録する必要があります。SnapCenter Plug-in for VMware vSphereの登録は、管理者アクセス権を持つユーザのみが実行できます。
+
+
+NOTE: 複数のSnapCenter Plug-in for VMware vSphereを登録できます。ただし、一度登録すると、SnapCenter Plug-in for VMware vSphereを削除できなくなります。
+
+.手順
+. Cloud Manager UIで、* Backup & Restore *>* Virtual Machines *をクリックします。
+. [*設定*]ドロップダウンから、[* SnapCenter Plug-in for VMware vSphere*]をクリックします。
+. [* SnapCenter Plug-in for VMware vSphere*の登録]をクリックします。
+. 次の情報を指定します。
++
+.. SnapCenter Plug-in for VMware vSphereフィールドで、SnapCenter Plug-in for VMware vSphereのFQDNまたはIPアドレスを指定します。
+.. Portフィールドで、SnapCenter Plug-in for VMware vSphereを実行しているポート番号を指定します。
++
+SnapCenter Plug-in for VMware vSphereとCloud Backup for Applicationsの間で通信を行うためにポートが開いていることを確認する必要があります。
+
+.. Username and Passwordフィールドで、管理者ロールを持つユーザのクレデンシャルを指定します。
+
+
+. [*Register] をクリックします。
+
+
+* 終了後 *
+
+[*バックアップとリストア>仮想マシン*]をクリックして、登録済みのSnapCenter Plug-in for VMware vSphereを使用して保護対象となるすべてのデータストアおよび仮想マシンを表示します。
+
+
+
+== データストアをバックアップする
+
+単一のポリシーを使用して、1つ以上のデータストアをクラウドに同時にバックアップできます。データストアに割り当てることができるのはデフォルトのポリシーだけです。
+
+.手順
+. Cloud Manager UIで、* Backup & Restore *>* Virtual Machines *をクリックします。
+. をクリックします image:icon-action.png["アクション"] バックアップするデータストアに対応して、*バックアップのアクティブ化*をクリックします。
+. 作業環境を追加します。
++
+データストアのバックアップを検出するONTAP クラスタを設定します。いずれかのデータストアの作業環境を追加したら、同じONTAP クラスタにある他のすべてのデータストアでその環境を再利用できます。
+
++
+.. SVMに対応する* Add Working Environment *をクリックします。
+.. 作業環境の追加ウィザードで、次の手順を実行します。
++
+... ONTAP クラスタの IP アドレスを指定します。
+... ONTAP クラスタユーザのクレデンシャルを指定してください。
+
+
+.. * 作業環境の追加 * をクリックします。
+
+
+. クラウドプロバイダを選択して設定します。
++
+[role="tabbed-block"]
+====
+.Amazon Web Services を設定します
+--
+.. AWS アカウントを指定します。
+.. AWS Access Keyフィールドで、データ暗号化のキーを指定します。
+.. AWS Secret Keyフィールドで、データ暗号化のパスワードを指定します。
+.. バックアップを作成するリージョンを選択します。
+.. 作業環境として追加した ONTAP クラスタの IP アドレスを指定します。
+
+
+--
+.Microsoft Azure を設定
+--
+.. Azure サブスクリプション ID を指定します。
+.. バックアップを作成するリージョンを選択します。
+.. 新しいリソースグループを作成するか、既存のリソースグループを使用します。
+.. 作業環境として追加した ONTAP クラスタの IP アドレスを指定します。
+
+
+--
+====
+
+
+. [ ポリシーの割り当て ] ページで、ポリシーを選択して [ 次へ * ] をクリックします。
+. 詳細を確認し、 * バックアップのアクティブ化 * をクリックします。
+

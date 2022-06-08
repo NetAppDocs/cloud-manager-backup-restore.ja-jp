@@ -129,7 +129,7 @@ image:diagram_browse_restore_volume.png["ブラウズおよびリストアを使
 
 次のビデオでは、ボリュームのリストア手順を簡単に紹介しています。
 
-video::9Og5agUWyRk[youtube, width=848,height=480,end=164]
+video::9Og5agUWyRk[youtube,width=848,height=480,end=164]
 .手順
 . Backup & Restore * サービスを選択します。
 . [* Restore * （復元） ] タブをクリックすると、 [Restore Dashboard （復元ダッシュボード） ] が表示されます。
@@ -224,7 +224,7 @@ ONTAP ボリュームのバックアップからボリュームにファイル�
 
 次のビデオでは、 1 つのファイルをリストアする手順を簡単に紹介します。
 
-video::9Og5agUWyRk[youtube, width=848,height=480,start=165]
+video::9Og5agUWyRk[youtube,width=848,height=480,start=165]
 .手順
 . Backup & Restore * サービスを選択します。
 . [* Restore * （復元） ] タブをクリックすると、 [Restore Dashboard （復元ダッシュボード） ] が表示されます。
@@ -307,7 +307,7 @@ link:reference-aws-backup-tiers.html["AWS アーカイブストレージから�
 
 次のビデオでは、 1 つのファイルをリストアする手順を簡単に紹介します。
 
-video::RZktLe32hhQ[youtube, width=848,height=480]
+video::RZktLe32hhQ[youtube,width=848,height=480]
 
 
 === サポートされている作業環境とオブジェクトストレージプロバイダの検索とリストア
