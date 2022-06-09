@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[Amazon S3 への Cloud Volumes ONTAP データのバックアップ](https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-to-s3.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-to-s3.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-backup-restore/task-backup-to-s3.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-backup-restore/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-backup-restore/aws/task-backup-to-s3.html">
+      <img alt="" src="/ja-jp/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-backup-restore/gcp">
+      <img alt="" src="/ja-jp/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-backup-restore/azure">
+      <img alt="" src="/ja-jp/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[Amazon S3 への Cloud Volumes ONTAP データのバックアップ](https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-to-s3.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-to-s3.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -352,8 +384,6 @@
         
         <a target="_blank" href="/ja-jp/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_のドキュメント.pdf" >
           <img src="/ja-jp/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
-
-
 
 
 
@@ -574,6 +604,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -591,35 +623,6 @@
           
 
 
-
-
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/クロスアカウント構成とクロスリージョン構成.pdf" 
-            
-          >
-            <img src="/ja-jp/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            クロスアカウント構成とクロスリージョン構成
-          </a>
-          
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
-  
 
 
 
@@ -698,10 +701,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        Cloud Manager のすべてのドキュメント
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ja-jp/cloud-manager-family/"><img src="/ja-jp/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/index.html">
         Cloud Backup のドキュメント
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/whats-new.html">
         リリースノート
@@ -779,21 +782,16 @@
         仮想マシンの保護を管理します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/task-restore-vm-data.html">
         仮想マシンのデータをリストアします
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/api-backup-restore.html">
+        REST API で自動化
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参照</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
         サポート対象の AWS アーカイブストレージ階層
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
         サポートされている Azure アーカイブアクセス層
-      </a></li><li class="subfolders "><a href="/ja-jp/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> クロスアカウント構成とクロスリージョン構成</div>
-      </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        AWS でマルチアカウントアクセス用にバックアップを設定します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        Azure でマルチアカウントアクセス用にバックアップを設定
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知識とサポート</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/task-support-registration.html">
@@ -871,7 +869,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-02 14:38:45 +0000">05/02/2022</time>
+    <time datetime="2022-06-09 15:48:31 +0000">06/09/2022</time>
     
   
 
@@ -954,14 +952,11 @@
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_cvo_aws.png" alt="Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"></span></p>
 </div>
-<div class="paragraph">
-<p>クラウドに導入されたクラウドリストアインスタンスは、コネクタと同じサブネットに配置されます。</p>
-</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">サポートされている ONTAP のバージョン</dt>
 <dd>
-<p>Cloud Volumes ONTAP 9.6 以降</p>
+<p>ONTAP 9.6以降、ONTAP 9.8P11以降を推奨します。</p>
 </dd>
 <dt class="hdlist1">ライセンス要件</dt>
 <dd>
@@ -986,10 +981,6 @@
 <dt class="hdlist1">サポートされている AWS リージョン</dt>
 <dd>
 <p>Cloud Backup はすべての AWS リージョンでサポートされます <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"Cloud Volumes ONTAP がサポートされている場合"</a>AWS GovCloud リージョンを含む。</p>
-</dd>
-<dt class="hdlist1">別の AWS アカウントでバックアップを作成する場合の必須のセットアップです</dt>
-<dd>
-<p>デフォルトでは、 Cloud Volumes ONTAP システムに使用されるアカウントと同じアカウントを使用してバックアップが作成されます。バックアップに別の AWS アカウントを使用する場合は、が必要です <a href="reference-backup-multi-account-aws.html">"AWS ポータルにログインして、 2 つのアカウントをリンクできます"</a>。</p>
 </dd>
 <dt class="hdlist1">データ暗号化にお客様が管理するキーを使用するために必要な情報</dt>
 <dd>
@@ -1052,62 +1043,6 @@
 <div class="paragraph">
 <p>バージョン 3.9.15 以降を使用してコネクタを導入した場合、これらの権限はすでに IAM ロールに含まれている必要があります。そうでない場合は、不足している権限を追加する必要があります。検索とリストアに必要な「アテナ」と「グルー」の権限を明確に示します。</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">AWS Restore 権限が必要です</dt>
-<dd>
-<p>以下の EC2 権限は、 Cloud Manager にアクセス許可を付与する IAM ロールに対して必要です。この権限は、 Browse &amp; Restore 処理で Cloud Restore インスタンスを起動、停止、終了できるようにします。</p>
-<div class="openblock">
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">          "Action": [
-              "ec2:DescribeInstanceTypeOfferings",
-              "ec2:StartInstances",
-              "ec2:StopInstances",
-              "ec2:TerminateInstances"
-          ],</code></pre>
-</div>
-</div>
-</div>
-</div>
-</dd>
-<dt class="hdlist1">AWS 環境にはアウトバウンドのインターネットアクセスが必要です</dt>
-<dd>
-<p>Cloud Restore インスタンスには、アウトバウンドのインターネットアクセスが必要です。仮想ネットワークまたは物理ネットワークでインターネットアクセスにプロキシサーバを使用している場合は、インスタンスがアウトバウンドのインターネットアクセスを使用して次のエンドポイントに接続していることを確認してください。</p>
-<div class="openblock">
-<div class="content">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 43%;">
-<col style="width: 57%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">エンドポイント</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\ <a href="http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/" class="bare">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/</a> x86_64 /4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff3be50e9222/</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラウドリストアインスタンス AMI 用の CentOS パッケージ。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\ <a href="https://download.docker.com/linux/centos/docker-ce.repo" class="bare">https://download.docker.com/linux/centos/docker-ce.repo</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Docker Engine パッケージを提供します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">¥ <a href="http://cloudmanagerinfraprod.azurecr.io" class="bare">http://cloudmanagerinfraprod.azurecr.io</a> ¥ <a href="https://cloudmanagerinfraprod.azurecr.io" class="bare">https://cloudmanagerinfraprod.azurecr.io</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Restore Instance のイメージリポジトリ。</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</dd>
-</dl>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1162,7 +1097,10 @@
 <li>
 <p>作業環境を選択し、右パネルの [ バックアップと復元 ] サービスの横にある [*Enable] をクリックします。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="作業環境を選択したあとに使用できるクラウドバックアップ設定ボタンを示すスクリーンショット。"></span></p>
+<p>バックアップのAmazon S3デスティネーションがCanvas上の作業環境として存在する場合は、クラスタをAmazon S3作業環境にドラッグしてセットアップウィザードを開始できます。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="&quot;作業環境を選択した後に使用できる [ バックアップと復元を有効にする"></span> ボタンを示すスクリーンショット"]</p>
 </div>
 </li>
 <li>
@@ -1171,9 +1109,6 @@
 <ol class="loweralpha" type="a">
 <li>
 <p>バックアップの格納に使用する AWS アカウント。これは、 Cloud Volumes ONTAP システムが配置されているアカウントとは異なる場合があります。</p>
-<div class="paragraph">
-<p>バックアップに別の AWS アカウントを使用する場合は、が必要です <a href="reference-backup-multi-account-aws.html">"AWS ポータルにログインして、 2 つのアカウントをリンクできます"</a>。</p>
-</div>
 </li>
 <li>
 <p>バックアップを保存するリージョン。これは、 Cloud Volumes ONTAP システムが配置されているリージョンとは異なるリージョンにすることもできます。</p>

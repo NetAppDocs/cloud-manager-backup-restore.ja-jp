@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[Cloud Backup の新機能](https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-backup-restore/whats-new.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-backup-restore/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-backup-restore/aws/whats-new.html">
+      <img alt="" src="/ja-jp/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-backup-restore/gcp/whats-new.html">
+      <img alt="" src="/ja-jp/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-backup-restore/azure/whats-new.html">
+      <img alt="" src="/ja-jp/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[Cloud Backup の新機能](https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -352,8 +384,6 @@
         
         <a target="_blank" href="/ja-jp/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_のドキュメント.pdf" >
           <img src="/ja-jp/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
-
-
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
@@ -574,6 +604,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -591,35 +623,6 @@
           
 
 
-
-
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/ja-jp/cloud-manager-backup-restore/pdfs/sidebar/クロスアカウント構成とクロスリージョン構成.pdf" 
-            
-          >
-            <img src="/ja-jp/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            クロスアカウント構成とクロスリージョン構成
-          </a>
-          
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
-  
 
 
 
@@ -698,10 +701,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        Cloud Manager のすべてのドキュメント
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ja-jp/cloud-manager-family/"><img src="/ja-jp/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/index.html">
         Cloud Backup のドキュメント
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/whats-new.html">
         リリースノート
@@ -779,21 +782,16 @@
         仮想マシンの保護を管理します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/task-restore-vm-data.html">
         仮想マシンのデータをリストアします
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/api-backup-restore.html">
+        REST API で自動化
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参照</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
         サポート対象の AWS アーカイブストレージ階層
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
         サポートされている Azure アーカイブアクセス層
-      </a></li><li class="subfolders "><a href="/ja-jp/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> クロスアカウント構成とクロスリージョン構成</div>
-      </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        AWS でマルチアカウントアクセス用にバックアップを設定します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        Azure でマルチアカウントアクセス用にバックアップを設定
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知識とサポート</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-backup-restore/task-support-registration.html">
@@ -871,7 +869,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-08 14:04:40 +0000">06/08/2022</time>
+    <time datetime="2022-06-09 15:48:31 +0000">06/09/2022</time>
     
   
 
@@ -895,6 +893,52 @@
 </div>
 <div class="paragraph">
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html">"仮想マシンをクラウドに保護する方法については、こちらをご覧ください"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="クラウドのリストアインスタンスはontap-の参照とリストア機能では必要ありません">クラウドのリストアインスタンスは、ONTAP の参照とリストア機能では必要ありません</h3>
+<div class="paragraph">
+<p>S3およびBLOBストレージからのファイルレベルの参照およびリストア処理に必要な、別のCloud Restoreインスタンス/仮想マシン。このインスタンスは使用していないときにシャットダウンされますが、ファイルのリストアに時間とコストがかかります。この機能は、必要に応じてコネクタに導入される無償のコンテナに置き換えられました。これには、次の利点があります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ファイルレベルのリストア処理のための追加コストは不要です</p>
+</li>
+<li>
+<p>ファイルレベルのリストア処理が高速化されます</p>
+</li>
+<li>
+<p>Connectorがオンプレミスにインストールされている場合のクラウドからのファイルの参照とリストアの処理がサポートされます</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>以前に使用していた場合は、Cloud Restoreインスタンス/VMが自動的に削除されることに注意してください。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="google-cloudおよびstoragegrid-ストレージからのファイルのサポートを参照してリストアできます">Google CloudおよびStorageGRID ストレージからのファイルのサポートを参照してリストアできます</h3>
+<div class="paragraph">
+<p>前述のように、参照および復元操作用のコンテナが追加されたことで、Google CloudおよびStorageGRID システムに保存されているバックアップファイルからファイルの復元操作を実行できるようになりました。現在は、参照とリストアを使用して、すべてのパブリッククラウドプロバイダとStorageGRID からファイルをリストアできます。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-browse-restore">"参照リストアを使用してONTAP バックアップからボリュームとファイルをリストアする方法を参照してください"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ドラッグアンドドロップしてcloud-backup-to-s3ストレージを有効にします">ドラッグアンドドロップして、Cloud Backup to S3ストレージを有効にします</h3>
+<div class="paragraph">
+<p>バックアップのAmazon S3デスティネーションがキャンバス上の作業環境として存在する場合、オンプレミスのONTAP クラスタまたはCloud Volumes ONTAP システム（AWSにインストール）をAmazon S3作業環境にドラッグしてセットアップウィザードを開始できます。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kubernetesクラスタ内に新しく作成されたボリュームにバックアップポリシーを自動的に適用します">Kubernetesクラスタ内に新しく作成されたボリュームにバックアップポリシーを自動的に適用します</h3>
+<div class="paragraph">
+<p>Cloud Backupをアクティブ化したあとにKubernetesクラスタに新しい永続ボリュームを追加した場合は、以前にそれらのボリュームのバックアップを忘れずに設定する必要がありました。新しく作成したボリュームに自動的に適用するポリシーを選択できます <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-kubernetes.html#setting-a-backup-policy-to-be-assigned-to-new-volumes">"[バックアップ設定</a>ページから選択します"] Cloud Backupをすでにアクティブ化しているクラスタの場合</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-backup-apiを使用してバックアップとリストアの処理を管理できるようになりました">Cloud Backup APIを使用して、バックアップとリストアの処理を管理できるようになりました</h3>
+<div class="paragraph">
+<p>APIはにあります <a href="https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html" class="bare">https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html</a>。を参照してください <a href="api-backup-restore.html">"このページです"</a> を参照してください。</p>
 </div>
 </div>
 </div>
@@ -944,7 +988,7 @@
 <div class="sect2">
 <h3 id="cloud-backup-for-applications-1-1-0-snapcenter-搭載の-ga-版になりました">Cloud Backup for Applications 1.1.0 （ SnapCenter 搭載）の GA 版になりました</h3>
 <div class="paragraph">
-<p>新しい Cloud Backup for Applications 機能を使用すると、 Oracle および Microsoft SQL の既存のアプリケーション整合性スナップショット（バックアップ）を、オンプレミスのプライマリストレージから AWS S3 または Azure Blob のクラウドオブジェクトストレージにオフロードできます。</p>
+<p>新しいCloud Backup for Applications機能を使用すると、OracleおよびMicrosoft SQLの既存のアプリケーション整合性スナップショット（バックアップ）を、オンプレミスのプライマリストレージからAmazon S3またはAzure Blobのクラウドオブジェクトストレージにオフロードできます。</p>
 </div>
 <div class="paragraph">
 <p>必要に応じて、クラウドからオンプレミスへデータをリストアできます。</p>
@@ -967,7 +1011,7 @@
 <div class="sect2">
 <h3 id="gke-kubernetes-クラスタから-google-cloud-ストレージに永続ボリュームをバックアップする機能">GKE Kubernetes クラスタから Google Cloud ストレージに永続ボリュームをバックアップする機能</h3>
 <div class="paragraph">
-<p>ネットアップ Astra Trident がインストールされている GKE クラスタで、 Cloud Volumes ONTAP for GCP をクラスタのバックエンドストレージとして使用している場合は、 Google Cloud ストレージとの間で永続的ボリュームのバックアップとリストアを行うことができます。 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-kubernetes-to-gcp.html">"詳細については、こちらをご覧ください"</a>。</p>
+<p>ネットアップ Astra Trident がインストールされている GKE クラスタで、 Cloud Volumes ONTAP for GCP をクラスタのバックエンドストレージとして使用している場合は、 Google Cloud ストレージとの間で永続的ボリュームのバックアップとリストアを行うことができます。 <a href="task-backup-kubernetes-to-gcp.html">"詳細については、こちらをご覧ください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
