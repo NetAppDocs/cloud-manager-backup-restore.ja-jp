@@ -43,7 +43,7 @@ Cloud Manager で ONTAP クラスタを検出し、クラスタが最小要件�
 <<Prepare your ONTAP cluster,オンプレミスの ONTAP クラスタを準備する方法をご確認ください。>>
 
 [role="quick-margin-para"]
-S3 バケットの作成と管理、リストアインスタンスを使用したデータのリストアを実行するためのコネクタの権限を設定します。さらに、オンプレミスの ONTAP クラスタの権限を設定して、 S3 バケットに対してデータの読み取りと書き込みを行えるようにします。
+ConnectorでS3バケットの作成と管理を行うための権限を設定します。また、オンプレミスのONTAP クラスタに対する権限を設定して、S3バケットに対してデータの読み取りと書き込みを行えるようにする必要があります。
 
 [role="quick-margin-para"]
 必要に応じて、デフォルトの Amazon S3 暗号化キーを使用する代わりに、データ暗号化用に独自のカスタム管理キーを設定することもできます。 <<Prepare your AWS environment,AWS S3 環境で ONTAP バックアップを受け取る準備を整える方法をご紹介します。>>
@@ -66,13 +66,11 @@ S3 バケットの作成と管理、リストアインスタンスを使用し�
 
 次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
 
-image:diagram_cloud_backup_onprem_aws.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_aws.png["Cloud Backupがソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとパブリック接続を介して通信する仕組みを示す図。"]
 
 次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
 
-image:diagram_cloud_backup_onprem_aws_vpc.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
-
-クラウドにクラウドリストアインスタンスが導入されている場合、クラウドリストアインスタンスはコネクタと同じサブネットに配置されます。
+image:diagram_cloud_backup_onprem_aws_vpc.png["Cloud Backupが、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとプライベート接続を介して通信する仕組みを示す図。"]
 
 
 
@@ -186,7 +184,7 @@ IPspace内のすべてのクラスタ間LIFがオブジェクトストアにア�
 
 次の 2 つの権限セットを設定する必要があります。
 
-* S3 バケットの作成と管理、およびリストアインスタンスを使用したデータのリストアを実行するコネクタの権限。
+* S3バケットの作成と管理を行うコネクタの権限。
 * オンプレミスの ONTAP クラスタの権限。 S3 バケットに対してデータの読み取りと書き込みを行うことができます。
 
 
@@ -236,17 +234,6 @@ IPspace内のすべてのクラスタ間LIFがオブジェクトストアにア�
 +
 バージョン 3.9.15 以降を使用してコネクタを導入した場合、これらの権限はすでに IAM ロールに含まれている必要があります。そうでない場合は、不足している権限を追加する必要があります。検索とリストアに必要な「アテナ」と「グルー」の権限を具体的に指定します。を参照してください https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS のドキュメント：「 Editing IAM policies"]。
 
-. Browse & Restore 操作で Cloud Restore インスタンスを起動、停止、および終了できるように、コネクタに権限を付与する IAM ロールに次の EC2 権限を追加します。
-+
-[source, json]
-----
-          "Action": [
-              "ec2:DescribeInstanceTypeOfferings",
-              "ec2:StartInstances",
-              "ec2:StopInstances",
-              "ec2:TerminateInstances"
-          ],
-----
 . サービスをアクティブ化すると、バックアップウィザードにアクセスキーとシークレットキーの入力を求められます。これらのクレデンシャルは、 ONTAP がデータをバックアップして S3 バケットにリストアできるように ONTAP クラスタに渡されます。そのためには、次の権限を持つ IAM ユーザを作成する必要があります。
 +
 [source, json]
@@ -276,25 +263,6 @@ IPspace内のすべてのクラスタ間LIFがオブジェクトストアにア�
 
 
 
-
-
-=== Cloud Restore インターネットアクセスを確認します
-
-仮想ネットワークまたは物理ネットワークでインターネットアクセスにプロキシサーバを使用している場合は、 Cloud Restore インスタンスがアウトバウンドのインターネットアクセスを使用して次のエンドポイントに接続していることを確認してください。
-
-[cols="50,50"]
-|===
-| エンドポイント | 目的 
-
-
-| \ http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64 /4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff3be50e9222/ | クラウドリストアインスタンス AMI 用の CentOS パッケージ。 
-
-
-| \ https://download.docker.com/linux/centos/docker-ce.repo | Docker Engine パッケージを提供します。 
-
-
-| ¥ http://cloudmanagerinfraprod.azurecr.io ¥ https://cloudmanagerinfraprod.azurecr.io | Cloud Restore Instance のイメージリポジトリ。 
-|===
 
 
 === データ暗号化用に、お客様が管理するAWSキーをセットアップ
@@ -363,6 +331,9 @@ Cloud Backup は、オンプレミスの作業環境からいつでも直接有�
 
 .手順
 . キャンバスから作業環境を選択し、右パネルのバックアップと復元サービスの横にある *Enable>Backup Volumes * をクリックします。
++
+バックアップのAmazon S3デスティネーションがCanvas上の作業環境として存在する場合は、クラスタをAmazon S3作業環境にドラッグしてセットアップウィザードを開始できます。
+
 +
 image:screenshot_backup_onprem_enable.png["作業環境を選択した後に使用できる [ バックアップと復元を有効にする ] ボタンを示すスクリーンショット"]
 

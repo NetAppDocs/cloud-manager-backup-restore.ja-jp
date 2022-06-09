@@ -78,15 +78,13 @@ Select Volumes （ボリュームの選択）ページで、デフォルトの�
 * プライベート接続 - VPN または ExpressRoute を使用し、プライベート IP アドレスを使用する vnet Private Endpoint を介してトラフィックをルーティングします。
 
 
-次の図は、パブリック接続の方法と、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
 
-image:diagram_cloud_backup_onprem_azure.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_azure.png["Cloud Backupがソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとパブリック接続を介して通信する仕組みを示す図。"]
 
-次の図は、プライベート接続方法と、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
 
-image:diagram_cloud_backup_onprem_azure_vnet.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
-
-クラウドにクラウドリストアインスタンスが導入されている場合、クラウドリストアインスタンスはコネクタと同じサブネットに配置されます。
+image:diagram_cloud_backup_onprem_azure_vnet.png["Cloud Backupが、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとプライベート接続を介して通信する仕組みを示す図。"]
 
 
 
@@ -99,7 +97,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP の要件::
 +
 --
-* ONTAP 9.7P5 以降
+* ONTAP 9.7P5以降が必要です。ONTAP 9.8P11以降が推奨されます。
 * SnapMirror ライセンス（ Premium Bundle または Data Protection Bundle に含まれます）。
 +
 * 注： * Cloud Backup を使用する場合、「 Hybrid Cloud Bundle 」は必要ありません。
@@ -189,22 +187,7 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 
 === バックアップ用に Azure BLOB ストレージを準備しています
 
-. 仮想ネットワークまたは物理ネットワークでインターネットアクセスにプロキシサーバを使用している場合は、 Cloud Restore 仮想マシンでアウトバウンドのインターネットアクセスを有効にして、次のエンドポイントに接続してください。
-+
-[cols="43,57"]
-|===
-| エンドポイント | 目的 
-
-
-| ¥ http://olcentgbl.trafficmanager.net ¥ https://olcentgbl.trafficmanager.net | Cloud Restore 仮想マシン用の CentOS パッケージが用意されています。 
-
-
-| \ https://download.docker.com/linux/centos/docker-ce.repo | Docker Engine パッケージを提供します。 
-
-
-| ¥ http://cloudmanagerinfraprod.azurecr.io ¥ https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 仮想マシンのイメージリポジトリ。 
-|===
-. Microsoft が管理するデフォルトの暗号化キーではなく、アクティベーションウィザードで、独自のカスタム管理キーを使用してデータを暗号化します。この場合、 Azure サブスクリプション、キー・ボールト名、およびキーが必要です。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["独自のキーの使用方法を参照してください"^]。
+. Microsoftが管理するデフォルトの暗号化キーを使用する代わりに、アクティベーションウィザードで独自のカスタム管理キーを使用して、データ暗号化を行うことができます。この場合、 Azure サブスクリプション、キー・ボールト名、およびキーが必要です。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["独自のキーの使用方法を参照してください"^]。
 . オンプレミスのデータセンターから VNet へのパブリックインターネット経由での接続をより安全にするには、アクティブ化ウィザードで Azure Private Endpoint を設定するオプションがあります。この場合、この接続用の VNet とサブネットについて理解しておく必要があります。 https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["プライベートエンドポイントの使用の詳細を参照してください"^]。
 
 

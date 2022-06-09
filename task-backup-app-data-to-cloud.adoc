@@ -110,6 +110,8 @@ NOTE: 作業環境の詳細が更新されるまで先に進まないでくだ�
 +
 [role="tabbed-block"]
 ====
+ifdef::aws[]
+
 .Amazon Web Services を設定します
 --
 .. AWS アカウントを指定します。
@@ -120,6 +122,10 @@ NOTE: 作業環境の詳細が更新されるまで先に進まないでくだ�
 
 
 --
+endif::aws[]
+
+ifdef::azure[]
+
 .Microsoft Azure を設定
 --
 .. Azure サブスクリプション ID を指定します。
@@ -129,6 +135,12 @@ NOTE: 作業環境の詳細が更新されるまで先に進まないでくだ�
 
 
 --
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
+
 ====
 
 

@@ -16,7 +16,23 @@ summary: Cloud Backup for Applications を Cloud Manager とオンプレミス�
 [role="lead"]
 Cloud Backup for Applications を Cloud Manager とオンプレミスの SnapCenter に統合することで、アプリケーションと整合性のある Snapshot をオンプレミスの ONTAP からクラウドにバックアップできます。必要に応じて、クラウドからオンプレミスの SnapCenter サーバにリストアできます。
 
-Oracle および Microsoft SQL アプリケーションのデータをオンプレミスの ONTAP から Amazon Web Services または Microsoft Azure にバックアップできます。
+OracleおよびMicrosoft SQLアプリケーションのデータをオンプレミスのONTAP システムから次のクラウドプロバイダにバックアップできます。
+
+* Amazon Web Services の
+* Microsoft Azure
+
+
+ifdef::aws[]
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
 
 
 NOTE: SnapCenter ソフトウェア 4.6 を使用している必要があります。

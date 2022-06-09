@@ -51,7 +51,7 @@ image:screenshot_restore_dashboard.png["[ リストアダッシュボード ] �
 | フォルダ形式の構造を参照して、 1 つのバックアップファイル内のボリュームまたはファイルを検索します | ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを指定して、すべてのバックアップファイル * 全体でボリュームまたはファイルを検索します 
 
 
-| ボリュームリストアは、 Amazon S3 、 Azure Blob 、 Google Cloud 、 NetApp StorageGRID に格納されたバックアップファイルと連携します。ファイルのリストアは、 Amazon S3 と Azure Blob に格納されたバックアップファイルと連携します | ボリュームとファイルのリストアは、Amazon S3とGoogle Cloudに格納されたバックアップファイルと連携します 
+| ボリュームとファイルのリストアは、Amazon S3、Azure Blob、Google Cloud、NetApp StorageGRID に格納されたバックアップファイルと連携します。 | ボリュームとファイルのリストアは、Amazon S3とGoogle Cloudに格納されたバックアップファイルと連携します 
 
 
 | では、名前が変更されたファイルや削除されたファイルは処理されません | 新しく作成 / 削除 / 名前変更されたディレクトリと新しく作成 / 削除 / 名前変更されたファイルを処理します 
@@ -60,13 +60,10 @@ image:screenshot_restore_dashboard.png["[ リストアダッシュボード ] �
 | パブリッククラウドとプライベートクラウドの結果を参照できます | パブリッククラウドとローカル Snapshot コピーの結果を参照できます 
 
 
-| ファイルのリストアには、 Cloud Restore インスタンスが別途必要です | Cloud Restore インスタンスは不要です 
-
-
 | クラウドプロバイダのリソースを追加する必要はありません | アカウントごとにバケットとAWSまたはGoogleのリソースを追加する必要があります 
 
 
-| 個々のファイルのバックアップを参照するときに、 Cloud Restore インスタンスに関連するコスト | バックアップとボリュームをスキャンして検索結果を表示するときに、AWSまたはGoogleのリソースにかかるコスト 
+| クラウドプロバイダのコストを追加する必要はありません | バックアップとボリュームをスキャンして検索結果を表示するときに、AWSまたはGoogleのリソースにかかるコスト 
 |===
 いずれかのリストア方式を使用する前に、固有のリソース要件に対応するように環境を設定しておく必要があります。これらの要件については、以降のセクションで説明します。
 
@@ -83,9 +80,19 @@ image:screenshot_restore_dashboard.png["[ リストアダッシュボード ] �
 
 ボリュームまたはファイルのリストアを開始する前に、リストアするボリュームまたはファイルの名前、ボリュームが存在する作業環境の名前、およびリストア元のバックアップファイルのおおよその日付を確認しておく必要があります。
 
-* 注：リストアするボリュームのバックアップファイルがアーカイブストレージ（ ONTAP 9.10.1 以降の AWS および Azure で利用可能）にある場合、リストア処理にはより長い時間がかかり、コストが発生します。また、デスティネーションクラスタで ONTAP 9.10.1 以降が実行されている必要があります。
+*注：リストアするボリュームのバックアップファイルがアーカイブストレージ（ONTAP 9.10.1以降）にある場合、リストア処理にはより長い時間がかかり、コストが発生します。また、デスティネーションクラスタで ONTAP 9.10.1 以降が実行されている必要があります。
 
-link:reference-azure-backup-tiers.html["Azure アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。link:reference-aws-backup-tiers.html["AWS アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。
+ifdef::aws[]
+
+link:reference-aws-backup-tiers.html["AWS アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:reference-azure-backup-tiers.html["Azure アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。
+
+endif::azure[]
 
 
 
@@ -98,19 +105,19 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 | バックアップファイルの場所 2+| デスティネーションの作業環境 
 
 
-|  | * ボリュームの復元 * | * ファイルの復元 * 
+|  | * ボリュームの復元 * | *ファイルのリストア* ifdef：aws [] 
 
 
-| Amazon S3 | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている 
+| Amazon S3 | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている | AWSオンプレミスONTAP システムのCloud Volumes ONTAP 。endif：aws [] ifdef：azure[] 
 
 
-| Azure Blob の略 | オンプレミスの Azure ONTAP システムに Cloud Volumes ONTAP を導入 | オンプレミスの Azure ONTAP システムに Cloud Volumes ONTAP を導入 
+| Azure Blob の略 | オンプレミスの Azure ONTAP システムに Cloud Volumes ONTAP を導入 | AzureオンプレミスONTAP システムのCloud Volumes ONTAP 。endif：azure[] ifdef：gCP[] 
 
 
-| Google クラウドストレージ | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP |  
+| Google クラウドストレージ | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP | GoogleオンプレミスONTAP システムのCloud Volumes ONTAP ：GCP[] 
 
 
-| NetApp StorageGRID | オンプレミスの ONTAP システム |  
+| NetApp StorageGRID | オンプレミスの ONTAP システム | オンプレミスの ONTAP システム 
 |===
 「オンプレミス ONTAP システム」とは、 FAS 、 AFF 、 ONTAP Select の各システムを指します。
 
@@ -148,13 +155,33 @@ image:screenshot_restore_select_work_env_volume.png["リストアするボリュ
 
 . オンプレミスの ONTAP システムを選択し、オブジェクトストレージへのクラスタ接続をまだ設定していない場合は、追加情報を入力するように求められます。
 +
+ifdef::aws[]
+
++
 ** Amazon S3 からリストアする場合、デスティネーションボリュームを配置する ONTAP クラスタ内の IPspace を選択し、 ONTAP クラスタに S3 バケットへのアクセスを許可するために作成したユーザのアクセスキーとシークレットキーを入力します。 さらに、必要に応じて、セキュアなデータ転送を行うためのプライベート VPC エンドポイントを選択できます。
-** Azure Blob からリストアする場合は、デスティネーションボリュームを配置する ONTAP クラスタ内の IPspace を選択し、オブジェクトストレージにアクセスする Azure サブスクリプションを選択します。また、 VNet とサブネットを選択して、データ転送を安全に行うプライベートエンドポイントを選択することもできます。
-** Google Cloud Storage からリストアする場合は、オブジェクトストレージ、バックアップが格納されているリージョン、およびデスティネーションボリュームが配置される ONTAP クラスタ内の IPspace にアクセスするために、 Google Cloud Project とアクセスキーとシークレットキーを選択します。
-** StorageGRID からリストアする場合は、オブジェクトストレージへのアクセスに必要なアクセスキーとシークレットキー、およびデスティネーションボリュームを配置する ONTAP クラスタの IPspace を選択します。
 
 
-. リストアしたボリュームに使用する名前を入力し、ボリュームを配置する Storage VM を選択します。デフォルトでは、 * <source_volume_name> _ Restore * がボリューム名として使用されます。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Azure Blob からリストアする場合は、デスティネーションボリュームを配置する ONTAP クラスタ内の IPspace を選択し、オブジェクトストレージにアクセスする Azure サブスクリプションを選択します。また、 VNet とサブネットを選択して、データ転送を安全に行うプライベートエンドポイントを選択することもできます。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Google Cloud Storage からリストアする場合は、オブジェクトストレージ、バックアップが格納されているリージョン、およびデスティネーションボリュームが配置される ONTAP クラスタ内の IPspace にアクセスするために、 Google Cloud Project とアクセスキーとシークレットキーを選択します。
+
+
+endif::gcp[]
+
+* StorageGRID StorageGRID からリストアする場合は、StorageGRID サーバのFQDNとONTAP とのHTTPS通信に使用するポートを入力し、オブジェクトストレージへのアクセスに必要なアクセスキーとシークレットキー、およびデスティネーションボリュームを配置するONTAP クラスタのIPspaceを選択します。
++
+.. リストアしたボリュームに使用する名前を入力し、ボリュームを配置する Storage VM を選択します。デフォルトでは、 * <source_volume_name> _ Restore * がボリューム名として使用されます。
 +
 image:screenshot_restore_new_vol_name.png["リストアする新しいボリュームの名前を入力するスクリーンショット。"]
 
@@ -165,7 +192,21 @@ image:screenshot_restore_new_vol_name.png["リストアする新しいボリュ�
 また、（ ONTAP 9.10.1 以降で使用可能な）アーカイブストレージ階層にあるバックアップファイルからボリュームをリストアする場合は、リストア優先度を選択できます。
 
 +
-link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["Azure アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["AWS アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。
+ifdef::aws[]
+
+
+
+
+
+link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["AWS アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["Azure アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。
+
+endif::azure[]
 
 . リストアの進行状況を確認できるように、 * リストア * をクリックするとリストアダッシュボードに戻ります。
 
@@ -190,11 +231,14 @@ TIP: バックアップファイルがアーカイブストレージにある場
 ==== 前提条件
 
 * ファイルリストア処理を実行するには、 Cloud Volumes ONTAP またはオンプレミスの ONTAP システムで ONTAP のバージョンが 9.6 以降である必要があります。
-* バックアップファイルから個々のファイルをリストアする場合は、別のリストアインスタンス / 仮想マシンを使用します。を参照してください link:concept-ontap-backup-to-cloud.html#cost["ファイルリストア処理用に導入されるインスタンスのタイプ"] また、環境の準備が整っていることを確認します。
-* Amazon S3 のバックアップからファイルをリストアするには、 Cloud Manager に権限を付与するユーザロールに特定の AWS EC2 権限を追加する必要があります。また、特定のエンドポイントへのアウトバウンドインターネットアクセスを許可する必要があります。 link:task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups["構成ファイルをリストアする準備ができていることを確認します"]。
-* AWS のクロスアカウントリストアを実行するには、 AWS コンソールで手動の操作が必要です。AWS のトピックを参照してください https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html["クロスアカウントバケットの権限を付与しています"^] を参照してください。
-* Azure Blob でのバックアップからファイルのリストアでは、特定のエンドポイントへのアウトバウンドインターネットアクセスが可能であることが必要です。 link:task-backup-onprem-to-azure.html#preparing-azure-blob-storage-for-backups["構成ファイルをリストアする準備ができていることを確認します"]。
 
+
+ifdef::aws[]
+
+* AWS のクロスアカウントリストアを実行するには、 AWS コンソールで手動の操作が必要です。AWS のトピックを参照してください https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html["クロスアカウントバケットの権限を付与しています"^] を参照してください。
+
+
+endif::aws[]
 
 
 
@@ -203,13 +247,10 @@ TIP: バックアップファイルがアーカイブストレージにある場
 プロセスは次のようになります。
 
 . ボリュームバックアップから 1 つ以上のファイルを復元する場合は、 * リストア * タブをクリックし、 _ 参照 & 復元 _ の下の * ファイルの復元 * をクリックして、ファイル（またはファイル）が存在するバックアップファイルを選択します。
-. Restore インスタンスが起動し、選択したバックアップファイル内に存在するフォルダとファイルが表示されます。
-+
-* 注：リストアインスタンスは、ファイルを初めてリストアするときにクラウドプロバイダの環境に導入されます。
-
+. Cloud Backupに、選択したバックアップファイル内に存在するフォルダとファイルが表示されます。
 . バックアップからリストアするファイル（複数可）を選択します。
 . ファイル（作業環境、ボリューム、およびフォルダ）をリストアする場所を選択し、 * リストア * をクリックします。
-. ファイルがリストアされ、非アクティブ状態が続くと Restore インスタンスがシャットダウンされてコストが削減されます。
+. ファイルがリストアされます。
 
 
 image:diagram_browse_restore_file.png["ブラウズおよびリストアを使用してファイルのリストア操作を実行するフローを示す図"]
@@ -236,10 +277,7 @@ image:screenshot_restore_files_selection.png["リストアダッシュボード�
 +
 image:screenshot_restore_select_source.png["リストアするファイルのボリュームおよびバックアップを選択するスクリーンショット。"]
 
-. [* Continue （続行） ] をクリックすると、リストアインスタンスが開始されます。数分後に、ボリュームバックアップのフォルダとファイルのリストが表示されます。
-+
-* 注：リストアインスタンスは、ファイルを初めてリストアするときにクラウドプロバイダの環境に導入されるため、初回のリストアには数分かかることがあります。
-
+. [* Continue（続行）]をクリックすると、ボリュームバックアップのフォルダとファイルのリストが表示されます。
 +
 image:screenshot_restore_select_files.png["リストアするファイルに移動できるように、ファイルの選択ページのスクリーンショット。"]
 
@@ -261,31 +299,53 @@ image:screenshot_restore_select_work_env.png["リストアするファイルの�
 オンプレミスクラスタを選択し、オブジェクトストレージへのクラスタ接続をまだ設定していない場合は、追加情報を入力するように求められます。
 
 +
+ifdef::aws[]
+
++
 ** Amazon S3 からリストアする場合は、デスティネーションボリュームが配置されている ONTAP クラスタの IPspace と、オブジェクトストレージへのアクセスに必要な AWS Access Key および Secret Key を入力します。
-** Azure Blob からリストアする場合は、デスティネーションボリュームが配置されている ONTAP クラスタ内の IPspace を入力します。
 
 
-. 次に、ファイルを復元する * Volume * と * Folder * を選択します。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Azure Blob からリストアする場合は、デスティネーションボリュームが配置されている ONTAP クラスタ内の IPspace を入力します。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Google Cloud Storage からリストアする場合は、デスティネーションボリュームが配置されている ONTAP クラスタの IPspace と、オブジェクトストレージへのアクセスに必要なアクセスキーとシークレットキーを入力します。
+
+
+endif::gcp[]
+
+* StorageGRID StorageGRID からリストアする場合は、StorageGRID サーバのFQDNとONTAP とのHTTPS通信に使用するポートを入力し、オブジェクトストレージへのアクセスに必要なアクセスキーとシークレットキー、およびデスティネーションボリュームが配置されているONTAP クラスタのIPspaceを入力します。
++
+.. 次に、ファイルを復元する * Volume * と * Folder * を選択します。
 +
 image:screenshot_restore_select_dest.png["リストアするファイルのボリュームとフォルダを選択するスクリーンショット。"]
 
 +
 ファイルを復元する場合は、いくつかのオプションがあります。
 
+
+
+* 上の図のように、 [ ターゲットフォルダの選択 ] を選択した場合は、次のようになります。
 +
-** 上の図のように、 [ ターゲットフォルダの選択 ] を選択した場合は、次のようになります。
+** 任意のフォルダを選択できます。
+** フォルダにカーソルを合わせて、をクリックできます image:button_subfolder.png[""] 行の末尾にあるサブフォルダをドリルダウンし、フォルダを選択します。
+
+
+* ソースファイルがある場所と同じ宛先作業環境とボリュームを選択した場合は、「ソースフォルダーパスを保持」を選択して、ソース構造内に存在していた同じフォルダーにファイルまたはすべてのファイルを復元できます。同じフォルダとサブフォルダがすべて存在している必要があります。フォルダは作成されません。
 +
-*** 任意のフォルダを選択できます。
-*** フォルダにカーソルを合わせて、をクリックできます image:button_subfolder.png[""] 行の末尾にあるサブフォルダをドリルダウンし、フォルダを選択します。
+.. リストアの進行状況を確認できるように、 * リストア * をクリックするとリストアダッシュボードに戻ります。また、 * Job Monitor * タブをクリックしてリストアの進捗状況を確認することもできます。
 
 
-** ソースファイルがある場所と同じ宛先作業環境とボリュームを選択した場合は、「ソースフォルダーパスを保持」を選択して、ソース構造内に存在していた同じフォルダーにファイルまたはすべてのファイルを復元できます。同じフォルダとサブフォルダがすべて存在している必要があります。フォルダは作成されません。
 
-
-. リストアの進行状況を確認できるように、 * リストア * をクリックするとリストアダッシュボードに戻ります。また、 * Job Monitor * タブをクリックしてリストアの進捗状況を確認することもできます。
-
-
-リストア・インスタンスは、アクティブなときにのみコストが発生するように、一定の非アクティブ期間後にシャットダウンされます。
 
 
 
@@ -299,9 +359,17 @@ image:screenshot_restore_select_dest.png["リストアするファイルのボ�
 
 ファイルは、元のボリュームの場所、同じ作業環境内の別のボリューム、または同じクラウドアカウントを使用している別の作業環境にリストアできます。オンプレミスの ONTAP システム上のボリュームにファイルをリストアすることもできます。
 
-リストアするボリュームのバックアップファイルがアーカイブストレージ（ ONTAP 9.10.1 以降の AWS で使用可能）にある場合、リストア処理にはより長い時間がかかり、追加コストが発生します。デスティネーションクラスタで ONTAP 9.10.1 以降が実行されている必要があり、そのファイルをアーカイブストレージからリストアすることは現在サポートされていません。
+リストアするボリュームのバックアップファイルがアーカイブストレージ（ONTAP 9.10.1以降で使用可能）にある場合、リストア処理にはより長い時間がかかり、追加コストが発生します。デスティネーションクラスタで ONTAP 9.10.1 以降が実行されている必要があり、そのファイルをアーカイブストレージからリストアすることは現在サポートされていません。
+
+ifdef::aws[]
 
 link:reference-aws-backup-tiers.html["AWS アーカイブストレージからのリストアの詳細については、こちらをご覧ください"]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
 
 開始する前に、リストアするボリュームやファイルの名前や場所を把握しておく必要があります。
 
@@ -319,13 +387,19 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 | バックアップファイルの場所 2+| デスティネーションの作業環境 
 
 
-|  | * ボリュームの復元 * | * ファイルの復元 * 
+|  | * ボリュームの復元 * | *ファイルのリストア* ifdef：aws [] 
 
 
-| Amazon S3 | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている 
+| Amazon S3 | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている | AWSオンプレミスONTAP システムのCloud Volumes ONTAP 。endif：aws [] ifdef：azure[] 
 
 
-| Google クラウドストレージ | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP 
+| Azure Blob の略 | 現在サポートされていません | endif：azure []ifdef：GCP [] 
+
+
+| Google クラウドストレージ | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP | GoogleオンプレミスONTAP システムのCloud Volumes ONTAP ：GCP[] 
+
+
+| NetApp StorageGRID | 現在サポートされていません |  
 |===
 「オンプレミス ONTAP システム」とは、 FAS 、 AFF 、 ONTAP Select の各システムを指します。
 
@@ -341,6 +415,10 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 ** SVM で SnapDiff RPC サーバをアクティブ化する必要があります。作業環境でインデックスの作成を有効にすると、 Cloud Manager によって自動的にインデックス作成が実行されます。
 
 
+
+
+ifdef::aws[]
+
 * AWS の要件：
 +
 ** Cloud Manager に権限を付与するユーザロールに、 Amazon Athena 、 AWS Glue 、および AWS S3 の特定の権限を追加する必要があります。 link:task-backup-onprem-to-aws.html#set-up-s3-permissions["すべての権限が正しく設定されていることを確認します"]。
@@ -348,6 +426,12 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 以前に設定したコネクタで Cloud Backup をすでに使用している場合は、ここで Athena 権限と Glue 権限を Cloud Manager ユーザロールに追加する必要があります。これらは新しい機能で、検索とリストアに必要です。
 
 
+
+
+
+endif::aws[]
+
+ifdef::gcp[]
 
 * Google Cloudの要件：
 +
@@ -358,6 +442,8 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 
 
 
+
+endif::gcp[]
 
 
 
@@ -388,9 +474,21 @@ image:diagram_search_restore_vol_file.png["Search & Restore を使用してボ�
 
 この機能を有効にすると、ボリュームに対してCloud BackupがSVMでSnapDiff v3を有効にし、次の処理を実行します。
 
-* AWSに格納されたバックアップについては、新しいS3バケットとがプロビジョニングされます https://aws.amazon.com/athena/faqs/["Amazon Athena インタラクティブクエリーサービス"^] および https://aws.amazon.com/glue/faqs/["AWS グルーサーバレスデータ統合サービス"^]。
-* Google Cloudに保存されているバックアップの場合、新しいバケットとがプロビジョニングされます https://cloud.google.com/bigquery["Google Cloud BigQueryサービス"^] アカウント/プロジェクトレベルでプロビジョニングされます。作業環境でインデックス作成がすでに有効になっている場合は ' 次のセクションに進んでデータをリストアしてください
+ifdef::aws[]
 
+* AWSに格納されたバックアップについては、新しいS3バケットとがプロビジョニングされます https://aws.amazon.com/athena/faqs/["Amazon Athena インタラクティブクエリーサービス"^] および https://aws.amazon.com/glue/faqs/["AWS グルーサーバレスデータ統合サービス"^]。
+
+
+endif::aws[]
+
+ifdef::gcp[]
+
+* Google Cloudに保存されているバックアップの場合、新しいバケットとがプロビジョニングされます https://cloud.google.com/bigquery["Google Cloud BigQueryサービス"^] アカウント/プロジェクトレベルでプロビジョニングされます。
+
+
+endif::gcp[]
+
+作業環境でインデックス作成がすでに有効になっている場合は ' 次のセクションに進んでデータをリストアしてください
 
 作業環境でインデックス作成を有効にするには：
 

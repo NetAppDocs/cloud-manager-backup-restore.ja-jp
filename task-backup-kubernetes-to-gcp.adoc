@@ -69,7 +69,7 @@ Kubernetes クラスタの要件::
 * Kubernetes クラスタを Cloud Manager の作業環境として検出しておきます。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-gke.html["Kubernetes クラスタの検出方法を参照してください"^]。
 * Trident はクラスタにインストールされている必要があります。 Trident のバージョンは 21.1 以上である必要があります。を参照してください https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html["Trident のインストール方法"^] または https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["Trident バージョンをアップグレードする方法"^]。
 * クラスタは、そのバックエンドストレージに GCP 上の Cloud Volumes ONTAP を使用している必要があります。
-* Cloud Volumes ONTAP システムは Kubernetes クラスタと同じ GCP リージョンに配置し、 ONTAP 9.7P5 以降を実行している必要があります。
+* Cloud Volumes ONTAP システムはKubernetesクラスタと同じGCPリージョンに配置し、ONTAP 9.7P5以降を実行している必要があります（ONTAP 9.8P11以降を推奨）。
 +
 オンプレミス環境の Kubernetes クラスタはサポートされていません。Cloud Volumes ONTAP システムを使用するクラウド環境では、 Kubernetes クラスタのみがサポートされます。
 
@@ -165,7 +165,7 @@ image:screenshot_backup_select_volumes_k8s.png["バックアップする永続�
 
 
 
-. 今後追加されるすべてのボリュームでバックアップを有効にするには、「今後のボリュームを自動的にバックアップします…。」のチェックボックスをオンのままにします。この設定を無効にした場合は、将来のボリュームのバックアップを手動で有効にする必要があります。
+. 現在および将来のすべてのボリュームでバックアップを有効にする場合は、「今後のボリュームを自動的にバックアップします…一時保持」チェックボックスをオンのままにします。この設定を無効にした場合は、将来のボリュームのバックアップを手動で有効にする必要があります。
 . Activate Backup * をクリックすると、選択した各ボリュームの初期バックアップの実行が開始されます。
 
 

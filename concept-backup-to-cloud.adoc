@@ -45,9 +45,27 @@ image:diagram_cloud_backup_general.png["Cloud Backup が、ソースシステム
 
 バックアップコピーは、 Cloud Manager がクラウドアカウントで作成するオブジェクトストアに格納されます。クラスタ / 作業環境ごとに 1 つのオブジェクトストアがあり、 Cloud Manager は「 NetApp-backup-clusteruuid 」のようにオブジェクトストアに名前を付けます。このオブジェクトストアは削除しないでください。
 
+ifdef::aws[]
+
 * AWS では、 Cloud Manager によってが有効になります https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 ブロックのパブリックアクセス機能"^] を S3 バケットに配置します。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * Azure では、 Cloud Manager は BLOB コンテナのストレージアカウントを持つ新規または既存のリソースグループを使用します。クラウドマネージャ https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["BLOB データへのパブリックアクセスをブロックします"] デフォルトでは
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * GCP では、 Cloud Manager は Google Cloud Storage バケット用のストレージアカウントを持つ新規または既存のプロジェクトを使用します。
+
+
+endif::gcp[]
+
 * StorageGRID では、 Cloud Manager はオブジェクトストアバケットに既存のストレージアカウントを使用します。
 
 

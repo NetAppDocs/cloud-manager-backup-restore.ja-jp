@@ -64,9 +64,7 @@ Azure Blob Storage へのボリュームのバックアップを開始する前�
 
 image:diagram_cloud_backup_cvo_azure.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
 
-クラウドに導入された Cloud Restore 仮想マシンは、コネクタと同じサブネットに配置されます。
-
-サポートされている ONTAP のバージョン:: Cloud Volumes ONTAP 9.7P5 以降
+サポートされている ONTAP のバージョン:: ONTAP 9.7P5以降が必要です。ONTAP 9.8P11以降が推奨されます。
 ライセンス要件:: Cloud Backup 従量課金制のライセンスの場合は、 Cloud Backup を有効にする前に Azure Marketplace でサブスクリプションを購入する必要があります。Cloud Backup の請求は、このサブスクリプションを通じて行われます。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["作業環境ウィザードの詳細 & 資格情報ページから購読できます"^]。
 +
 --
@@ -76,24 +74,9 @@ Cloud Backup BYOL ライセンスを使用するには、ライセンスの期�
 
 --
 サポートされている Azure リージョン:: Cloud Backup はすべての Azure リージョンでサポートされます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]Azure Government リージョンを含む。
-別の Azure サブスクリプションでバックアップを作成するために必要なセットアップ:: デフォルトでは、バックアップは Cloud Volumes ONTAP システムと同じサブスクリプションを使用して作成されます。バックアップに別の Azure サブスクリプションを使用する場合は、が必要です link:reference-backup-multi-account-azure.html["Azure ポータルにログインして、 2 つのサブスクリプションをリンクできます"]。
 データ暗号化にお客様が管理するキーを使用するために必要な情報:: Microsoft が管理するデフォルトの暗号化キーを使用する代わりに、アクティベーションウィザードで、お客様が管理する独自のキーを使用してデータを暗号化できます。この場合、 Azure サブスクリプション、キー・ボールト名、およびキーが必要です。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["独自のキーの使用方法を参照してください"]。
-Azure 環境にはアウトバウンドのインターネットアクセスが必要です:: Cloud Restore 仮想マシンには、アウトバウンドのインターネットアクセスが必要です。仮想ネットワークまたは物理ネットワークでインターネットアクセスにプロキシサーバを使用している場合は、インスタンスがアウトバウンドのインターネットアクセスを使用して次のエンドポイントに接続していることを確認してください。
 
 
-[cols="43,57"]
-|===
-| エンドポイント | 目的 
-
-
-| ¥ http://olcentgbl.trafficmanager.net ¥ https://olcentgbl.trafficmanager.net | Cloud Restore 仮想マシン用の CentOS パッケージが用意されています。 
-
-
-| \ https://download.docker.com/linux/centos/docker-ce.repo | Docker Engine パッケージを提供します。 
-
-
-| ¥ http://cloudmanagerinfraprod.azurecr.io ¥ https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 仮想マシンのイメージリポジトリ。 
-|===
 
 
 == 新しいシステムでの Cloud Backup の有効化
@@ -135,9 +118,6 @@ image:screenshot_backup_cvo_enable.png["作業環境を選択したあとに使�
 . プロバイダの詳細を選択し、 * 次へ * ：
 +
 .. バックアップの格納に使用する Azure サブスクリプション。これは、 Cloud Volumes ONTAP システムとは異なるサブスクリプションにすることもできます。
-+
-バックアップに別の Azure サブスクリプションを使用する場合は、が必要です link:reference-backup-multi-account-azure.html["Azure ポータルにログインして、 2 つのサブスクリプションをリンクできます"]。
-
 .. バックアップを保存するリージョン。これは、 Cloud Volumes ONTAP システムが配置されているリージョンとは異なるリージョンにすることもできます。
 .. BLOB コンテナを管理するリソースグループ - 新しいリソースグループを作成したり、既存のリソースグループを選択したりできます。
 .. Microsoft が管理するデフォルトの暗号化キーを使用する場合でも、お客様が管理する独自のキーを選択してデータの暗号化を管理する場合でも、 (https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["独自のキーの使用方法を参照してください"]）。

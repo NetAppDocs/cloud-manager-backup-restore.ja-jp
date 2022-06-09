@@ -26,7 +26,7 @@ Cloud Backup は、 ONTAP クラスタデータを保護し、長期アーカイ
 
 * データボリュームの独立したコピーを低コストのオブジェクトストレージにバックアップできます。
 * クラスタ内のすべてのボリュームに単一のバックアップポリシーを適用するか、または一意のリカバリポイント目標が設定されたボリュームに異なるバックアップポリシーを割り当てます。
-* 古いバックアップファイルをアーカイブストレージに階層化してコストを削減（ ONTAP 9.10.1 以降では AWS と Azure でサポート）
+* 古いバックアップファイルをアーカイブストレージに階層化してコストを削減（ONTAP 9.10.1以降でサポート）
 * クラウドからクラウドへ、オンプレミスシステムからパブリッククラウドやプライベートクラウドへバックアップできます。
 * Cloud Volumes ONTAP システムの場合、バックアップは別のサブスクリプションやアカウントに配置することも、別のリージョンに配置することもできます。
 * バックアップデータは、転送中の AES-256 ビット暗号化と TLS 1.2 HTTPS 接続によって保護されます。
@@ -40,7 +40,7 @@ Cloud Backup は、 ONTAP クラスタデータを保護し、長期アーカイ
 * ボリュームまたは個々のファイルをソースシステムまたは別のシステムにリストアする。
 * 別のサブスクリプション / アカウントを使用して、または別のリージョンにある作業環境にデータをリストアする。
 * 元の ACL を維持したまま、指定した場所にデータを直接配置して、ブロックレベルでデータをリストアします。
-* 単一ファイルのリストア用に個々のファイルを選択できる、参照可能で検索可能なファイルカタログです。
+* 単一ファイルのリストア用に個々のファイルを選択するための、参照可能および検索可能なファイルカタログ。
 
 
 
@@ -51,19 +51,19 @@ Cloud Backup を使用すると、以下の作業環境から次のパブリッ�
 
 [cols="45,45"]
 |===
-| ソースの作業環境 | バックアップファイルの保存先 
+| ソースの作業環境 | バックアップファイルデスティネーションifdef：aws [] 
 
 
-| AWS の Cloud Volumes ONTAP | Amazon S3 
+| AWS の Cloud Volumes ONTAP | Amazon S3 endif：aws []ifdef：azure[] 
 
 
-| Azure の Cloud Volumes ONTAP | Azure Blob の略 
+| Azure の Cloud Volumes ONTAP | Azure Blob endif：Azure[] ifdef：GCP [] 
 
 
-| Google の Cloud Volumes ONTAP | Google クラウドストレージ 
+| Google の Cloud Volumes ONTAP | Google Cloud Storage endif：GCP [] 
 
 
-| オンプレミスの ONTAP システム | Amazon S3 Azure Blob Google Cloud Storage NetApp StorageGRID 
+| オンプレミスの ONTAP システム | ifdef：aws [] Amazon S3 endif：aws [] ifdef：azure[] Azure Blob endif：azure [] ifdef：gcp [] Google Cloud Storage endif：GCP [] NetApp StorageGRID 
 |===
 ONTAP バックアップファイルから次の作業環境にボリュームまたは個々のファイルをリストアできます。
 
@@ -72,19 +72,19 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 | バックアップファイル 2+| デスティネーションの作業環境 
 
 
-| * 場所 * | * ボリュームの復元 * | * ファイルの復元 * 
+| * 場所 * | * ボリュームの復元 * | *ファイルのリストア* ifdef：aws [] 
 
 
-| Amazon S3 | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている 
+| Amazon S3 | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている | AWSオンプレミスONTAP システムのCloud Volumes ONTAP 。endif：aws [] ifdef：azure[] 
 
 
-| Azure Blob の略 | オンプレミスの Azure ONTAP システムに Cloud Volumes ONTAP を導入 | オンプレミスの Azure ONTAP システムに Cloud Volumes ONTAP を導入 
+| Azure Blob の略 | オンプレミスの Azure ONTAP システムに Cloud Volumes ONTAP を導入 | AzureオンプレミスONTAP システムのCloud Volumes ONTAP 。endif：azure[] ifdef：gCP[] 
 
 
-| Google クラウドストレージ | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP 
+| Google クラウドストレージ | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP | GoogleオンプレミスONTAP システムのCloud Volumes ONTAP ：GCP[] 
 
 
-| NetApp StorageGRID | オンプレミスの ONTAP システム |  
+| NetApp StorageGRID | オンプレミスの ONTAP システム | オンプレミスの ONTAP システム 
 |===
 「オンプレミス ONTAP システム」とは、 FAS 、 AFF 、 ONTAP Select の各システムを指します。
 
@@ -102,42 +102,55 @@ ONTAP システムでクラウドバックアップを使用する場合、リ�
 +
 クラウドバックアップではソースボリュームの Storage Efficiency が保持されるため、クラウドプロバイダ側で、 data_after_ONTAP 効率化のコストを支払います（重複排除と圧縮が適用されたあとのデータ量が少ないほど）。
 
-* Browse & Restore を使用してファイルをリストアする場合は、リストアインスタンスが実行されている場合にのみ、コンピューティングコストについてクラウドプロバイダにお支払いください。
-+
-インスタンスは、バックアップファイルを参照してリストアする個々のファイルを探すときにのみ実行されます。コストを節約するために使用していない場合、インスタンスはオフになります。
-
-+
-** AWS では、 Restore インスタンスはで実行されます https://aws.amazon.com/ec2/instance-types/m5/["m5n.xlarge インスタンス"^] CPU × 4 、 16GB のメモリ、および EBS 専用インスタンスストレージオペレーティングシステムイメージは Amazon Linux 2 です。
-+
-m5n.xlarge インスタンスを使用できない領域では、代わりに m5.xlarge インスタンスで Restore が実行されます。
-
-** Azure では、 Restore 仮想マシンがで実行されます https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series#dsv3-series["Standard_D4s_v3 VM"^] CPU × 4 、メモリ × 16 、 32GiB ディスク × 1 の場合。オペレーティングシステムイメージは CentOS 7.5 ）です。
-+
-インスタンスの名前は _Cloud-Restore-Instance_with Your Account ID Concatenated です。例： _Cloud-Restore-Instance-MyAccount_ 。
-
-
-
-* Browse & Restore を使用してボリュームをリストアする場合は、個別のインスタンスや仮想マシンが必要ないため、コストは発生しません。
 * 検索とリストアを使用したボリュームまたはファイルのリストアでは、特定のリソースがクラウドプロバイダによってプロビジョニングされ、検索要求でスキャンされるデータ量には1TiBあたりのコストが関連付けられます。
 +
+ifdef::aws[]
+
++
 ** AWSでは、 https://aws.amazon.com/athena/faqs/["Amazon Athena"^] および https://aws.amazon.com/glue/faqs/["AWS 接着剤"^] リソースは新しいS3バケットに導入される。
-** Googleでは、新しいバケットが導入され、が展開されます https://cloud.google.com/bigquery["Google Cloud BigQueryサービス"^] アカウント/プロジェクトレベルでプロビジョニングされます。
++
+endif::aws[]
 
 
-* （ONTAP 9.10.1以降を使用するAWSでサポートされる）アーカイブストレージに移動されたバックアップファイルからボリュームデータをリストアする必要がある場合は、GiBあたりの読み出し料金とクラウドプロバイダからの要求ごとの料金が別途かかります。
+
+
+
+ifdef::gcp[]
+
+* Googleでは、新しいバケットが導入され、が展開されます https://cloud.google.com/bigquery["Google Cloud BigQueryサービス"^] アカウント/プロジェクトレベルでプロビジョニングされます。
+
+
+endif::gcp[]
+
+* アーカイブストレージに移動されたバックアップファイルからボリュームデータをリストアする必要がある場合は、GiB単位の読み出し料金とクラウドプロバイダからの要求ごとの料金が別途かかります。
 
 
 * サービス料金 *
 
 サービス料金はネットアップに支払われ、バックアップの作成時とリストア時のボリューム、またはファイルに対する費用の両方が含まれます。保護するデータの料金は、オブジェクトストレージにバックアップされる ONTAP のソースの使用済み論理容量（ _Before_ONTAP 効率化）で計算されます。この容量はフロントエンドテラバイト（ FETB ）とも呼ばれます。
 
-バックアップサービスの料金を支払う方法は 3 通りあります。1 つ目は、クラウドプロバイダを利用して月額料金を支払う方法です。もう 1 つの選択肢は、年間契約を取得することです。これは AWS でのみ利用できます。3 つ目のオプションは、ネットアップからライセンスを直接購入することです。を参照してください <<Licensing,ライセンス>> 詳細については、を参照してください
+バックアップサービスの料金を支払う方法は 3 通りあります。1 つ目は、クラウドプロバイダを利用して月額料金を支払う方法です。2つ目のオプションは、年間契約を取得することです。3 つ目のオプションは、ネットアップからライセンスを直接購入することです。を参照してください <<Licensing,ライセンス>> 詳細については、を参照してください
 
 
 
 == ライセンス
 
-Cloud Backupには3つのライセンスオプションがあります。従量課金制（PAYGO）サブスクリプションと、AWS Marketplaceでの年間契約、お客様所有のライセンスの使用（BYOL）です。PAYGOサブスクリプションを取得した場合は、30日間の無償トライアルを利用できます。
+Cloud Backupには、いくつかのライセンスオプションがあります。
+
+* 従量課金制（PAYGO）のサブスクリプション
+
+
+ifdef::aws[]
+
+* AWS Marketplaceからの年間契約
+
+
+endif::aws[]
+
+* お客様所有のライセンスを使用（BYOL）
+
+
+PAYGOサブスクリプションに最初に登録したときに、30日間の無償トライアルを利用できます。
 
 
 
@@ -146,6 +159,8 @@ Cloud Backupには3つのライセンスオプションがあります。従量�
 Cloud Backup は従量課金制モデルで、使用量に応じたライセンスを提供します。クラウドプロバイダの市場に登録した後は、バックアップされたデータに対して GiB 単位で料金が発生します。つまり、前払いによる支払いが発生しません。クラウドプロバイダから月額料金で請求されます。
 
 link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["従量課金制サブスクリプションの設定方法について説明します"]。
+
+ifdef::aws[]
 
 
 
@@ -158,6 +173,8 @@ AWS Marketplace では、 12 カ月、 24 カ月、または 36 カ月間の契�
 
 
 link:task-licensing-cloud-backup.html#subscribe-to-yearly-contracts-through-aws["毎年の AWS 契約を設定する方法をご確認ください"]。
+
+endif::aws[]
 
 
 
@@ -190,9 +207,27 @@ image:diagram_cloud_backup_general.png["Cloud Backup が、ソースシステム
 
 バックアップコピーは、 Cloud Manager がクラウドアカウントで作成するオブジェクトストアに格納されます。クラスタ / 作業環境ごとに 1 つのオブジェクトストアがあり、 Cloud Manager は「 NetApp-backup-clusteruuid 」のようにオブジェクトストアに名前を付けます。このオブジェクトストアは削除しないでください。
 
+ifdef::aws[]
+
 * AWS では、 Cloud Manager によってが有効になります https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 ブロックのパブリックアクセス機能"^] を S3 バケットに配置します。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * Azure では、 Cloud Manager は BLOB コンテナのストレージアカウントを持つ新規または既存のリソースグループを使用します。クラウドマネージャ https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["BLOB データへのパブリックアクセスをブロックします"] デフォルトでは
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * GCP では、 Cloud Manager は Google Cloud Storage バケット用のストレージアカウントを持つ新規または既存のプロジェクトを使用します。
+
+
+endif::gcp[]
+
 * StorageGRID では、 Cloud Manager はオブジェクトストアバケットに既存のストレージアカウントを使用します。
 
 
@@ -202,17 +237,35 @@ image:diagram_cloud_backup_general.png["Cloud Backup が、ソースシステム
 
 === サポートされるストレージクラスまたはアクセス階層
 
+ifdef::aws[]
+
 * AWS では、バックアップは _Standard_storage クラスから開始し、 30 日後に _Standard-Infrequent Access_storage クラスに移行します。
 +
 クラスタが ONTAP 9.10.1 以降を使用している場合は、古いバックアップを S3 Glacier Deep Archive_storage のいずれかに階層化して、特定の日数が経過したらコストをさらに最適化することができます。 link:reference-aws-backup-tiers.html["AWS アーカイブストレージの詳細は、こちらをご覧ください"^]。
+
+
+
+endif::aws[]
+
+ifdef::azure[]
 
 * Azure では、バックアップは _COOL アクセス層に関連付けられます。
 +
 クラスタが ONTAP 9.10.1 以降を使用している場合は、特定の日数が経過した古いバックアップを Azure Archive_storage に階層化して、コストをさらに最適化することができます。 link:reference-azure-backup-tiers.html["Azure アーカイブストレージの詳細については、こちらをご覧ください"^]。
 
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * GCP では、バックアップはデフォルトで _Standard_storage クラスに関連付けられています。
 +
 また、 lower cost_Nearline_storage クラスまたは _Coldline_or_Archive_storage クラスを使用することもできます。Google のトピックを参照してください link:https://cloud.google.com/storage/docs/storage-classes["ストレージクラス"^] ストレージクラスの変更については、を参照してください。
+
+
+
+endif::gcp[]
 
 * StorageGRID では、バックアップは _Standard_storage クラスに関連付けられます。
 
@@ -280,7 +333,7 @@ FlexGroup ボリュームと SnapLock ボリュームは現在サポートされ
 
 == 制限
 
-* 古いバックアップファイルをアーカイブストレージに階層化できるためには、クラスタで ONTAP 9.10.1 以降（現在は AWS と Azure でサポート）が実行されている必要があります。アーカイブストレージにあるバックアップファイルからボリュームをリストアするには、デスティネーションクラスタで ONTAP 9.10.1 以降が実行されている必要もあります。
+* 古いバックアップファイルをアーカイブストレージに階層化するには、クラスタでONTAP 9.10.1以降が実行されている必要があります。アーカイブストレージにあるバックアップファイルからボリュームをリストアするには、デスティネーションクラスタで ONTAP 9.10.1 以降が実行されている必要もあります。
 * ポリシーにボリュームが割り当てられていない場合にバックアップポリシーを作成または編集するときは、バックアップの保持数を 1018 以下にする必要があります。回避策 では、ポリシーを作成するバックアップの数を減らすことができます。その後、ポリシーを編集して、ポリシーにボリュームを割り当てたあとで最大 4 、 000 個のバックアップを作成できます。
 * データ保護（ DP ）ボリュームをバックアップする場合、次の SnapMirror ラベルが設定されている関係はクラウドにバックアップされません。
 +

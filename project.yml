@@ -7,11 +7,22 @@ settings:
   prod:
     pdf_enabled: true
     harmony_enabled: false
+  filter:
+    label: クラウドプロバイダ
+    default: すべてのクラウドプロバイダ
+    options:
+    - name: Amazon Web Services の
+      alias: AWS
+      id: aws
+    - name: Google Cloud
+      alias: Google Cloud
+      id: gcp
+    - name: Microsoft Azure
+      alias: Azure
+      id: azure
   langs: ja-jp,us-en,zh-cn,zh-tw,ko-kr
 sidebar:
   entries:
-  - title: Cloud Manager のすべてのドキュメント
-    url: https://docs.netapp.com/us-en/cloud-manager-family
   - title: Cloud Backup のドキュメント
     url: "/index.html"
   - title: リリースノート
@@ -29,16 +40,22 @@ sidebar:
     - title: ONTAP データを保護
       url: "/concept-ontap-backup-to-cloud.html"
     - title: Cloud Volumes ONTAP を Amazon S3 にバックアップします
+      flavor: aws
       url: "/task-backup-to-s3.html"
     - title: Cloud Volumes ONTAP を Azure Blob にバックアップ
+      flavor: azure
       url: "/task-backup-to-azure.html"
     - title: Cloud Volumes ONTAP を Google Cloud にバックアップ
+      flavor: gcp
       url: "/task-backup-to-gcp.html"
     - title: オンプレミスの ONTAP から Amazon S3 へのバックアップ
+      flavor: aws
       url: "/task-backup-onprem-to-aws.html"
     - title: オンプレミスの ONTAP を Azure Blob にバックアップ
+      flavor: azure
       url: "/task-backup-onprem-to-azure.html"
     - title: オンプレミスの ONTAP から Google Cloud へのバックアップ
+      flavor: gcp
       url: "/task-backup-onprem-to-gcp.html"
     - title: オンプレミスの ONTAP を StorageGRID にバックアップ
       url: "/task-backup-onprem-private-cloud.html"
@@ -51,10 +68,13 @@ sidebar:
     - title: Kubernetes のデータを保護
       url: "/concept-kubernetes-backup-to-cloud.html"
     - title: Amazon S3 にバックアップします
+      flavor: aws
       url: "/task-backup-kubernetes-to-s3.html"
     - title: Azure Blob にバックアップ
+      flavor: azure
       url: "/task-backup-kubernetes-to-azure.html"
     - title: Google Cloud にバックアップ
+      flavor: gcp
       url: "/task-backup-kubernetes-to-gcp.html"
     - title: Kubernetes のバックアップを管理
       url: "/task-manage-backups-kubernetes.html"
@@ -84,19 +104,14 @@ sidebar:
       url: "/task-manage-vm-data-in-cloud.html"
     - title: 仮想マシンのデータをリストアします
       url: "/task-restore-vm-data.html"
+  - title: REST API で自動化
+    url: "/api-backup-restore.html"
   - title: 参照
     entries:
     - title: サポート対象の AWS アーカイブストレージ階層
       url: "/reference-aws-backup-tiers.html"
     - title: サポートされている Azure アーカイブアクセス層
       url: "/reference-azure-backup-tiers.html"
-    - title: クロスアカウント構成とクロスリージョン構成
-      url: "/reference-cross-account.html"
-      entries:
-      - title: AWS でマルチアカウントアクセス用にバックアップを設定します
-        url: "/reference-backup-multi-account-aws.html"
-      - title: Azure でマルチアカウントアクセス用にバックアップを設定
-        url: "/reference-backup-multi-account-azure.html"
   - title: 知識とサポート
     entries:
     - title: サポートに登録します
@@ -119,40 +134,49 @@ homepage:
     links:
     - title: Cloud Volumes ONTAP から Amazon S3 へ
       url: task-backup-to-s3.html
+      flavor: aws
     - title: Cloud Volumes ONTAP と Azure Blob の間
       url: task-backup-to-azure.html
+      flavor: azure
     - title: Cloud Volumes ONTAP から Google Cloud へ
       url: task-backup-to-gcp.html
+      flavor: gcp
     - title: オンプレミスの ONTAP から Amazon S3 へ
       url: task-backup-onprem-to-aws.html
+      flavor: aws
     - title: オンプレミスの ONTAP と Azure Blob の間でデータを移動
       url: task-backup-onprem-to-azure.html
+      flavor: azure
     - title: オンプレミスの ONTAP から Google Cloud へ
       url: task-backup-onprem-to-gcp.html
+      flavor: gcp
     - title: オンプレミスの ONTAP から StorageGRID へ
       url: task-backup-onprem-private-cloud.html
   - title: Kubernetes のデータをクラウドにバックアップ
     links:
     - title: Kubernetes クラスタから Amazon S3 へ
       url: task-backup-kubernetes-to-s3.html
+      flavor: aws
     - title: Kubernetes クラスタから Azure Blob への移行
       url: task-backup-kubernetes-to-azure.html
+      flavor: azure
     - title: Kubernetes クラスタから Google Cloud へ
       url: task-backup-kubernetes-to-gcp.html
+      flavor: gcp
   - title: オンプレミスのアプリケーションデータのバックアップとリストア
     links:
     - title: オンプレミスアプリケーションのデータをクラウドにバックアップ
-      url: "/task-backup-app-data-to-cloud.html"
+      url: task-backup-app-data-to-cloud.html
     - title: Oracle データベースをリストアします
-      url: "/task-restore-oracle-data.html"
+      url: task-restore-oracle-data.html
     - title: SQL Server データベースをリストアする
-      url: "/task-restore-sql-data.html"
+      url: task-restore-sql-data.html
   - title: 仮想マシンのデータのバックアップとリストア
     links:
     - title: データストアをクラウドにバックアップ
-      url: "/task-backup-vm-data-to-cloud.html"
+      url: task-backup-vm-data-to-cloud.html
     - title: クラウドから仮想マシンをリストアします
-      url: "/task-restore-vm-data.html"
+      url: task-restore-vm-data.html
   - title: バックアップファイルからデータをリストアする
     links:
     - title: ONTAP ボリュームをリストア
@@ -192,3 +216,4 @@ homepage:
 product-family:
   name: Cloud Manager
   repo: cloud-manager-family
+  sidebar_label: All Cloud Manager documentation

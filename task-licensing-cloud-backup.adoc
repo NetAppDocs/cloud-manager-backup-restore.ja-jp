@@ -39,24 +39,44 @@ link:concept-ontap-backup-to-cloud.html#cost["Cloud Backupの使用に関連す�
 
 従量課金制の場合、クラウドプロバイダにオブジェクトストレージのコストとネットアップのバックアップライセンスのコストを1時間単位で支払うことになります。無償トライアルを利用されている場合や、お客様が独自のライセンスを使用（ BYOL ）されている場合も、サブスクリプションを設定する必要があります。
 
-* 登録すると、無料トライアルの終了後にサービスが中断されることがなくなります。
-+
-試用期間が終了すると、バックアップしたデータの量に応じて 1 時間ごとに課金されます。
-
-* BYOL ライセンスで許可されている数を超えるデータをバックアップした場合、データバックアップは従量課金制サブスクリプションを使用して続行されます。
-+
-たとえば、 BYOL ライセンスが 10TiB の場合、 10TiB を超える容量はすべて PAYGO サブスクリプションによって課金されます。
-
+* 登録すると、無料トライアルの終了後にサービスが中断されることがなくなります。試用期間が終了すると、バックアップしたデータの量に応じて 1 時間ごとに課金されます。
+* BYOL ライセンスで許可されている数を超えるデータをバックアップした場合、データバックアップは従量課金制サブスクリプションを使用して続行されます。たとえば、 BYOL ライセンスが 10TiB の場合、 10TiB を超える容量はすべて PAYGO サブスクリプションによって課金されます。
 
 
 お客様は、無料トライアル期間中、または BYOL ライセンスを超えていない場合は、従量課金制サブスクリプションから料金を請求されることはありません。
 
+Cloud Backupについては、次の2種類のPAYGOを計画しています。
+
+* Cloud Volumes ONTAP データとオンプレミスのONTAP データをバックアップできる「クラウドバックアップ」パッケージ。
+* Cloud Volumes ONTAP とクラウドバックアップをバンドルできる「CVO Professional」パッケージ。これには、このライセンスに基づいて Cloud Volumes ONTAP ボリュームのバックアップが無制限になることも含まれます（バックアップ容量はライセンスにはカウントされません）。このオプションでは、オンプレミスの ONTAP データをバックアップすることはできません。ifdef：Azure []
+
+
+endif::azure[]
+
 以下のリンクから、クラウドプロバイダのマーケットプレイスから Cloud Backup にサブスクライブできます。
 
+ifdef::aws[]
+
 * AWS https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * Azure https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * GCP ： https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください"^]。
 
+
+endif::gcp[]
+
+ifdef::aws[]
 
 
 
@@ -76,6 +96,8 @@ link:concept-ontap-backup-to-cloud.html#cost["Cloud Backupの使用に関連す�
 このオプションを使用する場合は、 Cloud Volumes ONTAP の作業環境を作成するときに年間契約を設定し、 Cloud Manager から AWS Marketplace に登録するように求められます。
 
 
+
+endif::aws[]
 
 
 

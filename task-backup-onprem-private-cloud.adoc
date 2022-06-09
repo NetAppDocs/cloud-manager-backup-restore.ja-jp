@@ -75,8 +75,6 @@ S3 バケットは、入力した S3 アクセスキーとシークレットキ�
 
 image:diagram_cloud_backup_onprem_storagegrid.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
 
-この図では、 StorageGRID の使用時には現在単一ファイルのリストアがサポートされていないため、クラウドリストアインスタンスは示されていません。
-
 
 
 === ONTAP クラスタの準備
@@ -88,7 +86,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP の要件::
 +
 --
-* ONTAP 9.7P5 以降
+* ONTAP 9.7P5以降が必要です。ONTAP 9.8P11以降が推奨されます。
 * SnapMirror ライセンス（ Premium Bundle または Data Protection Bundle に含まれます）。
 +
 * 注： * Cloud Backup を使用する場合、「 Hybrid Cloud Bundle 」は必要ありません。

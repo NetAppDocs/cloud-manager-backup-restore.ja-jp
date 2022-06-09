@@ -45,31 +45,31 @@ Cloud Backup を使用すると、以下の作業環境から以下のパブリ�
 
 [cols="45,40"]
 |===
-| ソースの作業環境 | バックアップファイルの保存先 
+| ソースの作業環境 | バックアップファイルデスティネーションifdef：aws [] 
 
 
-| AWS の Kubernetes クラスタ | Amazon S3 
+| AWS の Kubernetes クラスタ | Amazon S3 endif：aws []ifdef：azure[] 
 
 
-| Azure の Kubernetes クラスタ | Azure Blob の略 
+| Azure の Kubernetes クラスタ | Azure Blob endif：Azure[] ifdef：GCP [] 
 
 
-| Google の Kubernetes クラスタ | Google クラウドストレージ 
+| Google の Kubernetes クラスタ | Google Cloud Storage endif：GCP [] 
 |===
 Kubernetes バックアップファイルから次の作業環境にボリュームをリストアできます。
 
 [cols="40,45"]
 |===
-| バックアップファイルの場所 | デスティネーションの作業環境 
+| バックアップファイルの場所 | デスティネーション作業環境ifdef：aws [] 
 
 
-| Amazon S3 | AWS の Kubernetes クラスタ 
+| Amazon S3 | AWS endifのKubernetesクラスタ：aws [] ifdef：azure[] 
 
 
-| Azure Blob の略 | Azure の Kubernetes クラスタ 
+| Azure Blob の略 | Azure endifのKubernetesクラスタ：azure[] ifdef：gCP[] 
 
 
-| Google クラウドストレージ | Google の Kubernetes クラスタ 
+| Google クラウドストレージ | Google endifのKubernetesクラスタ：GCP [] 
 |===
 
 
@@ -150,10 +150,26 @@ image:diagram_cloud_backup_general_k8s.png["Cloud Backup が、ソースシス�
 
 === サポートされるストレージクラスまたはアクセス階層
 
+ifdef::aws[]
+
 * AWS では、バックアップは _Standard_storage クラスから開始し、 30 日後に _Standard-Infrequent Access_storage クラスに移行します。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * Azure では、バックアップは _COOL アクセス層に関連付けられます。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * GCP では、バックアップはデフォルトで _Standard_storage クラスに関連付けられています。
 
+
+endif::gcp[]
 
 
 

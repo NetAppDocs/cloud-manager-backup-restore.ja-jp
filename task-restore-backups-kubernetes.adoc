@@ -26,16 +26,16 @@ Kubernetes バックアップファイルから次の作業環境にボリュー
 
 [cols="40,40"]
 |===
-| バックアップファイルの場所 | デスティネーションの作業環境 
+| バックアップファイルの場所 | デスティネーション作業環境ifdef：aws [] 
 
 
-| Amazon S3 | AWS の Kubernetes クラスタ 
+| Amazon S3 | AWS endifのKubernetesクラスタ：aws [] ifdef：azure[] 
 
 
-| Azure Blob の略 | Azure の Kubernetes クラスタ 
+| Azure Blob の略 | Azure endifのKubernetesクラスタ：azure[] ifdef：gCP[] 
 
 
-| Google クラウドストレージ | Google の Kubernetes クラスタ 
+| Google クラウドストレージ | Google endifのKubernetesクラスタ：GCP [] 
 |===
 
 
@@ -51,7 +51,7 @@ Kubernetes バックアップファイルから次の作業環境にボリュー
 +
 image:screenshot_backup_view_k8s_backups_button.png["Kubernetes ダッシュボードのスクリーンショットで、バックアップ対象のすべての Kubernetes クラスタとボリュームのリストを示しています。"]
 
-. リストアするボリュームを選択し、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"]をクリックし、 * ボリュームの詳細 * をクリックします。
+. リストアするボリュームを選択し、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"]をクリックし、*詳細とバックアップリスト*をクリックします。
 +
 そのボリュームのすべてのバックアップファイルと、ソースボリューム、デスティネーションの場所、およびバックアップの詳細が表示されます。
 

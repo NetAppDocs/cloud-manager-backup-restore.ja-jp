@@ -67,13 +67,13 @@ Select Volumes （ボリュームの選択）ページで、デフォルトの�
 * プライベート接続 - VPN またはプライベートサービス接続を使用して、プライベート IP アドレスを使用するプライベート Google アクセスインターフェイスを介してトラフィックをルーティングします。
 
 
-次の図は、パブリック接続の方法と、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
 
-image:diagram_cloud_backup_onprem_google.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_google.png["Cloud Backupがソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとパブリック接続を介して通信する仕組みを示す図。"]
 
-次の図は、プライベート接続方法と、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
 
-image:diagram_cloud_backup_onprem_google_vpc.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_google_vpc.png["Cloud Backupが、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとプライベート接続を介して通信する仕組みを示す図。"]
 
 
 
@@ -86,7 +86,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP の要件::
 +
 --
-* ONTAP 9.7P5 以降
+* ONTAP 9.7P5以降が必要です。ONTAP 9.8P11以降が推奨されます。
 * SnapMirror ライセンス（ Premium Bundle または Data Protection Bundle に含まれます）。
 +
 * 注： * Cloud Backup を使用する場合、「 Hybrid Cloud Bundle 」は必要ありません。

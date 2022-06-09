@@ -62,7 +62,7 @@ Google Cloud ストレージへのボリュームのバックアップを開始�
 
 image:diagram_cloud_backup_cvo_google.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
 
-サポートされている ONTAP のバージョン:: Cloud Volumes ONTAP 9.7P5 以降
+サポートされている ONTAP のバージョン:: ONTAP 9.7P5以降が必要です。ONTAP 9.8P11以降が推奨されます。
 サポートされる GCP リージョン:: Cloud Backup はすべての GCP リージョンでサポートされます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]。
 ライセンス要件:: クラウドバックアップは従量課金制のライセンスで、を使用したサブスクリプション https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP Marketplace"^] は、 Cloud Backup を有効にする前に必要です。Cloud Backup の請求は、このサブスクリプションを通じて行われます。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["作業環境ウィザードの詳細 & 資格情報ページから購読できます"^]。
 +
