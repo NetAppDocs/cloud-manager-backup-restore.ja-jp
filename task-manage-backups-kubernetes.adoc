@@ -29,11 +29,11 @@ Cloud Backup で現在バックアップされているすべてのボリュー�
 . [ バックアップと復元 ] サービスをクリックします。
 . Kubernetes システムの永続ボリュームのリストを表示するには、 * Kubernetes * タブをクリックします。
 +
-image:screenshot_backup_dashboard.png["バックアップファイルがあるすべての作業環境とボリュームを示すスクリーンショット。"]
+image:screenshot_backup_dashboard_k8s.png["バックアップファイルがあるすべての作業環境とボリュームを示すスクリーンショット。"]
 
 
 
-特定の作業環境で特定のボリュームを検索する場合は、作業環境とボリュームに基づいてリストを絞り込むか、検索フィルタを使用できます。
+特定のクラスタの特定のボリュームを検索する場合は、クラスタおよびボリュームに基づいてリストを絞り込むか、検索フィルタを使用できます。
 
 
 
@@ -127,13 +127,13 @@ image:screenshot_auto_backup_k8s.png["Kubernetesクラスタ上の今後すべ�
 .手順
 . [*Kubernetes *] タブで、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] をソースボリュームとして選択し、 * Details & Backup List * を選択します。
 +
-image:screenshot_backup_view_backups_button.png["1 つのボリュームで使用できる [ 詳細とバックアップリスト ] ボタンを示すスクリーンショット"]
+image:screenshot_backup_view_k8s_backups_button.png["1 つのボリュームで使用できる [ 詳細とバックアップリスト ] ボタンを示すスクリーンショット"]
 
 +
 すべてのバックアップファイルのリストが、ソースボリューム、デスティネーションの場所、およびバックアップの詳細とともに表示されます。
 
 +
-image:screenshot_backup_view_backups.png["単一のボリュームのすべてのバックアップファイルのリストを示すスクリーンショット。"]
+image:screenshot_backup_view_k8s_backups.png["単一のボリュームのすべてのバックアップファイルのリストを示すスクリーンショット。"]
 
 
 
@@ -175,7 +175,7 @@ image:screenshot_delete_all_backups_k8s.png["作業環境のすべてのバッ�
 .手順
 . [*Kubernetes *] タブで、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] をソースボリュームとして選択し、 * Details & Backup List * を選択します。
 +
-image:screenshot_backup_view_backups_button.png["1 つのボリュームで使用できる [ 詳細とバックアップリスト ] ボタンを示すスクリーンショット"]
+image:screenshot_backup_view_k8s_backups_button.png["1 つのボリュームで使用できる [ 詳細とバックアップリスト ] ボタンを示すスクリーンショット"]
 
 +
 すべてのバックアップファイルのリストが表示されます。
@@ -199,7 +199,7 @@ image:screenshot_delete_we_backups.png["ボリュームのすべてのバック�
 .手順
 . [*Kubernetes *] タブで、をクリックします image:screenshot_horizontal_more_button.gif["[ 詳細 ] アイコン"] をソースボリュームとして選択し、 * Details & Backup List * を選択します。
 +
-image:screenshot_backup_view_backups_button.png["1 つのボリュームで使用できる [ 詳細とバックアップリスト ] ボタンを示すスクリーンショット"]
+image:screenshot_backup_view_k8s_backups_button.png["1 つのボリュームで使用できる [ 詳細とバックアップリスト ] ボタンを示すスクリーンショット"]
 
 +
 すべてのバックアップファイルのリストが表示されます。
