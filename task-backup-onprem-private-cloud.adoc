@@ -34,6 +34,7 @@ summary: オンプレミスの ONTAP システムから NetApp StorageGRID シ�
 
 * コネクタがオンプレミスにインストールされている。
 +
+** コネクタは、インターネットに接続するかどうかに関係なく、サイトにインストールできます。
 ** コネクタのネットワークを使用すると、 ONTAP クラスタおよび StorageGRID へのアウトバウンド HTTPS 接続が可能になります。
 
 
@@ -75,6 +76,8 @@ S3 バケットは、入力した S3 アクセスキーとシークレットキ�
 
 image:diagram_cloud_backup_onprem_storagegrid.png["Cloud Backup が、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージと通信する仕組みを示す図。"]
 
+コネクタとオンプレミスの ONTAP システムがインターネットにアクセスできないオンプレミスの場所にインストールされている場合、 StorageGRID システムは同じオンプレミスのデータセンターに配置されている必要があります。
+
 
 
 === ONTAP クラスタの準備
@@ -113,7 +116,7 @@ ONTAP は、オブジェクトストレージとの間でデータの読み取�
 +
 Cloud Backup をセットアップすると、 IPspace で使用するように求められます。各 LIF を関連付ける IPspace を選択する必要があります。これは、「デフォルト」の IPspace または作成したカスタム IPspace です。
 
-* ノードのクラスタ間 LIF からオブジェクトストアにアクセスできます。
+* ノードのクラスタ間 LIF はオブジェクトストアにアクセスできます（コネクタが「ダーク」サイトに設置されている場合は不要）。
 * ボリュームが配置されている Storage VM に DNS サーバが設定されている。方法を参照してください https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["SVM 用に DNS サービスを設定"^]。
 * をデフォルトとは異なる IPspace を使用している場合は、オブジェクトストレージへのアクセスを取得するために静的ルートの作成が必要になることがあります。
 * 必要に応じてファイアウォールルールを更新し、指定したポート（通常はポート 443 ）を介した ONTAP からオブジェクトストレージへの Cloud Backup Service 接続、およびポート 53 （ TCP / UDP ）を介した Storage VM から DNS サーバへの名前解決トラフィックを許可します。
@@ -151,12 +154,16 @@ S3 クレデンシャル:: StorageGRID へのバックアップを設定する�
 
 === コネクタの作成または切り替え
 
-StorageGRID にデータをバックアップするときは、オンプレミスのコネクタが必要です。新しいコネクターをインストールするか、現在選択されているコネクターがオンプレミスにあることを確認する必要があります。
+StorageGRID にデータをバックアップするときは、オンプレミスのコネクタが必要です。新しいコネクターをインストールするか、現在選択されているコネクターがオンプレミスにあることを確認する必要があります。コネクタは、インターネットに接続するかどうかに関係なく、サイトにインストールできます。
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["コネクタについて説明します"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["インターネットにアクセスできる Linux ホストにコネクタをインストールしています"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["インターネットにアクセスできない Linux ホストにコネクタをインストールしています"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["コネクタ間の切り替え"^]
 
+
+
+NOTE: Cloud Backup の機能は、 Cloud Manager Connector に組み込まれています。インターネットに接続されていないサイトにインストールする場合は、コネクタソフトウェアを定期的に更新して、新しい機能にアクセスする必要があります。を確認します link:whats-new.html["Cloud Backup の新機能"] Cloud Backup の各リリースの新機能を確認し、手順 ~ を実行します https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrading-the-connector-on-prem-without-internet-access["Connector ソフトウェアをアップグレードします"^] 新しい機能を使用する場合。
 
 
 
@@ -169,7 +176,7 @@ StorageGRID にデータをバックアップするときは、オンプレミ�
 +
 ** ポート 443 から StorageGRID への HTTPS 接続
 ** ONTAP クラスタ管理 LIF へのポート 443 経由の HTTPS 接続
-** ポート 443 から Cloud Backup へのアウトバウンドインターネット接続
+** ポート 443 から Cloud Backup へのアウトバウンドインターネット接続（コネクタが「ダーク」サイトにインストールされている場合は不要）
 
 
 
@@ -200,7 +207,7 @@ image:screenshot_backup_onprem_enable.png["作業環境を選択した後に使�
 +
 .. StorageGRID サーバの FQDN と ONTAP が StorageGRID との HTTPS 通信に使用するポート。例：「 3.eng.company.com:8082` 」
 .. バックアップを格納するバケットへのアクセスに使用するアクセスキーとシークレットキー。
-.. バックアップするボリュームが配置されている ONTAP クラスタ内の IPspace 。この IPspace のクラスタ間 LIF には、アウトバウンドのインターネットアクセスが必要です。
+.. バックアップするボリュームが配置されている ONTAP クラスタ内の IPspace 。この IPspace のクラスタ間 LIF には、アウトバウンドのインターネットアクセスが必要です（コネクタが「ダーク」サイトにインストールされている場合は不要です）。
 +
 適切な IPspace を選択すると、 ONTAP から StorageGRID オブジェクトストレージへの接続を Cloud Backup で確実にセットアップできます。
 
@@ -236,4 +243,4 @@ image:screenshot_backup_select_volumes.png["バックアップするボリュー
 
 S3 バケットは、入力した S3 アクセスキーとシークレットキーで指定されたサービスアカウントに自動的に作成され、そこにバックアップファイルが格納されます。ボリュームバックアップダッシュボードが表示され、バックアップの状態を監視できます。
 
-可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["バックアップファイルからボリューム全体をリストアする"^] オンプレミスの ONTAP システム上の新しいボリュームへの移動。
+可能です link:task-manage-backups-ontap.html["ボリュームのバックアップを開始および停止したり、バックアップを変更したりできます スケジュール"^]。また可能です link:task-restore-backups-ontap.html["ボリューム全体または個々のファイルをバックアップファイルからリストアする"^] オンプレミスのONTAP システムへの移行をサポート

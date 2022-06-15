@@ -74,9 +74,8 @@ Cloud Backup BYOL ライセンスを使用するには、ライセンスの期�
 --
 GCP サービスアカウント:: 事前定義された Storage Admin ロールを持つサービスアカウントが Google Cloud Project に必要です。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html["サービスアカウントの作成方法について説明します"^]。
 コネクタの権限を確認または追加します:: Cloud Backupの検索とリストア機能を使用するには、Connectorの役割に特定の権限を付与して、Google Cloud BigQueryサービスにアクセスできるようにする必要があります。以下の権限を確認し、ポリシーを変更する必要がある場合は手順に従います。
-
-
-.手順
++
+--
 . インチ link:https://console.cloud.google.com["Cloud Console の略"^]をクリックし、 * Roles * ページに移動します。
 . ページ上部のドロップダウンリストを使用して、編集するロールを含むプロジェクトまたは組織を選択します。
 . カスタムロールをクリックします。
@@ -97,6 +96,9 @@ bigquery.tables.list
 bigquery.tables.create
 ----
 . [ 更新（ Update ） ] をクリックして、編集したロールを保存する。
+
+
+--
 
 
 

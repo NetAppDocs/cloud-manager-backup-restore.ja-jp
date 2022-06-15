@@ -897,7 +897,6 @@
   <block id="e1bba09cbe5efe3bebe61f9c17015ce4" category="paragraph"><block ref="e1bba09cbe5efe3bebe61f9c17015ce4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5dbbe7da7509bcf07f01ed57d18cb65b" category="paragraph">このクラスタに追加するすべてのボリュームでバックアップを有効にする場合は、「今後のボリュームを自動的にバックアップ ... 」のチェックボックスをオンのままにします。この設定を無効にした場合は、以降のボリュームのバックアップを手動で有効にする必要があります。</block>
   <block id="2b99fbcba5956318580f80e803ae3f43" category="paragraph">S3 バケットは、入力した S3 アクセスキーとシークレットキーで指定されたサービスアカウントに自動的に作成され、そこにバックアップファイルが格納されます。ボリュームバックアップダッシュボードが表示され、バックアップの状態を監視できます。</block>
-  <block id="0bb0df9fe9cb69f3388091cfe115b74a" category="paragraph">可能です <block ref="c0943d8deab9c5a18af9b2eef59b9af2" category="inline-link-macro-rx"></block>。また可能です <block ref="9ecaaac52e1027fbd316f468f245b639" category="inline-link-macro-rx"></block> オンプレミスの ONTAP システム上の新しいボリュームへの移動。</block>
   <block id="b56d3b8789da77177b36c40271c2f56a" category="summary">AKS Kubernetes クラスタ上の永続ボリュームから Azure BLOB ストレージへのデータのバックアップを開始するには、いくつかの手順を実行します。</block>
   <block id="0ac13b02a6ba476a62c040dff30366e9" category="doc">Kubernetes の永続ボリュームのデータを Azure BLOB ストレージにバックアップする</block>
   <block id="161bfedea918a2206e107c928981572c" category="list-text">クラスタのバックエンドストレージに Azure 上の Cloud Volumes ONTAP が使用されている必要があります。</block>
@@ -1333,12 +1332,7 @@
   <block id="cedae03e22c7bb2c103685dfa74cddab" category="paragraph">BYOL は期間ベース（ 12 カ月、 24 カ月、 36 カ月）の _ 容量ベースであり、 1TiB 単位で提供されます。ネットアップに料金を支払って、 1 年分のサービスを使用し、最大容量を指定した場合は「 10TiB 」とします。</block>
   <block id="ea002f9386d9cd059f69c6d59dbea06c" category="list-text">Kubernetes の永続ボリュームのバックアップとリストア <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
   <block id="7a6c8511ba9b6f1392c7f34fbd81508d" category="list-text">クラウドバックアップアプリケーションを使用して、アプリケーションと整合性のある Snapshot をオンプレミスの ONTAP からクラウドにバックアップできます。 <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>。</block>
-  <block id="ac86595022f65016dc11614e68c43e81" category="paragraph">StorageGRID にデータをバックアップするときは、オンプレミスのコネクタが必要です。新しいコネクターをインストールするか、現在選択されているコネクターがオンプレミスにあることを確認する必要があります。</block>
-  <block id="d9ce11866c3fab16840b61275d2a674e" category="list-text">ポート 443 から Cloud Backup へのアウトバウンドインターネット接続</block>
   <block id="286fb390ea5475a1fa125d5aade554a0" category="list-text">キャンバスからオンプレミスの作業環境を選択し、右パネルのバックアップと復元サービスの横にある *Enable&gt; バックアップボリューム * をクリックします。</block>
-  <block id="bcf00598aacf0d8030dd1f084ae30cd3" category="list-text">バックアップライセンスファイルがある場合は、 * ライセンスファイルのアップロード * オプションを選択し、プロンプトに従ってファイルを添付します。</block>
-  <block id="5cd8f01849080c583021a91f23942914" category="list-text">Cloud Manager でライセンスを自動更新できない場合は、ライセンスファイルを手動でアップロードする必要があります。</block>
-  <block id="2aa12d91295f6d6d741cb49e313806e2" category="paragraph">BYOL サブスクリプションを更新すると、 Cloud Manager によってライセンスが自動的に更新されます。Cloud Manager がセキュアなインターネット接続経由でライセンスファイルにアクセスできない場合は、ユーザがファイルを取得して、 Cloud Manager に手動でアップロードできます。手順については、を参照してください <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>。</block>
   <block id="9a4fc48ebf3077bde35f83be2ee84cc8" category="paragraph">ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを使用して、すべての ONTAP バックアップファイル * にまたがるボリュームまたはファイルを検索できるようになりました。これは、どのクラスタまたはボリュームがデータのソースであるかがわからない場合に、リストアするデータを見つけるための新しい優れた方法です。<block ref="f28ab8501300af6839923f7181e075ab" category="inline-link-rx"></block>。</block>
   <block id="983a4e7f5913304ec713a249baf7be47" category="section-title">2022 年 3 月 3 日</block>
   <block id="f61163b681442ac500a8018c87241770" category="section-title">2021 年 11 月 28 日</block>
@@ -1789,7 +1783,6 @@
   <block id="b7a41babdf28bb4d456f0725ccfbc402" category="list-text">ファイルレベルのリストア処理のための追加コストは不要です</block>
   <block id="898be2b1c15b9168ca69a0986639cb4e" category="list-text">ファイルレベルのリストア処理が高速化されます</block>
   <block id="f8cae2a44d4ac885154da71ae7da347a" category="list-text">Connectorがオンプレミスにインストールされている場合のクラウドからのファイルの参照とリストアの処理がサポートされます</block>
-  <block id="b7fe1f1109cab9c0a50f4ac3ee36df48" category="paragraph">以前に使用していた場合は、Cloud Restoreインスタンス/VMが自動的に削除されることに注意してください。</block>
   <block id="06a21d28fcdc17ce4f2e4747a1fe635b" category="section-title">Google CloudおよびStorageGRID ストレージからのファイルのサポートを参照してリストアできます</block>
   <block id="60222043eb5ad60b7dd1964a983d4f85" category="inline-link">参照リストアを使用してONTAP バックアップからボリュームとファイルをリストアする方法を参照してください</block>
   <block id="68792eeb104c6fe1ef3c561265ed75dd" category="paragraph">前述のように、参照および復元操作用のコンテナが追加されたことで、Google CloudおよびStorageGRID システムに保存されているバックアップファイルからファイルの復元操作を実行できるようになりました。現在は、参照とリストアを使用して、すべてのパブリッククラウドプロバイダとStorageGRID からファイルをリストアできます。<block ref="a4ebf9bfc678bc28afd45dff032c4465" category="inline-link-rx"></block>。</block>
@@ -1937,4 +1930,33 @@
   <block id="9c3d211479947fe5a4243acecfe00203" category="paragraph"><block ref="de207573efa181ef2924818974bfa495" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e25a9f6fb169550c2eb662453971516f" category="paragraph"><block ref="e25a9f6fb169550c2eb662453971516f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f23af0fb3293030465a68a6d46401ecc" category="list-text">Cloud Backup for VMwareを使用して、データストアをクラウドにバックアップし、仮想マシンをオンプレミスのvCenterにリストアします。 <block ref="7d3aa28b08d11afec4b666dd6503d425" category="inline-link-macro-rx"></block>。</block>
+  <block id="94e8673ef47d436243b258727f9d5a89" category="list-text">AWS 権限が必要です</block>
+  <block id="0868f24313a597293d06e71f7f63fd1e" category="list-text">コネクタは、インターネットに接続するかどうかに関係なく、サイトにインストールできます。</block>
+  <block id="97a9760662f83584b35ab92e7aad1071" category="paragraph">コネクタとオンプレミスの ONTAP システムがインターネットにアクセスできないオンプレミスの場所にインストールされている場合、 StorageGRID システムは同じオンプレミスのデータセンターに配置されている必要があります。</block>
+  <block id="360446e3fb6e2087ba1eda4d6e9eafde" category="list-text">ノードのクラスタ間 LIF はオブジェクトストアにアクセスできます（コネクタが「ダーク」サイトに設置されている場合は不要）。</block>
+  <block id="6dca065caf89927398e08355b9d7718e" category="paragraph">StorageGRID にデータをバックアップするときは、オンプレミスのコネクタが必要です。新しいコネクターをインストールするか、現在選択されているコネクターがオンプレミスにあることを確認する必要があります。コネクタは、インターネットに接続するかどうかに関係なく、サイトにインストールできます。</block>
+  <block id="f6428d68ab8312cad4e05d9222dbabc5" category="inline-link">インターネットにアクセスできない Linux ホストにコネクタをインストールしています</block>
+  <block id="d2c6281fb2bfdd80b1c106c90e21e78b" category="list-text"><block ref="d2c6281fb2bfdd80b1c106c90e21e78b" category="inline-link-rx"></block></block>
+  <block id="31f0caf11b57fb7cb77368268e368d75" category="inline-link-macro">Cloud Backup の新機能</block>
+  <block id="f4cec0313eb4678996dc68cfe81c6f4f" category="inline-link">Connector ソフトウェアをアップグレードします</block>
+  <block id="8f5ad70f613db3fef827b6862d3afcf5" category="admonition">Cloud Backup の機能は、 Cloud Manager Connector に組み込まれています。インターネットに接続されていないサイトにインストールする場合は、コネクタソフトウェアを定期的に更新して、新しい機能にアクセスする必要があります。を確認します <block ref="4b505ef59fae088b7538ff8d53b204e9" category="inline-link-macro-rx"></block> Cloud Backup の各リリースの新機能を確認し、手順 ~ を実行します<block ref="fe297b4d3dd6fcd6173c290370c7c0fe" category="inline-link-rx"></block> 新しい機能を使用する場合。</block>
+  <block id="1ad501aca706aedda73a497f3e05cad4" category="list-text">ポート 443 から Cloud Backup へのアウトバウンドインターネット接続（コネクタが「ダーク」サイトにインストールされている場合は不要）</block>
+  <block id="7213734d8950b4641631fa35737ef55d" category="list-text">バックアップするボリュームが配置されている ONTAP クラスタ内の IPspace 。この IPspace のクラスタ間 LIF には、アウトバウンドのインターネットアクセスが必要です（コネクタが「ダーク」サイトにインストールされている場合は不要です）。</block>
+  <block id="8ca1430139ec15a9b91ac2e24e799f84" category="paragraph">可能です <block ref="c0943d8deab9c5a18af9b2eef59b9af2" category="inline-link-macro-rx"></block>。また可能です <block ref="2725cea0a8dc9dd072cc5f5c23563bbd" category="inline-link-macro-rx"></block> オンプレミスのONTAP システムへの移行をサポート</block>
+  <block id="9fe942ae01924dd657ce7f1996246cc6" category="section-title">インターネットに接続されていないサイトをサポート</block>
+  <block id="964abc2112ce28be99c31e711557b29e" category="paragraph">インターネットに接続されていないサイト（「オフライン」または「ダーク」サイトとも呼ばれる）で Cloud Backup を使用して、ローカルのオンプレミス ONTAP システムからローカルの NetApp StorageGRID システムにボリュームデータをバックアップできます。この場合は、ダークサイトにCloud Manager Connector（バージョン3.9.19以上）を導入する必要があります。を参照してください <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> を参照してください。</block>
+  <block id="012009e84c36a8660d26e3a3201d2fe9" category="list-text">インターネットにアクセスできないサイト（ダークサイト）にコネクタがインストールされている場合は、検索とリストアを使用したファイルレベルのリストアはサポートされません。</block>
+  <block id="582a80da24166f21aa8bf6fb72743140" category="cell">インターネットにアクセスできないサイトのStorageGRID からボリュームとファイルをリストアします</block>
+  <block id="2deb7493de6dd6e8fd3126d72d730f68" category="cell">ダークサイトではサポートされない</block>
+  <block id="540ca524a7005910a6d9020f7c627d95" category="paragraph">インターネットにアクセスできないオンプレミスサイトで Cloud Backup を実行している場合は、オフラインのオンプレミスサイトのホストに Cloud Manager Connector を導入しているため、インターネットに接続されたシステムからライセンスファイルを取得する必要があります。シリアル番号と NSS アカウントを使用してライセンスをアクティブ化することは、オフライン（ダークサイト）でのインストールには利用できません。</block>
+  <block id="664bf8c6e31ba8a710f5213d1874cd18" category="list-text">バックアップライセンスファイル（ダークサイトにインストールする場合に必要）がある場合は、 * ライセンスファイルのアップロード * オプションを選択し、プロンプトに従ってファイルを添付します。</block>
+  <block id="5db79377894ec784205c3c0fad010171" category="list-text">Cloud Manager がライセンスを自動更新できない場合（ダークサイトにインストールした場合など）は、ライセンスファイルを手動でアップロードする必要があります。</block>
+  <block id="665ddb058923583228dc01a98438f1fa" category="paragraph">BYOL サブスクリプションを更新すると、 Cloud Manager によってライセンスが自動的に更新されます。Cloud Manager がセキュアなインターネット接続経由でライセンスファイルにアクセスできない場合（ダークサイトにインストールされている場合など）は、手動でファイルを入手して Cloud Manager にアップロードできます。手順については、を参照してください <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>。</block>
+  <block id="d4e2be367ddcfb2b47d5711136446363" category="section-title">2022年6月14日</block>
+  <block id="dd16b8804cbc8afa6e2f6deb9acf5bcf" category="section-title">インターネットにアクセスできないサイトのオンプレミスONTAP クラスタデータをバックアップするサポートが追加されました</block>
+  <block id="6f5c7024f5953e20be33f1c72e8d5f4a" category="paragraph">オンプレミスのONTAP クラスタが、インターネットにアクセスできないサイト（ダークサイトまたはオフラインサイトとも呼ばれます）にある場合は、Cloud Backupを使用して、同じサイトにあるNetApp StorageGRID システムにボリュームデータをバックアップできるようになりました。この機能を使用するには、Cloud Manager Connector（バージョン3.9.19以降）もオフラインサイトに導入する必要があります。</block>
+  <block id="6f44a1bf2246f054fd573ae9473909b6" category="inline-link">コネクターをオフラインサイトにインストールする方法を参照してください</block>
+  <block id="826610554423c9dc8481da631ccae8be" category="inline-link">オフラインサイトのStorageGRID にONTAP データをバックアップする方法を参照してください</block>
+  <block id="824ce1955c2b2d5f91cb80c86545d639" category="paragraph"><block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>。<block ref="f39d73248b535226c2e16237e43ff2d0" category="inline-link-rx"></block>。</block>
+  <block id="0a0c24e7fef8cd9bcb19d6db19987b93" category="paragraph">以前に使用していた場合は、Cloud Restoreインスタンス/VMが自動的に削除されることに注意してください。Cloud Backupプロセスが1日に1回実行され、古いCloud Restoreインスタンスがすべて削除されます。この変更は完全に透過的に行われます。データへの影響はなく、バックアップジョブやリストアジョブの変更は通知されません。</block>
 </blocks>
