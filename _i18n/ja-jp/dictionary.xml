@@ -1959,4 +1959,6 @@
   <block id="826610554423c9dc8481da631ccae8be" category="inline-link">オフラインサイトのStorageGRID にONTAP データをバックアップする方法を参照してください</block>
   <block id="824ce1955c2b2d5f91cb80c86545d639" category="paragraph"><block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>。<block ref="f39d73248b535226c2e16237e43ff2d0" category="inline-link-rx"></block>。</block>
   <block id="0a0c24e7fef8cd9bcb19d6db19987b93" category="paragraph">以前に使用していた場合は、Cloud Restoreインスタンス/VMが自動的に削除されることに注意してください。Cloud Backupプロセスが1日に1回実行され、古いCloud Restoreインスタンスがすべて削除されます。この変更は完全に透過的に行われます。データへの影響はなく、バックアップジョブやリストアジョブの変更は通知されません。</block>
+  <block id="7d3723a161203e59b756ce8e77114fc0" category="admonition">Cloud Manager Connectorをクラウドの政府機関のリージョンまたはインターネットにアクセスできないサイト（ダークサイト）に導入した場合、Cloud BackupではONTAP システムからのバックアップとリストアの処理のみがサポートされます。これらの代替導入方法を使用する場合、Cloud BackupはKubernetesクラスタ、アプリケーション、または仮想マシンからのバックアップとリストアの処理をサポートしません。</block>
+  <block id="d8fc7ce817e791d9288e2c5b2f30d2e4" category="paragraph">次のリンクからリフレッシュトークンを生成してください：https://services.cloud.netapp.com/refresh-token/リフレッシュトークンは、ユーザートークンを生成するために使用する英数字文字列です。</block>
 </blocks>

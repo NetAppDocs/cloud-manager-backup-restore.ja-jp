@@ -29,6 +29,9 @@ link:https://cloud.netapp.com/cloud-backup-service["Cloud Backup の詳細につ
 
 
 
+TIP: Cloud Manager Connectorをクラウドの政府機関のリージョンまたはインターネットにアクセスできないサイト（ダークサイト）に導入した場合、Cloud BackupではONTAP システムからのバックアップとリストアの処理のみがサポートされます。これらの代替導入方法を使用する場合、Cloud BackupはKubernetesクラスタ、アプリケーション、または仮想マシンからのバックアップとリストアの処理をサポートしません。
+
+
 
 == Cloud Backup の仕組み
 

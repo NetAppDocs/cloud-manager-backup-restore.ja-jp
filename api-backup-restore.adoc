@@ -39,19 +39,18 @@ API呼び出しを行うときは、Authorizationヘッダーにユーザート�
 .手順
 . NetApp Cloud Central からユーザトークンを取得します。
 +
+次のリンクからリフレッシュトークンを生成してください：https://services.cloud.netapp.com/refresh-token/リフレッシュトークンは、ユーザートークンを生成するために使用する英数字文字列です。
+
++
 [source, http]
 ----
-POST https://netapp-cloud-account.auth0.com/oauth/token
-Header: Content-Type: application/json
-Body:
-{
-              "username": "<user_email>",
-              "scope": "profile",
-              "audience": "https://api.cloud.netapp.com",
-              "client_id": "<Cloud_Connector_ID>",
-              "grant_type": "password",
-              "password": "<user_password>"
-}
+curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token?=' \
+--header 'Content-Type: application/json' \
+-d '{
+    "grant_type": "refresh_token",
+    "refresh_token": "JxaVHn9cGkX92aPVCkhat3zxxxxxwsC9qMl_pLHkZtsVA",
+    "client_id": "Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC"
+}'
 ----
 . NetApp Cloud CentralアカウントIDを取得します。
 +
