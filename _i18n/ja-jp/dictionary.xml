@@ -95,11 +95,8 @@
   <block id="6f10fb0bdda82988a0fa6dcc2515c346" category="list-text">をデフォルトとは異なる IPspace を使用している場合は、オブジェクトストレージへのアクセスを取得するために静的ルートの作成が必要になることがあります。</block>
   <block id="8ba57385dd56e0702c2eaf4101f0267d" category="list-text">必要に応じてファイアウォールルールを更新し、 ONTAP からオブジェクトストレージへのポート 443 経由の Cloud Backup Service 接続と、ポート 53 （ TCP / UDP ）経由での Storage VM から DNS サーバへの名前解決トラフィックを許可します。</block>
   <block id="d32e4305e9f04e1cbc37d3e892619ee7" category="section-title">コネクタの作成または切り替え</block>
-  <block id="0d2100c1050b5575db737ee3edf9ab60" category="paragraph">データをクラウドにバックアップするにはコネクタが必要です。 Azure BLOB ストレージにデータをバックアップする場合は、コネクタが Azure VNet 内に存在する必要があります。オンプレミスに導入されているコネクタは使用できません。新しいコネクターを作成するか、現在選択されているコネクターが正しいプロバイダーにあることを確認する必要があります。</block>
   <block id="e6e80588e9fe7cf89218fea44300f7ca" category="inline-link">コネクタについて説明します</block>
   <block id="da1264a616f156bd6836a85f7dfdea5a" category="list-text"><block ref="da1264a616f156bd6836a85f7dfdea5a" category="inline-link-rx"></block></block>
-  <block id="7f9fe9913d1b2a08f5ff2caaa85912bf" category="inline-link">Azure でコネクタを作成する</block>
-  <block id="2f2a18805beae6bfc55c48482a096240" category="list-text"><block ref="2f2a18805beae6bfc55c48482a096240" category="inline-link-rx"></block></block>
   <block id="c870531773e82c374eb4125c8029e25e" category="inline-link">コネクタ間の切り替え</block>
   <block id="74d39f4b6fe0e32c5cfa2ed86891bf44" category="list-text"><block ref="74d39f4b6fe0e32c5cfa2ed86891bf44" category="inline-link-rx"></block></block>
   <block id="a8e8e48001e032c3b5939047d15db5a2" category="section-title">コネクタのネットワークを準備しています</block>
@@ -109,7 +106,6 @@
   <block id="98ec81693c17601be27be39c9336f3b4" category="list-text">Cloud Backup Service へのアウトバウンドインターネット接続 ポート 443 （ HTTPS ）</block>
   <block id="ed5be7df16713ed4a1d631dedaea1f5e" category="list-text">ポート 443 経由での BLOB オブジェクトストレージへの HTTPS 接続</block>
   <block id="699a71169310a3553bddb7e36ecb8a5c" category="list-text">ONTAP クラスタ管理 LIF へのポート 443 経由の HTTPS 接続</block>
-  <block id="576b6b66f910f460f51f26a2be48d79b" category="list-text">Azure ストレージへの VNet プライベートエンドポイントを有効化これは、 ONTAP クラスタから VNet への ExpressRoute または VPN 接続があり、コネクタと BLOB ストレージ間の通信を仮想プライベートネットワークのままにする場合に必要です。</block>
   <block id="8c4b25218155a1fdb972f4169855d04f" category="section-title">サポートされている地域</block>
   <block id="93aa1523e92b241e9be754ad452f4026" category="inline-link">Cloud Volumes ONTAP がサポートされている場合</block>
   <block id="ff3e862b2a18f8bce76ed20224f2e575" category="paragraph">すべての地域で、オンプレミスシステムから Azure Blob へのバックアップを作成できます<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>Azure Government リージョンを含む。サービスのセットアップ時にバックアップを保存するリージョンを指定します。</block>
@@ -130,7 +126,6 @@
   <block id="b14548bced23940e6eb45b72a21e16bc" category="list-text">Microsoft が管理するデフォルトの暗号化キーを使用するか、お客様が管理する独自のキーを選択してデータの暗号化を管理するか。 <block ref="dab304193e3a70c2106dd635404d6d7c" category="inline-link-rx"></block>）。</block>
   <block id="ee9f2f97ee8ec670da43a03671d9f087" category="list-text">ネットワークの詳細を入力し、 * 次へ * をクリックします。</block>
   <block id="62fdc5376a050379803b51f794be9618" category="list-text">バックアップするボリュームが配置されている ONTAP クラスタ内の IPspace 。この IPspace のクラスタ間 LIF には、アウトバウンドのインターネットアクセスが必要です。</block>
-  <block id="78796d77bfd7a8dbded39863cd576621" category="list-text">デフォルトのバックアップポリシーの詳細を入力し、 * Next * をクリックします。</block>
   <block id="73eaa6cabae8a242a2e1046696f81d4e" category="inline-link-macro">選択可能な既存のポリシーのリストが表示されます</block>
   <block id="f15b4c792b46c8c395b46f451336869d" category="list-text">バックアップスケジュールを定義し、保持するバックアップの数を選択します。 <block ref="e4d14b5cc75b151b4a98188f53ed204c" category="inline-link-macro-rx"></block>。</block>
   <block id="cbb952d53023f81a88c896fac4c8a00a" category="inline-link-macro">アーカイブ階層の使用の詳細については、こちらをご覧ください</block>
@@ -287,12 +282,8 @@
   <block id="0ee205b9a66364b8bd529d4a5a68568a" category="list-text">ONTAP クラスタは、クラスタ間 LIF から Google Cloud ストレージへのバックアップおよびリストア処理用に、ポート 443 経由で HTTPS 接続を開始します。</block>
   <block id="a45a0d78412f96d4e0612c2263af5042" category="list-text">ONTAP では、コネクタからクラスタ管理 LIF へのインバウンド接続が必要です。このコネクタは、 Google Cloud Platform VPC 内に配置できます。</block>
   <block id="8bdfdad72ee7298056198e1b5d8fb704" category="list-text">ノードのクラスタ間 LIF からオブジェクトストアにアクセスできます。</block>
-  <block id="891e4b9be94313acbee6ec5f108db4af" category="paragraph">データをクラウドにバックアップするにはコネクタが必要です。 Google Cloud Storage にデータをバックアップする場合は、 Connector を Google Cloud Platform VPC に配置する必要があります。オンプレミスに導入されているコネクタは使用できません。新しいコネクターを作成するか、現在選択されているコネクターが正しいプロバイダーにあることを確認する必要があります。</block>
-  <block id="1b9afce7f2077ff3630469557123d5c5" category="inline-link">GCP でコネクタを作成する</block>
-  <block id="1b3c5be5b518e14d52c79b7360302255" category="list-text"><block ref="1b3c5be5b518e14d52c79b7360302255" category="inline-link-rx"></block></block>
   <block id="c359c4549d4c72aed13558f2e3ef33a0" category="list-text">ポート 443 経由での Google Cloud ストレージへの HTTPS 接続</block>
   <block id="b092138563f7b68473c3bf2a6a23a434" category="inline-link">プライベート Google アクセス</block>
-  <block id="ba8104aa900319b6b6fcfe357f9afa66" category="list-text">Connector を配置するサブネットで Private Google Access を有効にします。<block ref="befc9e6419c4dc26dd25bf8222d3c172" category="inline-link-rx"></block> ONTAP クラスタから VPC への直接接続が確立されており、 Connector と Google Cloud Storage 間の通信を仮想プライベートネットワークのままにする場合は、が必要です。</block>
   <block id="80901c4147a1b7075bb060b6feba5668" category="paragraph">プライベート Google アクセスは、内部（プライベート） IP アドレスのみ（外部 IP アドレスは使用しない）を持つ VM インスタンスで機能します。</block>
   <block id="8b36e9207c24c76e6719268e49201d94" category="inline-link">Google</block>
   <block id="a6dcd23c3ac238175abaf161ac1ebec0" category="paragraph">バックアップを格納するオブジェクトストレージスペース用の Google サブスクリプションが必要です。</block>
@@ -311,10 +302,7 @@
   <block id="fab2c1fd526bfec515ab263855629395" category="list-text">バックアップが保存される Google リージョン。</block>
   <block id="a2533530877329fd448b78c28606ffc4" category="inline-image-macro">オンプレミスのクラスタから Google Cloud Storage にボリュームをバックアップする際のクラウドプロバイダの詳細を示すスクリーンショット。</block>
   <block id="f923a26bc1b433d5513afeed46e2923c" category="paragraph"><block ref="f923a26bc1b433d5513afeed46e2923c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e7d1fb582dafce4b455024bbdaa31533" category="list-text">[_Define Policy_] ページで、既存のバックアップスケジュールと保持期間の値を選択するか、新しいデフォルトバックアップポリシーを定義して、 [ * 次へ * ] をクリックします。</block>
   <block id="8575271d8fddeb4206e2c91bcc85ed84" category="paragraph"><block ref="8575271d8fddeb4206e2c91bcc85ed84" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="70370d77332f1b0998b7d067281ae5f6" category="inline-link-macro">既存のポリシーのリスト</block>
-  <block id="77f8717c26bc512e8819366217818480" category="paragraph">を参照してください <block ref="830869b7cccbee2752301c5c9200d734" category="inline-link-macro-rx"></block>。</block>
   <block id="6030891711f5e42410a25165ca919175" category="paragraph">可能です <block ref="c0943d8deab9c5a18af9b2eef59b9af2" category="inline-link-macro-rx"></block>。また可能です <block ref="9ecaaac52e1027fbd316f468f245b639" category="inline-link-macro-rx"></block> Google の Cloud Volumes ONTAP システムやオンプレミスの ONTAP システムに接続できます。</block>
   <block id="78b1c4b91dde782fcd81e4766d23aac3" category="summary">Cloud Backup は、 ONTAP クラスタデータを保護し、長期アーカイブするためのバックアップおよびリストア機能を提供します。バックアップは、ほぼ期間のリカバリやクローニングに使用されるボリューム Snapshot コピーとは関係なく、パブリックまたはプライベートのクラウドアカウントのオブジェクトストアに自動的に生成されて格納されます。</block>
   <block id="9e07c89abda253fc5c6f61b46485c3c0" category="doc">Cloud Backup を使用して ONTAP クラスタのデータを保護します</block>
@@ -369,9 +357,6 @@
   <block id="0f00cbe3f53cc394d366dd2245df4f68" category="paragraph">お客様は、無料トライアル期間中、または BYOL ライセンスを超えていない場合は、従量課金制サブスクリプションから料金を請求されることはありません。</block>
   <block id="09c7ee4be0db4e9240de27e931212553" category="inline-link-macro">従量課金制サブスクリプションの設定方法について説明します</block>
   <block id="13dbf2396212f27f4ed228794c13aab3" category="paragraph"><block ref="18ef702a22368a8691d9e75de2c9af13" category="inline-link-macro-rx"></block>。</block>
-  <block id="2697e73e9503f3ae28e1059e98f62bef" category="section-title">年間契約（ AWS のみ）</block>
-  <block id="8e155f8961f122c438c0a9d2c3cd06cf" category="inline-link-macro">毎年の AWS 契約を設定する方法をご確認ください</block>
-  <block id="89b33222aaf7ca5c202beb8e5f2178a8" category="paragraph"><block ref="cbf33a87dffdf2d824930f7597f518f2" category="inline-link-macro-rx"></block>。</block>
   <block id="fce5aebaf837d23e27b8a9d6a54a6467" category="section-title">お客様所有のライセンスを使用</block>
   <block id="e16a54724535e5ca80b7bd9cdc34c0cb" category="inline-link">Cloud Manager アカウント</block>
   <block id="72a8e3c445f54a8d00cbfd21bc6cb130" category="paragraph">サービスを有効にするために、 Cloud Manager のデジタルウォレットのページに入力したシリアル番号が表示されます。いずれかの制限に達すると、ライセンスを更新する必要があります。Backup BYOL ライセンス環境 では、に関連付けられているすべてのソースシステムがライセンスされます<block ref="2dc87f4e9d0582da785b906aa7c5f318" category="inline-link-rx"></block>。</block>
@@ -406,7 +391,6 @@
   <block id="c811e121a426ef27a318d7ddd351730d" category="list-text">StorageGRID では、バックアップは _Standard_storage クラスに関連付けられます。</block>
   <block id="0f1ea22cd0984db20cd17e018271788e" category="section-title">クラスタごとにカスタマイズ可能なバックアップスケジュールと保持設定</block>
   <block id="ad1c11ec9bc2abf26bf6d98e617e2718" category="paragraph">作業環境で Cloud Backup を有効にすると、最初に選択したすべてのボリュームが、定義したデフォルトのバックアップポリシーを使用してバックアップされます。Recovery Point Objective （ RPO ；目標復旧時点）が異なるボリュームに対して異なるバックアップポリシーを割り当てる場合は、そのクラスタに追加のポリシーを作成し、そのポリシーを他のボリュームに割り当てることができます。</block>
-  <block id="9f646b5a944da2e677246db035754129" category="paragraph">すべてのボリュームについて、毎時、毎日、毎週、および毎月のバックアップを組み合わせて選択できます。また、システム定義のポリシーの中から、 3 カ月、 1 年、 7 年のバックアップと保持を提供するポリシーを選択することもできます。ポリシーは次のとおりです。</block>
   <block id="a66a6cbec494aebbb747e689caefc015" category="cell">バックアップポリシー名</block>
   <block id="1665eec399acb9f29fdac293d5770df2" category="cell">間隔ごとのバックアップ ...</block>
   <block id="bcdef8bcaed187803f78e29c50018ef2" category="cell">最大バックアップ</block>
@@ -438,8 +422,6 @@
   <block id="418dfdb508c036c09d2c850937665491" category="list-text">ボリュームの作成時に階層化ポリシーが割り当てられていた場合、この問題は表示されません。</block>
   <block id="6970012bbe95bd9244f695fd98b4cceb" category="list-text">ボリュームに「 all 」階層化ポリシーを割り当てる前に、バックアップの影響を考慮してください。データはすぐに階層化されるため、 Cloud Backup はローカル階層からではなくクラウド階層からデータを読み取ります。バックアップの同時処理は、クラウドオブジェクトストレージへのネットワークリンクを共有するため、ネットワークリソースが最大限まで使用されなくなった場合にパフォーマンスが低下する可能性があります。この場合、複数のネットワークインターフェイス（ LIF ）をプロアクティブに設定して、この種類のネットワークの飽和を軽減することができます。</block>
   <block id="8c9b6b8729507556572552d0d8f472e3" category="section-title">サポートされるボリューム</block>
-  <block id="bb6081547e8fbef7f7f415d52896c5bd" category="paragraph">Cloud Backup では、 FlexVol の読み書き可能ボリュームと SnapMirror データ保護（ DP ）のデスティネーションボリュームがサポートされます。</block>
-  <block id="65955112d9a58afa4e9cfd638259282a" category="paragraph">FlexGroup ボリュームと SnapLock ボリュームは現在サポートされていません。</block>
   <block id="e646e16bee8b32e6ea29e30d01970a6c" category="section-title">制限</block>
   <block id="b2c42e88cb6710c9293d1ce23cdc3cd1" category="list-text">ポリシーにボリュームが割り当てられていない場合にバックアップポリシーを作成または編集するときは、バックアップの保持数を 1018 以下にする必要があります。回避策 では、ポリシーを作成するバックアップの数を減らすことができます。その後、ポリシーを編集して、ポリシーにボリュームを割り当てたあとで最大 4 、 000 個のバックアップを作成できます。</block>
   <block id="77d466b8234e6505b43fecdfba9bf69e" category="list-text">データ保護（ DP ）ボリュームをバックアップする場合、次の SnapMirror ラベルが設定されている関係はクラウドにバックアップされません。</block>
@@ -533,7 +515,6 @@
   <block id="ac90263e404aa8dd4e258ec3b2975718" category="admonition">バックアップファイルをクラウドプロバイダ環境から直接管理したり変更したりしないでください。ファイルが破損し、サポートされていない構成になる可能性があります。</block>
   <block id="c727171c72af7df4510010076d3f4a4d" category="section-title">バックアップしているボリュームを表示します</block>
   <block id="04f27df81579a6eaa072f1660fb048f8" category="paragraph">Cloud Backup で現在バックアップされているすべてのボリュームのリストを表示できます。</block>
-  <block id="7aedd501301e85d8341f7ec6f48012b1" category="list-text">[ バックアップと復元 ] サービスをクリックします。</block>
   <block id="f0ab8f9188e480be35faa3f7a2514a8b" category="list-text">Kubernetes システムの永続ボリュームのリストを表示するには、 * Kubernetes * タブをクリックします。</block>
   <block id="8c678f695075da58431fc9f2ac402b3c" category="inline-image-macro">バックアップファイルがあるすべての作業環境とボリュームを示すスクリーンショット。</block>
   <block id="0b0666e0c907e3335012755d27a80f6a" category="paragraph"><block ref="0b0666e0c907e3335012755d27a80f6a" category="inline-image-macro-rx" type="image"></block></block>
@@ -846,7 +827,6 @@
   <block id="fd45898f75263130be297845518a221f" category="paragraph">Cloud Backup は、作業環境からいつでも直接有効にすることができます。</block>
   <block id="85a2ad69bad082451b7411021cbb2271" category="list-text">Google Cloud Storage バケットをバックアップ用に作成する Google Cloud Project とリージョンを選択し、 * Next * をクリックします。</block>
   <block id="437c2bff9e94c6e982529b9d2ef1cd3c" category="paragraph">プロジェクトには、事前定義された Storage Admin ロールを持つサービスアカウントが必要です。</block>
-  <block id="bb852d815648857a3bdd143f5849b2f9" category="list-text">[_Define Policy_] ページで、デフォルトのバックアップスケジュールと保持の値を選択し、 [* Next] をクリックします。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法的通知</block>
   <block id="4940124e8487cb4ea36f1511a195cf66" category="inline-link-macro">Cloud Manager 3.9 に関する注意事項</block>
   <block id="c069fcc68c5dfa73ccc99924c836cae9" category="list-text"><block ref="c069fcc68c5dfa73ccc99924c836cae9" category="inline-link-macro-rx"></block></block>
@@ -911,7 +891,6 @@
   <block id="8bc63442b5976f212bf0d3c259bcb851" category="doc">バックアップファイルからの ONTAP データのリストア</block>
   <block id="65fba989fe7e3d4f06e7b1a4c8b66ff0" category="section-title">リストアダッシュボード</block>
   <block id="024205acf9405311336c02bbd2193b70" category="inline-image-macro">[ 詳細 ] ボタン</block>
-  <block id="bb266de26a47a35a97254f296ab860ed" category="paragraph">リストアダッシュボードを使用して、ボリュームとファイルのリストア処理を実行できます。リストアダッシュボードにアクセスするには、 Cloud Manager の上部にある * バックアップとリストア * をクリックし、 * リストア * タブをクリックします。をクリックすることもできます <block ref="c01b692574fda287c7455bfbcec2709c" category="inline-image-macro-rx" type="image"></block> &gt; * サービス・パネルからバックアップ / リストア・サービスのリストア・ダッシュボード * を表示します。</block>
   <block id="3bc0831250305fb819ebeb69fe26eaad" category="admonition">少なくとも 1 つの作業環境に対して Cloud Backup をアクティブ化しておく必要があります。また、初期バックアップファイルが存在する必要があります。</block>
   <block id="831398533cc7b96ac5d2f2f0c698f22a" category="inline-image-macro">[ リストアダッシュボード ] には '[ 参照とリストア ] または [ 検索とリストア ] 機能を使用するためのオプションが表示されます</block>
   <block id="0926cc88101f4f93d295f001c8d31d31" category="paragraph"><block ref="d456723a7b2b287ea97734b5600ab596" category="inline-image-macro-rx" type="image"></block></block>
@@ -1188,7 +1167,6 @@
   <block id="b0137435ab1e749e6671cc7b4442746b" category="inline-link">価格の詳細については、 Cloud Manager Marketplace のサービスを参照してください</block>
   <block id="fbc4dcdcbcf0da9900a5e2aee88197c9" category="list-text">AWS<block ref="2958bbf3239ebfcd2df7adc813da750e" category="inline-link-rx"></block>。</block>
   <block id="669ab104fde662cae95c3d512827defe" category="list-text">Azure<block ref="d72981df84ff531bf20e612d5459f673" category="inline-link-rx"></block>。</block>
-  <block id="d32283208440b3b746c6d310c2b57731" category="section-title">AWS で年単位の契約を登録</block>
   <block id="aa6e381a2e925e1ef4225ff8af689116" category="paragraph">このオプションを使用する場合は、 Cloud Volumes ONTAP の作業環境を作成するときに年間契約を設定し、 Cloud Manager から AWS Marketplace に登録するように求められます。</block>
   <block id="289fa4183a5f21ffa309508c3b1534c5" category="section-title">Cloud Backup BYOL ライセンスを使用する</block>
   <block id="70af97100aa32faf0090b5c729f50df0" category="paragraph">ネットアップが提供するお客様所有のライセンスには、 1 年、 2 年、 3 年の期間があります。バックアップ対象のソース ONTAP ボリュームの論理使用容量（ _Before_any 効率化）で計算され、保護するデータに対してのみ料金が発生します。この容量はフロントエンドテラバイト（ FETB ）とも呼ばれます。</block>
@@ -1206,7 +1184,6 @@
   <block id="630b1746cba34ee88564bdc613bf0b35" category="paragraph">Cloud Manager アカウント ID は、 Cloud Manager の上部にある「 * Account * 」ドロップダウンを選択し、アカウントの横にある「 * Manage Account * 」をクリックすると確認できます。アカウント ID は、 [ 概要 ] タブにあります。</block>
   <block id="2dceb661fa854be21d691bb6890b19ed" category="section-title">Cloud Backup BYOL ライセンスをアカウントに追加します</block>
   <block id="5b12ddc59d99f0b26682068b9afe510f" category="paragraph">ネットアップアカウント用の Cloud Backup ライセンスを購入したら、 Cloud Manager にライセンスを追加する必要があります。</block>
-  <block id="14e73879f741aacd67e792f34954460d" category="list-text">[ すべてのサービス ] 、 [ デジタルウォレット ] 、 [ データサービスライセンス ] の順にクリックします。</block>
   <block id="ea9a2b9ac34c9aab133f21aa5b67976e" category="list-text">[ ライセンスの追加 ] をクリックします。</block>
   <block id="c1b2dc0798d3960e25b8a12c751f53ec" category="list-text">_ ライセンスの追加 _ ダイアログで、ライセンス情報を入力し、 * ライセンスの追加 * をクリックします。</block>
   <block id="cb365723ea49a8e0727d9887fcd819ad" category="list-text">バックアップライセンスのシリアル番号があり、 NSS アカウントを知っている場合は、 * シリアル番号を入力 * オプションを選択してその情報を入力します。</block>
@@ -1333,7 +1310,6 @@
   <block id="ea002f9386d9cd059f69c6d59dbea06c" category="list-text">Kubernetes の永続ボリュームのバックアップとリストア <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
   <block id="7a6c8511ba9b6f1392c7f34fbd81508d" category="list-text">クラウドバックアップアプリケーションを使用して、アプリケーションと整合性のある Snapshot をオンプレミスの ONTAP からクラウドにバックアップできます。 <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>。</block>
   <block id="286fb390ea5475a1fa125d5aade554a0" category="list-text">キャンバスからオンプレミスの作業環境を選択し、右パネルのバックアップと復元サービスの横にある *Enable&gt; バックアップボリューム * をクリックします。</block>
-  <block id="9a4fc48ebf3077bde35f83be2ee84cc8" category="paragraph">ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを使用して、すべての ONTAP バックアップファイル * にまたがるボリュームまたはファイルを検索できるようになりました。これは、どのクラスタまたはボリュームがデータのソースであるかがわからない場合に、リストアするデータを見つけるための新しい優れた方法です。<block ref="f28ab8501300af6839923f7181e075ab" category="inline-link-rx"></block>。</block>
   <block id="983a4e7f5913304ec713a249baf7be47" category="section-title">2022 年 3 月 3 日</block>
   <block id="f61163b681442ac500a8018c87241770" category="section-title">2021 年 11 月 28 日</block>
   <block id="efaa7c999dedec2704fc2db580ad4967" category="section-title">2021 年 11 月 5 日</block>
@@ -1430,7 +1406,6 @@
   <block id="f3ec604659866873c6f12a7b82b426c9" category="paragraph">このオプションを使用する場合は、 Marketplace のページでサブスクリプションを設定してから、を設定します<block ref="f1f7c973fce685b876017d26d677c721" category="inline-link-rx"></block>。Cloud Manager で AWS クレデンシャルに割り当てることができるのは 1 つだけなので、この年間契約サブスクリプションを使用して Cloud Volumes ONTAP システムの料金を支払う必要があります。</block>
   <block id="f2ece9cc094a050d5d94b2d9c8142c27" category="list-text">Cloud Volumes ONTAP とクラウドバックアップをバンドルできる「 CVO Professional 」プラン。これには、このライセンスに基づいて Cloud Volumes ONTAP ボリュームのバックアップが無制限になることも含まれます（バックアップ容量はライセンスにはカウントされません）。このオプションでは、オンプレミスの ONTAP データをバックアップすることはできません。</block>
   <block id="5f0364e373bcb99c02ad1b8359683908" category="inline-link">Cloud Volumes ONTAP のライセンスに関するトピック</block>
-  <block id="24d74be1960242a6818d266296df5af4" category="paragraph">AWS Marketplace では、 12 カ月、 24 カ月、または 36 カ月間の契約が 2 件提供されます。</block>
   <block id="277d325469c77a8ce02855d7ea5c8b1a" category="list-text">Cloud Volumes ONTAP とクラウドバックアップをバンドルできる「 CVO Professional 」プラン。これには、このライセンスに基づいて Cloud Volumes ONTAP ボリュームのバックアップが無制限になることも含まれます（バックアップ容量はライセンスにはカウントされません）。</block>
   <block id="798aac57a47adfaf930d9def9b4bbe02" category="paragraph">を参照してください<block ref="d58b2dbf2a4616ceca06f8773ed8f738" category="inline-link-rx"></block> このライセンスオプションの詳細については、を参照してください。</block>
   <block id="74cc281b8e4c7e949e92e69bf209421f" category="summary">作業環境で開始したバックアップジョブとリストアジョブのステータスを監視できます。これにより、正常に完了したジョブ、現在実行中のジョブ、および失敗したジョブを表示できるため、問題を診断して修正できます。</block>
@@ -1494,7 +1469,6 @@
   <block id="5c37edf1ec718afd1ab9a5a51043e0ce" category="paragraph">これらの手順を実行すると、すぐに作業を開始できます。各手順の詳細については、このトピックの以降のセクションを参照してください。</block>
   <block id="2095d7a797c25bb28e0630e6f0234176" category="inline-xref">使用可能な接続方法を参照してください。</block>
   <block id="6faac2bde2c603b5020744e34c3b1561" category="paragraph"><block ref="d9d72c889e6f6edab2e44fef9632d7d0" category="inline-xref-macro-rx"></block></block>
-  <block id="81d8bb87e59af8b8bc57eaf5d2b911c4" category="paragraph">AWS VPC にすでにコネクタが導入されている場合は、すべてのポートが設定されます。ない場合は、 ONTAP データを AWS S3 ストレージにバックアップするために、 AWS でコネクタを作成する必要があります。また、コネクタのネットワーク設定をカスタマイズして AWS S3 に接続できるようにする必要があります。</block>
   <block id="e4f1f56a3ef3efdb69f573c54e373407" category="inline-xref">コネクタの作成方法および必要なネットワーク設定の定義方法を参照してください。</block>
   <block id="547ff9b6a5e6f25a471ff36aabad9172" category="paragraph"><block ref="955ce6b96fd48d62c162b65277148f6a" category="inline-xref-macro-rx"></block></block>
   <block id="aba3af0142718cdcd318e58a13cac0e0" category="paragraph">Cloud Manager で ONTAP クラスタを検出し、クラスタが最小要件を満たしていることを確認し、クラスタが AWS S3 に接続できるようにネットワーク設定をカスタマイズします。</block>
@@ -1511,9 +1485,6 @@
   <block id="c00f71153c1c02168311396c4ac129f0" category="list-text">プライベート接続 - VPN または AWS Direct Connect を使用して、プライベート IP アドレスを使用する VPC エンドポイントインターフェイス経由でトラフィックをルーティングします。</block>
   <block id="ea97cc2428a460eae122a94c68a8b16a" category="section-title">コネクタを準備します</block>
   <block id="54f5743f88e60d1c4f6d28ddce6523c9" category="paragraph">Cloud Manager Connector は、 Cloud Manager 機能のメインソフトウェアです。ONTAP データのバックアップとリストアにはコネクタが必要です。</block>
-  <block id="1b0ffad6683da5341fb4aef28a59963a" category="paragraph">AWS VPC にすでにコネクタが導入されている場合は、すべてのポートが設定されます。ない場合は、 AWS S3 ストレージに ONTAP データをバックアップするために、 AWS で新しいコネクタを作成する必要があります。オンプレミスに導入されているコネクタや、別のクラウドプロバイダに導入されているコネクタは使用できません。</block>
-  <block id="9b740c2dda97a2c23cd8f8cf0fc5aac6" category="inline-link">AWS でコネクタを作成します</block>
-  <block id="37ddae853fabb564f9fc3c5ab06062ee" category="list-text"><block ref="37ddae853fabb564f9fc3c5ab06062ee" category="inline-link-rx"></block></block>
   <block id="929d25665bc92d22cf4a79265248dd36" category="section-title">コネクタのネットワーク要件</block>
   <block id="db41e7a8de9567fec002e93320c428ad" category="inline-xref">VPC エンドポイントインターフェイスの設定方法を参照してください。</block>
   <block id="aa8387a4bff8defdb2d4c5777a1bf540" category="section-title">ONTAP クラスタを準備</block>
@@ -1603,7 +1574,6 @@
   <block id="ce44a83ef01104d10c3b40c524f48e17" category="paragraph">無償トライアルが終了すると、自動的にPAYGOサブスクリプションに切り替えられます。Cloud Backupを引き続き使用しない場合は、のみを使用してください <block ref="e812824661796763896bfeca014ff2ba" category="inline-link-macro-rx"></block> トライアルが終了する前に、請求は行われません。</block>
   <block id="9fddc1f9c7fd56a9a852b0bd4cd2e8e7" category="paragraph">従量課金制の場合、クラウドプロバイダにオブジェクトストレージのコストとネットアップのバックアップライセンスのコストを1時間単位で支払うことになります。無償トライアルを利用されている場合や、お客様が独自のライセンスを使用（ BYOL ）されている場合も、サブスクリプションを設定する必要があります。</block>
   <block id="5dc6dbc6bf59ab9248858dd70d7de4d1" category="paragraph">以下のリンクから、クラウドプロバイダのマーケットプレイスから Cloud Backup にサブスクライブできます。</block>
-  <block id="ce8d2ddf800af494720dbffe734c06fa" category="paragraph">から 2 種類の年間契約が提供されています<block ref="7e9391e5068ba3345180f0de3723960c" category="inline-link-rx"></block> Cloud Volumes ONTAP システムとオンプレミスの ONTAP システムで使用できます。1年、2年、または3年の期間が用意されています。</block>
   <block id="a6a8d5875c12f27ba4ef353325099e11" category="paragraph">BYOL Cloud Backup ライセンスは、 Cloud Manager アカウントに関連付けられたすべてのシステムで合計容量が共有されるフローティングライセンスです。ONTAP システムでは、バックアップするボリュームに対してCLIコマンド「volume show-space logical-used」を実行することで、必要な容量を概算できます。</block>
   <block id="8125ab0e8c7375023a4420d3e570708b" category="paragraph">BYOLライセンスを管理するには、Cloud ManagerのDigital Walletページを使用します。新しいライセンスの追加、既存のライセンスの更新、およびDigital Walletからのライセンスステータスの表示を行うことができます。</block>
   <block id="43a056c8e6cdddf737749ea07de7740e" category="paragraph">Cloud Backupライセンスを購入したあと、Cloud Managerでライセンスをアクティブ化するには、Cloud Backupのシリアル番号とNSSアカウントを入力するか、NLFライセンスファイルをアップロードします。次の手順は、 NLF ライセンスファイルを取得する方法を示しています。</block>
@@ -1637,8 +1607,6 @@
   <block id="5dffdededfe2528785520099a6504eb7" category="cell">ボリュームとファイルのリストアは、Amazon S3とGoogle Cloudに格納されたバックアップファイルと連携します</block>
   <block id="7676f4eb0750d027aaf39357e74a6f0a" category="cell">パブリッククラウドとプライベートクラウドの結果を参照できます</block>
   <block id="c6df30fd69d443c5f65257f03e22d182" category="cell">クラウドプロバイダのリソースを追加する必要はありません</block>
-  <block id="193d161843f9013a8859033885b322a9" category="cell">アカウントごとにバケットとAWSまたはGoogleのリソースを追加する必要があります</block>
-  <block id="cb999f676a1d403bd058cb080229b13a" category="cell">バックアップとボリュームをスキャンして検索結果を表示するときに、AWSまたはGoogleのリソースにかかるコスト</block>
   <block id="246d8b6990d4cfbdfb599ce9f7af8191" category="list-text">Cloud Manager に権限を付与するユーザロールに、 Amazon Athena 、 AWS Glue 、および AWS S3 の特定の権限を追加する必要があります。 <block ref="172464504974bed7b77dd155db5fb92b" category="inline-link-macro-rx"></block>。</block>
   <block id="2bb068da3540e8034049c29306ef2a17" category="list-text">Google Cloudの要件：</block>
   <block id="29870bce1cf974368407d0daba8b2f6b" category="list-text">特定のGoogle BigQuery権限は、Cloud Managerに権限を付与するユーザーロールに追加する必要があります。 <block ref="1401fe87dc595535076f05f545f8275e" category="inline-link-macro-rx"></block>。</block>
@@ -1659,14 +1627,10 @@
   <block id="83e93965854a9ee03d55a2d15f2e8dc7" category="list-text">検索とリストアでは、一度に1つのファイルをリストアできます。</block>
   <block id="45597398aa8f6969af8d1f8b4beca231" category="list-text">現在、フォルダ / ディレクトリのリストアはサポートされていません。</block>
   <block id="e41af01898aa01f20e528d19fdda2ec8" category="paragraph">オンプレミスのONTAP クラスタをパブリックインターネット経由でAWS S3に直接接続するか、VPNとAWS Direct Connectのどちらを使用してトラフィックをAWS S3にルーティングするかを選択します。</block>
-  <block id="c97ea7350518d38329c34d289bc4771e" category="paragraph">次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。</block>
-  <block id="ce894cc2b182c2b6d47f70da3e6e4fb3" category="paragraph">次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。</block>
   <block id="d41b031ef25fff764808749edcc2cd28" category="inline-link">コネクタの使用を開始する</block>
   <block id="b37ed402641ff6f2d1b0b55061547f2d" category="list-text"><block ref="b37ed402641ff6f2d1b0b55061547f2d" category="inline-link-rx"></block></block>
-  <block id="0dae4177288fa87563dc166ad6dad9d7" category="list-text">ポート443経由でのCloud Backup Service およびS3オブジェクトストレージへのHTTPS接続（エンドポイントのリストを参照） <block ref="ebd49d7903d0a4bb2b6ed64e3736bb95" category="inline-link-macro-rx"></block>)</block>
   <block id="76e709935c290dea4c7b1c0de4918211" category="inline-link-macro">コネクタにS3バケットを管理する権限があることを確認します</block>
   <block id="834f26d80b9784d547a441b2c02d3ad5" category="list-text"><block ref="7eb7d4d5a2ffca3aec2449e14ed03205" category="inline-link-macro-rx"></block>。</block>
-  <block id="a4af58b20c3303b39e56dee8ca99e1a3" category="list-text">ONTAP クラスタからVPCへのDirect ConnectまたはVPN接続が確立されている状況で、コネクタとS3の間の通信をAWS内部ネットワークのままにする場合は、S3へのVPCエンドポイントインターフェイスを有効にする必要があります。 <block ref="038eee040120b4244a9c2b9d19ca5787" category="inline-xref-macro-rx"></block></block>
   <block id="ce59fdd3e4f02ba3606e4e3cf3dde6c9" category="list-text">ONTAP 9.7P5以降が必要です。ONTAP 9.8P11以降が推奨されます。</block>
   <block id="187b50ee8f2351a69b8fa6b8b42687d5" category="paragraph">IPspace内のすべてのクラスタ間LIFがオブジェクトストアにアクセスできる必要があります。現在のIPspaceに対してこれを設定できない場合は、すべてのクラスタ間LIFがオブジェクトストアにアクセスできる専用のIPspaceを作成する必要があります。</block>
   <block id="e3cb89ec96389280988a5bc1aab122d8" category="list-text">AWSでS3接続にプライベートVPCインターフェイスエンドポイントを使用している場合は、HTTPS / 443を使用するために、S3エンドポイント証明書をONTAP クラスタにロードする必要があります。 <block ref="1dbd4fd842a70fbdf055f03b19c52e23" category="inline-xref-macro-rx"></block></block>
@@ -1680,7 +1644,6 @@
   <block id="55082684c888abf218793c0bd2f3b5e4" category="paragraph">標準のパブリックインターネット接続を使用する場合は、すべてのアクセス権がコネクタによって設定され、他に必要な操作はありません。このタイプの接続がに表示されます <block ref="b1224f75874af139b1e7a51a1da970e9" category="inline-link-macro-rx"></block>。</block>
   <block id="7cb65d7424b08922f4902800ae6b79d0" category="inline-link-macro">2番目の図</block>
   <block id="ca301c03d4c5ce91946df8b15f3dbe5f" category="paragraph">オンプレミスのデータセンターからVPCへのインターネット接続をよりセキュアにする場合は、バックアップアクティブ化ウィザードでAWS PrivateLink接続を選択できます。VPNまたはAWS Direct Connectを使用して、プライベートIPアドレスを使用するVPCエンドポイントインターフェイス経由でオンプレミスシステムに接続する場合は、この環境が必要です。このタイプの接続がに表示されます <block ref="0f7afb920fb200721cfd6111e33f99d4" category="inline-link-macro-rx"></block>。</block>
-  <block id="adba439901e690844020282dc0e87c32" category="paragraph">プライベートエンドポイントとの通信にポート80（HTTP）を使用している場合は、すべて設定されます。クラスタで Cloud Backup を有効にすることができます。</block>
   <block id="9494561b819165d9f1e8e339562e316d" category="list-text">VPC S3 エンドポイントから証明書を取得します。これは、で行います<block ref="0617c2fce5134dbc852516af04fe18ee" category="inline-link-rx"></block> 実行するコマンドエンドポイントの DNS 名を入力するときは、先頭に「 * 」を追加して、「 * 」を置き換えます。</block>
   <block id="35902f649443d8dd6c5f04595fff3035" category="paragraph">Cloud Backupをアクティブ化したあとにKubernetesクラスタに新しい永続ボリュームを追加した場合は、以前にそれらのボリュームのバックアップを忘れずに設定する必要がありました。新しく作成したボリュームに自動的に適用するポリシーを選択できます。このオプションは、新しいKubernetesクラスタに対してCloud Backupをアクティブ化するときにセットアップウィザードで使用できます。</block>
   <block id="677e0bc1aa65f4ce3324deca0bcf87f0" category="section-title">2022年6月8日</block>
@@ -1796,7 +1759,6 @@
   <block id="b83e2caeb95bea361704be4e9e795cd1" category="paragraph">APIはにあります<block ref="323898002645c2363c910f7c119fd4d6" category="inline-link-rx"></block>。を参照してください <block ref="cf7847f4c926eb96d69d319dfdc23654" category="inline-link-macro-rx"></block> を参照してください。</block>
   <block id="45ee97ced966affff074d2bc1efe2686" category="paragraph">新しいCloud Backup for Applications機能を使用すると、OracleおよびMicrosoft SQLの既存のアプリケーション整合性スナップショット（バックアップ）を、オンプレミスのプライマリストレージからAmazon S3またはAzure Blobのクラウドオブジェクトストレージにオフロードできます。</block>
   <block id="8a0841a62164343a6bb78ffd4349420f" category="inline-link">オンプレミスアプリケーションのデータをクラウドで保護する方法については、こちらをご覧ください</block>
-  <block id="98d0ff36da367aa918057b6c42219851" category="paragraph"><block ref="6ddb7afc666833c3265591e4f4bdc4a7" category="inline-link-rx"></block>。</block>
   <block id="6ff133e735e841b3a54d6f8c0a84c071" category="paragraph">ネットアップ Astra Trident がインストールされている GKE クラスタで、 Cloud Volumes ONTAP for GCP をクラスタのバックエンドストレージとして使用している場合は、 Google Cloud ストレージとの間で永続的ボリュームのバックアップとリストアを行うことができます。 <block ref="04c62f5c961d468f8c7e3d8b6a8a1398" category="inline-link-macro-rx"></block>。</block>
   <block id="5050ceb19d886a5ee0cc9eeb2c7afec5" category="list-text">古いバックアップファイルをアーカイブストレージに階層化してコストを削減（ONTAP 9.10.1以降でサポート）</block>
   <block id="99522022ab0c5a70369e13570bafc3bb" category="list-text">単一ファイルのリストア用に個々のファイルを選択するための、参照可能および検索可能なファイルカタログ。</block>
@@ -1811,11 +1773,6 @@
   <block id="a9f8eef7fdd18a9397fd96b661adbbf3" category="cell">GoogleオンプレミスONTAP システムのCloud Volumes ONTAP ：GCP[]</block>
   <block id="50447057d0b53e52a90454c49619b112" category="list-text">アーカイブストレージに移動されたバックアップファイルからボリュームデータをリストアする必要がある場合は、GiB単位の読み出し料金とクラウドプロバイダからの要求ごとの料金が別途かかります。</block>
   <block id="7f4e982bcc5753d9d97c31f1f4d46a2b" category="paragraph">バックアップサービスの料金を支払う方法は 3 通りあります。1 つ目は、クラウドプロバイダを利用して月額料金を支払う方法です。2つ目のオプションは、年間契約を取得することです。3 つ目のオプションは、ネットアップからライセンスを直接購入することです。を参照してください <block ref="b839456cc57645a9392f4db60a4f044a" category="inline-xref-macro-rx"></block> 詳細については、を参照してください</block>
-  <block id="1478456724f7cf413d717f4b502d39dc" category="paragraph">Cloud Backupには、いくつかのライセンスオプションがあります。</block>
-  <block id="7aa341986b280fa0687cef85956d92b3" category="list-text">従量課金制（PAYGO）のサブスクリプション</block>
-  <block id="10716bb4d070e4dad16ec08644ae66f8" category="list-text">AWS Marketplaceからの年間契約</block>
-  <block id="2134e7a0d0b7da83dba2f3a5d5bd3677" category="list-text">お客様所有のライセンスを使用（BYOL）</block>
-  <block id="eb7278b6fb34a503757928f323204218" category="paragraph">PAYGOサブスクリプションに最初に登録したときに、30日間の無償トライアルを利用できます。</block>
   <block id="1ab00b260d8ce265da81957e2ab8768a" category="list-text">古いバックアップファイルをアーカイブストレージに階層化するには、クラスタでONTAP 9.10.1以降が実行されている必要があります。アーカイブストレージにあるバックアップファイルからボリュームをリストアするには、デスティネーションクラスタで ONTAP 9.10.1 以降が実行されている必要もあります。</block>
   <block id="54bddc4e25a88aae05bb69520422c997" category="list-text">登録すると、無料トライアルの終了後にサービスが中断されることがなくなります。試用期間が終了すると、バックアップしたデータの量に応じて 1 時間ごとに課金されます。</block>
   <block id="5f5358182364ef304e26de4fc2395537" category="list-text">BYOL ライセンスで許可されている数を超えるデータをバックアップした場合、データバックアップは従量課金制サブスクリプションを使用して続行されます。たとえば、 BYOL ライセンスが 10TiB の場合、 10TiB を超える容量はすべて PAYGO サブスクリプションによって課金されます。</block>
@@ -1855,10 +1812,6 @@
   <block id="19ec08da81a826d919d64ab860845c04" category="section-title">API リファレンス</block>
   <block id="daeeb32b9a2ca59f58bedaba9bbc41b5" category="paragraph">各Cloud Backup APIのドキュメントは、から入手できます<block ref="323898002645c2363c910f7c119fd4d6" category="inline-link-rx"></block>。</block>
   <block id="381ea68c9177a4bf66e46b23e8b00041" category="paragraph">ConnectorでS3バケットの作成と管理を行うための権限を設定します。また、オンプレミスのONTAP クラスタに対する権限を設定して、S3バケットに対してデータの読み取りと書き込みを行えるようにする必要があります。</block>
-  <block id="ff247e0b9dec078f64375cea521d6967" category="inline-image-macro">Cloud Backupがソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとパブリック接続を介して通信する仕組みを示す図。</block>
-  <block id="c89072bad24c59ee1e75f21a078e74df" category="paragraph"><block ref="c89072bad24c59ee1e75f21a078e74df" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="72a85eeb7619147de9e2c529ca33c992" category="inline-image-macro">Cloud Backupが、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとプライベート接続を介して通信する仕組みを示す図。</block>
-  <block id="0a736544bf309d4131b7a0c8ac651b87" category="paragraph"><block ref="0a736544bf309d4131b7a0c8ac651b87" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0d021f94d8bd70d2a5185935d6efa23e" category="list-text">S3バケットの作成と管理を行うコネクタの権限。</block>
   <block id="41e9463232a3a509ddf5815706788caa" category="paragraph">ポート443（HTTPS）を使用してプライベートエンドポイントと通信する場合は、VPC S3エンドポイントから証明書をコピーし、次の4つの手順でONTAP クラスタに追加する必要があります。</block>
   <block id="94dd9372ab529c315f08bd0bae6ae331" category="paragraph">バックアップのAmazon S3デスティネーションがCanvas上の作業環境として存在する場合は、クラスタをAmazon S3作業環境にドラッグしてセットアップウィザードを開始できます。</block>
@@ -1871,10 +1824,6 @@
   <block id="014386141b63dc0c43377cb37936b250" category="inline-image-macro">Kubernetesクラスタ上の今後すべてのボリュームに割り当てるバックアップポリシーの選択方法を示すスクリーンショット</block>
   <block id="891b6416962c7710069b6bd6d9d86a07" category="paragraph"><block ref="891b6416962c7710069b6bd6d9d86a07" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3877a9846e783c8af0a4e454f688cc19" category="paragraph">このバックアップポリシーは、このKubernetesクラスタで作成されるすべての新しいボリュームに適用されます。</block>
-  <block id="7ead903fc48405a93153734199d6ea17" category="paragraph">次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。</block>
-  <block id="365f18293265c24eb5abd8186ffde43d" category="paragraph"><block ref="365f18293265c24eb5abd8186ffde43d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e76a155ff5434b1a4b5c083a233f84a2" category="paragraph">次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。</block>
-  <block id="55793025ae94e14f25eac6fc524ecc81" category="paragraph"><block ref="55793025ae94e14f25eac6fc524ecc81" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5e843e04ba2018476292f29718db06e7" category="list-text">Microsoftが管理するデフォルトの暗号化キーを使用する代わりに、アクティベーションウィザードで独自のカスタム管理キーを使用して、データ暗号化を行うことができます。この場合、 Azure サブスクリプション、キー・ボールト名、およびキーが必要です。<block ref="50f2f49feb0afd07f1969b5faf2ca775" category="inline-link-rx"></block>。</block>
   <block id="ac51f0beea0b94bb3165f831f8ba7138" category="cell">デスティネーション作業環境ifdef：aws []</block>
   <block id="0e356152192db3a04cabbf69108987ee" category="cell">AWS endifのKubernetesクラスタ：aws [] ifdef：azure[]</block>
@@ -1898,7 +1847,6 @@
   <block id="0d19370f4d82f4437295b4a20f7af2b6" category="list-text">StorageGRID StorageGRID からリストアする場合は、StorageGRID サーバのFQDNとONTAP とのHTTPS通信に使用するポートを入力し、オブジェクトストレージへのアクセスに必要なアクセスキーとシークレットキー、およびデスティネーションボリュームが配置されているONTAP クラスタのIPspaceを入力します。</block>
   <block id="30a52640635b2f0d1cd535c78d333d48" category="paragraph">リストアするボリュームのバックアップファイルがアーカイブストレージ（ONTAP 9.10.1以降で使用可能）にある場合、リストア処理にはより長い時間がかかり、追加コストが発生します。デスティネーションクラスタで ONTAP 9.10.1 以降が実行されている必要があり、そのファイルをアーカイブストレージからリストアすることは現在サポートされていません。</block>
   <block id="15aae19b9900db896b4c9b15bcc978b9" category="cell">現在サポートされていません</block>
-  <block id="306cd9f16f08b603af1fab2e7cad106f" category="cell">endif：azure []ifdef：GCP []</block>
   <block id="b3cf2a0723236b8965edb17a6adc8bf5" category="list-text">Google Cloudに保存されているバックアップの場合、新しいバケットとがプロビジョニングされます<block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> アカウント/プロジェクトレベルでプロビジョニングされます。</block>
   <block id="ad13cab5dd920f50df05b097ac6ce5f3" category="paragraph">作業環境でインデックス作成がすでに有効になっている場合は ' 次のセクションに進んでデータをリストアしてください</block>
   <block id="c3793afe37c8ef86193b630f9ff4e7b9" category="list-text">Cloud Volumes ONTAP システムはKubernetesクラスタと同じGCPリージョンに配置し、ONTAP 9.7P5以降を実行している必要があります（ONTAP 9.8P11以降を推奨）。</block>
@@ -1911,8 +1859,6 @@
   <block id="0a215d6790086862e8e2eca1f4aef9d2" category="paragraph">OracleおよびMicrosoft SQLアプリケーションのデータをオンプレミスのONTAP システムから次のクラウドプロバイダにバックアップできます。</block>
   <block id="6beccc67ff905f7da0b29dece26b0485" category="list-text">Amazon Web Services の</block>
   <block id="1668ca1bd914c1d847f23b491319ac91" category="list-text">Microsoft Azure</block>
-  <block id="3434ce922e1c86ace71f7616788e4086" category="paragraph"><block ref="3434ce922e1c86ace71f7616788e4086" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e86245d9f93a343ebdc70d824ddc2fe1" category="paragraph"><block ref="e86245d9f93a343ebdc70d824ddc2fe1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="53ebd529678afade9a8cc550535c4832" category="admonition">リソースグループの名前を選択する場合は、 Cloud Volumes ONTAP を導入する際に * disable * Cloud Backup と入力します。の手順に従います <block ref="518f1876d7249067cbf504987e6e7dc3" category="inline-xref-macro-rx"></block> Cloud Backup を有効にしてリソースグループを選択します。</block>
   <block id="68b1e52936c426875b2780e91e195546" category="sidebar">REST API で自動化</block>
   <block id="e29d7c0b36af68edd13ebac84f15b44b" category="sidebar">クラウドプロバイダ</block>
@@ -1944,7 +1890,6 @@
   <block id="7213734d8950b4641631fa35737ef55d" category="list-text">バックアップするボリュームが配置されている ONTAP クラスタ内の IPspace 。この IPspace のクラスタ間 LIF には、アウトバウンドのインターネットアクセスが必要です（コネクタが「ダーク」サイトにインストールされている場合は不要です）。</block>
   <block id="8ca1430139ec15a9b91ac2e24e799f84" category="paragraph">可能です <block ref="c0943d8deab9c5a18af9b2eef59b9af2" category="inline-link-macro-rx"></block>。また可能です <block ref="2725cea0a8dc9dd072cc5f5c23563bbd" category="inline-link-macro-rx"></block> オンプレミスのONTAP システムへの移行をサポート</block>
   <block id="9fe942ae01924dd657ce7f1996246cc6" category="section-title">インターネットに接続されていないサイトをサポート</block>
-  <block id="964abc2112ce28be99c31e711557b29e" category="paragraph">インターネットに接続されていないサイト（「オフライン」または「ダーク」サイトとも呼ばれる）で Cloud Backup を使用して、ローカルのオンプレミス ONTAP システムからローカルの NetApp StorageGRID システムにボリュームデータをバックアップできます。この場合は、ダークサイトにCloud Manager Connector（バージョン3.9.19以上）を導入する必要があります。を参照してください <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> を参照してください。</block>
   <block id="012009e84c36a8660d26e3a3201d2fe9" category="list-text">インターネットにアクセスできないサイト（ダークサイト）にコネクタがインストールされている場合は、検索とリストアを使用したファイルレベルのリストアはサポートされません。</block>
   <block id="582a80da24166f21aa8bf6fb72743140" category="cell">インターネットにアクセスできないサイトのStorageGRID からボリュームとファイルをリストアします</block>
   <block id="2deb7493de6dd6e8fd3126d72d730f68" category="cell">ダークサイトではサポートされない</block>
@@ -1961,4 +1906,219 @@
   <block id="0a0c24e7fef8cd9bcb19d6db19987b93" category="paragraph">以前に使用していた場合は、Cloud Restoreインスタンス/VMが自動的に削除されることに注意してください。Cloud Backupプロセスが1日に1回実行され、古いCloud Restoreインスタンスがすべて削除されます。この変更は完全に透過的に行われます。データへの影響はなく、バックアップジョブやリストアジョブの変更は通知されません。</block>
   <block id="7d3723a161203e59b756ce8e77114fc0" category="admonition">Cloud Manager Connectorをクラウドの政府機関のリージョンまたはインターネットにアクセスできないサイト（ダークサイト）に導入した場合、Cloud BackupではONTAP システムからのバックアップとリストアの処理のみがサポートされます。これらの代替導入方法を使用する場合、Cloud BackupはKubernetesクラスタ、アプリケーション、または仮想マシンからのバックアップとリストアの処理をサポートしません。</block>
   <block id="d8fc7ce817e791d9288e2c5b2f30d2e4" category="paragraph">次のリンクからリフレッシュトークンを生成してください：https://services.cloud.netapp.com/refresh-token/リフレッシュトークンは、ユーザートークンを生成するために使用する英数字文字列です。</block>
+  <block id="f213760e51bc9d7895aab74f2fba377c" category="paragraph">デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、毎月、または毎年のバックアップに変更します。 または、オプションを追加するシステム定義のポリシーを1つ選択します。保持するバックアップコピーの数を変更することもできます。</block>
+  <block id="2da5030b3f916979a53299b49c96a213" category="paragraph">次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタ、またはGoogle Cloud Platform VPCに導入したコネクタを使用できます。</block>
+  <block id="e48ce03e2bde71049d742a96c5698f33" category="inline-image-macro">Cloud Backupがパブリック接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているGoogle Cloudストレージと通信する仕組みを示す図。</block>
+  <block id="b806ce964b6e551d9c84a09a8415f4cb" category="paragraph"><block ref="b806ce964b6e551d9c84a09a8415f4cb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0fdd9aff892c716bd065e719f11a6380" category="paragraph">次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタ、またはGoogle Cloud Platform VPCに導入したコネクタを使用できます。</block>
+  <block id="003facd7f31c0fd7dac15a48dbce6ccc" category="inline-image-macro">Cloud Backupがプライベート接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているGoogle Cloudストレージと通信する仕組みを示す図。</block>
+  <block id="4b831201269c6366ac22eccdcf44893f" category="paragraph"><block ref="4b831201269c6366ac22eccdcf44893f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="57a0831535e37c8a0f395d2fc9fe5673" category="paragraph">Google Cloud Platform VPCまたは自社運用環境に既にConnectorが導入されている場合は、すべて設定されます。そうでない場合は、これらの場所のいずれかにコネクタを作成して、ONTAP データをGoogle Cloudストレージにバックアップする必要があります。別のクラウドプロバイダに導入されているコネクタは使用できません。</block>
+  <block id="1c52fe530613f90d476d439dbca6d53e" category="inline-link">コネクタをGCPにインストールする</block>
+  <block id="a792c7e75bcc7cf7d82f87b63cbca477" category="list-text"><block ref="a792c7e75bcc7cf7d82f87b63cbca477" category="inline-link-rx"></block></block>
+  <block id="c434332bb7ea2d6636a3d41a262f1e7e" category="inline-link">コネクタをオンプレミスにインストールする</block>
+  <block id="408e970a6e2ac7b03356ff4f61689ed3" category="list-text"><block ref="408e970a6e2ac7b03356ff4f61689ed3" category="inline-link-rx"></block></block>
+  <block id="180998812f60906176eb83e3b44aef0b" category="list-text">Connector を配置するサブネットで Private Google Access を有効にします。<block ref="befc9e6419c4dc26dd25bf8222d3c172" category="inline-link-rx"></block> ONTAP クラスタからVPCへの直接接続が確立されており、ConnectorとGoogle Cloud Storage間の通信を仮想プライベートネットワーク（*プライベート*接続）のままにする場合は、が必要です。</block>
+  <block id="902e370d1248b02546dce02dd966d3df" category="list-text">デフォルト・ポリシーに使用するバックアップ・ポリシーの詳細を入力し、［*次へ*］をクリックします。既存のポリシーを選択するか、各セクションで選択した内容を入力して新しいポリシーを作成できます。</block>
+  <block id="9f0a90a5aa72e2d8a79c1f4913cfc4eb" category="list-text">デフォルトポリシーの名前を入力します。名前を変更する必要はありません。</block>
+  <block id="9668405dd0733ac53e813de88302e2ba" category="list-text">バックアップポリシーに名前を付けておくと、各ポリシーの用途を簡単に確認できます。</block>
+  <block id="5d58a047f6026134484a0fe815027c58" category="paragraph">インターネットに接続されていないサイト（「オフライン」または「ダーク」サイトとも呼ばれる）で Cloud Backup を使用して、ローカルのオンプレミス ONTAP システムからローカルの NetApp StorageGRID システムにボリュームデータをバックアップできます。この構成では、ボリュームとファイルのリストアもサポートされます。この場合は、ダークサイトにCloud Manager Connector（バージョン3.9.19以上）を導入する必要があります。を参照してください <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> を参照してください。</block>
+  <block id="3b4d703b29a9da1e70d08b65d53fe521" category="paragraph">Cloud Backupには次の消費モデルがあります。</block>
+  <block id="38692e39e588de5b1294ee4cca656080" category="list-text">* BYOL *：ネットアップから購入したライセンス。任意のクラウドプロバイダで使用できます。</block>
+  <block id="bd49b5209f967def5a92bc3d2db5e8dd" category="list-text">* PAYGO *：クラウドプロバイダの市場から1時間ごとにサブスクリプションを取得します。</block>
+  <block id="0d2bbbe00cb4b26974b0290ce799d3ef" category="list-text">* Annual *：クラウドプロバイダの市場から年間契約を取得します。</block>
+  <block id="29a55eb332633103c7b13e64eb6e3cda" category="paragraph">ネットアップからBYOLライセンスを購入した場合は、クラウドプロバイダの市場からPAYGO製品をサブスクライブする必要もあります。ライセンスは常に最初に請求されますが、次のような場合には、市場の1時間あたりの料金が請求されます。</block>
+  <block id="6246af80c9ea9c857c70d2c643fcb249" category="list-text">ライセンス容量を超えた場合</block>
+  <block id="fdde7a7f3783aa0ce1e585f8be9c2def" category="list-text">ライセンスの期間が終了する場合</block>
+  <block id="494603b817eced385b74900033fb1e44" category="paragraph">市場から年間契約を結んでいる場合、Cloud Backupのすべての利用はその契約に基づいて課金されます。BYOLでは、年間市場契約を組み合わせることはできません。</block>
+  <block id="9757bd87f9a5ff6758600430092b3955" category="paragraph">PAYGOサブスクリプションに最初にサインアップしたときに、30日間の無償トライアルを利用できます。</block>
+  <block id="421539f25601331f9f5f1e59cdb43e21" category="section-title">年間契約</block>
+  <block id="49a09607b95f46b9056878d3c4fdbc41" category="paragraph">AWSを使用している場合は、次の2年間の契約が12カ月、24カ月、または36カ月間利用できます。</block>
+  <block id="75459ed8e32fafaec26b208e63272651" category="list-text">Azureを使用している場合は、ネットアップからプライベートオファーを要求し、Cloud Backupのアクティブ化の際にAzure Marketplaceからサブスクライブするときにプランを選択できます。</block>
+  <block id="19b05e78d3464eff3a0a4847f0b66324" category="list-text">GCPを使用している場合は、ネットアップからプライベートオファーをリクエストし、Cloud Backupのアクティブ化中にGoogle Cloud Marketplaceからサブスクライブするときにプランを選択できます。</block>
+  <block id="cf6d8dee9b177c1138ae0ee4e07dc2f3" category="inline-link-macro">年間契約の設定方法について説明します</block>
+  <block id="cc0eb7dbb8893977120a22b09b8c4ca0" category="paragraph"><block ref="f5d5ae39791d9eaf9e8591b7cfcc3b96" category="inline-link-macro-rx"></block>。</block>
+  <block id="7fc2834f67e497ab1b49f283ea0500e6" category="paragraph">作業環境で Cloud Backup を有効にすると、最初に選択したすべてのボリュームが、定義したデフォルトのバックアップポリシーを使用してバックアップされます。Recovery Point Objective（RPO；目標復旧時点）が異なるボリュームに対して異なるバックアップポリシーを割り当てる場合は、そのクラスタに追加のポリシーを作成し、バックアップがアクティブ化されたあとに他のボリュームに割り当てることができます。</block>
+  <block id="c47b9175ecebbf21ca2cd87a3a34dc85" category="paragraph">すべてのボリュームについて、毎時、毎日、毎週、毎月、および毎年のバックアップの組み合わせを選択できます。また、システム定義のポリシーの中から、 3 カ月、 1 年、 7 年のバックアップと保持を提供するポリシーを選択することもできます。ポリシーは次のとおりです。</block>
+  <block id="952a500aaf6d2c5ad8514e3fa5bd6474" category="paragraph">カテゴリまたは間隔のバックアップの最大数に達すると、古いバックアップは削除されるため、常に最新のバックアップが保持されます（そのため、廃止されたバックアップはクラウドのスペースを消費し続けることはありません）。</block>
+  <block id="6cc30d6c33bfc4f65037828783c2a89d" category="paragraph">Cloud Backupでは、次のタイプのボリュームをサポートしています。</block>
+  <block id="d461a54e93e8dcbd189b38f0ff2865bc" category="list-text">FlexVol 読み書き可能ボリューム</block>
+  <block id="913b0ac6158d64b39b9d1e539ad326d3" category="list-text">SnapMirrorデータ保護（DP）デスティネーションボリューム</block>
+  <block id="53356882cec477de26a5ac4371a30b82" category="list-text">SnapLock Enterpriseボリューム（ONTAP 9.11.1以降が必要）</block>
+  <block id="a9a7d368f3242c79499022254f6621b1" category="paragraph">FlexGroup ボリュームとSnapLock Complianceボリュームは、現在のところサポートされていません。</block>
+  <block id="02e3f175b6b6db384cc8a9f19dfd8b6a" category="section-title">2022年7月13日</block>
+  <block id="f2c95e400c19071fbcd562467ddc48b3" category="section-title">SnapLock Enterpriseボリュームのバックアップがサポートされるようになりました</block>
+  <block id="e5fff8c021afd86e8d7cd1a5b82dec8e" category="paragraph">Cloud Backupを使用して、SnapLock Enterpriseボリュームをパブリッククラウドとプライベートクラウドにバックアップできるようになりました。この機能を使用するには、ONTAP システムでONTAP 9.11.1以降が実行されている必要があります。ただし、SnapLock Complianceボリュームは現在サポートされていません。</block>
+  <block id="975ab611b7133feabb2a325e663f8347" category="section-title">オンプレミスコネクタを使用して、パブリッククラウドにバックアップファイルを作成できるようになりました</block>
+  <block id="8d2224260491150c834f946712c069a0" category="paragraph">以前は、バックアップファイルの作成場所と同じクラウドプロバイダにConnectorを導入する必要がありました。オンプレミスに導入されたコネクタを使用して、オンプレミスのONTAP システムからAmazon S3、Azure Blob、Google Cloud Storageへのバックアップファイルを作成できるようになりました。（StorageGRID システムでバックアップファイルを作成する場合は、オンプレミスコネクタが常に必要でした）。</block>
+  <block id="f42fcdabb7c9a7075b26292ed8cb7a23" category="section-title">ONTAP システムのバックアップポリシーを作成する場合には、追加の機能を使用できます</block>
+  <block id="cd359ec6a578adbdedd6582f88b84401" category="list-text">毎年のスケジュールでバックアップを実行できるようになりました。年単位のバックアップの場合、デフォルトの保持期間は1ですが、この値を変更して、以前の多数のバックアップファイルにアクセスできるようにすることができます。</block>
+  <block id="42a0fcc08cab0bf2248dfca3aecd8ec9" category="list-text">バックアップポリシーに名前を付けておくと、よりわかりやすいテキストでポリシーを識別できます。</block>
+  <block id="81631218cb28b1a163189c4aebeb5b6e" category="paragraph"><block ref="10a22265366b4a7cf695c35ca14547db" category="inline-link-macro-rx"></block>。</block>
+  <block id="41cb49a16b097520a48e2141982170fe" category="paragraph">ボリューム名またはフルボリューム名、部分的またはフルファイル名、サイズ範囲、および追加の検索フィルタを使用して、すべての ONTAP バックアップファイル * にまたがるボリュームまたはファイルを検索できるようになりました。これは、どのクラスタまたはボリュームがデータのソースであるかがわからない場合に、リストアするデータを見つけるための新しい優れた方法です。 <block ref="3e575c236f27ae49c244d24621c1b57f" category="inline-link-macro-rx"></block>。</block>
+  <block id="cc19ce08481602a2005d8a0cb018c27b" category="list-text">Cloud Managerの左側のナビゲーションメニューで、* Backup &amp; Restore *をクリックします。</block>
+  <block id="ea8a2356278a22c30f10f434b2817051" category="summary">これらのトピックでは、異なるクラウドプロバイダを使用する場合のクロスアカウント構成用の Cloud Backup の設定方法について説明します。</block>
+  <block id="7a53699637b912f01aa7132ea51f400b" category="doc">クロスアカウント構成とクロスリージョン構成</block>
+  <block id="d5a79fec0152d5b9f187e79f6b283242" category="inline-link-macro">AWS でマルチアカウントアクセス用に Cloud Backup を設定</block>
+  <block id="3e09ff3eab93d05fbedc4dbf5f29307b" category="list-text"><block ref="3e09ff3eab93d05fbedc4dbf5f29307b" category="inline-link-macro-rx"></block></block>
+  <block id="9612f9e9155213e869c9b3a8f05e2ca4" category="inline-link-macro">Azure でマルチアカウントアクセスに Cloud Backup を設定</block>
+  <block id="9d8c1bcd2b5235cf83b240a7de1ef594" category="list-text"><block ref="9d8c1bcd2b5235cf83b240a7de1ef594" category="inline-link-macro-rx"></block></block>
+  <block id="de76148f38881d048b0371c5472a1c65" category="list-text">年単位のバックアップは、年の最初の日の午前0時を過ぎた直後に開始されます。</block>
+  <block id="c04e9a5a6565b2a7f08b4191d93602f6" category="inline-link">これらの容量ベースのライセンスパッケージの詳細については、こちらをご覧ください</block>
+  <block id="15117a805dc21b83a72d3b993a76f167" category="paragraph"><block ref="0b3d0999528dc9bb1b2a5ebd17f87563" category="inline-link-rx"></block>。</block>
+  <block id="66145e361f72b54aa011f59d543dfb08" category="section-title">年間契約を使用する</block>
+  <block id="264c1c7d3f4ee3cdcffedb80d7ffdb90" category="paragraph">年間契約を購入することで、Cloud Backupを年間料金で利用できます。</block>
+  <block id="2ad823c02fc1acdb11ec531ccd53e0f5" category="paragraph">AWSを使用している場合は、で2つの年間契約が提供されます<block ref="7e9391e5068ba3345180f0de3723960c" category="inline-link-rx"></block> Cloud Volumes ONTAP システムとオンプレミスの ONTAP システムで使用できます。1年、2年、または3年の期間が用意されています。</block>
+  <block id="442a6a5ce0278cd99b278c1c2c67fbde" category="paragraph">Azureをご利用の場合は、ネットアップの営業担当者に連絡して年間契約を購入してください。この契約は、Azure Marketplaceでのプライベートオファーとして提供されます。</block>
+  <block id="6657c4187090950f0e8b808454af01dd" category="paragraph">ネットアップがプライベートオファーを共有したあとは、Cloud Backupのアクティブ化の際にAzure Marketplaceからサブスクリプションするときに、年間プランを選択できます。</block>
+  <block id="ab788bf4fa445771d4446e36e923ffe4" category="paragraph">GCPを使用している場合は、ネットアップの営業担当者に連絡して年間契約を購入してください。この契約は、Google Cloud Marketplaceでのプライベートオファーとして利用できます。</block>
+  <block id="a2384c6b0e0fa211c99dda551850d3c7" category="paragraph">ネットアップがお客様とプライベートオファーを共有した後は、Cloud Backupのアクティブ化の際にGoogle Cloud Marketplaceから登録するときに、年間プランを選択できます。</block>
+  <block id="ebfefcd98f010a948a1d7251ef132972" category="list-text">Cloud Managerの左側のナビゲーションメニューで、* Digital Wallet *をクリックし、* Data Services Licenses *タブを選択します。</block>
+  <block id="fa151cd4e924318c49ae962dc9172d21" category="paragraph">AWS VPCまたはオンプレミスにすでにコネクタが導入されている場合は、すべて設定されます。ない場合は、ONTAP データをAWS S3ストレージにバックアップするためのコネクタを作成する必要があります。また、コネクタのネットワーク設定をカスタマイズして AWS S3 に接続できるようにする必要があります。</block>
+  <block id="376da794bc45a0b27e3c757018f00f1c" category="paragraph">次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタや、AWS VPCに導入したコネクタを使用できます。</block>
+  <block id="2a0c0bd6978fb77b6428f0b072f37443" category="inline-image-macro">Cloud Backupがパブリック接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているAWS S3ストレージと通信する仕組みを示す図。</block>
+  <block id="363461d798db4b88f31aa3d862473f95" category="paragraph"><block ref="363461d798db4b88f31aa3d862473f95" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ea7f03756f7c008946dd9175a5fb9557" category="paragraph">次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタや、AWS VPCに導入したコネクタを使用できます。</block>
+  <block id="32a73e0db7b1711b5d992c4c6a4481f8" category="inline-image-macro">Cloud Backupがプライベート接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているAWS S3ストレージと通信する仕組みを示す図。</block>
+  <block id="eaa29096ef448c4ab5d5ece35c540788" category="paragraph"><block ref="eaa29096ef448c4ab5d5ece35c540788" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="244b0622880fcbe1c4432e64d81bc038" category="paragraph">AWS VPCまたはオンプレミスにすでにコネクタが導入されている場合は、すべて設定されます。ない場合は、ONTAP データをAWS S3ストレージにバックアップするために、これらのいずれかの場所にコネクタを作成する必要があります。別のクラウドプロバイダに導入されているコネクタは使用できません。</block>
+  <block id="cd10ae990b1a676dcb9da574833197dc" category="inline-link">AWSにコネクタをインストールする</block>
+  <block id="fe96b3be0fd11571a6c8ea6ac43f23fe" category="list-text"><block ref="fe96b3be0fd11571a6c8ea6ac43f23fe" category="inline-link-rx"></block></block>
+  <block id="2e379f93711508ab69eec06837dd271c" category="inline-link">エンドポイントのリストを参照してください</block>
+  <block id="3014a55cd7ec25590c6b5406eec324b1" category="list-text">ポート443からCloud Backup Service およびS3オブジェクトストレージへのHTTPS接続 <block ref="2b717f51e9f0e108fc936d861142f7b4" category="inline-link-rx"></block>)</block>
+  <block id="b81793c592727efa905fe3e8a74bbb9d" category="list-text">ONTAP クラスタからVPCへのDirect ConnectまたはVPN接続が確立されている状況で、コネクタとS3の間の通信をAWS内部ネットワーク（*プライベート*接続）のままにする場合は、S3へのVPCエンドポイントインターフェイスを有効にする必要があります。 <block ref="038eee040120b4244a9c2b9d19ca5787" category="inline-xref-macro-rx"></block></block>
+  <block id="580798374daad69e27cac9cf6be8efde" category="paragraph">プライベートエンドポイントとの通信にポート80（HTTP）を使用している場合は、すべて設定されています。クラスタで Cloud Backup を有効にすることができます。</block>
+  <block id="d01a3cd900c15a600484a72c451fa0a2" category="paragraph">リストアダッシュボードを使用して、ボリュームとファイルのリストア処理を実行できます。リストアダッシュボードにアクセスするには、Cloud Managerの左側のナビゲーションメニューから*バックアップとリストア*をクリックし、*リストア*タブをクリックします。をクリックすることもできます <block ref="c01b692574fda287c7455bfbcec2709c" category="inline-image-macro-rx" type="image"></block> &gt; * サービス・パネルからバックアップ / リストア・サービスのリストア・ダッシュボード * を表示します。</block>
+  <block id="670b9aef2512ae3b40b985a5adc5b434" category="cell">アカウントごとに、バケットとパブリッククラウドプロバイダのリソースを追加する必要があります</block>
+  <block id="3ab16c7e816447c753ed38f0e698b1ca" category="cell">バックアップやボリュームをスキャンして検索結果を表示する際の、パブリッククラウドプロバイダのリソースに関連するコスト</block>
+  <block id="426b108b3b1f504bcf6ad91080c03bb7" category="cell">GoogleのCloud Volumes ONTAP （^1 ^）オンプレミスONTAP システム（^1 ^）endif：gcp []</block>
+  <block id="dc21a507415d6549658ac091d39eb27e" category="paragraph">（^1 ^）_このサポートを受けるには、Google Cloud Platform VPCにコネクタを導入する必要があります。_</block>
+  <block id="2db2650b7ba5d09e744f484813a600ba" category="cell">endif：azure []ifdef：azure[] endif：azure[] ifdef：gCP[]</block>
+  <block id="03b9b653b1a3d7d52d48bd997585d602" category="admonition">このサポートを利用するには、コネクタがクラウドプロバイダプラットフォームに導入されている必要があります。Connectorが社内にインストールされている場合、検索と復元はサポートされません。</block>
+  <block id="5befa7486c8d00eaafce2041341f9c2e" category="list-text">別の Azure サブスクリプションでバックアップを作成するために必要なセットアップ</block>
+  <block id="a2ff0bc78d093861138e916ba1b7cc8b" category="inline-link-macro">Azure ポータルにログインして、 2 つのサブスクリプションをリンクできます</block>
+  <block id="0cb51e6ed7c689efeebeb6de708d8e58" category="list-text">デフォルトでは、バックアップは Cloud Volumes ONTAP システムと同じサブスクリプションを使用して作成されます。バックアップに別の Azure サブスクリプションを使用する場合は、が必要です <block ref="9054d8fd2617d522cb8cc52a346f8430" category="inline-link-macro-rx"></block>。</block>
+  <block id="1f1d430741bc6a0e3ed24dea15d600e3" category="paragraph">バックアップに別の Azure サブスクリプションを使用する場合は、が必要です <block ref="9054d8fd2617d522cb8cc52a346f8430" category="inline-link-macro-rx"></block>。</block>
+  <block id="6c82d791a5e7452f52c38a42d7b61c10" category="summary">Cloud Backup では、ソース Cloud Volumes ONTAP ボリュームとは別の、 Cloud Manager Connector が存在するアカウントとは別の Azure アカウントにバックアップファイルを作成できます。</block>
+  <block id="da7bc8de90297f74e7e43d559d6f8a4c" category="doc">Azure でマルチアカウントアクセスのバックアップを設定する</block>
+  <block id="8429269282ffb8b1977a5b2d128d65ca" category="paragraph">Cloud Backup では、ソース Cloud Volumes ONTAP ボリュームとは別の Azure アカウントにバックアップファイルを作成できます。これらのアカウントは、 Cloud Manager Connector がインストールされているアカウントとは異なる場合があります。</block>
+  <block id="08fb1651cbfdb11878b475347705c01b" category="inline-link">Cloud Volumes ONTAP データの Azure BLOB ストレージへのバックアップ</block>
+  <block id="2a4ac893df9780b6108621896c9bfc7b" category="paragraph">これらの手順は、を実行している場合にのみ必要です<block ref="e74b3b06a2a8c2ff7fa54388adf98ac9" category="inline-link-rx"></block>。</block>
+  <block id="f9a8974587711b80f51f844aef1e99df" category="paragraph">この方法で設定を行うには、次の手順を実行します。</block>
+  <block id="7effdaab63f2a455255267b1c45a602d" category="section-title">アカウント間の VNet ピアリングを設定します</block>
+  <block id="2b8c0900fecf2fde6ad819b17c34d231" category="paragraph">Cloud Manager で別のアカウントやリージョンの Cloud Volumes ONTAP システムを管理する場合は、 VNet ピアリングを設定する必要があります。ストレージアカウントの接続に VNet ピアリングは必要ありません。</block>
+  <block id="7be5dff9f26dd0cfb7e5896d6142d4c7" category="list-text">Azure ポータルにログインし、ホームから仮想ネットワークを選択します。</block>
+  <block id="24d6ea8c256f982be40d4e8e87a36c2c" category="list-text">サブスクリプション 1 として使用するサブスクリプションを選択し、ピアリングを設定する VNet 上でクリックします。</block>
+  <block id="010f020ec46dae654334c56b074681e9" category="paragraph"><block ref="010f020ec46dae654334c56b074681e9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ff903d724a3c43c1027ecc76bb702e6b" category="list-text">*cbsnetwork* を選択し、左パネルから *peerings* をクリックし、 * Add * をクリックします。</block>
+  <block id="48f2a3e5416499a845b82d79729c9d24" category="paragraph"><block ref="48f2a3e5416499a845b82d79729c9d24" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="29352d6eba72ea7dbb14542cfe329be6" category="list-text">ピアリングページで次の情報を入力し、 * 追加 * をクリックします。</block>
+  <block id="35a314f287f704bbad5bca1d051178df" category="list-text">このネットワークのピアリングリンク名：ピアリング接続を識別する任意の名前を指定できます。</block>
+  <block id="23a50db2830b340ce45406a69594314e" category="list-text">リモート仮想ネットワークピアリングリンク名：リモート VNet を識別するための名前を入力します。</block>
+  <block id="23251ed1ab3cfb08802622b5c2f690d3" category="list-text">すべての選択をデフォルト値のままにします。</block>
+  <block id="f6158ca7f18c6d458f457bd8d96c59b3" category="list-text">[ サブスクリプション ] で、サブスクリプション 2 を選択します。</block>
+  <block id="4949fa102af5d259068b046bbcf72842" category="list-text">仮想ネットワーク：ピアリングを設定するサブスクリプション 2 の仮想ネットワークを選択します。</block>
+  <block id="25e65bc02464ec916d34bab534d7035e" category="paragraph"><block ref="25e65bc02464ec916d34bab534d7035e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1995f9fb02d5dc1ec670c575158c4755" category="list-text">サブスクリプション 2 VNet 内で同じ手順を実行し、サブスクリプション 1 のサブスクリプションおよびリモート VNet の詳細を指定します。</block>
+  <block id="70ad9b34a75d793ad5ca4592ae835d9e" category="paragraph"><block ref="70ad9b34a75d793ad5ca4592ae835d9e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="51578c8638d5ef3ad9f76229b740c313" category="paragraph">ピアリング設定が追加されます。</block>
+  <block id="daacd9916a3d67dff4ea461056675145" category="paragraph"><block ref="daacd9916a3d67dff4ea461056675145" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2aa38dadb98b1cc114f5605565fc8460" category="section-title">ストレージアカウントのプライベートエンドポイントを作成します</block>
+  <block id="65f2f7b74f3cf2f1a25c4c81a6aaa2ee" category="paragraph">次に、ストレージアカウント用のプライベートエンドポイントを作成する必要があります。この例では、サブスクリプション 1 でストレージアカウントが作成され、 Cloud Volumes ONTAP システムはサブスクリプション 2 で実行されています。</block>
+  <block id="720247e8961069a5c025366867b8b8fb" category="admonition">次の操作を実行するには、ネットワーク作成者の権限が必要です。</block>
+  <block id="1da2c465a0473c669ecf45690f9c77f8" category="list-text">ストレージアカウント &gt; ネットワーク &gt; プライベートエンドポイント接続に移動し、 * + プライベートエンドポイント * をクリックします。</block>
+  <block id="ab018e3a2da472dd06615e08149c8ae2" category="paragraph"><block ref="ab018e3a2da472dd06615e08149c8ae2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2e0fccb2492335abb1bf03e7895e57b1" category="list-text">Private Endpoint_Basics_page で、次の手順を実行します。</block>
+  <block id="47575dd43ad40803f135818d9b3c43fb" category="list-text">サブスクリプション 2 （ Cloud Manager Connector と Cloud Volumes ONTAP システムを導入する場所）とリソースグループを選択します。</block>
+  <block id="dcf7853e5720d1d4006d6354680dfca5" category="list-text">エンドポイント名を入力します。</block>
+  <block id="8632ba911e67cd674d7aa46e9c33ca03" category="list-text">リージョンを選択します。</block>
+  <block id="8de80de63c22bf5501105fe1221042c7" category="paragraph"><block ref="8de80de63c22bf5501105fe1221042c7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="86429c7405c9ff23bac7996b6cc76306" category="list-text">_Resource_page で ' ターゲットサブリソースとして *blob * を選択します</block>
+  <block id="78ce42b66c723160afef603d60cfbd83" category="paragraph"><block ref="78ce42b66c723160afef603d60cfbd83" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4f45f5d0c19691a0eac82881ce091080" category="list-text">設定ページで、次の操作を行います。</block>
+  <block id="e17a8b8467cfbf9720f1af51cc6f6419" category="list-text">仮想ネットワークとサブネットを選択します。</block>
+  <block id="a9faeeb34299d046e7a14a5d1df3950a" category="list-text">[ はい * ] ラジオボタンをクリックして、 [ プライベート DNS ゾーンと統合 ] を選択します。</block>
+  <block id="cec5fb61420f116b9d3e7afb6183499d" category="paragraph"><block ref="cec5fb61420f116b9d3e7afb6183499d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="872d4b2a2e61a2a07fc61a362e17881d" category="list-text">[ プライベート DNS ゾーン ] リストで、正しいリージョンからプライベートゾーンが選択されていることを確認し、 [ * レビュー + 作成 * ] をクリックします。</block>
+  <block id="865c712e84080e3a8a2a2e9f3ced5e13" category="paragraph"><block ref="865c712e84080e3a8a2a2e9f3ced5e13" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="547e2a5eac8fbdbb2c8f7a56f61c8cbe" category="paragraph">これで、ストレージアカウント（サブスクリプション 1 ）は、サブスクリプション 2 で実行されている Cloud Volumes ONTAP システムにアクセスできます。</block>
+  <block id="6c1ad99d058e5f7bd2ca1d2080dbc7ee" category="list-text">Cloud Volumes ONTAP システムでクラウドバックアップの有効化を再度実行して、成功することを確認します。</block>
+  <block id="5203ff4556ed5037a1fa6c4dbbdecaa2" category="list-text">別の AWS アカウントでバックアップを作成する場合の必須のセットアップです</block>
+  <block id="fabb672065eda5c24a37dfc40766d386" category="inline-link-macro">AWS ポータルにログインして、 2 つのアカウントをリンクできます</block>
+  <block id="7f7aa67e8e982d398b5f4be602378263" category="list-text">デフォルトでは、 Cloud Volumes ONTAP システムに使用されるアカウントと同じアカウントを使用してバックアップが作成されます。バックアップに別の AWS アカウントを使用する場合は、が必要です <block ref="0d6748bbdbbf88fa0ba7b6606f1de25f" category="inline-link-macro-rx"></block>。</block>
+  <block id="1551f9c7ff96c2847bddea05633c6831" category="paragraph">バックアップに別の AWS アカウントを使用する場合は、が必要です <block ref="0d6748bbdbbf88fa0ba7b6606f1de25f" category="inline-link-macro-rx"></block>。</block>
+  <block id="89a08cbf2161e1e600bebd7775c52152" category="paragraph">次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタやAzure VNetに導入したコネクタを使用できます。</block>
+  <block id="774554ac7464b0a5b2b44d1b7a35f9b8" category="inline-image-macro">Cloud Backupがパブリック接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているAzure Blob Storageと通信する仕組みを示す図。</block>
+  <block id="828a030b582c5f08a974559742134d7a" category="paragraph"><block ref="828a030b582c5f08a974559742134d7a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b96b5838aef23799b7cd5f25a54e69dd" category="paragraph">次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタやAzure VNetに導入したコネクタを使用できます。</block>
+  <block id="b320468f5dbc0cfb561a92c49fe04c98" category="inline-image-macro">Cloud Backupがプライベート接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているAzure Blob Storageと通信する仕組みを示す図。</block>
+  <block id="325a65bfe5fe5e749b4e5c907feaa4cd" category="paragraph"><block ref="325a65bfe5fe5e749b4e5c907feaa4cd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="68c339b6eb7bfabf7edb3aa60625b8a0" category="paragraph">Azure VNetまたはオンプレミスにコネクタがすでに導入されている場合は、すべて設定されます。ない場合は、これらのいずれかの場所にコネクタを作成して、ONTAP データをAzure BLOBストレージにバックアップする必要があります。別のクラウドプロバイダに導入されているコネクタは使用できません。</block>
+  <block id="698b05231bfe12b062cbf4a5381b3d2f" category="inline-link">Azureにコネクタをインストールしています</block>
+  <block id="b4f571ad8c9a525beb5cb8da26f64fef" category="list-text"><block ref="b4f571ad8c9a525beb5cb8da26f64fef" category="inline-link-rx"></block></block>
+  <block id="a3caba4397a73eb091b3374d44a36510" category="list-text">Azure ストレージへの VNet プライベートエンドポイントを有効化これは、ONTAP クラスタからVNetへのExpressRouteまたはVPN接続があり、コネクタとBLOBストレージ間の通信を仮想プライベートネットワーク（*プライベート*接続）で維持する場合に必要です。</block>
+  <block id="dd94e6d5951947f0eff3b1955e4083ad" category="summary">Cloud Backup では、ソース Cloud Volumes ONTAP ボリュームとは別の、 Cloud Manager Connector が存在するアカウントとは別の AWS アカウントにバックアップファイルを作成できます。</block>
+  <block id="8e751a9486c9dfca33d698d89e8735cc" category="doc">AWS でマルチアカウントアクセスのバックアップを設定します</block>
+  <block id="6a8063f29ccc05aa9135dc170e2bb3fa" category="paragraph">Cloud Backup では、ソース Cloud Volumes ONTAP ボリュームとは別の AWS アカウントにバックアップファイルを作成できます。これらのアカウントは、 Cloud Manager Connector がインストールされているアカウントとは異なる場合があります。</block>
+  <block id="8058713b6e99091e9338b74c54fcf4d1" category="inline-link-macro">Amazon S3 への Cloud Volumes ONTAP データのバックアップ</block>
+  <block id="6fc5373fc5963d4fc74be3c09593d6cd" category="paragraph">これらの手順は、を実行している場合にのみ必要です <block ref="1712a7b3a53406f071004d1011ed4c8b" category="inline-link-macro-rx"></block>。</block>
+  <block id="cc8f5b323a09317b230e8d9df9fd9fe5" category="paragraph">この方法で設定を行うには、次の手順に従います。</block>
+  <block id="8dda5cc49426a1529bde8a248cc69f3c" category="section-title">アカウント間に VPC ピアリングを設定します</block>
+  <block id="23999be399dc666655c009d67e765a7f" category="list-text">2 つ目のアカウントにログインし、ピアリング接続を作成します。</block>
+  <block id="da124a43157a545c849d8d044177fa5c" category="list-text">ローカル VPC を選択： 2 つ目のアカウントの VPC を選択します。</block>
+  <block id="2bc490e4e2b6ea807815e0ae6f8d6364" category="list-text">別の VPC を選択：最初のアカウントのアカウント ID を入力します。</block>
+  <block id="b8c0b1182f4103fb937e35c4b3d5ed22" category="list-text">Cloud Manager Connector が実行されているリージョンを選択します。このテストセットアップでは、両方のアカウントが同じリージョンで実行されています。</block>
+  <block id="0cc30f7ff998b548302215e5c813f3e7" category="list-text">VPC ID ：最初のアカウントにログインし、アクセプタ VPC ID を入力します。Cloud Manager Connector の VPC ID です。</block>
+  <block id="f37940e1c94c024babffc6656fe5d4cb" category="paragraph"><block ref="f37940e1c94c024babffc6656fe5d4cb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="46cd1193424d126ae819e16ccea775cf" category="paragraph">成功ダイアログが表示されます。</block>
+  <block id="09d396d9aff8a1584d61db9ad70830f5" category="paragraph"><block ref="09d396d9aff8a1584d61db9ad70830f5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0ed17cab8279c2b037bdab4523b50537" category="paragraph">ピアリング接続のステータスは、 Pending Acceptance と表示されます。</block>
+  <block id="54aceb9e33fcd332781c087dd2a435d9" category="paragraph"><block ref="54aceb9e33fcd332781c087dd2a435d9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d9a7222807f4794ab2093d32e006689d" category="list-text">最初のアカウントにログインし、ピアリング要求を承認します。</block>
+  <block id="34e48e56b2732115af6c105d7a5a2364" category="paragraph"><block ref="34e48e56b2732115af6c105d7a5a2364" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1d5fe7b7af26cac39d4c1afc05604a0b" category="paragraph"><block ref="1d5fe7b7af26cac39d4c1afc05604a0b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="86ce5961ef6624058f736d93459d1889" category="list-text">「 * はい * 」をクリックします。</block>
+  <block id="392156e7bb0b5c698108c0dbd1718b7e" category="paragraph"><block ref="392156e7bb0b5c698108c0dbd1718b7e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b0af152910d091115e45fdca137f5e6c" category="paragraph">接続がアクティブと表示されます。また、「 CBS-multi-account 」と呼ばれるピアリング接続を識別するための Name タグも追加しました。</block>
+  <block id="fb9e6d839c4c0733662b7d1c3791f04f" category="paragraph"><block ref="fb9e6d839c4c0733662b7d1c3791f04f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="61ddfb970163206fba685a5f0288a53f" category="list-text">2 つ目のアカウントのピアリング接続を更新し、ステータスが Active に変わったことを確認します。</block>
+  <block id="efad595592ce0aa3fd924c4dda391af1" category="paragraph"><block ref="efad595592ce0aa3fd924c4dda391af1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3dd11551c4578618a1047768ca1080ff" category="section-title">両方のアカウントのルートテーブルにルートを追加します</block>
+  <block id="fef14d27984d5c5007fad3a8398d3ec6" category="list-text">VPC &gt; サブネット &gt; ルートテーブルに移動します。</block>
+  <block id="b93111065e7ccbab6abcba2c1a8f73fb" category="paragraph"><block ref="b93111065e7ccbab6abcba2c1a8f73fb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="17427bd5e56b832846f9b5977972eb9b" category="list-text">[ ルート ] タブをクリックします。</block>
+  <block id="151c3859381a10834ef3650ebfc04c63" category="paragraph"><block ref="151c3859381a10834ef3650ebfc04c63" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b7b9b631e23759ae9b15b6eb3fa5e222" category="list-text">* ルートの編集 * をクリックします。</block>
+  <block id="7b598fc0eb5ff89574ab28967361b6cf" category="paragraph"><block ref="7b598fc0eb5ff89574ab28967361b6cf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b20975ec2c9cc3c0b410539e7431ce3c" category="list-text">[Add route* ] をクリックし、 [Target] ドロップダウンリストから [* ピアリング接続 *] を選択して、作成したピアリング接続を選択します。</block>
+  <block id="1cc0e6aa45469e0c97f4c8d01029c711" category="list-text">デスティネーションで、もう一方のアカウントのサブネット CIDR を入力します。</block>
+  <block id="5aaec6437a876633deb75e4e44f13351" category="paragraph"><block ref="5aaec6437a876633deb75e4e44f13351" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dc876faf644bb502138fe26e0c34cc2b" category="list-text">[ ルートの保存（ Save Routes ） ] をクリックすると、 [ 成功（ Success ） ] ダイアログが</block>
+  <block id="f222fc35d9f0a2e68dee5303c744b233" category="paragraph"><block ref="f222fc35d9f0a2e68dee5303c744b233" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="83ee06969289ad2709c85daa494b8e6d" category="section-title">Cloud Manager で 2 つ目の AWS アカウントのクレデンシャルを追加します</block>
+  <block id="51bd60bef39198eadbd9d07f07b6f848" category="list-text">2 つ目の AWS アカウントを追加します。例： _Saran - XCP - Dev_.</block>
+  <block id="101c8a0e2fe06335bed991a98fe511d6" category="paragraph"><block ref="101c8a0e2fe06335bed991a98fe511d6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="62d5e5b16a7d3cd4992e06a9e44f6b89" category="list-text">Discover Cloud Volumes ONTAP ページで、新しく追加したクレデンシャルを選択します。</block>
+  <block id="b81e988d180a4e5002c7da0a525bae8c" category="paragraph"><block ref="b81e988d180a4e5002c7da0a525bae8c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f985d1b240eac967d67d47f51d4b6923" category="list-text">2 つ目のアカウントから検出する Cloud Volumes ONTAP システムを選択します。2 番目のアカウントに新しい Cloud Volumes ONTAP システムを導入することもできます。</block>
+  <block id="01f374c4058840889001edce93ae826c" category="paragraph"><block ref="01f374c4058840889001edce93ae826c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="843b67542940bb2cdfa06d92ed063953" category="paragraph">2 番目のアカウントの Cloud Volumes ONTAP システムが、別のアカウントで実行されている Cloud Manager に追加されます。</block>
+  <block id="d7c65f60ddee3212048c02a58dafe3f2" category="paragraph"><block ref="d7c65f60ddee3212048c02a58dafe3f2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5f984f141905e9a2ae976772c3a0ec88" category="section-title">もう一方の AWS アカウントでバックアップを有効にします</block>
+  <block id="0db1a08a4c5ab75fe461fbfc62c60b31" category="list-text">Cloud Manager で、最初のアカウントで実行されている Cloud Volumes ONTAP システムのバックアップを有効にし、 2 番目のアカウントをバックアップファイルの作成場所として選択します。</block>
+  <block id="e1cba41a34f099af4da44519122e4819" category="paragraph"><block ref="e1cba41a34f099af4da44519122e4819" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="37fb64af7838c7812742277f86b82187" category="list-text">次に、バックアップポリシーとバックアップするボリュームを選択し、 Cloud Backup は選択したアカウントで新しいバケットを作成しようとします。</block>
+  <block id="c110fa61f3820ba9895f3bd3a9a34bf1" category="paragraph">ただし、 Cloud Volumes ONTAP システムへのバケットの追加は失敗します。これは、 Cloud Backup がインスタンスプロファイルを使用してバケットを追加するためで、 Cloud Manager インスタンスプロファイルが 2 番目のアカウントのリソースにアクセスできないためです。</block>
+  <block id="73b0a17a2aeef54342d85e4069276106" category="list-text">Cloud Volumes ONTAP システムの作業環境 ID を取得します。</block>
+  <block id="e182d9c19bc99dfeae04b858ebce0657" category="paragraph"><block ref="e182d9c19bc99dfeae04b858ebce0657" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f1156c7e65b5a45e39da5b60f0b5969d" category="paragraph">Cloud Backup は「 NetApp-backup- 」というプレフィックスを付けてすべてのバケットを作成し、作業環境 ID を含めます。たとえば「 87ULea10 」となります</block>
+  <block id="47b7a9cb88cc06a74b7f4cbf37ba50c0" category="list-text">EC2 ポータルで S3 に移動し、「 87uLea10 」で終わる名前のバケットを検索すると、「 NetApp-backup-vsa87uLea10 」と表示されるバケット名が表示されます。</block>
+  <block id="06491e371144d0540a634476a6bbd57c" category="paragraph"><block ref="06491e371144d0540a634476a6bbd57c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="874e4b5a29afc18670812401c549fda7" category="list-text">バケットをクリックし、 [ 権限 ] タブをクリックして、 [ バケットポリシー ] セクションの *Edit* をクリックします。</block>
+  <block id="18a75610698bdc11d77aad0e366aea73" category="paragraph"><block ref="18a75610698bdc11d77aad0e366aea73" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="da7b3c31d6d6ff8dd2a478b5e8b64f15" category="list-text">新しく作成したバケットのバケットポリシーを追加して、 Cloud Manager の AWS アカウントにアクセスできるようにしてから、変更を保存します。</block>
+  <block id="f40b6931520c713d2ab0451164991e85" category="paragraph">「 aws 」： "aws ： "arn ： aws ： 464262061435 ： root 」ではアカウント 464262061435 のすべてのリソースにこのバケットへのアクセスを許可しています。特定のロールレベルに減らすには、特定のロールでポリシーを更新します。ロールを個別に追加する場合は、 occm ロールも追加する必要があります。追加しないと、 Cloud Backup UI でバックアップが更新されません。</block>
+  <block id="5cec8c57838d0c83b81a77b4cc1cff11" category="paragraph">例： "AWS" ： "arn ： aws ： IAM ： 464262061435 ： role/CVO-instance-profileversion10-d8e-IamInstanceRole-IKJP1HC2E7R"</block>
+  <block id="15ab165885255fcc1d504e3757e4f995" category="sidebar">AWS でマルチアカウントアクセス用にバックアップを設定します</block>
+  <block id="37c606e486cf867317024daab096d5c7" category="sidebar">Azure でマルチアカウントアクセス用にバックアップを設定</block>
 </blocks>

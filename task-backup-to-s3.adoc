@@ -44,7 +44,7 @@ image:screenshot_backup_cvo_enable.png["作業環境を選択した後に使用�
 image:screenshot_backup_provider_settings_aws.png["Cloud Volumes ONTAP システムから AWS S3 にボリュームをバックアップする際のクラウドプロバイダの詳細を示すスクリーンショット。"]
 
 [role="quick-margin-para"]
-デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、または毎月のバックアップに変更するか、システム定義のポリシーの中からオプションを追加する 1 つを選択します。保持するバックアップコピーの数を変更することもできます。
+デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、毎月、または毎年のバックアップに変更します。 または、オプションを追加するシステム定義のポリシーを1つ選択します。保持するバックアップコピーの数を変更することもできます。
 
 [role="quick-margin-para"]
 バックアップはデフォルトで S3 Standard ストレージに格納されます。クラスタが ONTAP 9.10.1 以降を使用している場合は、 S3 Glacier または S3 Glacier Deep Archive ストレージにバックアップを階層化して、コストをさらに最適化することができます。
@@ -79,6 +79,7 @@ Cloud Backup BYOL ライセンスを使用するには、ライセンスの期�
 
 --
 サポートされている AWS リージョン:: Cloud Backup はすべての AWS リージョンでサポートされます https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP がサポートされている場合"^]AWS GovCloud リージョンを含む。
+別の AWS アカウントでバックアップを作成する場合の必須のセットアップです:: デフォルトでは、 Cloud Volumes ONTAP システムに使用されるアカウントと同じアカウントを使用してバックアップが作成されます。バックアップに別の AWS アカウントを使用する場合は、が必要です link:reference-backup-multi-account-aws.html["AWS ポータルにログインして、 2 つのアカウントをリンクできます"]。
 データ暗号化にお客様が管理するキーを使用するために必要な情報:: デフォルトの Amazon S3 暗号化キーを使用する代わりに、アクティブ化ウィザードでお客様が管理するデータ暗号化キーを選択できます。この場合は、暗号化管理キーがすでに設定されている必要があります。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["独自のキーの使用方法を参照してください"^]。
 AWS 権限が必要です:: Cloud Manager に権限を提供する IAM ロールが必要です 最新の S3 権限を含める https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"^]。
 +
@@ -170,6 +171,9 @@ image:screenshot_backup_cvo_enable.png["作業環境を選択した後に使用�
 . プロバイダの詳細を選択し、 * 次へ * ：
 +
 .. バックアップの格納に使用する AWS アカウント。これは、 Cloud Volumes ONTAP システムが配置されているアカウントとは異なる場合があります。
++
+バックアップに別の AWS アカウントを使用する場合は、が必要です link:reference-backup-multi-account-aws.html["AWS ポータルにログインして、 2 つのアカウントをリンクできます"]。
+
 .. バックアップを保存するリージョン。これは、 Cloud Volumes ONTAP システムが配置されているリージョンとは異なるリージョンにすることもできます。
 .. デフォルトの Amazon S3 暗号化キーを使用するか、お客様が管理する独自のキーを AWS アカウントから選択してデータの暗号化を管理するか。 (https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["独自の暗号化キーの使用方法を参照してください"]）。
 +
@@ -177,8 +181,9 @@ image:screenshot_backup_provider_settings_aws.png["Cloud Volumes ONTAP システ
 
 
 
-. デフォルトのバックアップポリシーの詳細を入力し、 * Next * をクリックします。
+. デフォルト・ポリシーに使用するバックアップ・ポリシーの詳細を入力し、［*次へ*］をクリックします。既存のポリシーを選択するか、各セクションで選択した内容を入力して新しいポリシーを作成できます。
 +
+.. デフォルトポリシーの名前を入力します。名前を変更する必要はありません。
 .. バックアップスケジュールを定義し、保持するバックアップの数を選択します。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["選択可能な既存のポリシーのリストが表示されます"^]。
 .. ONTAP 9.10.1 以降を使用している場合は、 S3 Glacier または S3 Glacier Deep Archive ストレージにバックアップを階層化して一定の日数後にコストを最適化することができます。 link:reference-aws-backup-tiers.html["アーカイブ階層の使用の詳細については、こちらをご覧ください"]。
 +

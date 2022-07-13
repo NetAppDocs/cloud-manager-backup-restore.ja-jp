@@ -112,6 +112,13 @@ sidebar:
       url: "/reference-aws-backup-tiers.html"
     - title: サポートされている Azure アーカイブアクセス層
       url: "/reference-azure-backup-tiers.html"
+    - title: クロスアカウント構成とクロスリージョン構成
+      url: "/reference-cross-account.html"
+      entries:
+      - title: AWS でマルチアカウントアクセス用にバックアップを設定します
+        url: "/reference-backup-multi-account-aws.html"
+      - title: Azure でマルチアカウントアクセス用にバックアップを設定
+        url: "/reference-backup-multi-account-azure.html"
   - title: 知識とサポート
     entries:
     - title: サポートに登録します

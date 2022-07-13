@@ -44,7 +44,7 @@ image:screenshot_backup_cvo_enable.png["作業環境を選択したあとに使�
 image:screenshot_backup_provider_settings_gcp.png["GCP にインストールされた Cloud Volumes ONTAP システムから Google Cloud Storage バケットにボリュームをバックアップする際のクラウドプロバイダの詳細を示すスクリーンショット。"]
 
 [role="quick-margin-para"]
-デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、または毎月のバックアップに変更するか、システム定義のポリシーの中からオプションを追加する 1 つを選択します。保持するバックアップコピーの数を変更することもできます。
+デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、毎月、または毎年のバックアップに変更します。 または、オプションを追加するシステム定義のポリシーを1つ選択します。保持するバックアップコピーの数を変更することもできます。
 
 [role="quick-margin-para"]
 image:screenshot_backup_policy_gcp.png["クラウドバックアップの設定を示すスクリーンショット。機能を有効または無効にして、バックアップの保持期間を選択できます。"]
@@ -158,12 +158,14 @@ image:screenshot_backup_provider_settings_gcp.png["GCP にインストールさ�
 +
 プロジェクトには、事前定義された Storage Admin ロールを持つサービスアカウントが必要です。
 
-. [_Define Policy_] ページで、デフォルトのバックアップスケジュールと保持の値を選択し、 [* Next] をクリックします。
+. デフォルト・ポリシーに使用するバックアップ・ポリシーの詳細を入力し、［*次へ*］をクリックします。既存のポリシーを選択するか、各セクションで選択した内容を入力して新しいポリシーを作成できます。
++
+.. デフォルトポリシーの名前を入力します。名前を変更する必要はありません。
+.. バックアップスケジュールを定義し、保持するバックアップの数を選択します。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["選択可能な既存のポリシーのリストが表示されます"^]。
 +
 image:screenshot_backup_policy_gcp.png["クラウドバックアップの設定を示すスクリーンショット。機能を有効または無効にして、バックアップの保持期間を選択できます。"]
 
-+
-を参照してください link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["既存のポリシーのリスト"^]。
+
 
 . Select Volumes （ボリュームの選択）ページで、デフォルトのバックアップポリシーを使用してバックアップするボリュームを選択します。特定のボリュームに異なるバックアップポリシーを割り当てる場合は、追加のポリシーを作成し、それらのボリュームにあとから適用できます。
 +

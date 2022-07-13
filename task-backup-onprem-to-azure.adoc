@@ -55,7 +55,7 @@ image:screenshot_backup_onprem_to_azure.png["オンプレミスクラスタか�
 image:screenshot_backup_onprem_azure_networking.png["ONTAP システムから Azure BLOB ストレージにボリュームをバックアップする場合のネットワークの詳細を示すスクリーンショット。"]
 
 [role="quick-margin-para"]
-デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、または毎月のバックアップに変更するか、システム定義のポリシーの中からオプションを追加する 1 つを選択します。保持するバックアップコピーの数を変更することもできます。
+デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、毎月、または毎年のバックアップに変更します。 または、オプションを追加するシステム定義のポリシーを1つ選択します。保持するバックアップコピーの数を変更することもできます。
 
 [role="quick-margin-para"]
 デフォルトでは、バックアップは Cool アクセス層に保存されます。クラスタが ONTAP 9.10.1 以降を使用している場合は、特定の日数が経過したあとに Azure Archive ストレージにバックアップを階層化してコストをさらに最適化することができます。
@@ -78,13 +78,13 @@ Select Volumes （ボリュームの選択）ページで、デフォルトの�
 * プライベート接続 - VPN または ExpressRoute を使用し、プライベート IP アドレスを使用する vnet Private Endpoint を介してトラフィックをルーティングします。
 
 
-次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタやAzure VNetに導入したコネクタを使用できます。
 
-image:diagram_cloud_backup_onprem_azure.png["Cloud Backupがソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとパブリック接続を介して通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_azure_public.png["Cloud Backupがパブリック接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているAzure Blob Storageと通信する仕組みを示す図。"]
 
-次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタやAzure VNetに導入したコネクタを使用できます。
 
-image:diagram_cloud_backup_onprem_azure_vnet.png["Cloud Backupが、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとプライベート接続を介して通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_azure_private.png["Cloud Backupがプライベート接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているAzure Blob Storageと通信する仕組みを示す図。"]
 
 
 
@@ -137,11 +137,12 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 
 === コネクタの作成または切り替え
 
-データをクラウドにバックアップするにはコネクタが必要です。 Azure BLOB ストレージにデータをバックアップする場合は、コネクタが Azure VNet 内に存在する必要があります。オンプレミスに導入されているコネクタは使用できません。新しいコネクターを作成するか、現在選択されているコネクターが正しいプロバイダーにあることを確認する必要があります。
+Azure VNetまたはオンプレミスにコネクタがすでに導入されている場合は、すべて設定されます。ない場合は、これらのいずれかの場所にコネクタを作成して、ONTAP データをAzure BLOBストレージにバックアップする必要があります。別のクラウドプロバイダに導入されているコネクタは使用できません。
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["コネクタについて説明します"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Azure でコネクタを作成する"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["コネクタ間の切り替え"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["コネクタの使用を開始する"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Azureにコネクタをインストールしています"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["コネクタをオンプレミスにインストールする"^]
 
 
 
@@ -158,7 +159,7 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 ** ONTAP クラスタ管理 LIF へのポート 443 経由の HTTPS 接続
 
 
-. Azure ストレージへの VNet プライベートエンドポイントを有効化これは、 ONTAP クラスタから VNet への ExpressRoute または VPN 接続があり、コネクタと BLOB ストレージ間の通信を仮想プライベートネットワークのままにする場合に必要です。
+. Azure ストレージへの VNet プライベートエンドポイントを有効化これは、ONTAP クラスタからVNetへのExpressRouteまたはVPN接続があり、コネクタとBLOBストレージ間の通信を仮想プライベートネットワーク（*プライベート*接続）で維持する場合に必要です。
 
 
 
@@ -223,8 +224,9 @@ image:screenshot_backup_onprem_azure_networking.png["ONTAP システムから Az
 
 
 
-. デフォルトのバックアップポリシーの詳細を入力し、 * Next * をクリックします。
+. デフォルト・ポリシーに使用するバックアップ・ポリシーの詳細を入力し、［*次へ*］をクリックします。既存のポリシーを選択するか、各セクションで選択した内容を入力して新しいポリシーを作成できます。
 +
+.. デフォルトポリシーの名前を入力します。名前を変更する必要はありません。
 .. バックアップスケジュールを定義し、保持するバックアップの数を選択します。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["選択可能な既存のポリシーのリストが表示されます"^]。
 .. ONTAP 9.10.1 以降を使用している場合は、特定の日数が経過したバックアップを Azure Archive ストレージに階層化して、コストをさらに最適化することができます。 link:reference-azure-backup-tiers.html["アーカイブ階層の使用の詳細については、こちらをご覧ください"]。
 +

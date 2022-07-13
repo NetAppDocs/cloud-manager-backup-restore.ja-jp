@@ -31,7 +31,7 @@ summary: オンプレミスの ONTAP システムから Amazon S3 ストレー�
 <<Network diagrams for connection options,使用可能な接続方法を参照してください。>>
 
 [role="quick-margin-para"]
-AWS VPC にすでにコネクタが導入されている場合は、すべてのポートが設定されます。ない場合は、 ONTAP データを AWS S3 ストレージにバックアップするために、 AWS でコネクタを作成する必要があります。また、コネクタのネットワーク設定をカスタマイズして AWS S3 に接続できるようにする必要があります。
+AWS VPCまたはオンプレミスにすでにコネクタが導入されている場合は、すべて設定されます。ない場合は、ONTAP データをAWS S3ストレージにバックアップするためのコネクタを作成する必要があります。また、コネクタのネットワーク設定をカスタマイズして AWS S3 に接続できるようにする必要があります。
 
 [role="quick-margin-para"]
 <<Prepare your Connector,コネクタの作成方法および必要なネットワーク設定の定義方法を参照してください。>>
@@ -64,13 +64,13 @@ ConnectorでS3バケットの作成と管理を行うための権限を設定し
 * プライベート接続 - VPN または AWS Direct Connect を使用して、プライベート IP アドレスを使用する VPC エンドポイントインターフェイス経由でトラフィックをルーティングします。
 
 
-次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタや、AWS VPCに導入したコネクタを使用できます。
 
-image:diagram_cloud_backup_onprem_aws.png["Cloud Backupがソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとパブリック接続を介して通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_aws_public.png["Cloud Backupがパブリック接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているAWS S3ストレージと通信する仕組みを示す図。"]
 
-次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタや、AWS VPCに導入したコネクタを使用できます。
 
-image:diagram_cloud_backup_onprem_aws_vpc.png["Cloud Backupが、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとプライベート接続を介して通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_aws_private.png["Cloud Backupがプライベート接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているAWS S3ストレージと通信する仕組みを示す図。"]
 
 
 
@@ -82,11 +82,12 @@ Cloud Manager Connector は、 Cloud Manager 機能のメインソフトウェ�
 
 === コネクタの作成または切り替え
 
-AWS VPC にすでにコネクタが導入されている場合は、すべてのポートが設定されます。ない場合は、 AWS S3 ストレージに ONTAP データをバックアップするために、 AWS で新しいコネクタを作成する必要があります。オンプレミスに導入されているコネクタや、別のクラウドプロバイダに導入されているコネクタは使用できません。
+AWS VPCまたはオンプレミスにすでにコネクタが導入されている場合は、すべて設定されます。ない場合は、ONTAP データをAWS S3ストレージにバックアップするために、これらのいずれかの場所にコネクタを作成する必要があります。別のクラウドプロバイダに導入されているコネクタは使用できません。
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["コネクタについて説明します"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["コネクタの使用を開始する"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["AWS でコネクタを作成します"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["AWSにコネクタをインストールする"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["コネクタをオンプレミスにインストールする"^]
 
 
 
@@ -95,12 +96,12 @@ AWS VPC にすでにコネクタが導入されている場合は、すべての
 
 * コネクタが取り付けられているネットワークで次の接続が有効になっていることを確認します。
 +
-** ポート443経由でのCloud Backup Service およびS3オブジェクトストレージへのHTTPS接続（エンドポイントのリストを参照） link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["こちらをご覧ください"^])
+** ポート443からCloud Backup Service およびS3オブジェクトストレージへのHTTPS接続 (https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["エンドポイントのリストを参照してください"^])
 ** ONTAP クラスタ管理 LIF へのポート 443 経由の HTTPS 接続
 
 
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions["コネクタにS3バケットを管理する権限があることを確認します"]。
-* ONTAP クラスタからVPCへのDirect ConnectまたはVPN接続が確立されている状況で、コネクタとS3の間の通信をAWS内部ネットワークのままにする場合は、S3へのVPCエンドポイントインターフェイスを有効にする必要があります。 <<Configure your system for a private connection using a VPC endpoint interface,VPC エンドポイントインターフェイスの設定方法を参照してください。>>
+* ONTAP クラスタからVPCへのDirect ConnectまたはVPN接続が確立されている状況で、コネクタとS3の間の通信をAWS内部ネットワーク（*プライベート*接続）のままにする場合は、S3へのVPCエンドポイントインターフェイスを有効にする必要があります。 <<Configure your system for a private connection using a VPC endpoint interface,VPC エンドポイントインターフェイスの設定方法を参照してください。>>
 
 
 
@@ -285,7 +286,7 @@ IPspace内のすべてのクラスタ間LIFがオブジェクトストアにア�
 image:screenshot_backup_aws_sec_group.png["コネクタに関連付けられている AWS セキュリティグループのスクリーンショット。"]
 
 +
-プライベートエンドポイントとの通信にポート80（HTTP）を使用している場合は、すべて設定されます。クラスタで Cloud Backup を有効にすることができます。
+プライベートエンドポイントとの通信にポート80（HTTP）を使用している場合は、すべて設定されています。クラスタで Cloud Backup を有効にすることができます。
 
 +
 ポート443（HTTPS）を使用してプライベートエンドポイントと通信する場合は、VPC S3エンドポイントから証明書をコピーし、次の4つの手順でONTAP クラスタに追加する必要があります。
@@ -361,8 +362,9 @@ image:screenshot_backup_onprem_aws_networking.png["ONTAP システムから AWS 
 
 
 
-. デフォルトのバックアップポリシーの詳細を入力し、 * Next * をクリックします。
+. デフォルト・ポリシーに使用するバックアップ・ポリシーの詳細を入力し、［*次へ*］をクリックします。既存のポリシーを選択するか、各セクションで選択した内容を入力して新しいポリシーを作成できます。
 +
+.. デフォルトポリシーの名前を入力します。名前を変更する必要はありません。
 .. バックアップスケジュールを定義し、保持するバックアップの数を選択します。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["選択可能な既存のポリシーのリストが表示されます"^]。
 .. ONTAP 9.10.1 以降を使用している場合は、 S3 Glacier または S3 Glacier Deep Archive ストレージにバックアップを階層化して一定の日数後にコストを最適化することができます。 link:reference-aws-backup-tiers.html["アーカイブ階層の使用の詳細については、こちらをご覧ください"]。
 +

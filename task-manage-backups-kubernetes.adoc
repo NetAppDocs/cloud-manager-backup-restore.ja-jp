@@ -26,7 +26,7 @@ CAUTION: バックアップファイルをクラウドプロバイダ環境か�
 Cloud Backup で現在バックアップされているすべてのボリュームのリストを表示できます。
 
 .手順
-. [ バックアップと復元 ] サービスをクリックします。
+. Cloud Managerの左側のナビゲーションメニューで、* Backup & Restore *をクリックします。
 . Kubernetes システムの永続ボリュームのリストを表示するには、 * Kubernetes * タブをクリックします。
 +
 image:screenshot_backup_dashboard_k8s.png["バックアップファイルがあるすべての作業環境とボリュームを示すスクリーンショット。"]

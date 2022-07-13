@@ -26,7 +26,7 @@ CAUTION: バックアップファイルをクラウドプロバイダ環境か�
 バックアップダッシュボードには、現在バックアップ中のすべてのボリュームのリストが表示されます。
 
 .手順
-. [ バックアップと復元 *] タブをクリックします。
+. Cloud Managerの左側のナビゲーションメニューで、* Backup & Restore *をクリックします。
 . [* Volumes] タブをクリックして、 Cloud Volumes ONTAP およびオンプレミス ONTAP システムのボリュームのリストを表示します。
 +
 image:screenshot_backup_dashboard.png["バックアップファイルがあるすべての作業環境とボリュームを示すスクリーンショット。"]
@@ -99,8 +99,6 @@ ifdef::azure[]
 link:reference-azure-backup-tiers.html["Azure アーカイブストレージの使用方法については、こちらをご覧ください"]。
 
 endif::azure[]
-
-[+]image:screenshot_backup_modify_policy_page2.png["Cloud Backup のアーカイブストレージへの階層化設定を示すスクリーンショット。"]
 
 +アーカイブストレージに階層化されたバックアップファイルは、アーカイブへのバックアップの階層化を停止した場合、その階層に残ります。これらのファイルは自動的に標準階層に戻されません。
 

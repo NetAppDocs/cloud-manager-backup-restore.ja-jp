@@ -47,7 +47,7 @@ image:screenshot_backup_onprem_enable.png["作業環境を選択した後に使�
 プロバイダとして Google Cloud を選択し、プロバイダの詳細を入力します。また、ボリュームが配置されている ONTAP クラスタ内の IPspace を指定する必要があります。
 
 [role="quick-margin-para"]
-デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、または毎月のバックアップに変更するか、システム定義のポリシーの中からオプションを追加する 1 つを選択します。保持するバックアップコピーの数を変更することもできます。
+デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームの最新の 30 個のバックアップコピーが保持されます。毎時、毎日、毎週、毎月、または毎年のバックアップに変更します。 または、オプションを追加するシステム定義のポリシーを1つ選択します。保持するバックアップコピーの数を変更することもできます。
 
 [role="quick-margin-para"]
 image:screenshot_backup_policy_gcp.png["クラウドバックアップの設定を示すスクリーンショット。バックアップのスケジュールと保持期間を選択できます。"]
@@ -67,13 +67,13 @@ Select Volumes （ボリュームの選択）ページで、デフォルトの�
 * プライベート接続 - VPN またはプライベートサービス接続を使用して、プライベート IP アドレスを使用するプライベート Google アクセスインターフェイスを介してトラフィックをルーティングします。
 
 
-次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*パブリック接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタ、またはGoogle Cloud Platform VPCに導入したコネクタを使用できます。
 
-image:diagram_cloud_backup_onprem_google.png["Cloud Backupがソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとパブリック接続を介して通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_gcp_public.png["Cloud Backupがパブリック接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているGoogle Cloudストレージと通信する仕組みを示す図。"]
 
-次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。
+次の図は、*プライベート接続*メソッドと、コンポーネント間の準備に必要な接続を示しています。オンプレミスにインストールしたコネクタ、またはGoogle Cloud Platform VPCに導入したコネクタを使用できます。
 
-image:diagram_cloud_backup_onprem_google_vpc.png["Cloud Backupが、ソースシステム上のボリュームおよびバックアップファイルが配置されているデスティネーションストレージとプライベート接続を介して通信する仕組みを示す図。"]
+image:diagram_cloud_backup_onprem_gcp_private.png["Cloud Backupがプライベート接続を介してクラスタ上のボリュームおよびバックアップファイルが配置されているGoogle Cloudストレージと通信する仕組みを示す図。"]
 
 
 
@@ -126,11 +126,12 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 
 === コネクタの作成または切り替え
 
-データをクラウドにバックアップするにはコネクタが必要です。 Google Cloud Storage にデータをバックアップする場合は、 Connector を Google Cloud Platform VPC に配置する必要があります。オンプレミスに導入されているコネクタは使用できません。新しいコネクターを作成するか、現在選択されているコネクターが正しいプロバイダーにあることを確認する必要があります。
+Google Cloud Platform VPCまたは自社運用環境に既にConnectorが導入されている場合は、すべて設定されます。そうでない場合は、これらの場所のいずれかにコネクタを作成して、ONTAP データをGoogle Cloudストレージにバックアップする必要があります。別のクラウドプロバイダに導入されているコネクタは使用できません。
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["コネクタについて説明します"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["GCP でコネクタを作成する"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["コネクタ間の切り替え"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["コネクタの使用を開始する"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["コネクタをGCPにインストールする"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["コネクタをオンプレミスにインストールする"^]
 
 
 
@@ -147,7 +148,7 @@ Cloud Backup をセットアップすると、 IPspace で使用するように�
 ** ONTAP クラスタ管理 LIF へのポート 443 経由の HTTPS 接続
 
 
-. Connector を配置するサブネットで Private Google Access を有効にします。 https://cloud.google.com/vpc/docs/configure-private-google-access["プライベート Google アクセス"^] ONTAP クラスタから VPC への直接接続が確立されており、 Connector と Google Cloud Storage 間の通信を仮想プライベートネットワークのままにする場合は、が必要です。
+. Connector を配置するサブネットで Private Google Access を有効にします。 https://cloud.google.com/vpc/docs/configure-private-google-access["プライベート Google アクセス"^] ONTAP クラスタからVPCへの直接接続が確立されており、ConnectorとGoogle Cloud Storage間の通信を仮想プライベートネットワーク（*プライベート*接続）のままにする場合は、が必要です。
 +
 プライベート Google アクセスは、内部（プライベート） IP アドレスのみ（外部 IP アドレスは使用しない）を持つ VM インスタンスで機能します。
 
@@ -241,12 +242,14 @@ image:screenshot_backup_onprem_to_google.png["オンプレミスのクラスタ�
 
 
 . アカウントにCloud Backupの既存のライセンスがない場合は、使用する課金方法を選択するよう求められます。Googleが提供する従量課金制（PAYGO）Cloud Manager Marketplaceサービスにサブスクライブする（または複数のサブスクリプションを選択する必要がある場合）か、ネットアップが提供するCloud Backup BYOLライセンスを購入してアクティブ化することができます。 link:task-licensing-cloud-backup.html["Cloud Backupライセンスの設定方法について説明します。"]
-. [_Define Policy_] ページで、既存のバックアップスケジュールと保持期間の値を選択するか、新しいデフォルトバックアップポリシーを定義して、 [ * 次へ * ] をクリックします。
+. デフォルト・ポリシーに使用するバックアップ・ポリシーの詳細を入力し、［*次へ*］をクリックします。既存のポリシーを選択するか、各セクションで選択した内容を入力して新しいポリシーを作成できます。
++
+.. デフォルトポリシーの名前を入力します。名前を変更する必要はありません。
+.. バックアップスケジュールを定義し、保持するバックアップの数を選択します。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["選択可能な既存のポリシーのリストが表示されます"^]。
 +
 image:screenshot_backup_policy_gcp.png["クラウドバックアップの設定を示すスクリーンショット。バックアップのスケジュールと保持期間を選択できます。"]
 
-+
-を参照してください link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["既存のポリシーのリスト"^]。
+
 
 . Select Volumes （ボリュームの選択）ページで、デフォルトのバックアップポリシーを使用してバックアップするボリュームを選択します。特定のボリュームに異なるバックアップポリシーを割り当てる場合は、追加のポリシーを作成し、それらのボリュームにあとから適用できます。
 +

@@ -26,7 +26,7 @@ summary: バックアップは、特定の時点のデータをリストアで�
 
 == リストアダッシュボード
 
-リストアダッシュボードを使用して、ボリュームとファイルのリストア処理を実行できます。リストアダッシュボードにアクセスするには、 Cloud Manager の上部にある * バックアップとリストア * をクリックし、 * リストア * タブをクリックします。をクリックすることもできます image:screenshot_gallery_options.gif["[ 詳細 ] ボタン"] > * サービス・パネルからバックアップ / リストア・サービスのリストア・ダッシュボード * を表示します。
+リストアダッシュボードを使用して、ボリュームとファイルのリストア処理を実行できます。リストアダッシュボードにアクセスするには、Cloud Managerの左側のナビゲーションメニューから*バックアップとリストア*をクリックし、*リストア*タブをクリックします。をクリックすることもできます image:screenshot_gallery_options.gif["[ 詳細 ] ボタン"] > * サービス・パネルからバックアップ / リストア・サービスのリストア・ダッシュボード * を表示します。
 
 
 NOTE: 少なくとも 1 つの作業環境に対して Cloud Backup をアクティブ化しておく必要があります。また、初期バックアップファイルが存在する必要があります。
@@ -63,10 +63,10 @@ image:screenshot_restore_dashboard.png["[ リストアダッシュボード ] �
 | パブリッククラウドとプライベートクラウドの結果を参照できます | パブリッククラウドとローカル Snapshot コピーの結果を参照できます 
 
 
-| クラウドプロバイダのリソースを追加する必要はありません | アカウントごとにバケットとAWSまたはGoogleのリソースを追加する必要があります 
+| クラウドプロバイダのリソースを追加する必要はありません | アカウントごとに、バケットとパブリッククラウドプロバイダのリソースを追加する必要があります 
 
 
-| クラウドプロバイダのコストを追加する必要はありません | バックアップとボリュームをスキャンして検索結果を表示するときに、AWSまたはGoogleのリソースにかかるコスト 
+| クラウドプロバイダのコストを追加する必要はありません | バックアップやボリュームをスキャンして検索結果を表示する際の、パブリッククラウドプロバイダのリソースに関連するコスト 
 |===
 いずれかのリストア方式を使用する前に、固有のリソース要件に対応するように環境を設定しておく必要があります。これらの要件については、以降のセクションで説明します。
 
@@ -117,11 +117,13 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 | Azure Blob の略 | オンプレミスの Azure ONTAP システムに Cloud Volumes ONTAP を導入 | AzureオンプレミスONTAP システムのCloud Volumes ONTAP 。endif：azure[] ifdef：gCP[] 
 
 
-| Google クラウドストレージ | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP | GoogleオンプレミスONTAP システムのCloud Volumes ONTAP ：GCP[] 
+| Google クラウドストレージ | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP | GoogleのCloud Volumes ONTAP （^1 ^）オンプレミスONTAP システム（^1 ^）endif：gcp [] 
 
 
 | NetApp StorageGRID | オンプレミスの ONTAP システム | オンプレミスの ONTAP システム 
 |===
+（^1 ^）_このサポートを受けるには、Google Cloud Platform VPCにコネクタを導入する必要があります。_
+
 「オンプレミス ONTAP システム」とは、 FAS 、 AFF 、 ONTAP Select の各システムを指します。
 
 
@@ -396,7 +398,7 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 | Amazon S3 | オンプレミスの AWS ONTAP システムに Cloud Volumes ONTAP が導入されている | AWSオンプレミスONTAP システムのCloud Volumes ONTAP 。endif：aws [] ifdef：azure[] 
 
 
-| Azure Blob の略 | 現在サポートされていません | endif：azure []ifdef：GCP [] 
+| Azure Blob の略 | 現在サポートされていません | endif：azure []ifdef：azure[] endif：azure[] ifdef：gCP[] 
 
 
 | Google クラウドストレージ | Google オンプレミス ONTAP システムの Cloud Volumes ONTAP | GoogleオンプレミスONTAP システムのCloud Volumes ONTAP ：GCP[] 
@@ -404,6 +406,9 @@ ONTAP バックアップファイルから次の作業環境にボリューム�
 
 | NetApp StorageGRID | 現在サポートされていません |  
 |===
+
+TIP: このサポートを利用するには、コネクタがクラウドプロバイダプラットフォームに導入されている必要があります。Connectorが社内にインストールされている場合、検索と復元はサポートされません。
+
 「オンプレミス ONTAP システム」とは、 FAS 、 AFF 、 ONTAP Select の各システムを指します。
 
 
@@ -433,6 +438,10 @@ ifdef::aws[]
 
 
 endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
 
 ifdef::gcp[]
 
@@ -483,6 +492,10 @@ ifdef::aws[]
 
 
 endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
 
 ifdef::gcp[]
 
