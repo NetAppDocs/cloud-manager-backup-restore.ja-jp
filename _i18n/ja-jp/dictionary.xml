@@ -849,7 +849,6 @@
   <block id="da95680877c2d8ff430e738df948144e" category="paragraph">オンプレミスボリュームを StorageGRID にバックアップする前に、次の要件を確認し、サポートされている構成であることを確認してください。</block>
   <block id="35a7772387f55277aaf5e7a6fe0fd1de" category="paragraph">次の図は、オンプレミスの ONTAP システムを StorageGRID にバックアップする場合と、それらの間で準備する必要がある接続を含む各コンポーネントを示しています。</block>
   <block id="7c9c2c9135c9dd5b2198f3d2e909e271" category="paragraph"><block ref="7c9c2c9135c9dd5b2198f3d2e909e271" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ca626f3b73b93a62c135713894e906eb" category="list-text">ONTAP クラスタは、バックアップおよびリストア処理のために、ユーザ指定のポートをクラスタ間 LIF から StorageGRID へと接続します。ポートはバックアップのセットアップ時に設定できます。</block>
   <block id="56b804288a96913690a4b3ca49ceea54" category="list-text">ONTAP では、コネクタからクラスタ管理 LIF へのインバウンド接続が必要です。コネクタは必ずオンプレミスに配置してください。</block>
   <block id="556dad95e1ddce5110bf583aefc08e81" category="list-text">必要に応じてファイアウォールルールを更新し、指定したポート（通常はポート 443 ）を介した ONTAP からオブジェクトストレージへの Cloud Backup Service 接続、およびポート 53 （ TCP / UDP ）を介した Storage VM から DNS サーバへの名前解決トラフィックを許可します。</block>
   <block id="6be12c1b6627a3a9bb2aa4cb185fc866" category="section-title">StorageGRID を準備しています</block>
@@ -863,12 +862,10 @@
   <block id="aa4788e27cdbd61e4d722970587d99c5" category="list-text">オブジェクトストアバケットで StorageGRID オブジェクトのバージョン管理を有効にすることはできません。</block>
   <block id="f9e3fe9bcf87b917aee79601ec31e206" category="inline-link">インターネットにアクセスできる Linux ホストにコネクタをインストールしています</block>
   <block id="c406c8943ff98e7dc5d56f37428c9410" category="list-text"><block ref="c406c8943ff98e7dc5d56f37428c9410" category="inline-link-rx"></block></block>
-  <block id="a3049b761ff526799f3b1881932b1c8c" category="list-text">ポート 443 から StorageGRID への HTTPS 接続</block>
   <block id="971cb541767606cd3faa97135df94e68" category="paragraph">ネットアップから提供されるシリアル番号を使用して、ライセンスの期間と容量にサービスを利用できるようにする必要があります。 <block ref="47744e5312ce42ad8130a5365d7fb0d0" category="inline-link-macro-rx"></block>。</block>
   <block id="60a2dc1fd82db84a092db92c95942712" category="admonition">PAYGO ライセンスは、ファイルを StorageGRID にバックアップする場合にはサポートされません。</block>
   <block id="528fb0026f2e5c72059a493302f53861" category="section-title">StorageGRID へのクラウドバックアップを有効化</block>
   <block id="293e3556f1041c0ecd0f2d1427b2521d" category="list-text">プロバイダとして * StorageGRID * を選択し、 * Next * をクリックして、プロバイダの詳細を入力します。</block>
-  <block id="f7589765b5ce02397beee9c13ffa0380" category="list-text">StorageGRID サーバの FQDN と ONTAP が StorageGRID との HTTPS 通信に使用するポート。例：「 3.eng.company.com:8082` 」</block>
   <block id="483b51851b68c242f5f73afff135794f" category="list-text">バックアップを格納するバケットへのアクセスに使用するアクセスキーとシークレットキー。</block>
   <block id="f2c59c3f0d86e6b8ae01d62708bc7aec" category="paragraph">適切な IPspace を選択すると、 ONTAP から StorageGRID オブジェクトストレージへの接続を Cloud Backup で確実にセットアップできます。</block>
   <block id="c94955d6c55e241370d05212ca09f72b" category="inline-image-macro">オンプレミスのクラスタから StorageGRID ストレージにボリュームをバックアップする際のクラウドプロバイダの詳細を示すスクリーンショット。</block>
@@ -1922,7 +1919,6 @@
   <block id="902e370d1248b02546dce02dd966d3df" category="list-text">デフォルト・ポリシーに使用するバックアップ・ポリシーの詳細を入力し、［*次へ*］をクリックします。既存のポリシーを選択するか、各セクションで選択した内容を入力して新しいポリシーを作成できます。</block>
   <block id="9f0a90a5aa72e2d8a79c1f4913cfc4eb" category="list-text">デフォルトポリシーの名前を入力します。名前を変更する必要はありません。</block>
   <block id="9668405dd0733ac53e813de88302e2ba" category="list-text">バックアップポリシーに名前を付けておくと、各ポリシーの用途を簡単に確認できます。</block>
-  <block id="5d58a047f6026134484a0fe815027c58" category="paragraph">インターネットに接続されていないサイト（「オフライン」または「ダーク」サイトとも呼ばれる）で Cloud Backup を使用して、ローカルのオンプレミス ONTAP システムからローカルの NetApp StorageGRID システムにボリュームデータをバックアップできます。この構成では、ボリュームとファイルのリストアもサポートされます。この場合は、ダークサイトにCloud Manager Connector（バージョン3.9.19以上）を導入する必要があります。を参照してください <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> を参照してください。</block>
   <block id="3b4d703b29a9da1e70d08b65d53fe521" category="paragraph">Cloud Backupには次の消費モデルがあります。</block>
   <block id="38692e39e588de5b1294ee4cca656080" category="list-text">* BYOL *：ネットアップから購入したライセンス。任意のクラウドプロバイダで使用できます。</block>
   <block id="bd49b5209f967def5a92bc3d2db5e8dd" category="list-text">* PAYGO *：クラウドプロバイダの市場から1時間ごとにサブスクリプションを取得します。</block>
@@ -2121,4 +2117,8 @@
   <block id="5cec8c57838d0c83b81a77b4cc1cff11" category="paragraph">例： "AWS" ： "arn ： aws ： IAM ： 464262061435 ： role/CVO-instance-profileversion10-d8e-IamInstanceRole-IKJP1HC2E7R"</block>
   <block id="15ab165885255fcc1d504e3757e4f995" category="sidebar">AWS でマルチアカウントアクセス用にバックアップを設定します</block>
   <block id="37c606e486cf867317024daab096d5c7" category="sidebar">Azure でマルチアカウントアクセス用にバックアップを設定</block>
+  <block id="3d4496d9d3224917e9bc6712e9746eb2" category="paragraph">インターネットに接続されていないサイト（「オフライン」または「ダーク」サイトとも呼ばれる）で Cloud Backup を使用して、ローカルのオンプレミス ONTAP システムからローカルの NetApp StorageGRID システムにボリュームデータをバックアップできます。この構成では、ボリュームとファイルのリストアもサポートされます。この場合は、ダークサイトにCloud Manager Connector（バージョン3.9.20以上）を導入する必要があります。を参照してください <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> を参照してください。</block>
+  <block id="9aa87cabc3c16ccfd72ed13e9e2a189c" category="list-text">ONTAP クラスタは、バックアップおよびリストア処理のために、ユーザ指定のポートをクラスタ間LIFからStorageGRID ゲートウェイノードに介してHTTPS接続を開始します。ポートはバックアップのセットアップ時に設定できます。</block>
+  <block id="92a508a0037c85cca367ecb3e92a0fde" category="list-text">ポート443からStorageGRID ゲートウェイノードへのHTTPS接続</block>
+  <block id="dd1011987bc4e3d65b5eae7e319c05b8" category="list-text">StorageGRID ゲートウェイノードのFQDNと、ONTAP がStorageGRID とのHTTPS通信に使用するポート。例：「s3.eng.company.com:8082`」</block>
 </blocks>
